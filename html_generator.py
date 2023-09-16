@@ -3,6 +3,7 @@ import base64
 import cv2
 from jinja2 import Environment, FileSystemLoader
 from logger import Logger
+import os
 
 class HtmlGenerator:
     def __init__(self, logger: Logger):
@@ -25,20 +26,21 @@ class HtmlGenerator:
         self.logger.info("Image dimensions fetched.")
         return image_height, image_width
 
-    def generate_html(self, image_file: str, output_file: str, results: list, prev_data: list, next_data: list,  json_data: list, scalar_position=1, scalar_size=1, transparency=0.25):
+    def generate_html(self, image_file: str, output_file: str, prev_data: str, json_data: str,  next_data: str, scalar_position=1, scalar_size=1, transparency=0.25):
         """Generate an HTML file to visualize the image analysis results."""
         self.logger.info("Starting to generate HTML...")
-        encoded_image = self._encode_image(image_file)
         image_height, image_width = self.fetch_image_dims(image_file)
+
+        # Remore everything after the last slash to get only the file name
+        image_file = os.path.basename(image_file)
+        
 
         # Get the HTML template
         html_template = self.env.get_template('visualizer.html')
 
         html_content = html_template.render(
-            encoded_image=encoded_image,
-            results=results, 
-            prev_data=prev_data, next_data=next_data,
-            json_data=json_data, 
+            image_file=image_file,
+            prev_data=prev_data, json_data=json_data, next_data=next_data,
             image_height=image_height, image_width=image_width,
             scalar_position=scalar_position, scalar_size=scalar_size, 
             transparency=transparency

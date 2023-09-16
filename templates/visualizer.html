@@ -23,7 +23,7 @@
             border-radius: 50%;
             background-color: rgba(255, 0, 0, 0.5);
         }
-        .circle {
+        .circle-current {
             position: absolute;
             border: 2px solid purple;
             border-radius: 50%;
@@ -52,6 +52,45 @@
         }
     </style>
     <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const jsonFiles = {
+                prev: "{{ prev_data }}",
+                current: "{{ json_data}}",
+                next: "{{ next_data }}"
+            };
+
+            Object.keys(jsonFiles).forEach(key => {
+                fetch(jsonFiles[key])
+                .then(response => response.json())
+                .then(data => {
+                    populateElements(data, key);
+                })
+                .catch(error => console.error('Error fetching JSON:', error));
+            });
+        });
+
+        function populateElements(data, type) {
+            const container = document.querySelector('.image-container');
+            data.forEach(item => {
+                const element = document.createElement('div');
+                element.className = `circle-${type}`;
+                element.style.top = `${item.r[1]}px`;
+                element.style.left = `${item.r[0]}px`;
+                element.style.width = `${item.r[2]}px`;
+                element.style.height = `${item.r[3]}px`;
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.innerHTML = `<strong>ID:</strong> ${item.id}<br>
+                                     <strong>JSON Entry:</strong> ${item.jsID}<br>
+                                     <strong>Position:</strong> ${item.c}<br>
+                                     <strong>Area:</strong> ${item.a}`;
+                element.appendChild(tooltip);
+                container.appendChild(element);
+            });
+        }
+        
+
         function toggleVisibility(className, checkbox) {
             const elements = document.getElementsByClassName(className);
             for (let i = 0; i < elements.length; i++) {
@@ -142,67 +181,9 @@
     </div>
 
     <div class="image-container">
-        <img src="data:image/jpeg;base64,{{ encoded_image }}" alt="Image" id="image">
+        <img src={{ image_file }} alt="Image" id="image">
         
-        <!-- Add the rectangles and tooltips -->
-        {% for result in results %}
-        <div class="rectangle" style="top: {{ (result['r'][1] + result['r'][3]/2) / image_height * 100 }}%; left: {{ (result['r'][0] + result['r'][2]/2) / image_width * 100 }}%; width: {{ result['r'][2] }}px; height: {{ result['r'][3] }}px; transform: translate(-50%, -50%);">
-            <div class="tooltip">
-                <strong>ID:</strong> {{ result['id'] }}<br>
-                <strong>JSON Entry:</strong> {{ result['i'] }}<br>
-                <strong>Position:</strong> {{ result['c'] }}<br>
-                <strong>Area:</strong> {{ result['a'] }}<br>
-                <strong>Width:</strong> {{ result['r'][2] }}<br>
-                <strong>Height:</strong> {{ result['r'][3] }}
-            </div>
-        </div>
-        {% endfor %}
-                         
-        
-        <!-- Add the circles and tooltips -->
-        {% for data in prev_data %}
-        <div class="circle-prev" style="top: {{ data['y'] * scalar_position / image_height * 100 }}%; left: {{ data['x'] * scalar_position / image_width * 100 }}%; width: {{ data['d'] * scalar_size }}px; height: {{ data['d'] * scalar_size }}px; transform: translate(-50%, -50%);">
-            <div class="tooltip">
-                <strong>JSON Entry:</strong> {{ loop.index0 }}<br>
-                <strong>Original X:</strong> {{ data['x'] }}<br>
-                <strong>Original Y:</strong> {{ data['y'] }}<br>
-                <strong>Diameter:</strong> {{ data['d'] }}<br>
-                <strong>Area:</strong> {{ data['a'] }}<br>
-                <strong>Perimeter:</strong> {{ data['p'] }}<br>
-                <strong>Eccentricity:</strong> {{ data['e'] }}
-            </div>
-        </div>
-        {% endfor %}
-                         
-        <!-- Add the circles and tooltips for prev date -->
-        {% for data in json_data %}
-        <div class="circle" style="top: {{ data['y'] * scalar_position / image_height * 100 }}%; left: {{ data['x'] * scalar_position / image_width * 100 }}%; width: {{ data['d'] * scalar_size }}px; height: {{ data['d'] * scalar_size }}px; transform: translate(-50%, -50%);">
-            <div class="tooltip">
-                <strong>JSON Entry:</strong> {{ loop.index0 }}<br>
-                <strong>Original X:</strong> {{ data['x'] }}<br>
-                <strong>Original Y:</strong> {{ data['y'] }}<br>
-                <strong>Diameter:</strong> {{ data['d'] }}<br>
-                <strong>Area:</strong> {{ data['a'] }}<br>
-                <strong>Perimeter:</strong> {{ data['p'] }}<br>
-                <strong>Eccentricity:</strong> {{ data['e'] }}
-            </div>
-        </div>
-        {% endfor %}
-                         
-        <!-- Add the circles and tooltips for next date-->
-        {% for data in next_data %}
-        <div class="circle-next" style="top: {{ data['y'] * scalar_position / image_height * 100 }}%; left: {{ data['x'] * scalar_position / image_width * 100 }}%; width: {{ data['d'] * scalar_size }}px; height: {{ data['d'] * scalar_size }}px; transform: translate(-50%, -50%);">
-            <div class="tooltip">
-                <strong>JSON Entry:</strong> {{ loop.index0 }}<br>
-                <strong>Original X:</strong> {{ data['x'] }}<br>
-                <strong>Original Y:</strong> {{ data['y'] }}<br>
-                <strong>Diameter:</strong> {{ data['d'] }}<br>
-                <strong>Area:</strong> {{ data['a'] }}<br>
-                <strong>Perimeter:</strong> {{ data['p'] }}<br>
-                <strong>Eccentricity:</strong> {{ data['e'] }}
-            </div>
-        </div>
-        {% endfor %}
+        <!-- Elements will be dynamically populated here -->
         
     </div>
 </body>

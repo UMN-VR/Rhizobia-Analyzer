@@ -103,11 +103,14 @@ def process_crop_folder(crop_folder, logger):
         # Call analyze_image() to process the image, this is where the magic happens
         logger.info(f"Calling analyze_image() with file: {file}, output_dir: {output_dir}")
         result_entry, matching = ImageAnalyzer.analyze_image(file, output_dir, next_matching=matching, external_logger=logger)
+        
         logger.info(f"analyze_image() returned: {result_entry}")
         results.append(result_entry)
 
         logger.info(f"DONE processing image: {file}\n\n")
 
+
+    results2 = ImageAnalyzer.post_process(nodules_folders) 
     logger.info("------------------------------------")
     logger.info(f"DONE Processing crop folder: {crop_folder}")
 

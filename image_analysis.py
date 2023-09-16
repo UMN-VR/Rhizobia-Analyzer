@@ -275,7 +275,7 @@ class ImageAnalyzer:
         return json_data
 
     @staticmethod
-    def generate_HTML_file(image, results, prev_results, next_results, image_output_dir, base_name, logger, json_data):
+    def generate_HTML_file(image, prev_data, json_data, next_data, image_output_dir, base_name, logger):
         """
         Store processed results to HTML and modified image file.
         """
@@ -300,13 +300,12 @@ class ImageAnalyzer:
 
         logger.info(f"modified_image_file: {modified_image_file}")
         logger.info(f"result_file_name: {result_file_name}")
-        #logger.info(f"results: {results}")
-        #logger.info(f"prev_results: {prev_results}")
-        #logger.info(f"next_results: {next_results}")
-        #logger.info(f"json_data: {json_data}")
+        logger.info(f"prev_data: {prev_data}")
+        logger.info(f"json_data: {json_data}")
+        logger.info(f"next_data: {next_data}")
 
 
-        html_generator.generate_html(modified_image_file, result_file_name, results, prev_results, next_results, json_data)
+        html_generator.generate_html(modified_image_file, result_file_name, prev_data, json_data, next_data)
 
         cv2.destroyAllWindows()
         logger.info(f"Finished analyzing image: {base_name}")
@@ -435,16 +434,19 @@ class ImageAnalyzer:
         prev_results = []
         next_results = []
 
+        prev_date_string = None
+        next_date_string = None
+
         if prev_date is not None:
             # get previous date string
-            previous_date_string = os.path.basename(prev_date).split('.')[0]
+            prev_date_string = os.path.basename(prev_date).split('.')[0]
 
             prev_results = ImageAnalyzer.load_json(prev_date)
             if prev_results is None:
                 logger.info(f"Unable to open JSON file: {prev_date}")
                 sys.exit(1)
 
-            logger.info(f"Loaded prev_results from JSON file: {previous_date_string}, length: {len(prev_results)}")
+            logger.info(f"Loaded prev_results from JSON file: {prev_date_string}, length: {len(prev_results)}")
             # scale X,Y coordinates of JSON data
             prev_results = ImageAnalyzer.scale_json(prev_results, scalar_position=scalar_position, scalar_size=scalar_size)
             logger.info(f"Scaled JSON data: scalar_position: {scalar_position}, scalar_size: {scalar_size}")
@@ -472,7 +474,7 @@ class ImageAnalyzer:
             logger.info(f"prev_results is not empty, generating matching")
             log_memory_usage(logger)
 
-            matching_name = f"{previous_date_string}_{current_date}_matching.json"
+            matching_name = f"{prev_date_string}_{current_date}_matching.json"
 
             logger.info(f"current_date:{current_date}, generating Matching: {matching_name}")
 
@@ -507,7 +509,7 @@ class ImageAnalyzer:
             # Create plots
             #plot_file_name = os.path.join(image_output_dir, f"{current_date}_plot.png")
             # remove the last /stuff from the image_output_dir
-            plot_file_name = os.path.join(image_output_dir.replace(f"/{current_date}", ""), f"{previous_date_string}_{current_date}_plot.png")
+            plot_file_name = os.path.join(image_output_dir.replace(f"/{current_date}", ""), f"{prev_date_string}_{current_date}_plot.png")
 
             normalized_points = normalize(points)
             normalized_prev_points = normalize(prev_points)
@@ -518,7 +520,7 @@ class ImageAnalyzer:
                                     points, prev_points, current_data=json_data, prev_data=prev_results, 
                                     matching=matching, unmatched_current=unmatched_current, unmatched_prev=unmatched_previous, 
                                     combined_distances=combined_distances, distance_threshold=distance_threshold, filename=plot_file_name,
-                                    current_date_string=current_date, previous_date_string=previous_date_string)
+                                    current_date_string=current_date, previous_date_string=prev_date_string)
             
             # Convert matching indices to native int before saving
             #matching = [(int(i), int(j), match_id) for i, j, match_id in matching
@@ -546,7 +548,7 @@ class ImageAnalyzer:
         image, results_file_name, result_data = ImageProcessor.process_image(image, image_output_dir, current_date, logger, json_data_scaled, matching, date_string=current_date)
 
 
-        HTML_file_name = ImageAnalyzer.generate_HTML_file(image, result_data, prev_results, next_results, image_output_dir, current_date, logger, json_data_scaled)
+        HTML_file_name = ImageAnalyzer.generate_HTML_file(image, prev_date_string, results_file_name, next_date_string, image_output_dir, current_date, logger)
 
         results_entry = {"crop": crop_number, "date": current_date, "results": results_file_name, "html": HTML_file_name}
 

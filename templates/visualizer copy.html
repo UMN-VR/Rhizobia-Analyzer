@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .image-container img {
+            display: block;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            height: auto;
+        }
+        .rectangle {
+            position: absolute;
+            border: 2px solid green;
+        }
+        .circle-prev {
+            position: absolute;
+            border: 2px solid red;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        .circle {
+            position: absolute;
+            border: 2px solid purple;
+            border-radius: 50%;
+            background-color: rgba(128, 0, 128, 0.5);
+        }
+        .circle-next {
+            position: absolute;
+            border: 2px solid blue;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+        .tooltip {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            padding: 2px 5px;
+            position: absolute;
+            z-index: 1;
+            transform: translate(-50%, -100%);
+            white-space: nowrap;
+        }
+        .rectangle:hover .tooltip, .circle-prev:hover .tooltip, .circle:hover .tooltip, .circle-next:hover .tooltip {
+            visibility: visible;
+        }
+    </style>
+    <script>
+        function toggleVisibility(className, checkbox) {
+            const elements = document.getElementsByClassName(className);
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.display = checkbox.checked ? "block" : "none";
+            }
+        }
+
+        function setOffsetX() {
+            const offsetX = document.getElementById('offsetX-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="offsetGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                const left = parseFloat(circles[i].style.left);
+                circles[i].style.left = (left + parseFloat(offsetX)) + 'px';
+            }
+            document.getElementById('offsetX-value').innerText = offsetX;
+        }
+
+        function setOffsetY() {
+            const offsetY = document.getElementById('offsetY-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="offsetGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                const top = parseFloat(circles[i].style.top);
+                circles[i].style.top = (top + parseFloat(offsetY)) + 'px';
+            }
+            document.getElementById('offsetY-value').innerText = offsetY;
+        }
+
+        function setTransparency() {
+            const transparency = document.getElementById('transparency-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="transparencyGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                circles[i].style.backgroundColor = `rgba(${circles[i].style.backgroundColor.split(',')[0].split('(')[1]}, ${circles[i].style.backgroundColor.split(',')[1]}, ${circles[i].style.backgroundColor.split(',')[2]}, ${transparency})`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="rectangle-toggle" checked onclick="toggleVisibility('rectangle', this)">
+        <label for="rectangle-toggle">Show Tracking</label>
+        
+        <input type="checkbox" id="circle-toggle-prev" checked onclick="toggleVisibility('circle-prev', this)">
+        <label for="circle-toggle-prev">Show Previous RP JSON</label>
+
+        <input type="checkbox" id="circle-toggle" checked onclick="toggleVisibility('circle', this)">
+        <label for="circle-toggle">Show RP JSON</label>
+
+        <input type="checkbox" id="circle-toggle-next" checked onclick="toggleVisibility('circle-next', this)">
+        <label for="circle-toggle-next">Show Next RP JSON</label>
+
+        <br>
+
+        <input type="radio" id="prev" name="offsetGroup" value="prev" checked>
+        <label for="prev">Offset Previous</label>
+
+        <input type="radio" id="circle" name="offsetGroup" value="">
+        <label for="circle">Offset Current</label>
+
+        <input type="radio" id="next" name="offsetGroup" value="next">
+        <label for="next">Offset Next</label>
+
+        <br>
+
+        <input type="range" min="-10" max="10" step="1" id="offsetX-slider" onchange="setOffsetX()">
+        <label for="offsetX-slider">Offset X: <span id="offsetX-value">0</span>px</label>
+        
+        <br>
+        
+        <input type="range" min="-10" max="10" step="1" id="offsetY-slider" onchange="setOffsetY()">
+        <label for="offsetY-slider">Offset Y: <span id="offsetY-value">0</span>px</label>
+
+        <br>
+
+        <input type="radio" id="transparency-prev" name="transparencyGroup" value="prev" checked>
+        <label for="transparency-prev">Transparency Previous</label>
+
+        <input type="radio" id="transparency-circle" name="transparencyGroup" value="">
+        <label for="transparency-circle">Transparency Current</label>
+
+        <input type="radio" id="transparency-next" name="transparencyGroup" value="next">
+        <label for="transparency-next">Transparency Next</label>
+
+        <br>
+
+        <input type="range" min="0" max="1" step="0.01" id="transparency-slider" onchange="setTransparency()">
+        <label for="transparency-slider">Transparency</label>
+
+    </div>
+
+    <div class="image-container">
+        <img src={{ image_file }} alt="Image" id="image">
+        
+        <!-- Add the rectangles and tooltips -->
+        {% for result in results %}
+        <div class="rectangle" style="top: {{ (result['r'][1] + result['r'][3]/2) / image_height * 100 }}%; left: {{ (result['r'][0] + result['r'][2]/2) / image_width * 100 }}%; width: {{ result['r'][2] }}px; height: {{ result['r'][3] }}px; transform: translate(-50%, -50%);">
+            <div class="tooltip">
+                <strong>ID:</strong> {{ result['id'] }}<br>
+                <strong>JSON Entry:</strong> {{ result['i'] }}<br>
+                <strong>Position:</strong> {{ result['c'] }}<br>
+                <strong>Area:</strong> {{ result['a'] }}<br>
+                <strong>Width:</strong> {{ result['r'][2] }}<br>
+                <strong>Height:</strong> {{ result['r'][3] }}
+            </div>
+        </div>
+        {% endfor %}
+                         
+        
+        <!-- Add the circles and tooltips -->
+        {% for data in prev_data %}
+        <div class="circle-prev" style="top: {{ data['y'] * scalar_position / image_height * 100 }}%; left: {{ data['x'] * scalar_position / image_width * 100 }}%; width: {{ data['d'] * scalar_size }}px; height: {{ data['d'] * scalar_size }}px; transform: translate(-50%, -50%);">
+            <div class="tooltip">
+                <strong>JSON Entry:</strong> {{ loop.index0 }}<br>
+                <strong>Original X:</strong> {{ data['x'] }}<br>
+                <strong>Original Y:</strong> {{ data['y'] }}<br>
+                <strong>Diameter:</strong> {{ data['d'] }}<br>
+                <strong>Area:</strong> {{ data['a'] }}<br>
+                <strong>Perimeter:</strong> {{ data['p'] }}<br>
+                <strong>Eccentricity:</strong> {{ data['e'] }}
+            </div>
+        </div>
+        {% endfor %}
+                         
+        <!-- Add the circles and tooltips for prev date -->
+        {% for data in json_data %}
+        <div class="circle" style="top: {{ data['y'] * scalar_position / image_height * 100 }}%; left: {{ data['x'] * scalar_position / image_width * 100 }}%; width: {{ data['d'] * scalar_size }}px; height: {{ data['d'] * scalar_size }}px; transform: translate(-50%, -50%);">
+            <div class="tooltip">
+                <strong>JSON Entry:</strong> {{ loop.index0 }}<br>
+                <strong>Original X:</strong> {{ data['x'] }}<br>
+                <strong>Original Y:</strong> {{ data['y'] }}<br>
+                <strong>Diameter:</strong> {{ data['d'] }}<br>
+                <strong>Area:</strong> {{ data['a'] }}<br>
+                <strong>Perimeter:</strong> {{ data['p'] }}<br>
+                <strong>Eccentricity:</strong> {{ data['e'] }}
+            </div>
+        </div>
+        {% endfor %}
+                         
+        <!-- Add the circles and tooltips for next date-->
+        {% for data in next_data %}
+        <div class="circle-next" style="top: {{ data['y'] * scalar_position / image_height * 100 }}%; left: {{ data['x'] * scalar_position / image_width * 100 }}%; width: {{ data['d'] * scalar_size }}px; height: {{ data['d'] * scalar_size }}px; transform: translate(-50%, -50%);">
+            <div class="tooltip">
+                <strong>JSON Entry:</strong> {{ loop.index0 }}<br>
+                <strong>Original X:</strong> {{ data['x'] }}<br>
+                <strong>Original Y:</strong> {{ data['y'] }}<br>
+                <strong>Diameter:</strong> {{ data['d'] }}<br>
+                <strong>Area:</strong> {{ data['a'] }}<br>
+                <strong>Perimeter:</strong> {{ data['p'] }}<br>
+                <strong>Eccentricity:</strong> {{ data['e'] }}
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+</body>
+</html>

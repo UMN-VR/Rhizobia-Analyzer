@@ -133,7 +133,7 @@ class ImageProcessor:
         # for the '20230424' part use date_string
 
         # create the nodules_dir
-        nodules_dir = os.path.join(crop_dir, 'nodules') # 'output/crop1001/nodules'
+        nodules_dir = os.path.join(crop_dir, 'nodules-last-detected-on') # 'output/crop1001/nodules'
         logger.info(f"nodules_dir: {nodules_dir}")
 
         # Split the image into left and right images
@@ -162,6 +162,8 @@ class ImageProcessor:
 
         max_id = f"{date_string}_0"
         
+
+
 
         logger.info(f"\nFound {len(contours)} contours in mask, processing each contour...\n")
         # Process each contour
@@ -276,11 +278,18 @@ class ImageProcessor:
 
             #make sure the 'ouput/crop1001/nodules/{last_detected_string}/{entry_id_number_component}' directory exists, otherwise create it
             formatted_entry_id_date_component = entry_id_date_component[0:4] + '-' + entry_id_date_component[4:6] + '-' + entry_id_date_component[6:8]
-            last_detected_string = f"Last-Detected-{formatted_entry_id_date_component}"
+            #last_detected_string = f"Last-Detected-{formatted_entry_id_date_component}"
+            last_detected_string = f"{formatted_entry_id_date_component}"
 
             nodule_images_path = os.path.join(nodules_dir, last_detected_string, entry_id_number_component)
             os.makedirs(nodule_images_path, exist_ok=True)
-            
+
+            nodule_images_detection_path = os.path.join(nodule_images_path, "detection")
+            os.makedirs(nodule_images_detection_path, exist_ok=True)
+
+            os.makedirs(nodule_images_path, exist_ok=True)
+
+            logger.info(f"created dirs at nodule_detection_path: {nodule_images_detection_path} and nodule_images_original_path: {nodule_images_path}")            
 
             # convert date_string to format '20210401' to '2021-04-01'
             formated_date_string = date_string[0:4] + '-' + date_string[4:6] + '-' + date_string[6:8]
@@ -288,19 +297,21 @@ class ImageProcessor:
             # Extract the image segment corresponding to the contour from both right and left images
             right_nodule_img, left_nodule_img = ImageProcessor.extract_segment(right_image, left_image, cX, cY)
 
-            right_nodule_image_file_name = f"{formated_date_string}_d.jpg" 
-            right_nodule_image_file_path = os.path.join(nodule_images_path, right_nodule_image_file_name)
+            image_file_name = f"{formated_date_string}.jpg" 
+
+            right_nodule_image_file_path = os.path.join(nodule_images_detection_path, image_file_name)
 
             cv2.imwrite(right_nodule_image_file_path, right_nodule_img)
 
             logger.info(f"Segmented nodule image saved as {right_nodule_image_file_path}")
 
-            left_nodule_image_file_name = f"{formated_date_string}_o.jpg"
-            left_nodule_image_file_path = os.path.join(nodule_images_path, left_nodule_image_file_name)
+            
+            left_nodule_image_file_path = os.path.join(nodule_images_path, image_file_name)
 
             cv2.imwrite(left_nodule_image_file_path, left_nodule_img)
 
             logger.info(f"Original nodule image saved as {left_nodule_image_file_path}")
+            
 
 
             # Increment the id component
