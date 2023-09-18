@@ -1,7 +1,7 @@
 # nodule_analysis.py
 import json
 import os
-from logger import Logger
+from Logger import Logger
 from html_generator import HtmlGenerator
 import matplotlib.pyplot as plt
 

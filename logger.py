@@ -8,11 +8,8 @@ class Logger:
     
     def __init__(self, log_name, output_dir=None, external_logger=None):
         if output_dir is None:
-            # remove the extension
-            log_name, _ = os.path.splitext(log_name)
-            # replace / with _ and capitalize the result
-            log_name = log_name.replace('/', '_')
-            self.setup_logger(log_name, "output", None)
+
+            self.setup_logger(log_name+".log", "output", None)
         else:
             self.setup_logger(log_name, output_dir, external_logger)
 

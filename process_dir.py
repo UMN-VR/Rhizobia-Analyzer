@@ -7,7 +7,7 @@ from dir_utils import find_crop_folders
 
 from HTML_out import generate_results_page
 from memory_logger import log_memory_usage
-from logger import Logger
+from Logger import Logger
 import subprocess
 
 def process_dir(file_name, main_logger):

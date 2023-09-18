@@ -4,7 +4,7 @@ import json
 import sys
 import numpy as np
 
-from logger import Logger
+from Logger import Logger
 from html_generator import HtmlGenerator
 
 from scipy.spatial.distance import cdist

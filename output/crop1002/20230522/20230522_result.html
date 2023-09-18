@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .image-container img {
+            display: block;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            height: auto;
+        }
+        .rectangle {
+            position: absolute;
+            border: 2px solid green;
+        }
+        .circle-prev {
+            position: absolute;
+            border: 2px solid red;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        .circle-current {
+            position: absolute;
+            border: 2px solid purple;
+            border-radius: 50%;
+            background-color: rgba(128, 0, 128, 0.5);
+        }
+        .circle-next {
+            position: absolute;
+            border: 2px solid blue;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+        .tooltip {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            padding: 2px 5px;
+            position: absolute;
+            z-index: 1;
+            transform: translate(-50%, -100%);
+            white-space: nowrap;
+        }
+        .rectangle:hover .tooltip, .circle-prev:hover .tooltip, .circle-current:hover .tooltip, .circle-next:hover .tooltip {
+            visibility: visible;
+        }
+    </style>
+    <script>
+        let image_height, image_width;  // Declare them here to make them accessible throughout the script
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            image = document.getElementById('image');
+            image.onload = function() {
+                image_height = image.naturalHeight;
+                image_width = image.naturalWidth;
+
+                const jsonFiles = {
+                    prev: "../20230519/20230519.json",
+                    current: "20230522.json",
+                    next: "../20230524/20230524.json"
+                };
+
+                Object.keys(jsonFiles).forEach(key => {
+                    fetch(jsonFiles[key])
+                    .then(response => response.json())
+                    .then(data => {
+                        populateElements(data, key);
+                    })
+                    .catch(error => console.error('Error fetching JSON:', error));
+                });
+            };
+        });
+
+        function populateElements(data, type) {
+            const container = document.querySelector('.image-container');
+            data.forEach(item => {
+                const element = document.createElement('div');
+                element.className = `circle-${type}`;
+                element.style.top = `${(item.r.y / image_height * 100)}%`;
+                element.style.left = `${(item.r.x / image_width * 100)}%`;
+                element.style.width =  `${item.r.w / 2}px`;
+                element.style.height = `${item.r.h / 2}px`;
+                element.style.transform = 'translate(-50%, -50%)';
+                
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.innerHTML = `<font size="1">
+                                    <strong>Match ID:</strong> ${item.m.id} <strong>Previous:</strong> ${item.m.p} <strong>Current:</strong> ${item.m.c} <strong>i:</strong> ${item.m.i}<br>
+                                    
+                                    <strong>Centroid X:</strong> ${item.e.x} <strong>Y:</strong> ${item.e.y} <strong>Area:</strong> ${item.a}<br>
+
+                                    <strong>Rect X:</strong> ${item.r.x} <strong>Y:</strong> ${item.r.y} <strong>W:</strong> ${item.r.w} <strong>H:</strong> ${item.r.h}<br>
+
+                                    <strong>JSON X:</strong> ${item.e.x} <strong>Y:</strong> ${item.e.y} <strong>Diameter:</strong> ${item.e.d}<br>
+                                    <strong>Area:</strong> ${item.e.p} <strong>Perimeter:</strong> ${item.e.p} <strong>Eccentricity:</strong> ${item.e.e}<br>
+                                    <strong> ID:</strong> ${item.e.id} <strong>Tracking Quality:</strong> ${item.e.tq}
+
+                                    </font>`;
+                                    
+                element.appendChild(tooltip);
+                container.appendChild(element);
+            });
+        }
+        
+
+        function toggleVisibility(className, checkbox) {
+            const elements = document.getElementsByClassName(className);
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.display = checkbox.checked ? "block" : "none";
+            }
+        }
+
+        function setOffsetX() {
+            const offsetX = document.getElementById('offsetX-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="offsetGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                const left = parseFloat(circles[i].style.left);
+                circles[i].style.left = (left + parseFloat(offsetX)) + 'px';
+            }
+            document.getElementById('offsetX-value').innerText = offsetX;
+        }
+
+        function setOffsetY() {
+            const offsetY = document.getElementById('offsetY-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="offsetGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                const top = parseFloat(circles[i].style.top);
+                circles[i].style.top = (top + parseFloat(offsetY)) + 'px';
+            }
+            document.getElementById('offsetY-value').innerText = offsetY;
+        }
+
+        function setTransparency() {
+            const transparency = document.getElementById('transparency-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="transparencyGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                circles[i].style.backgroundColor = `rgba(${circles[i].style.backgroundColor.split(',')[0].split('(')[1]}, ${circles[i].style.backgroundColor.split(',')[1]}, ${circles[i].style.backgroundColor.split(',')[2]}, ${transparency})`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="rectangle-toggle" checked onclick="toggleVisibility('rectangle', this)">
+        <label for="rectangle-toggle">Show Tracking</label>
+        
+        <input type="checkbox" id="circle-toggle-prev" checked onclick="toggleVisibility('circle-prev', this)">
+        <label for="circle-toggle-prev">Show Previous RP JSON</label>
+
+        <input type="checkbox" id="circle-toggle" checked onclick="toggleVisibility('circle-current', this)">
+        <label for="circle-toggle">Show RP JSON</label>
+
+        <input type="checkbox" id="circle-toggle-next" checked onclick="toggleVisibility('circle-next', this)">
+        <label for="circle-toggle-next">Show Next RP JSON</label>
+
+        <br>
+
+        <input type="radio" id="prev" name="offsetGroup" value="prev" checked>
+        <label for="prev">Offset Previous</label>
+
+        <input type="radio" id="circle" name="offsetGroup" value="current">
+        <label for="circle">Offset Current</label>
+
+        <input type="radio" id="next" name="offsetGroup" value="next">
+        <label for="next">Offset Next</label>
+
+        <br>
+
+        <input type="range" min="-10" max="10" step="1" id="offsetX-slider" onchange="setOffsetX()">
+        <label for="offsetX-slider">Offset X: <span id="offsetX-value">0</span>px</label>
+        
+        <br>
+        
+        <input type="range" min="-10" max="10" step="1" id="offsetY-slider" onchange="setOffsetY()">
+        <label for="offsetY-slider">Offset Y: <span id="offsetY-value">0</span>px</label>
+
+        <br>
+
+        <input type="radio" id="transparency-prev" name="transparencyGroup" value="prev" checked>
+        <label for="transparency-prev">Transparency Previous</label>
+
+        <input type="radio" id="transparency-circle" name="transparencyGroup" value="">
+        <label for="transparency-circle">Transparency Current</label>
+
+        <input type="radio" id="transparency-next" name="transparencyGroup" value="next">
+        <label for="transparency-next">Transparency Next</label>
+
+        <br>
+
+        <input type="range" min="0" max="1" step="0.01" id="transparency-slider" onchange="setTransparency()">
+        <label for="transparency-slider">Transparency</label>
+
+    </div>
+
+    <div class="image-container">
+        <img src=20230522_rectangles.jpg alt="Image" id="image">
+        
+        <!-- Elements will be dynamically populated here -->
+        
+    </div>
+</body>
+</html>

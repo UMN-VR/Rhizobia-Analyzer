@@ -11,6 +11,8 @@ from dir_utils import get_all_image_files
 
 from analyze_image import analyze_image
 
+from generate_gifs import generate_gifs
+
 
 def process_crop_folder(crop_folder, logger):
     """
@@ -58,8 +60,11 @@ def process_crop_folder(crop_folder, logger):
 
         logger.info(f"DONE processing image: {file}\n\n")
 
+    #Generate GIFS for nodules
 
-    #results2 = ImageAnalyzer.post_process(nodules_folders) 
+    generate_gifs(crop_folder, logger)
+
+
     logger.info("------------------------------------")
     logger.info(f"DONE Processing crop folder: {crop_folder}")
 

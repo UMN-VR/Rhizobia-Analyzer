@@ -2,7 +2,7 @@
 import base64
 import cv2
 from jinja2 import Environment, FileSystemLoader
-from logger import Logger
+from Logger import Logger
 import os
 
 class HtmlGenerator:

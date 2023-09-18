@@ -1,6 +1,6 @@
 import os 
 import sys
-from logger import Logger
+from Logger import Logger
 from memory_logger import log_memory_usage
 from cv_utils import load_image
 from image_analysis import ImageAnalyzer, normalize
@@ -10,6 +10,7 @@ from plot_data import plot_data
 from find_prev_next_date_paths import find_prev_next_date_paths
 from find_matching import find_matching
 from generate_HTML_file import generate_HTML_file
+from process_image import process_image
 
 
 def analyze_image(file_name, output_dir, next_matching=None, external_logger=None):
@@ -147,11 +148,7 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
 
         # Find the matching
         matching, unmatched_current, unmatched_previous, distance_threshold = find_matching(logger, combined_distances, next_matching, current_date_string=current_date, scalar_distance_threshold=3)
-        logger.info(f"Matching length: {len(matching)}")
-        logger.info(f"Matching: {matching}")
-        logger.info(f"Unmatched current: {len(unmatched_current)}: {unmatched_current}")
-        logger.info(f"Unmatched previous {len(unmatched_previous)}: {unmatched_previous}")
-        logger.info(f"Distance threshold: {distance_threshold}\n\n")
+
 
         # Create plots
         #plot_file_name = os.path.join(image_output_dir, f"{current_date}_plot.png")
@@ -192,7 +189,7 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
 
     # Process the image
                 
-    image, results_file_name, result_data = ImageProcessor.process_image(image, image_output_dir, current_date, logger, json_data_scaled, matching, date_string=current_date)
+    image, results_file_name, result_data = process_image(image, image_output_dir, current_date, logger, json_data_scaled, matching, date_string=current_date)
 
 
     HTML_file_name = generate_HTML_file(image, prev_date_string, results_file_name, next_date_string, image_output_dir, current_date, logger)

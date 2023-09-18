@@ -1,8 +1,9 @@
 # main.py
 
 import os
+import time
 
-from logger import Logger
+from Logger import Logger
 
 from dir_utils import change_working_directory, prompt_clear_output_directory
 from process_dir import process_dir
@@ -31,6 +32,9 @@ def while_loop_process_images():
 
         # ask user for file name or directory
         file_name = input("Enter the file name (or 'exit' to stop): ")
+
+        #start timer
+        start_time = time.time()
         
         # if the user enters 'exit', stop the program
         if file_name.lower() == 'exit':

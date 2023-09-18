@@ -17,6 +17,10 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
 
         distance_threshold = np.median(combined_distances[row_ind, col_ind]) * scalar_distance_threshold
         matching = []
+        i_dict = {}
+        tq_accumulator = 0
+        tp_pos_accumulator = 0
+        tq_pos_i = 0
 
         if next_matching is not None:
             #next_ids = {match[2] for match in next_matching}  # Extract IDs from next matching
@@ -24,33 +28,83 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
         else:
             next_ids = set()
 
-        for idx, (ix, jx) in enumerate(zip(row_ind, col_ind)):
+
+        if next_matching is None:
+            logger.info(f"next_matching is None")
+
+        for idx, (current_index, previous_index) in enumerate(zip(row_ind, col_ind)):
 
             match = None
 
             id = f"{current_date_string}_{len(matching)}"
             i = 0
+            next_index = -1
 
-            if combined_distances[ix, jx] <= distance_threshold:
+
+            combined_distance = combined_distances[current_index, previous_index]
+
+            if combined_distance <= distance_threshold:
 
                 if next_matching is not None:
                     for match_entry in next_matching:
-                        if match_entry['p'] == ix:
+
+                        if match_entry['p'] == current_index and match_entry['tq'] > 0:
+                            
                             match = match_entry
                             id = match["id"]
                             i = match["i"] + 1
+                            next_index = match["c"]
 
                             # If the nodule was matched below the distance threshold, keep its ID from the next matching
-                            logger.info(f"matched: {match}, current_date_string: {current_date_string}, len(matching): {len(matching)}")
+                            logger.info(f"matched entry: {match}, len(matching): {len(matching)}")
                             break
+            
+            else:
+                logger.info(f"combined_distances[{current_index}, {previous_index}] ={combined_distance} > {distance_threshold} = distance_threshold") 
 
-
+            tracking_quality = (100-((combined_distance/distance_threshold)*100)).round()
                 
-
             # give i name 'c' for current, and j name 'p' for previous
-            match_entry = {'id': id, 'c': ix, 'p': jx, 'i':i}
-            matching.append(match_entry)
+            match_result = {'id': id, 'p': previous_index, 'c': current_index, 'n':next_index, 'i':i, 'tq':tracking_quality}
+
+            # add tracking quality to tq_accumulator
+            tq_accumulator += tracking_quality
+
+            if tracking_quality > 0:
+                tp_pos_accumulator += tracking_quality
+                tq_pos_i += 1
+
+            # add +1 to entry i in i_dict or create entry i in i_dict with value 1 if it doesn't exist
+            i_dict[i] = i_dict.get(i.__str__(), 0) + 1
+
+            if match is None:
+                logger.info(f"match is None, entry: {match_result} len(matching): {len(matching)}")
+            
+            matching.append(match_result)
+        
+
+        # soft i_dict from lower to higher by the key value
+        i_dict = {k: v for k, v in sorted(i_dict.items(), key=lambda item: item[0])}
+
+        logger.info(f"i_dict: {i_dict}")
+        print(f"i_dict: {i_dict}")
+
+        # calculate the average tracking quality
+        tq_average = tq_accumulator/len(matching)
+        print(f"tq_average: {tq_average}")
+        logger.info(f"tq_average: {tq_average}")
 
 
+        # calculate the average tracking quality of the positive matches
+        average_tracking_quality = tp_pos_accumulator/tq_pos_i
+        print(f"average_tracking_quality: {average_tracking_quality}")
+        logger.info(f"average_tracking_quality: {average_tracking_quality}")
+
+        logger.info(f"@find_matching:\nReturning:\nMatching(lenght={len(matching)}): {matching}")
+        logger.info(f"Unmatched current(length={len(unmatched_current)}): {unmatched_current}")
+        logger.info(f"Unmatched previous(length={len(unmatched_previous)}): {unmatched_previous}")
+        logger.info(f"Distance threshold: {distance_threshold}")
+        
+        logger.info(f"\n\n")
 
         return matching, unmatched_current, unmatched_previous, distance_threshold
