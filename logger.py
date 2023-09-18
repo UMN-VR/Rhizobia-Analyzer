@@ -1,9 +1,24 @@
 # logger.py
 import logging
 import os
-class Logger:
-    def __init__(self, log_name, output_dir, external_logger=None):
 
+
+
+class Logger:
+    
+    def __init__(self, log_name, output_dir=None, external_logger=None):
+        if output_dir is None:
+            # remove the extension
+            log_name, _ = os.path.splitext(log_name)
+            # replace / with _ and capitalize the result
+            log_name = log_name.replace('/', '_')
+            self.setup_logger(log_name, "output", None)
+        else:
+            self.setup_logger(log_name, output_dir, external_logger)
+
+        
+
+    def setup_logger(self, log_name, output_dir, external_logger=None):
         if external_logger is not None:
             external_logger.info(f"Creating logger: {log_name}, {output_dir}, {external_logger}")
 
@@ -28,6 +43,7 @@ class Logger:
         # add the handlers to the logger
         self.logger.addHandler(fh)
         self.logger.addHandler(ch)
+        
 
     def get_logger(self):
         return self.logger

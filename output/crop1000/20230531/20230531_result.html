@@ -93,7 +93,7 @@
                 const tooltip = document.createElement('div');
                 tooltip.className = 'tooltip';
                 tooltip.innerHTML = `<font size="1">
-                                    <strong>Match ID:</strong> ${item.m.id} <strong>Current:</strong> ${item.m.c} <strong>Next:</strong> ${item.m.n}<br>
+                                    <strong>Match ID:</strong> ${item.m.id} <strong>Previous:</strong> ${item.m.p} <strong>Current:</strong> ${item.m.c} <strong>i:</strong> ${item.m.i}<br>
                                     
                                     <strong>Centroid X:</strong> ${item.e.x} <strong>Y:</strong> ${item.e.y} <strong>Area:</strong> ${item.a}<br>
 
@@ -101,7 +101,7 @@
 
                                     <strong>JSON X:</strong> ${item.e.x} <strong>Y:</strong> ${item.e.y} <strong>Diameter:</strong> ${item.e.d}<br>
                                     <strong>Area:</strong> ${item.e.p} <strong>Perimeter:</strong> ${item.e.p} <strong>Eccentricity:</strong> ${item.e.e}<br>
-                                    <strong> ID:</strong> ${item.e.id} <strong>Tracking Quality:</strong> ${item.e.q}
+                                    <strong> ID:</strong> ${item.e.id} <strong>Tracking Quality:</strong> ${item.e.tq}
 
                                     </font>`;
                                     
@@ -166,7 +166,7 @@
         <input type="radio" id="prev" name="offsetGroup" value="prev" checked>
         <label for="prev">Offset Previous</label>
 
-        <input type="radio" id="circle" name="offsetGroup" value="">
+        <input type="radio" id="circle" name="offsetGroup" value="current">
         <label for="circle">Offset Current</label>
 
         <input type="radio" id="next" name="offsetGroup" value="next">
