@@ -54,7 +54,7 @@ class ImageAnalyzer:
         return combined_distances
 
     @staticmethod
-    def find_matching(combined_distances, next_matching=None, current_date_string=None, scalar_distance_threshold=3):
+    def find_matching(logger, combined_distances, next_matching=None, current_date_string=None, scalar_distance_threshold=3):
         """Find the matching between the current and previous points.
         Returns: matching, unmatched_current, unmatched_previous, distance_threshold
 
@@ -62,7 +62,7 @@ class ImageAnalyzer:
         
         """
 
-
+        logger.info(f"\n@find_matching: combined_distances: {combined_distances.shape}, next_matching: {next_matching}, current_date_string: {current_date_string}, scalar_distance_threshold: {scalar_distance_threshold}")
 
         row_ind, col_ind = linear_sum_assignment(combined_distances)
         unmatched_current = set(range(combined_distances.shape[0])) - set(row_ind)
@@ -77,23 +77,32 @@ class ImageAnalyzer:
         else:
             next_ids = set()
 
-        for idx, (i, j) in enumerate(zip(row_ind, col_ind)):
-            if combined_distances[i, j] <= distance_threshold:
-                # If the nodule was matched below the distance threshold, keep its ID from the next matching
-                matched = [match_entry['id'] for match_entry in next_matching if match_entry['p'] == i] if next_matching is not None else []
-                ID = matched[0] if matched else f"{current_date_string}_{len(matching)}"
+        for idx, (ix, jx) in enumerate(zip(row_ind, col_ind)):
 
-                # give i name 'c' for current, and j name 'p' for previous
-                match_entry = {'c': i, 'p': j, 'id': ID}
-                matching.append(match_entry)
+            match = None
+
+            id = f"{current_date_string}_{len(matching)}"
+            i = 0
+
+            if combined_distances[ix, jx] <= distance_threshold:
+
+                if next_matching is not None:
+                    for match_entry in next_matching:
+                        if match_entry['p'] == ix:
+                            match = match_entry
+                            id = match["id"]
+                            i = match["i"] + 1
+
+                            # If the nodule was matched below the distance threshold, keep its ID from the next matching
+                            logger.info(f"matched: {match}, current_date_string: {current_date_string}, len(matching): {len(matching)}")
+                            break
 
 
-            else:
-                # If the nodule was not matched below the distance threshold, create a new ID
-                ID = f"{current_date_string}_{len(matching)}"
-                # give i name 'c' for current, and j name 'p' for previous
-                match_entry = {'c': i, 'p': j, 'id': ID}
-                matching.append(match_entry)
+                
+
+            # give i name 'c' for current, and j name 'p' for previous
+            match_entry = {'id': id, 'c': ix, 'p': jx, 'i':i}
+            matching.append(match_entry)
 
 
 
@@ -499,7 +508,7 @@ class ImageAnalyzer:
             log_memory_usage(logger)
 
             # Find the matching
-            matching, unmatched_current, unmatched_previous, distance_threshold = ImageAnalyzer.find_matching(combined_distances, next_matching, current_date_string=current_date, scalar_distance_threshold=3)
+            matching, unmatched_current, unmatched_previous, distance_threshold = ImageAnalyzer.find_matching(logger, combined_distances, next_matching, current_date_string=current_date, scalar_distance_threshold=3)
             logger.info(f"Matching length: {len(matching)}")
             logger.info(f"Matching: {matching}")
             logger.info(f"Unmatched current: {len(unmatched_current)}: {unmatched_current}")

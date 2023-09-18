@@ -33,6 +33,17 @@ class HtmlGenerator:
 
         # Remore everything after the last slash to get only the file name
         image_file = os.path.basename(image_file)
+
+        json_data = os.path.basename(json_data) 
+
+        # add ../{data}/{data}.json to the prev_data and next_data
+        if prev_data != None:
+            prev_data = os.path.join("..", prev_data, prev_data)
+            prev_data += ".json"
+
+        if next_data != None:
+            next_data = os.path.join("..", next_data, next_data)
+            next_data += ".json"
         
 
         # Get the HTML template

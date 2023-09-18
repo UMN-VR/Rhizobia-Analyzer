@@ -58,7 +58,7 @@ class ImageProcessor:
         i = 0
         # Process each JSON object
         for json_obj in json_data:
-            i += 1
+            
             # parse the JSON object
             json_x, json_y, json_d, json_a, json_p, json_e = json_obj["x"], json_obj["y"], json_obj["d"], json_obj["a"], json_obj["p"], json_obj["e"]
 
@@ -84,9 +84,11 @@ class ImageProcessor:
                 distance = np.sqrt((json_x - (x + w / 2)) ** 2 + (json_y - (y + h / 2)) ** 2)
                 distances.append(distance)
 
-                # if the closest match is None or the distance is smaller than the closest match, update the closest match
+                # if the closest match is None or the distance is smaller than the closest match, update the 
                 if closest_match is None or distance < closest_match["distance"]:
                     closest_match = {"id": i, "distance": distance}
+            
+            i += 1
         
         # if here, no match was found, fetch details of closest match
         closest_match = json_data[closest_match["id"] - 1]
@@ -197,7 +199,8 @@ class ImageProcessor:
             # Calculate the area of the contour
             area = cv2.contourArea(contour)
 
-            cords = (cX, cY)
+            cords = {'x' : x, 'y': y}
+            rect = {'x' : x, 'y': y, 'w': w, 'h': h}
 
             # Print the results to the console
             logger.info(f"Processing contour#{i + 1}: area: {area} centroid: {cX}, {cY} rectangle: ({x}, {y}, {w}, {h})")
@@ -218,28 +221,36 @@ class ImageProcessor:
 
             # Get the JSON entry corresponding to the matched contour
             logger.info(f"Matched contour: {matched_contour}")
-            JSON_entry = matched_contour['id']-1 if matched_contour is not None else 'ERROR'
-
+            JSON_entry = matched_contour['id'] if matched_contour is not None else "ERROR"
+            logger.info(f"JSON_entry: {JSON_entry}")
 
             entry_id = max_id
-            match = []
+            match = {}
             #look through the matching and find the corresponding entry, the set the entry_id to the 'name' in the matching entry in one line
             if matching is not None:
                 for match_entry in matching:
-                    first_id = match_entry['c']
-                    second_id = match_entry['p']
+                    current_id = match_entry['c']
+                    previous_id = match_entry['p']
                     name = match_entry['id']
                     
                     #logger.info(f"first_id: {first_id} second_id: {second_id} name: {name}")
 
-                    if JSON_entry == first_id:
-                        logger.info(f"Matched with first_id: {first_id} second_id: {second_id} name: {name}")
+                    if JSON_entry == current_id:
+                        logger.info(f"Matched with first_id: {current_id} second_id: {previous_id} name: {name}")
 
                         # Save the name of the matching entry [first_id, second_id, name]
-                        match = [first_id, second_id, name]
-
+                        #match = [first_id, second_id, name]
+                        match = match_entry 
                         entry_id = name
                         break
+            else:
+                print("WARNING: matching is None")
+                logger.info("WARNING: matching is None")
+
+            if match == {}:
+                logger.info("WARNING: match is empty")
+
+                match = {'c': JSON_entry, 'p': -1, 'id': max_id}
 
 
             #look through the matching and find the corresponding entry, the set the entry_id to the 'name' in the matching entry
@@ -253,10 +264,13 @@ class ImageProcessor:
 
 
             # Create a new entry for the results list 'm' is the matching entry in the matching list
-            entry = {'id': entry_id, 'jsID': JSON_entry, 'c': cords, 'a': area, 'r': (x, y, w, h), 'e': matched_contour, 'm':match}
+            entry = {'m':match, 'c': cords, 'a': area, 'r': rect, 'e': matched_contour}
 
-            # Add the entry to the results list
-            results.append(entry)
+            if JSON_entry == "ERROR":
+                logger.info(f"ERROR: No input JSON(nodules) match, ID:{max_id} area: {area} position: {cords}")
+            else:
+                # Add the entry to the results list
+                results.append(entry)
 
 
             logger.info(f"entry_id:{entry_id}, entry saved to results list")

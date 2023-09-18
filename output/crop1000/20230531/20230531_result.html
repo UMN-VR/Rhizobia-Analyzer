@@ -47,27 +47,36 @@
             transform: translate(-50%, -100%);
             white-space: nowrap;
         }
-        .rectangle:hover .tooltip, .circle-prev:hover .tooltip, .circle:hover .tooltip, .circle-next:hover .tooltip {
+        .rectangle:hover .tooltip, .circle-prev:hover .tooltip, .circle-current:hover .tooltip, .circle-next:hover .tooltip {
             visibility: visible;
         }
     </style>
     <script>
+        let image_height, image_width;  // Declare them here to make them accessible throughout the script
+
 
         document.addEventListener("DOMContentLoaded", function() {
-            const jsonFiles = {
-                prev: "20230529",
-                current: "output/crop1000/20230531/20230531.json",
-                next: "20230602"
-            };
 
-            Object.keys(jsonFiles).forEach(key => {
-                fetch(jsonFiles[key])
-                .then(response => response.json())
-                .then(data => {
-                    populateElements(data, key);
-                })
-                .catch(error => console.error('Error fetching JSON:', error));
-            });
+            image = document.getElementById('image');
+            image.onload = function() {
+                image_height = image.naturalHeight;
+                image_width = image.naturalWidth;
+
+                const jsonFiles = {
+                    prev: "../20230529/20230529.json",
+                    current: "20230531.json",
+                    next: "../20230602/20230602.json"
+                };
+
+                Object.keys(jsonFiles).forEach(key => {
+                    fetch(jsonFiles[key])
+                    .then(response => response.json())
+                    .then(data => {
+                        populateElements(data, key);
+                    })
+                    .catch(error => console.error('Error fetching JSON:', error));
+                });
+            };
         });
 
         function populateElements(data, type) {
@@ -75,16 +84,27 @@
             data.forEach(item => {
                 const element = document.createElement('div');
                 element.className = `circle-${type}`;
-                element.style.top = `${item.r[1]}px`;
-                element.style.left = `${item.r[0]}px`;
-                element.style.width = `${item.r[2]}px`;
-                element.style.height = `${item.r[3]}px`;
+                element.style.top = `${(item.r.y / image_height * 100)}%`;
+                element.style.left = `${(item.r.x / image_width * 100)}%`;
+                element.style.width =  `${item.r.w / 2}px`;
+                element.style.height = `${item.r.h / 2}px`;
+                element.style.transform = 'translate(-50%, -50%)';
+                
                 const tooltip = document.createElement('div');
                 tooltip.className = 'tooltip';
-                tooltip.innerHTML = `<strong>ID:</strong> ${item.id}<br>
-                                     <strong>JSON Entry:</strong> ${item.jsID}<br>
-                                     <strong>Position:</strong> ${item.c}<br>
-                                     <strong>Area:</strong> ${item.a}`;
+                tooltip.innerHTML = `<font size="1">
+                                    <strong>Match ID:</strong> ${item.m.id} <strong>Current:</strong> ${item.m.c} <strong>Next:</strong> ${item.m.n}<br>
+                                    
+                                    <strong>Centroid X:</strong> ${item.e.x} <strong>Y:</strong> ${item.e.y} <strong>Area:</strong> ${item.a}<br>
+
+                                    <strong>Rect X:</strong> ${item.r.x} <strong>Y:</strong> ${item.r.y} <strong>W:</strong> ${item.r.w} <strong>H:</strong> ${item.r.h}<br>
+
+                                    <strong>JSON X:</strong> ${item.e.x} <strong>Y:</strong> ${item.e.y} <strong>Diameter:</strong> ${item.e.d}<br>
+                                    <strong>Area:</strong> ${item.e.p} <strong>Perimeter:</strong> ${item.e.p} <strong>Eccentricity:</strong> ${item.e.e}<br>
+                                    <strong> ID:</strong> ${item.e.id} <strong>Tracking Quality:</strong> ${item.e.q}
+
+                                    </font>`;
+                                    
                 element.appendChild(tooltip);
                 container.appendChild(element);
             });
@@ -135,7 +155,7 @@
         <input type="checkbox" id="circle-toggle-prev" checked onclick="toggleVisibility('circle-prev', this)">
         <label for="circle-toggle-prev">Show Previous RP JSON</label>
 
-        <input type="checkbox" id="circle-toggle" checked onclick="toggleVisibility('circle', this)">
+        <input type="checkbox" id="circle-toggle" checked onclick="toggleVisibility('circle-current', this)">
         <label for="circle-toggle">Show RP JSON</label>
 
         <input type="checkbox" id="circle-toggle-next" checked onclick="toggleVisibility('circle-next', this)">
