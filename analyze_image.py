@@ -13,19 +13,19 @@ from generate_HTML_file import generate_HTML_file
 from process_image import process_image
 
 
-def analyze_image(file_name, output_dir, next_matching=None, external_logger=None):
+def analyze_image(image_file_name, output_dir, next_matching=None, external_logger=None):
     """
     This function processes an image and saves the results to a new directory named after the base name of the image file in the specified output directory.
     """
 
-    external_logger.info(f"\n@analyze_image: file_name: {file_name}, output_dir: {output_dir}, external_logger: {external_logger}")
+    external_logger.info(f"\n@analyze_image: file_name: {image_file_name}, output_dir: {output_dir}, external_logger: {external_logger}")
     #external_logger.info(f"objects: {objects}")
-    external_logger.info(f"next_matching: {next_matching}")
+    #external_logger.info(f"next_matching: {next_matching}")
 
-    # Get the base name of the image file
-    current_date = os.path.basename(file_name).split('.')[0]
+    # Get the base name of the image file 
+    current_date = os.path.basename(image_file_name).split('.')[0]
     #crop_number = os.path.basename(os.path.dirname(os.path.dirname(file_name))) # BAD crop_number: data when file_name: data/crop980/20230605.jpg it should be crop980
-    crop_number = os.path.basename(os.path.dirname(file_name)) # GOOD crop_number: crop980 when file_name: data/crop980/20230605.jpg
+    crop_number = os.path.basename(os.path.dirname(image_file_name)) # GOOD crop_number: crop980 when file_name: data/crop980/20230605.jpg
 
     external_logger.info(f"current_date: {current_date}, crop_number: {crop_number}")
 
@@ -39,29 +39,34 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
 
     # Create a logger for this image
     log_name = f"{crop_number}_{current_date}.log"
-    external_logger.info(f"log_name: {log_name}")
+    
 
     # determine the path of the log file and print it to the console
     log_dir = os.path.join(image_output_dir, log_name)
 
-    print(f"Starting log at: {log_dir}")
+    
 
     # Use crop_number in logger name
+
+    print(f"Starting log at: {log_dir} with log_name: {log_name}")
+
+    external_logger.info(f"Starting log at: {log_dir}")
+
     logger = Logger(log_name, image_output_dir, external_logger=external_logger).get_logger()
     logger.propagate = False
 
     log_memory_usage(logger)
-    logger.info(f"@analyze_image: file_name: {file_name}, output_dir: {output_dir}, external_logger: {external_logger}")
+    logger.info(f"@analyze_image: file_name: {image_file_name}, output_dir: {output_dir}, external_logger: {external_logger}")
 
     #load files
-    image = load_image(file_name)
-    json_data = load_json(file_name)
+    image = load_image(image_file_name)
+    json_data = load_json(image_file_name)
 
     if json_data is None:
-        print(f"Unable to open JSON file: {file_name}")
+        print(f"Unable to open JSON file: {image_file_name}")
         sys.exit(1)
     
-    logger.info(f"Loaded image & JSON file: {file_name}")
+    logger.info(f"Loaded image & JSON file: {image_file_name}")
 
     scalar_position = 0.5
     scalar_size = 0.5
@@ -70,7 +75,7 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
     logger.info(f"Scaled JSON data: scalar_position: {scalar_position}, scalar_size: {scalar_size}")
 
     if image is None:
-        print(f"Unable to open image file: {file_name}")
+        print(f"Unable to open image file: {image_file_name}")
         sys.exit(1)
     
     prev_date = None
@@ -84,6 +89,8 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
 
     prev_date_string = None
     next_date_string = None
+
+    match_stats = {}
 
     if prev_date is not None:
         # get previous date string
@@ -130,9 +137,13 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
         points, attributes = ImageAnalyzer.extract_points_and_attributes(json_data)
         prev_points, prev_attributes = ImageAnalyzer.extract_points_and_attributes(prev_results)
 
+        # Normalize the points
+        # points = ImageAnalyzer.normalize(points)
+        # prev_points = ImageAnalyzer.normalize(prev_points)
+
         # Normalize the attributes
-        attributes = ImageAnalyzer.normalize_attributes(attributes)
-        prev_attributes = ImageAnalyzer.normalize_attributes(prev_attributes)
+        # attributes = ImageAnalyzer.normalize(attributes)
+        # prev_attributes = ImageAnalyzer.normalize(prev_attributes)
 
         # Compute the distances
         spatial_distances, attribute_distances = ImageAnalyzer.compute_distances(points, prev_points, attributes, prev_attributes)
@@ -147,13 +158,14 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
         log_memory_usage(logger)
 
         # Find the matching
-        matching, unmatched_current, unmatched_previous, distance_threshold = find_matching(logger, combined_distances, next_matching, current_date_string=current_date, scalar_distance_threshold=3)
+        matching, unmatched_current, unmatched_previous, match_stats = find_matching(logger, combined_distances, next_matching, current_date_string=current_date, scalar_distance_threshold=3)
 
+        plot_file_name = os.path.join(image_output_dir.replace(f"/{current_date}", ""), "plots")
 
-        # Create plots
-        #plot_file_name = os.path.join(image_output_dir, f"{current_date}_plot.png")
-        # remove the last /stuff from the image_output_dir
-        plot_file_name = os.path.join(image_output_dir.replace(f"/{current_date}", ""), f"{prev_date_string}_{current_date}_plot.png")
+        # Create the directory if it doesn't exist
+        os.makedirs(plot_file_name, exist_ok=True)
+
+        plot_file_name = os.path.join(plot_file_name, f"{prev_date_string}_{current_date}.png")
 
         normalized_points = normalize(points)
         normalized_prev_points = normalize(prev_points)
@@ -163,14 +175,14 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
             normalized_points, normalized_prev_points, 
             points, prev_points, current_data=json_data, prev_data=prev_results, 
             matching=matching, unmatched_current=unmatched_current, unmatched_prev=unmatched_previous, 
-            combined_distances=combined_distances, distance_threshold=distance_threshold, filename=plot_file_name,
+            combined_distances=combined_distances, distance_threshold=match_stats['distance_threshold'], filename=plot_file_name,
             current_date_string=current_date, previous_date_string=prev_date_string)
 
         # Convert matching indices to native int before saving
         #matching = [(int(i), int(j), match_id) for i, j, match_id in matching
         for match_entry in matching:
-            match_entry['c'] = int(match_entry['c'])
-            match_entry['p'] = int(match_entry['p'])
+            match_entry['c']['id'] = int(match_entry['c']['id'])
+            match_entry['p']['id'] = int(match_entry['p']['id'])
 
 
 
@@ -189,12 +201,15 @@ def analyze_image(file_name, output_dir, next_matching=None, external_logger=Non
 
     # Process the image
                 
-    image, results_file_name, result_data = process_image(image, image_output_dir, current_date, logger, json_data_scaled, matching, date_string=current_date)
+    current_json = process_image(image, image_output_dir, current_date, logger, json_data_scaled, matching, date_string=current_date)
 
 
-    HTML_file_name = generate_HTML_file(image, prev_date_string, results_file_name, next_date_string, image_output_dir, current_date, logger)
+    #HTML_file_name = generate_HTML_file(image, prev_date_string, current_json, next_date_string, image_output_dir, current_date, logger)
 
-    results_entry = {"crop": crop_number, "date": current_date, "results": results_file_name, "html": HTML_file_name}
+
+    results_entry = {"crop": crop_number, "date": current_date, "json": current_json, "image": image_file_name, "match_stats": match_stats}
+
+    logger.info(f"results_entry: {results_entry}")
 
 
     return results_entry, matching

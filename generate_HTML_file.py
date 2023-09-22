@@ -36,5 +36,5 @@ def generate_HTML_file(image, prev_data, json_data, next_data, image_output_dir,
     html_generator.generate_html(modified_image_file, result_file_name, prev_data, json_data, next_data)
 
     cv2.destroyAllWindows()
-    logger.info(f"Finished analyzing image: {base_name}")
+
     return result_file_name

@@ -34,7 +34,7 @@ class ImageAnalyzer:
         return points, attributes
 
     @staticmethod
-    def normalize_attributes(attributes):
+    def normalize(attributes):
         """Normalize the attributes to have zero mean and unit variance."""
         attributes = (attributes - np.mean(attributes, axis=0)) / np.std(attributes, axis=0)
         return attributes

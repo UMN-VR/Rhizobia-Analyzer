@@ -1,6 +1,8 @@
 from scipy.optimize import linear_sum_assignment
 import numpy as np
 
+from i_dict import iDict
+
 def find_matching(logger, combined_distances, next_matching=None, current_date_string=None, scalar_distance_threshold=3):
         """Find the matching between the current and previous points.
         Returns: matching, unmatched_current, unmatched_previous, distance_threshold
@@ -17,7 +19,9 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
 
         distance_threshold = np.median(combined_distances[row_ind, col_ind]) * scalar_distance_threshold
         matching = []
-        i_dict = {}
+        
+        i_dict = iDict()
+
         tq_accumulator = 0
         tp_pos_accumulator = 0
         tq_pos_i = 0
@@ -34,7 +38,7 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
 
         for idx, (current_index, previous_index) in enumerate(zip(row_ind, col_ind)):
 
-            match = None
+            match_entry = None
 
             id = f"{current_date_string}_{len(matching)}"
             i = 0
@@ -48,24 +52,29 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
                 if next_matching is not None:
                     for match_entry in next_matching:
 
-                        if match_entry['p'] == current_index and match_entry['tq'] > 0:
-                            
-                            match = match_entry
-                            id = match["id"]
-                            i = match["i"] + 1
-                            next_index = match["c"]
+                        if match_entry['p']['id'] == current_index and match_entry['p']['tq'] > 0:
+                    
+                            id = match_entry["id"]
+                            i = match_entry["i"] + 1
+                            next_index = match_entry["c"]['id']
 
                             # If the nodule was matched below the distance threshold, keep its ID from the next matching
-                            logger.info(f"matched entry: {match}, len(matching): {len(matching)}")
+                            logger.info(f"matched entry: {match_entry}, len(matching): {len(matching)}")
                             break
             
             else:
                 logger.info(f"combined_distances[{current_index}, {previous_index}] ={combined_distance} > {distance_threshold} = distance_threshold") 
 
             tracking_quality = (100-((combined_distance/distance_threshold)*100)).round()
+
+            prev = {'id': previous_index, 'tq': tracking_quality}
+
+            current = {'id': current_index}
+
+            next = {'id': next_index}
                 
             # give i name 'c' for current, and j name 'p' for previous
-            match_result = {'id': id, 'p': previous_index, 'c': current_index, 'n':next_index, 'i':i, 'tq':tracking_quality}
+            match_result = {'id': id, 'p': prev, 'c': current, 'n':next, 'i':i, 'tq':tracking_quality}
 
             # add tracking quality to tq_accumulator
             tq_accumulator += tracking_quality
@@ -74,30 +83,28 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
                 tp_pos_accumulator += tracking_quality
                 tq_pos_i += 1
 
-            # add +1 to entry i in i_dict or create entry i in i_dict with value 1 if it doesn't exist
-            i_dict[i] = i_dict.get(i.__str__(), 0) + 1
+            i_dict.add_entry(i)
+            
 
-            if match is None:
+            if match_entry is None:
                 logger.info(f"match is None, entry: {match_result} len(matching): {len(matching)}")
             
             matching.append(match_result)
         
 
-        # soft i_dict from lower to higher by the key value
-        i_dict = {k: v for k, v in sorted(i_dict.items(), key=lambda item: item[0])}
+        i_dict, i_average = i_dict.get_results()
 
         logger.info(f"i_dict: {i_dict}")
         print(f"i_dict: {i_dict}")
 
         # calculate the average tracking quality
         tq_average = tq_accumulator/len(matching)
-        print(f"tq_average: {tq_average}")
         logger.info(f"tq_average: {tq_average}")
 
 
         # calculate the average tracking quality of the positive matches
         average_tracking_quality = tp_pos_accumulator/tq_pos_i
-        print(f"average_tracking_quality: {average_tracking_quality}")
+        #print(f"average_tracking_quality: {average_tracking_quality}")
         logger.info(f"average_tracking_quality: {average_tracking_quality}")
 
         logger.info(f"@find_matching:\nReturning:\nMatching(lenght={len(matching)}): {matching}")
@@ -107,4 +114,7 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
         
         logger.info(f"\n\n")
 
-        return matching, unmatched_current, unmatched_previous, distance_threshold
+
+        stats = {'i_dict': i_dict, 'tq_average': tq_average, 'average_tracking_quality': average_tracking_quality, 'distance_threshold': distance_threshold}
+
+        return matching, unmatched_current, unmatched_previous, stats

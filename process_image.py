@@ -68,7 +68,8 @@ def process_image(image, output_dir, image_name, logger, json_data, matching, da
 
             result = process_contour(i, contour, logger, json_data, matching, date_string, nodules_dir, right_image, left_image, max_id)
 
-            results.append(result)                 
+            if result is not None:
+                results.append(result)                 
 
             max_id_i += 1
             
@@ -81,4 +82,4 @@ def process_image(image, output_dir, image_name, logger, json_data, matching, da
         with open(json_file_name, 'w') as json_file:
             json.dump(results, json_file, indent=2)
         
-        return image, json_file_name, results
+        return json_file_name

@@ -9,6 +9,8 @@ from dir_utils import change_working_directory, prompt_clear_output_directory
 from process_dir import process_dir
 from process_file import process_file
 
+program_name = "Rhizobia Analyser"
+program_version = "8.0"
 
 
 def while_loop_process_images():
@@ -75,7 +77,8 @@ def main():
     4: Done!
 
     """
-
+    print("--------------------------------------------------")
+    print(f"Starting {program_name} v{program_version}...")
 
 
     # Change the working directory to the directory of this file

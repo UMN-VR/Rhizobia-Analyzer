@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 
 def plot_data(logger, normalized_points, normalized_prev_points, current_points, prev_points, current_data, prev_data, matching, unmatched_current, unmatched_prev, combined_distances, distance_threshold, current_date_string, previous_date_string, filename):
 
+
+    
         logger.info(f"@plot_data: normalized_points: {normalized_points.shape}, normalized_prev_points: {normalized_prev_points.shape}, current_points: {current_points.shape}, prev_points: {prev_points.shape}, current_data: {len(current_data)}, prev_data: {len(prev_data)}, matching: {len(matching)}, unmatched_current: {len(unmatched_current)}, unmatched_prev: {len(unmatched_prev)}, combined_distances: {combined_distances.shape}, distance_threshold: {distance_threshold}, current_date_string: {current_date_string}, previous_date_string: {previous_date_string}, filename: {filename}")
 
         """Plot the data with matching."""
@@ -27,8 +29,8 @@ def plot_data(logger, normalized_points, normalized_prev_points, current_points,
         # Draw lines between the matched points
         for match_entry in matching:
             #logger.info(f"match_entry: {match_entry}")
-            i = match_entry['c']
-            j = match_entry['p']
+            i = match_entry['c']['id']
+            j = match_entry['p']['id']
             ID = match_entry['id']
 
             x1, y1 = normalized_prev_points[j]
@@ -94,8 +96,8 @@ def plot_data(logger, normalized_points, normalized_prev_points, current_points,
         # Draw lines between the matched points and add the indices to the plots with color coding
         logger.info("Drawing lines between the matched points and add the indices to the plots with color coding")
         for match_entry in matching:
-            i = match_entry['c']
-            j = match_entry['p']
+            i = match_entry['c']['id']
+            j = match_entry['p']['id']
             distance = combined_distances[i, j]
             if distance > distance_threshold:
                 # The point is considered unmatched, draw a yellow circle around it

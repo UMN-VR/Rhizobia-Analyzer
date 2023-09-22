@@ -23,7 +23,7 @@ def process_contour(i, contour, logger, json_data, matching, date_string, nodule
     # If the area of the contour is 0, skip it
     if M["m00"] == 0:
         logger.info(f"Skipping contour#{i + 1} because area is 0.\n\n")
-        return
+        return None
     
     # Find the centroid of the contour
     cX, cY = int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])
@@ -65,8 +65,8 @@ def process_contour(i, contour, logger, json_data, matching, date_string, nodule
     #look through the matching and find the corresponding entry, the set the entry_id to the 'name' in the matching entry in one line
     if matching is not None:
         for match_entry in matching:
-            current_id = match_entry['c']
-            previous_id = match_entry['p']
+            current_id = match_entry['c']['id']
+            previous_id = match_entry['p']['id']
             name = match_entry['id']
             
             #logger.info(f"first_id: {first_id} second_id: {second_id} name: {name}")
@@ -85,8 +85,9 @@ def process_contour(i, contour, logger, json_data, matching, date_string, nodule
 
     if match == {}:
         logger.info("WARNING: match is empty")
+        current = {'id': JSON_entry}
 
-        match = {'c': JSON_entry, 'p': -1, 'id': max_id}
+        match = {'id': max_id, 'p': {}, 'c': current,'n': {},}
 
 
     #look through the matching and find the corresponding entry, the set the entry_id to the 'name' in the matching entry

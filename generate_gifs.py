@@ -3,20 +3,20 @@ import imageio
 
 def generate_gifs(crop_folder, logger):
     dates_dir = os.path.join("output", crop_folder.replace("data", "").strip("/")) + "/nodules-last-detected-on"
-    print(f"@generate_gifs: dates_dir:{dates_dir}")
+    logger.info(f"@generate_gifs: dates_dir:{dates_dir}")
     
     subdirs = [os.path.join(dates_dir, o) for o in os.listdir(dates_dir) if os.path.isdir(os.path.join(dates_dir,o))]
     
     for subdir in subdirs:
         subdir_folder = subdir.split("/")[-1]
-        print(f"subdir: {subdir}")
+        #print(f"subdir: {subdir}")
         year, month, day = os.path.basename(subdir).split("-")
         
         nodules_subdirs = [os.path.join(subdir, o) for o in os.listdir(subdir) if os.path.isdir(os.path.join(subdir,o))]
 
 
         for nodule_dir in nodules_subdirs:
-            print(f"nodule_dir: {nodule_dir}")
+            #print(f"nodule_dir: {nodule_dir}")
             nodule_num = os.path.basename(nodule_dir)
             o_jpg_files = sorted([f for f in os.listdir(nodule_dir) if f.endswith('.jpg')])
             o_jpg_files = [os.path.join(nodule_dir, f) for f in o_jpg_files]

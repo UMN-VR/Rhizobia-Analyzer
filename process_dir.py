@@ -66,8 +66,19 @@ def process_dir(file_name, main_logger):
 
         # Replace / with _ and capitalize the result
         crop_log_name = crop_folder.replace('/', '_')
+
+        # get crop_folder_name by removing the 'data/' from the beginning of the crop_folder: 'data/crop1000' -> 'crop1000'
+        crop_folder_name = crop_folder.replace('data/', '')
+
+        output_dir = f"output/{crop_folder_name}"
+
+        # Create the directory if it doesn't exist
+        os.makedirs(output_dir, exist_ok=True)
+
         # Create the logger for this specific crop folder
-        crop_logger = Logger(f'{crop_log_name}.log', "output").get_logger()
+        crop_logger = Logger(f'{crop_log_name}.log', output_dir).get_logger()
+
+
         # Process all images in the crop folder
         result_crop_folder = process_crop_folder(crop_folder, crop_logger)
 
