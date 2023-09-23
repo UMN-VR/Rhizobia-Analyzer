@@ -3,7 +3,9 @@ import numpy as np
 
 from i_dict import iDict
 
-def find_matching(logger, combined_distances, next_matching=None, current_date_string=None, scalar_distance_threshold=3):
+#from json_utils import initialize_json_file, append_to_json_list
+
+def find_matching(logger, combined_distances, crop_folder, next_matching=None, current_date_string=None, scalar_distance_threshold=3, current_json=None, prev_json=None, next_json=None):
         """Find the matching between the current and previous points.
         Returns: matching, unmatched_current, unmatched_previous, distance_threshold
 
@@ -26,11 +28,11 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
         tp_pos_accumulator = 0
         tq_pos_i = 0
 
-        if next_matching is not None:
-            #next_ids = {match[2] for match in next_matching}  # Extract IDs from next matching
-            next_ids = {match_entry['id'] for match_entry in next_matching}
-        else:
-            next_ids = set()
+        # if next_matching is not None:
+        #     #next_ids = {match[2] for match in next_matching}  # Extract IDs from next matching
+        #     next_ids = {match_entry['id'] for match_entry in next_matching}
+        # else:
+        #     next_ids = set()
 
 
         if next_matching is None:
@@ -42,39 +44,131 @@ def find_matching(logger, combined_distances, next_matching=None, current_date_s
 
             id = f"{current_date_string}_{len(matching)}"
             i = 0
-            next_index = -1
+            dx = 0
+            dy = 0
 
 
             combined_distance = combined_distances[current_index, previous_index]
 
-            if combined_distance <= distance_threshold:
+            prev_x = prev_json[previous_index]['x']
+            prev_y = prev_json[previous_index]['y']
 
-                if next_matching is not None:
-                    for match_entry in next_matching:
 
-                        if match_entry['p']['id'] == current_index and match_entry['p']['tq'] > 0:
-                    
+            current_x = current_json[current_index]['x']
+            current_y = current_json[current_index]['y']
+
+            # calculate the distance between the current and previous points
+            p_dx = current_x - prev_x
+            p_dy = current_y - prev_y
+
+            prev_diameter = prev_json[previous_index]['d']
+            current_diameter = current_json[current_index]['d']
+
+            prev_area = prev_json[previous_index]['a']
+            current_area = current_json[current_index]['a']
+
+            prev_perimeter = prev_json[previous_index]['p']
+            current_perimeter = current_json[current_index]['p']
+
+            prev_eccentricity = prev_json[previous_index]['e']
+            current_eccentricity = current_json[current_index]['e']
+
+            # prev_tracking_quality = prev_json[previous_index]['tq']
+            # current_tracking_quality = current_json[current_index]['tq']
+
+            p_dd = round((current_diameter - prev_diameter), 2)
+
+            p_da = round((current_area - prev_area), 2)
+
+            p_dp = round((current_perimeter - prev_perimeter), 2)
+
+            p_de = round((current_eccentricity - prev_eccentricity), 2)
+
+            # dtq = current_tracking_quality - prev_tracking_quality
+
+
+
+            matched_next = False
+
+            # if combined_distance <= distance_threshold:
+
+            if next_matching is not None:
+
+                for match_entry in next_matching: 
+
+                    if match_entry['p']['id'] == current_index:
+
+                        
+                        if match_entry['p']['tq'] > 0:
+
+                            matched_next = True
+                
                             id = match_entry["id"]
                             i = match_entry["i"] + 1
+
                             next_index = match_entry["c"]['id']
+
+                            next_x = next_json[next_index]['x']
+                            next_y = next_json[next_index]['y']
+
+                            next_diameter = next_json[next_index]['d']
+                            next_area = next_json[next_index]['a']
+                            next_perimeter = next_json[next_index]['p']
+                            next_eccentricity = next_json[next_index]['e']
+
+                            n_dx = next_x - current_x
+                            n_dy = next_y - current_y
+
+                            n_dd = round((next_diameter - current_diameter), 2)
+                            n_da = round((next_area - current_area), 2)
+                            n_dp = round((next_perimeter - current_perimeter), 2)
+                            n_de = round((next_eccentricity - current_eccentricity), 2)
+
+
 
                             # If the nodule was matched below the distance threshold, keep its ID from the next matching
                             logger.info(f"matched entry: {match_entry}, len(matching): {len(matching)}")
-                            break
+                        else:
+                            logger.info(f"tq < 0")
+                            
+                        break
+
+                            
+
+                            
+
+
+
+                            
             
-            else:
-                logger.info(f"combined_distances[{current_index}, {previous_index}] ={combined_distance} > {distance_threshold} = distance_threshold") 
+            # else:
+            #     logger.info(f"combined_distances[{current_index}, {previous_index}] ={combined_distance} > {distance_threshold} = distance_threshold") 
+
+
+                
 
             tracking_quality = (100-((combined_distance/distance_threshold)*100)).round()
 
-            prev = {'id': previous_index, 'tq': tracking_quality}
+            prev = {'id': previous_index, 'tq': tracking_quality, 'dx': p_dx, 'dy': p_dy, 'dd': p_dd, 'da': p_da, 'dp': p_dp, 'de': p_de}
 
             current = {'id': current_index}
 
-            next = {'id': next_index}
+            if matched_next:
+                next = {'id': next_index, 'dx': n_dx, 'dy': n_dy, 'dd': n_dd, 'da': n_da, 'dp': n_dp, 'de': n_de}
+
+            else:
+                next = {}
+                # filename format is 'output/{crop_folder}/nodules-last-detected-on/{date_string}/{id}/_.json'
+                # filename must be something like 'output/crop1001/nodules-last-detected-on/2023-04-24/0/_.json'
+
+                # formated_date_string = current_date_string[0:4] + '-' + current_date_string[4:6] + '-' + current_date_string[6:8]
+
+                # id_number_component = id.split('_')[1]
+                # filename = f"output/{crop_folder}/nodules-last-detected-on/{formated_date_string}/{id_number_component}/_.json"
+                # initialize_json_file(filename)
                 
             # give i name 'c' for current, and j name 'p' for previous
-            match_result = {'id': id, 'p': prev, 'c': current, 'n':next, 'i':i, 'tq':tracking_quality}
+            match_result = {'id': id, 'p': prev, 'c': current, 'n':next, 'i':i}
 
             # add tracking quality to tq_accumulator
             tq_accumulator += tracking_quality

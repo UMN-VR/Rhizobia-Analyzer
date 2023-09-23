@@ -9,6 +9,7 @@ from HTML_out import generate_results_page
 from memory_logger import log_memory_usage
 from Logger import Logger
 import subprocess
+import time
 
 def process_dir(file_name, main_logger):
     """
@@ -64,6 +65,8 @@ def process_dir(file_name, main_logger):
         main_logger.info(f"Processing crop folder: {crop_folder}")
         print(f"{crop_folder}/")
 
+        start_time = time.time()
+
         # Replace / with _ and capitalize the result
         crop_log_name = crop_folder.replace('/', '_')
 
@@ -84,6 +87,14 @@ def process_dir(file_name, main_logger):
 
         entry = [crop_folder, result_crop_folder]
         results.append(entry)
+
+        end_time = time.time()
+
+        dt = end_time - start_time
+
+        print(f"Took {dt} s\n\n")
+
+
             
 
     generate_results = input("Generate results? (y/n): ")

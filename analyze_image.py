@@ -84,7 +84,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
     #Find the previous & next date 
     prev_date, next_date = find_prev_next_date_paths(image_output_dir, logger)
 
-    prev_results = []
+    json_prev = []
     next_results = []
 
     prev_date_string = None
@@ -96,14 +96,14 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
         # get previous date string
         prev_date_string = os.path.basename(prev_date).split('.')[0]
 
-        prev_results = load_json(prev_date)
-        if prev_results is None:
+        json_prev = load_json(prev_date)
+        if json_prev is None:
             logger.info(f"Unable to open JSON file: {prev_date}")
             sys.exit(1)
 
-        logger.info(f"Loaded prev_results from JSON file: {prev_date_string}, length: {len(prev_results)}")
+        logger.info(f"Loaded prev_results from JSON file: {prev_date_string}, length: {len(json_prev)}")
         # scale X,Y coordinates of JSON data
-        prev_results = scale_json(prev_results, scalar_position=scalar_position, scalar_size=scalar_size)
+        json_prev = scale_json(json_prev, scalar_position=scalar_position, scalar_size=scalar_size)
         logger.info(f"Scaled JSON data: scalar_position: {scalar_position}, scalar_size: {scalar_size}")
 
     if next_date is not None:
@@ -124,7 +124,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
 
     
 
-    if prev_results:
+    if json_prev:
 
         logger.info(f"prev_results is not empty, generating matching")
         log_memory_usage(logger)
@@ -135,15 +135,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
 
         # Extract the points and attributes
         points, attributes = ImageAnalyzer.extract_points_and_attributes(json_data)
-        prev_points, prev_attributes = ImageAnalyzer.extract_points_and_attributes(prev_results)
-
-        # Normalize the points
-        # points = ImageAnalyzer.normalize(points)
-        # prev_points = ImageAnalyzer.normalize(prev_points)
-
-        # Normalize the attributes
-        # attributes = ImageAnalyzer.normalize(attributes)
-        # prev_attributes = ImageAnalyzer.normalize(prev_attributes)
+        prev_points, prev_attributes = ImageAnalyzer.extract_points_and_attributes(json_prev)
 
         # Compute the distances
         spatial_distances, attribute_distances = ImageAnalyzer.compute_distances(points, prev_points, attributes, prev_attributes)
@@ -158,7 +150,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
         log_memory_usage(logger)
 
         # Find the matching
-        matching, unmatched_current, unmatched_previous, match_stats = find_matching(logger, combined_distances, next_matching, current_date_string=current_date, scalar_distance_threshold=3)
+        matching, unmatched_current, unmatched_previous, match_stats = find_matching(logger, combined_distances, crop_folder=crop_number, next_matching=next_matching, current_date_string=current_date, scalar_distance_threshold=3, current_json=json_data, prev_json=json_prev, next_json=next_results)
 
         plot_file_name = os.path.join(image_output_dir.replace(f"/{current_date}", ""), "plots")
 
@@ -173,7 +165,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
         # Plot the data
         plot_data(logger,
             normalized_points, normalized_prev_points, 
-            points, prev_points, current_data=json_data, prev_data=prev_results, 
+            points, prev_points, current_data=json_data, prev_data=json_prev, 
             matching=matching, unmatched_current=unmatched_current, unmatched_prev=unmatched_previous, 
             combined_distances=combined_distances, distance_threshold=match_stats['distance_threshold'], filename=plot_file_name,
             current_date_string=current_date, previous_date_string=prev_date_string)

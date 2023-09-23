@@ -13,6 +13,8 @@ from analyze_image import analyze_image
 
 from generate_gifs import generate_gifs
 
+import time
+
 
 def process_crop_folder(crop_folder, logger):
     """
@@ -44,6 +46,8 @@ def process_crop_folder(crop_folder, logger):
         #logger.info(f"Objects: {objects}")
         #logger.info("\n")
 
+        start_time = time.time()
+
         #print just the file name to the console
         print(f"{os.path.basename(file)}")
 
@@ -58,7 +62,11 @@ def process_crop_folder(crop_folder, logger):
         logger.info(f"analyze_image() returned: {result_entry}")
         results.append(result_entry)
 
-        logger.info(f"DONE processing image: {file}\n\n")
+        end_time = time.time()
+
+        dt = end_time - start_time
+
+        logger.info(f"DONE processing image: {file}, took {dt}s\n\n")
 
     #Generate GIFS for nodules
 

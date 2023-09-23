@@ -5,6 +5,8 @@ from find_dayJSON_match_for_contour import find_dayJSON_match_for_contour
 
 from cv_utils import extract_segment
 
+from json_utils import append_to_json_list
+
 
 def process_contour(i, contour, logger, json_data, matching, date_string, nodules_dir, right_image, left_image, max_id):
     
@@ -62,7 +64,7 @@ def process_contour(i, contour, logger, json_data, matching, date_string, nodule
 
     entry_id = max_id
     match = {}
-    #look through the matching and find the corresponding entry, the set the entry_id to the 'name' in the matching entry in one line
+    
     if matching is not None:
         for match_entry in matching:
             current_id = match_entry['c']['id']
@@ -176,5 +178,7 @@ def process_contour(i, contour, logger, json_data, matching, date_string, nodule
     
 
     logger.info(f"\n")
+
+    append_to_json_list(nodule_images_path+"/_.json", entry)
 
     return entry
