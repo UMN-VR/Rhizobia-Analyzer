@@ -39,7 +39,8 @@ def initialize_json_file(filename):
 def append_to_json_list(filename, item):
 
 
-    item_str = json.dumps(item, indent=2)
+    #item_str = json.dumps(item, indent=1)
+    item_str = json.dumps(item)
 
 
     initialize_json_file(filename)

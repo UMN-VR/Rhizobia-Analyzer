@@ -179,6 +179,8 @@ def process_contour(i, contour, logger, json_data, matching, date_string, nodule
 
     logger.info(f"\n")
 
-    append_to_json_list(nodule_images_path+"/_.json", entry)
+    nodule_json_entry = {'date': formated_date_string, 'entry': entry}
+
+    append_to_json_list(nodule_images_path+"/_.json", nodule_json_entry)
 
     return entry
