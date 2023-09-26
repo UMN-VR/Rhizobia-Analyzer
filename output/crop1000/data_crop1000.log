@@ -1,5 +1,8 @@
 
-@process_crop_folder: Processing crop folder: data/crop1000
+@process_crop_folder: crop_folder: data/crop1000
+Generating crop plots gif
+@generate_gif_from_list: list:['data/crop1000/20230424.jpg', 'data/crop1000/20230426.jpg', 'data/crop1000/20230501.jpg', 'data/crop1000/20230503.jpg', 'data/crop1000/20230505.jpg', 'data/crop1000/20230508.jpg', 'data/crop1000/20230510.jpg', 'data/crop1000/20230512.jpg', 'data/crop1000/20230515.jpg', 'data/crop1000/20230517.jpg', 'data/crop1000/20230519.jpg', 'data/crop1000/20230522.jpg', 'data/crop1000/20230524.jpg', 'data/crop1000/20230526.jpg', 'data/crop1000/20230529.jpg', 'data/crop1000/20230531.jpg', 'data/crop1000/20230602.jpg', 'data/crop1000/20230605.jpg', 'data/crop1000/20230607.jpg'], output_filename:output/crop1000/crop1000.gif
+output_filename: output/crop1000/crop1000.gif
 Found 19 files: ['data/crop1000/20230424.jpg', 'data/crop1000/20230426.jpg', 'data/crop1000/20230501.jpg', 'data/crop1000/20230503.jpg', 'data/crop1000/20230505.jpg', 'data/crop1000/20230508.jpg', 'data/crop1000/20230510.jpg', 'data/crop1000/20230512.jpg', 'data/crop1000/20230515.jpg', 'data/crop1000/20230517.jpg', 'data/crop1000/20230519.jpg', 'data/crop1000/20230522.jpg', 'data/crop1000/20230524.jpg', 'data/crop1000/20230526.jpg', 'data/crop1000/20230529.jpg', 'data/crop1000/20230531.jpg', 'data/crop1000/20230602.jpg', 'data/crop1000/20230605.jpg', 'data/crop1000/20230607.jpg']
 ------------------------------------
 
@@ -12,8 +15,8 @@ current_date: 20230607, crop_number: crop1000
 image_output_dir: output/crop1000/20230607
 Starting log at: output/crop1000/20230607/crop1000_20230607.log
 Creating logger: crop1000_20230607.log, output/crop1000/20230607, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230607', 'json': 'output/crop1000/20230607/20230607.json', 'image': 'data/crop1000/20230607.jpg', 'match_stats': {'i_dict': {0: 141}, 'tq_average': 11.624113475177305, 'average_tracking_quality': 65.3103448275862, 'distance_threshold': 18.30617004440861}}
-DONE processing image: data/crop1000/20230607.jpg, took 4.874172925949097s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230607', 'json': 'output/crop1000/20230607/20230607.json', 'log': 'output/crop1000/20230607/crop1000_20230607.log', 'image': 'data/crop1000/20230607.jpg', 'plot': 'output/crop1000/plots/20230605_20230607.png', 'match_stats': {'i_dict': {0: 141}, 'average_tracking_quality': 67.77777777777777, 'distance_threshold': 20, 'length': {'matching': 141, 'unmatched_current': 3, 'unmatched_previous': 0}, 'average': {'tq': 19.134751773049647, 0.0: 0.0, 'dx': 0.2127659574468085, 'dy': 0.5390070921985816, 'dd': -0.20567375886524822, 'da': -10.390070921985815, 'dp': -2.0097163120567356, 'de': -0.009858156028368797}}}
+DONE processing image: data/crop1000/20230607.jpg, took 5.018678903579712s
 
 
 Processing image: data/crop1000/20230605.jpg
@@ -24,8 +27,8 @@ current_date: 20230605, crop_number: crop1000
 image_output_dir: output/crop1000/20230605
 Starting log at: output/crop1000/20230605/crop1000_20230605.log
 Creating logger: crop1000_20230605.log, output/crop1000/20230605, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230605', 'json': 'output/crop1000/20230605/20230605.json', 'image': 'data/crop1000/20230605.jpg', 'match_stats': {'i_dict': {0: 25, 1: 116}, 'tq_average': 14.652482269503546, 'average_tracking_quality': 67.58620689655173, 'distance_threshold': 15.825529241235852}}
-DONE processing image: data/crop1000/20230605.jpg, took 4.772309064865112s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230605', 'json': 'output/crop1000/20230605/20230605.json', 'log': 'output/crop1000/20230605/crop1000_20230605.log', 'image': 'data/crop1000/20230605.jpg', 'plot': 'output/crop1000/plots/20230602_20230605.png', 'match_stats': {'i_dict': {0: 24, 1: 117}, 'average_tracking_quality': 72.78991596638656, 'distance_threshold': 20, 'length': {'matching': 141, 'unmatched_current': 0, 'unmatched_previous': 4}, 'average': {'tq': 32.43971631205674, 0.8297872340425532: 0.8297872340425532, 'dx': 1.0425531914893618, 'dy': 0.7943262411347518, 'dd': 0.12056737588652482, 'da': 8.00709219858156, 'dp': 2.0846099290780145, 'de': 0.02191489361702128}}}
+DONE processing image: data/crop1000/20230605.jpg, took 5.07423996925354s
 
 
 Processing image: data/crop1000/20230602.jpg
@@ -36,8 +39,8 @@ current_date: 20230602, crop_number: crop1000
 image_output_dir: output/crop1000/20230602
 Starting log at: output/crop1000/20230602/crop1000_20230602.log
 Creating logger: crop1000_20230602.log, output/crop1000/20230602, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230602', 'json': 'output/crop1000/20230602/20230602.json', 'image': 'data/crop1000/20230602.jpg', 'match_stats': {'i_dict': {0: 29, 1: 13, 2: 103}, 'tq_average': 25.689655172413794, 'average_tracking_quality': 64.87903225806451, 'distance_threshold': 22.6201756920061}}
-DONE processing image: data/crop1000/20230602.jpg, took 4.679949045181274s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230602', 'json': 'output/crop1000/20230602/20230602.json', 'log': 'output/crop1000/20230602/crop1000_20230602.log', 'image': 'data/crop1000/20230602.jpg', 'plot': 'output/crop1000/plots/20230531_20230602.png', 'match_stats': {'i_dict': {0: 26, 1: 12, 2: 107}, 'average_tracking_quality': 65.42608695652174, 'distance_threshold': 20, 'length': {'matching': 145, 'unmatched_current': 0, 'unmatched_previous': 0}, 'average': {'tq': 15.910344827586206, 1.5586206896551724: 1.5586206896551724, 'dx': -3.8413793103448275, 'dy': 0.09655172413793103, 'dd': 0.25517241379310346, 'da': 11.151724137931035, 'dp': 1.5335172413793101, 'de': -0.007379310344827588}}}
+DONE processing image: data/crop1000/20230602.jpg, took 5.127126932144165s
 
 
 Processing image: data/crop1000/20230531.jpg
@@ -48,8 +51,8 @@ current_date: 20230531, crop_number: crop1000
 image_output_dir: output/crop1000/20230531
 Starting log at: output/crop1000/20230531/crop1000_20230531.log
 Creating logger: crop1000_20230531.log, output/crop1000/20230531, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230531', 'json': 'output/crop1000/20230531/20230531.json', 'image': 'data/crop1000/20230531.jpg', 'match_stats': {'i_dict': {0: 19, 1: 18, 2: 10, 3: 95}, 'tq_average': 28.190140845070424, 'average_tracking_quality': 70.80909090909091, 'distance_threshold': 24.404270117100054}}
-DONE processing image: data/crop1000/20230531.jpg, took 5.115722894668579s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230531', 'json': 'output/crop1000/20230531/20230531.json', 'log': 'output/crop1000/20230531/crop1000_20230531.log', 'image': 'data/crop1000/20230531.jpg', 'plot': 'output/crop1000/plots/20230529_20230531.png', 'match_stats': {'i_dict': {0: 28, 1: 12, 2: 9, 3: 93}, 'average_tracking_quality': 65.62962962962963, 'distance_threshold': 20, 'length': {'matching': 142, 'unmatched_current': 3, 'unmatched_previous': 0}, 'average': {'tq': 12.28169014084507, 2.176056338028169: 2.176056338028169, 'dx': 8.211267605633802, 'dy': 3.1056338028169015, 'dd': 0.09154929577464789, 'da': 2.1338028169014085, 'dp': 0.6009154929577466, 'de': 0.008591549295774636}}}
+DONE processing image: data/crop1000/20230531.jpg, took 4.932674169540405s
 
 
 Processing image: data/crop1000/20230529.jpg
@@ -60,8 +63,8 @@ current_date: 20230529, crop_number: crop1000
 image_output_dir: output/crop1000/20230529
 Starting log at: output/crop1000/20230529/crop1000_20230529.log
 Creating logger: crop1000_20230529.log, output/crop1000/20230529, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230529', 'json': 'output/crop1000/20230529/20230529.json', 'image': 'data/crop1000/20230529.jpg', 'match_stats': {'i_dict': {0: 30, 1: 7, 2: 13, 3: 7, 4: 77}, 'tq_average': 27.597014925373134, 'average_tracking_quality': 70.25490196078431, 'distance_threshold': 18.61270729646666}}
-DONE processing image: data/crop1000/20230529.jpg, took 4.958523988723755s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230529', 'json': 'output/crop1000/20230529/20230529.json', 'log': 'output/crop1000/20230529/crop1000_20230529.log', 'image': 'data/crop1000/20230529.jpg', 'plot': 'output/crop1000/plots/20230526_20230529.png', 'match_stats': {'i_dict': {0: 32, 1: 12, 2: 8, 3: 6, 4: 76}, 'average_tracking_quality': 69.72641509433963, 'distance_threshold': 20, 'length': {'matching': 134, 'unmatched_current': 8, 'unmatched_previous': 0}, 'average': {'tq': 32.582089552238806, 2.611940298507463: 2.611940298507463, 'dx': 2.6641791044776117, 'dy': -1.8955223880597014, 'dd': 0.3208955223880597, 'da': 11.283582089552239, 'dp': 2.1819402985074636, 'de': -0.028134328358208952}}}
+DONE processing image: data/crop1000/20230529.jpg, took 4.702446937561035s
 
 
 Processing image: data/crop1000/20230526.jpg
@@ -72,8 +75,8 @@ current_date: 20230526, crop_number: crop1000
 image_output_dir: output/crop1000/20230526
 Starting log at: output/crop1000/20230526/crop1000_20230526.log
 Creating logger: crop1000_20230526.log, output/crop1000/20230526, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230526', 'json': 'output/crop1000/20230526/20230526.json', 'image': 'data/crop1000/20230526.jpg', 'match_stats': {'i_dict': {0: 22, 1: 11, 2: 5, 3: 10, 4: 6, 5: 65}, 'tq_average': 10.663865546218487, 'average_tracking_quality': 63.57, 'distance_threshold': 19.96374969872912}}
-DONE processing image: data/crop1000/20230526.jpg, took 3.8909242153167725s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230526', 'json': 'output/crop1000/20230526/20230526.json', 'log': 'output/crop1000/20230526/crop1000_20230526.log', 'image': 'data/crop1000/20230526.jpg', 'plot': 'output/crop1000/plots/20230524_20230526.png', 'match_stats': {'i_dict': {0: 20, 1: 13, 2: 10, 3: 7, 4: 5, 5: 64}, 'average_tracking_quality': 63.63, 'distance_threshold': 20, 'length': {'matching': 119, 'unmatched_current': 15, 'unmatched_previous': 0}, 'average': {'tq': 10.806722689075631, 3.310924369747899: 3.310924369747899, 'dx': 1.226890756302521, 'dy': 11.949579831932773, 'dd': 0.14285714285714285, 'da': 4.436974789915967, 'dp': 0.6113445378151259, 'de': 0.0021008403361344546}}}
+DONE processing image: data/crop1000/20230526.jpg, took 4.310320854187012s
 
 
 Processing image: data/crop1000/20230524.jpg
@@ -84,8 +87,8 @@ current_date: 20230524, crop_number: crop1000
 image_output_dir: output/crop1000/20230524
 Starting log at: output/crop1000/20230524/crop1000_20230524.log
 Creating logger: crop1000_20230524.log, output/crop1000/20230524, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230524', 'json': 'output/crop1000/20230524/20230524.json', 'image': 'data/crop1000/20230524.jpg', 'match_stats': {'i_dict': {0: 14, 1: 14, 2: 9, 3: 4, 4: 8, 5: 3, 6: 60}, 'tq_average': 40.82142857142857, 'average_tracking_quality': 67.56842105263158, 'distance_threshold': 27.539674951452405}}
-DONE processing image: data/crop1000/20230524.jpg, took 3.9096603393554688s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230524', 'json': 'output/crop1000/20230524/20230524.json', 'log': 'output/crop1000/20230524/crop1000_20230524.log', 'image': 'data/crop1000/20230524.jpg', 'plot': 'output/crop1000/plots/20230522_20230524.png', 'match_stats': {'i_dict': {0: 14, 1: 12, 2: 11, 3: 9, 4: 5, 5: 2, 6: 59}, 'average_tracking_quality': 61.98850574712644, 'distance_threshold': 20, 'length': {'matching': 112, 'unmatched_current': 7, 'unmatched_previous': 0}, 'average': {'tq': 18.455357142857142, 3.9732142857142856: 3.9732142857142856, 'dx': 0.24107142857142858, 'dy': 1.0625, 'dd': 0.4642857142857143, 'da': 20.982142857142858, 'dp': 3.9987500000000002, 'de': 0.013571428571428576}}}
+DONE processing image: data/crop1000/20230524.jpg, took 3.962529182434082s
 
 
 Processing image: data/crop1000/20230522.jpg
@@ -96,8 +99,8 @@ current_date: 20230522, crop_number: crop1000
 image_output_dir: output/crop1000/20230522
 Starting log at: output/crop1000/20230522/crop1000_20230522.log
 Creating logger: crop1000_20230522.log, output/crop1000/20230522, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230522', 'json': 'output/crop1000/20230522/20230522.json', 'image': 'data/crop1000/20230522.jpg', 'match_stats': {'i_dict': {0: 16, 1: 9, 2: 6, 3: 6, 4: 3, 5: 4, 6: 3, 7: 55}, 'tq_average': 11.392156862745098, 'average_tracking_quality': 67.25301204819277, 'distance_threshold': 20.92110522605525}}
-DONE processing image: data/crop1000/20230522.jpg, took 3.392690896987915s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230522', 'json': 'output/crop1000/20230522/20230522.json', 'log': 'output/crop1000/20230522/crop1000_20230522.log', 'image': 'data/crop1000/20230522.jpg', 'plot': 'output/crop1000/plots/20230519_20230522.png', 'match_stats': {'i_dict': {0: 21, 1: 9, 2: 6, 3: 7, 4: 5, 5: 2, 6: 2, 7: 50}, 'average_tracking_quality': 66.52439024390245, 'distance_threshold': 20, 'length': {'matching': 102, 'unmatched_current': 10, 'unmatched_previous': 0}, 'average': {'tq': 7.2745098039215685, 4.254901960784314: 4.254901960784314, 'dx': -0.28431372549019607, 'dy': 8.647058823529411, 'dd': 0.43137254901960786, 'da': 13.441176470588236, 'dp': 3.241764705882352, 'de': -0.007254901960784317}}}
+DONE processing image: data/crop1000/20230522.jpg, took 3.32255482673645s
 
 
 Processing image: data/crop1000/20230519.jpg
@@ -108,8 +111,8 @@ current_date: 20230519, crop_number: crop1000
 image_output_dir: output/crop1000/20230519
 Starting log at: output/crop1000/20230519/crop1000_20230519.log
 Creating logger: crop1000_20230519.log, output/crop1000/20230519, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230519', 'json': 'output/crop1000/20230519/20230519.json', 'image': 'data/crop1000/20230519.jpg', 'match_stats': {'i_dict': {0: 19, 1: 9, 2: 9, 3: 5, 4: 6, 5: 2, 6: 2, 7: 3, 8: 47}, 'tq_average': 32.59803921568628, 'average_tracking_quality': 68.18072289156626, 'distance_threshold': 25.21617814432153}}
-DONE processing image: data/crop1000/20230519.jpg, took 3.751204252243042s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230519', 'json': 'output/crop1000/20230519/20230519.json', 'log': 'output/crop1000/20230519/crop1000_20230519.log', 'image': 'data/crop1000/20230519.jpg', 'plot': 'output/crop1000/plots/20230517_20230519.png', 'match_stats': {'i_dict': {0: 20, 1: 12, 2: 9, 3: 5, 4: 6, 5: 3, 6: 1, 7: 2, 8: 44}, 'average_tracking_quality': 62.3625, 'distance_threshold': 20, 'length': {'matching': 102, 'unmatched_current': 0, 'unmatched_previous': 5}, 'average': {'tq': 15.009803921568627, 4.470588235294118: 4.470588235294118, 'dx': 4.078431372549019, 'dy': -3.343137254901961, 'dd': 0.37254901960784315, 'da': 14.068627450980392, 'dp': 2.636568627450981, 'de': -0.02215686274509803}}}
+DONE processing image: data/crop1000/20230519.jpg, took 3.7093398571014404s
 
 
 Processing image: data/crop1000/20230517.jpg
@@ -120,8 +123,8 @@ current_date: 20230517, crop_number: crop1000
 image_output_dir: output/crop1000/20230517
 Starting log at: output/crop1000/20230517/crop1000_20230517.log
 Creating logger: crop1000_20230517.log, output/crop1000/20230517, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230517', 'json': 'output/crop1000/20230517/20230517.json', 'image': 'data/crop1000/20230517.jpg', 'match_stats': {'i_dict': {0: 15, 1: 8, 2: 5, 3: 8, 4: 2, 5: 3, 6: 2, 7: 1, 8: 1, 9: 28}, 'tq_average': 59.52054794520548, 'average_tracking_quality': 69.72307692307692, 'distance_threshold': 50.96221009899972}}
-DONE processing image: data/crop1000/20230517.jpg, took 2.8415260314941406s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230517', 'json': 'output/crop1000/20230517/20230517.json', 'log': 'output/crop1000/20230517/crop1000_20230517.log', 'image': 'data/crop1000/20230517.jpg', 'plot': 'output/crop1000/plots/20230515_20230517.png', 'match_stats': {'i_dict': {0: 16, 1: 8, 2: 5, 3: 8, 4: 2, 5: 3, 6: 2, 7: 1, 8: 1, 9: 27}, 'average_tracking_quality': 51.82608695652174, 'distance_threshold': 20, 'length': {'matching': 73, 'unmatched_current': 34, 'unmatched_previous': 0}, 'average': {'tq': -3.219178082191781, 4.589041095890411: 4.589041095890411, 'dx': 2.4246575342465753, 'dy': 4.205479452054795, 'dd': 0.7534246575342466, 'da': 23.84931506849315, 'dp': 4.4828767123287685, 'de': -0.015342465753424659}}}
+DONE processing image: data/crop1000/20230517.jpg, took 3.215973138809204s
 
 
 Processing image: data/crop1000/20230515.jpg
@@ -132,8 +135,8 @@ current_date: 20230515, crop_number: crop1000
 image_output_dir: output/crop1000/20230515
 Starting log at: output/crop1000/20230515/crop1000_20230515.log
 Creating logger: crop1000_20230515.log, output/crop1000/20230515, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230515', 'json': 'output/crop1000/20230515/20230515.json', 'image': 'data/crop1000/20230515.jpg', 'match_stats': {'i_dict': {0: 3, 1: 8, 2: 2, 3: 2, 4: 6, 5: 1, 6: 3, 7: 2, 10: 13}, 'tq_average': 57.35, 'average_tracking_quality': 61.078947368421055, 'distance_threshold': 55.58755431493551}}
-DONE processing image: data/crop1000/20230515.jpg, took 2.060859203338623s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230515', 'json': 'output/crop1000/20230515/20230515.json', 'log': 'output/crop1000/20230515/crop1000_20230515.log', 'image': 'data/crop1000/20230515.jpg', 'plot': 'output/crop1000/plots/20230512_20230515.png', 'match_stats': {'i_dict': {0: 11, 1: 6, 2: 2, 3: 1, 4: 3, 5: 1, 6: 2, 7: 2, 10: 12}, 'average_tracking_quality': 41.285714285714285, 'distance_threshold': 20, 'length': {'matching': 40, 'unmatched_current': 33, 'unmatched_previous': 0}, 'average': {'tq': -18.55, 4.4: 4.4, 'dx': -5.95, 'dy': 1.85, 'dd': 0.075, 'da': 7.925, 'dp': 1.6602499999999996, 'de': -0.0225}}}
+DONE processing image: data/crop1000/20230515.jpg, took 2.354172945022583s
 
 
 Processing image: data/crop1000/20230512.jpg
@@ -144,8 +147,8 @@ current_date: 20230512, crop_number: crop1000
 image_output_dir: output/crop1000/20230512
 Starting log at: output/crop1000/20230512/crop1000_20230512.log
 Creating logger: crop1000_20230512.log, output/crop1000/20230512, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230512', 'json': 'output/crop1000/20230512/20230512.json', 'image': 'data/crop1000/20230512.jpg', 'match_stats': {'i_dict': {0: 2, 1: 3, 2: 7, 3: 1, 4: 2, 5: 4, 6: 1, 7: 2, 8: 1, 11: 12}, 'tq_average': 29.114285714285714, 'average_tracking_quality': 71.11111111111111, 'distance_threshold': 57.10515737749823}}
-DONE processing image: data/crop1000/20230512.jpg, took 1.6210401058197021s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230512', 'json': 'output/crop1000/20230512/20230512.json', 'log': 'output/crop1000/20230512/crop1000_20230512.log', 'image': 'data/crop1000/20230512.jpg', 'plot': 'output/crop1000/plots/20230510_20230512.png', 'match_stats': {'i_dict': {0: 17, 1: 1, 2: 4, 3: 1, 4: 1, 5: 2, 6: 1, 8: 1, 11: 7}, 'average_tracking_quality': 52.473684210526315, 'distance_threshold': 20, 'length': {'matching': 35, 'unmatched_current': 5, 'unmatched_previous': 0}, 'average': {'tq': -102.42857142857143, 3.342857142857143: 3.342857142857143, 'dx': 2.342857142857143, 'dy': -35.285714285714285, 'dd': 0.2857142857142857, 'da': 6.771428571428571, 'dp': 0.8394285714285712, 'de': 0.00542857142857143}}}
+DONE processing image: data/crop1000/20230512.jpg, took 2.119845151901245s
 
 
 Processing image: data/crop1000/20230510.jpg
@@ -156,8 +159,8 @@ current_date: 20230510, crop_number: crop1000
 image_output_dir: output/crop1000/20230510
 Starting log at: output/crop1000/20230510/crop1000_20230510.log
 Creating logger: crop1000_20230510.log, output/crop1000/20230510, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230510', 'json': 'output/crop1000/20230510/20230510.json', 'image': 'data/crop1000/20230510.jpg', 'match_stats': {'i_dict': {0: 5, 1: 1, 2: 1, 3: 5, 4: 1, 5: 2, 6: 2, 7: 1, 8: 1, 9: 1, 12: 6}, 'tq_average': 59.84615384615385, 'average_tracking_quality': 64.24, 'distance_threshold': 106.23119768186109}}
-DONE processing image: data/crop1000/20230510.jpg, took 1.280972957611084s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230510', 'json': 'output/crop1000/20230510/20230510.json', 'log': 'output/crop1000/20230510/crop1000_20230510.log', 'image': 'data/crop1000/20230510.jpg', 'plot': 'output/crop1000/plots/20230508_20230510.png', 'match_stats': {'i_dict': {0: 11, 1: 6, 2: 1, 3: 3, 4: 1, 5: 1, 7: 1, 12: 2}, 'average_tracking_quality': 65.9090909090909, 'distance_threshold': 20, 'length': {'matching': 26, 'unmatched_current': 9, 'unmatched_previous': 0}, 'average': {'tq': -113.53846153846153, 2.1923076923076925: 2.1923076923076925, 'dx': -24.192307692307693, 'dy': -16.153846153846153, 'dd': -0.11538461538461539, 'da': -13.038461538461538, 'dp': -4.263076923076922, 'de': 0.0023076923076923027}}}
+DONE processing image: data/crop1000/20230510.jpg, took 1.5843939781188965s
 
 
 Processing image: data/crop1000/20230508.jpg
@@ -168,8 +171,8 @@ current_date: 20230508, crop_number: crop1000
 image_output_dir: output/crop1000/20230508
 Starting log at: output/crop1000/20230508/crop1000_20230508.log
 Creating logger: crop1000_20230508.log, output/crop1000/20230508, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230508', 'json': 'output/crop1000/20230508/20230508.json', 'image': 'data/crop1000/20230508.jpg', 'match_stats': {'i_dict': {0: 1, 1: 5, 2: 1, 3: 1, 4: 5, 5: 1, 6: 1, 7: 2, 8: 1, 9: 1, 10: 1, 13: 6}, 'tq_average': 62.38461538461539, 'average_tracking_quality': 68.95833333333333, 'distance_threshold': 149.19576119813408}}
-DONE processing image: data/crop1000/20230508.jpg, took 1.108450174331665s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230508', 'json': 'output/crop1000/20230508/20230508.json', 'log': 'output/crop1000/20230508/crop1000_20230508.log', 'image': 'data/crop1000/20230508.jpg', 'plot': 'output/crop1000/plots/20230505_20230508.png', 'match_stats': {'i_dict': {0: 15, 1: 4, 2: 3, 4: 2, 5: 1, 8: 1}, 'average_tracking_quality': 51.55555555555556, 'distance_threshold': 20, 'length': {'matching': 26, 'unmatched_current': 0, 'unmatched_previous': 0}, 'average': {'tq': -181.23076923076923, 1.1923076923076923: 1.1923076923076923, 'dx': -0.9230769230769231, 'dy': -6.076923076923077, 'dd': 0.5, 'da': 30.53846153846154, 'dp': 7.589615384615384, 'de': 0.004230769230769232}}}
+DONE processing image: data/crop1000/20230508.jpg, took 1.9396569728851318s
 
 
 Processing image: data/crop1000/20230505.jpg
@@ -180,8 +183,8 @@ current_date: 20230505, crop_number: crop1000
 image_output_dir: output/crop1000/20230505
 Starting log at: output/crop1000/20230505/crop1000_20230505.log
 Creating logger: crop1000_20230505.log, output/crop1000/20230505, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230505', 'json': 'output/crop1000/20230505/20230505.json', 'image': 'data/crop1000/20230505.jpg', 'match_stats': {'i_dict': {0: 2, 2: 5, 3: 1, 4: 1, 5: 4, 6: 1, 7: 1, 8: 2, 9: 1, 10: 1, 11: 1, 14: 6}, 'tq_average': 18.73076923076923, 'average_tracking_quality': 75.5, 'distance_threshold': 78.39716558604923}}
-DONE processing image: data/crop1000/20230505.jpg, took 1.7600011825561523s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230505', 'json': 'output/crop1000/20230505/20230505.json', 'log': 'output/crop1000/20230505/crop1000_20230505.log', 'image': 'data/crop1000/20230505.jpg', 'plot': 'output/crop1000/plots/20230503_20230505.png', 'match_stats': {'i_dict': {0: 17, 1: 4, 2: 1, 3: 1, 5: 1, 6: 1, 9: 1}, 'average_tracking_quality': 57.3, 'distance_threshold': 20, 'length': {'matching': 26, 'unmatched_current': 0, 'unmatched_previous': 0}, 'average': {'tq': -218.46153846153845, 1.1153846153846154: 1.1153846153846154, 'dx': 4.115384615384615, 'dy': -42.30769230769231, 'dd': -0.6153846153846154, 'da': -43.42307692307692, 'dp': -9.293846153846154, 'de': -0.005000000000000004}}}
+DONE processing image: data/crop1000/20230505.jpg, took 1.207509994506836s
 
 
 Processing image: data/crop1000/20230503.jpg
@@ -192,8 +195,8 @@ current_date: 20230503, crop_number: crop1000
 image_output_dir: output/crop1000/20230503
 Starting log at: output/crop1000/20230503/crop1000_20230503.log
 Creating logger: crop1000_20230503.log, output/crop1000/20230503, <Logger data_crop1000.log (DEBUG)>
-analyze_image() returned: {'crop': 'crop1000', 'date': '20230503', 'json': 'output/crop1000/20230503/20230503.json', 'image': 'data/crop1000/20230503.jpg', 'match_stats': {'i_dict': {0: 7, 1: 1, 3: 3, 6: 2, 8: 1, 9: 2, 10: 1, 12: 1, 15: 5}, 'tq_average': 68.47826086956522, 'average_tracking_quality': 68.47826086956522, 'distance_threshold': 209.5628584235212}}
-DONE processing image: data/crop1000/20230503.jpg, took 1.0898170471191406s
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230503', 'json': 'output/crop1000/20230503/20230503.json', 'log': 'output/crop1000/20230503/crop1000_20230503.log', 'image': 'data/crop1000/20230503.jpg', 'plot': 'output/crop1000/plots/20230501_20230503.png', 'match_stats': {'i_dict': {0: 14, 1: 5, 2: 2, 6: 1, 10: 1}, 'average_tracking_quality': 66.0, 'distance_threshold': 20, 'length': {'matching': 23, 'unmatched_current': 3, 'unmatched_previous': 0}, 'average': {'tq': -229.47826086956522, 1.0869565217391304: 1.0869565217391304, 'dx': 6.782608695652174, 'dy': 33.69565217391305, 'dd': -0.30434782608695654, 'da': -12.826086956521738, 'dp': -5.310869565217392, 'de': -0.0508695652173913}}}
+DONE processing image: data/crop1000/20230503.jpg, took 1.1643171310424805s
 
 
 Processing image: data/crop1000/20230501.jpg
@@ -204,3 +207,129 @@ current_date: 20230501, crop_number: crop1000
 image_output_dir: output/crop1000/20230501
 Starting log at: output/crop1000/20230501/crop1000_20230501.log
 Creating logger: crop1000_20230501.log, output/crop1000/20230501, <Logger data_crop1000.log (DEBUG)>
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230501', 'json': 'output/crop1000/20230501/20230501.json', 'log': 'output/crop1000/20230501/crop1000_20230501.log', 'image': 'data/crop1000/20230501.jpg', 'plot': 'output/crop1000/plots/20230426_20230501.png', 'match_stats': {'i_dict': {0: 14, 1: 1, 2: 1, 3: 1, 7: 1, 11: 1}, 'average_tracking_quality': 37.666666666666664, 'distance_threshold': 20, 'length': {'matching': 19, 'unmatched_current': 4, 'unmatched_previous': 0}, 'average': {'tq': -135.1578947368421, 1.263157894736842: 1.263157894736842, 'dx': 28.842105263157894, 'dy': 9.736842105263158, 'dd': -0.05263157894736842, 'da': -2.526315789473684, 'dp': 0.04526315789473662, 'de': -0.06684210526315788}}}
+DONE processing image: data/crop1000/20230501.jpg, took 1.0311188697814941s
+
+
+Processing image: data/crop1000/20230426.jpg
+Calling analyze_image() with file: data/crop1000/20230426.jpg, output_dir: output/crop1000
+
+@analyze_image: file_name: data/crop1000/20230426.jpg, output_dir: output/crop1000, external_logger: <Logger data_crop1000.log (DEBUG)>
+current_date: 20230426, crop_number: crop1000
+image_output_dir: output/crop1000/20230426
+Starting log at: output/crop1000/20230426/crop1000_20230426.log
+Creating logger: crop1000_20230426.log, output/crop1000/20230426, <Logger data_crop1000.log (DEBUG)>
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230426', 'json': 'output/crop1000/20230426/20230426.json', 'log': 'output/crop1000/20230426/crop1000_20230426.log', 'image': 'data/crop1000/20230426.jpg', 'plot': 'output/crop1000/plots/20230424_20230426.png', 'match_stats': {'i_dict': {0: 13, 1: 2, 2: 1, 3: 1, 8: 1, 12: 1}, 'average_tracking_quality': 38.42857142857143, 'distance_threshold': 20, 'length': {'matching': 19, 'unmatched_current': 0, 'unmatched_previous': 7}, 'average': {'tq': -88.26315789473684, 1.4210526315789473: 1.4210526315789473, 'dx': -13.947368421052632, 'dy': 3.473684210526316, 'dd': 0.5789473684210527, 'da': 19.157894736842106, 'dp': 3.5936842105263165, 'de': 0.017894736842105265}}}
+DONE processing image: data/crop1000/20230426.jpg, took 1.2679169178009033s
+
+
+Processing image: data/crop1000/20230424.jpg
+Calling analyze_image() with file: data/crop1000/20230424.jpg, output_dir: output/crop1000
+
+@analyze_image: file_name: data/crop1000/20230424.jpg, output_dir: output/crop1000, external_logger: <Logger data_crop1000.log (DEBUG)>
+current_date: 20230424, crop_number: crop1000
+image_output_dir: output/crop1000/20230424
+Starting log at: output/crop1000/20230424/crop1000_20230424.log
+Creating logger: crop1000_20230424.log, output/crop1000/20230424, <Logger data_crop1000.log (DEBUG)>
+analyze_image() returned: {'crop': 'crop1000', 'date': '20230424', 'json': 'output/crop1000/20230424/20230424.json', 'log': 'output/crop1000/20230424/crop1000_20230424.log', 'image': 'data/crop1000/20230424.jpg', 'plot': None, 'match_stats': {}}
+DONE processing image: data/crop1000/20230424.jpg, took 0.05698990821838379s
+
+
+Generating crop plots gif
+@generate_gif: path:output/crop1000/plots, output_name:plots.gif
+len_jpg_files: 0
+Calling post_process() with crop_folder: data/crop1000
+@gpost_process: crop_folder:data/crop1000, logger:<Logger data_crop1000.log (DEBUG)>
+dates_dir:output/crop1000/nodules-last-detected-on
+@gpost_process: subdir: output/crop1000/nodules-last-detected-on/2023-05-03
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/20, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/20/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/20 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/20 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/7, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/7/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/7 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/7 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/16, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/16/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/16 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/16 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/17, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/17/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/17 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/17 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/1, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/1/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/1 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/1 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/19, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/19/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/19 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/19 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/26, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/26/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/26 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/26 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/8, output_name:o.gif
+len_jpg_files: 3
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/8/detection, output_name:d.gif
+len_jpg_files: 3
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/8 has 3 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/8 has 3 entries
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/48, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/48/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/48 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/48 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/4, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/4/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/4 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/4 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/15, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/15/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/15 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/15 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/12, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/12/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/12 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/12 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/14, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/14/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/14 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/14 has less than 2 entries, skipping
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/22, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop1000/nodules-last-detected-on/2023-05-03/22/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/22 has 1 entries
+nodules_dir: output/crop1000/nodules-last-detected-on/2023-05-03/22 has less than 2 entries, skipping
+@gpost_process: output/crop1000/nodules-last-detected-on/2023-05-03, took 1.0s
+Saving results to: output/data/crop1000/results.json
+------------------------------------
+DONE Processing crop folder: data/crop1000
+Results: {'crop1000': [{'crop': 'crop1000', 'date': '20230607', 'json': 'output/crop1000/20230607/20230607.json', 'log': 'output/crop1000/20230607/crop1000_20230607.log', 'image': 'data/crop1000/20230607.jpg', 'plot': 'output/crop1000/plots/20230605_20230607.png', 'match_stats': {'i_dict': {0: 141}, 'average_tracking_quality': 67.77777777777777, 'distance_threshold': 20, 'length': {'matching': 141, 'unmatched_current': 3, 'unmatched_previous': 0}, 'average': {'tq': 19.134751773049647, 0.0: 0.0, 'dx': 0.2127659574468085, 'dy': 0.5390070921985816, 'dd': -0.20567375886524822, 'da': -10.390070921985815, 'dp': -2.0097163120567356, 'de': -0.009858156028368797}}}, {'crop': 'crop1000', 'date': '20230605', 'json': 'output/crop1000/20230605/20230605.json', 'log': 'output/crop1000/20230605/crop1000_20230605.log', 'image': 'data/crop1000/20230605.jpg', 'plot': 'output/crop1000/plots/20230602_20230605.png', 'match_stats': {'i_dict': {0: 24, 1: 117}, 'average_tracking_quality': 72.78991596638656, 'distance_threshold': 20, 'length': {'matching': 141, 'unmatched_current': 0, 'unmatched_previous': 4}, 'average': {'tq': 32.43971631205674, 0.8297872340425532: 0.8297872340425532, 'dx': 1.0425531914893618, 'dy': 0.7943262411347518, 'dd': 0.12056737588652482, 'da': 8.00709219858156, 'dp': 2.0846099290780145, 'de': 0.02191489361702128}}}, {'crop': 'crop1000', 'date': '20230602', 'json': 'output/crop1000/20230602/20230602.json', 'log': 'output/crop1000/20230602/crop1000_20230602.log', 'image': 'data/crop1000/20230602.jpg', 'plot': 'output/crop1000/plots/20230531_20230602.png', 'match_stats': {'i_dict': {0: 26, 1: 12, 2: 107}, 'average_tracking_quality': 65.42608695652174, 'distance_threshold': 20, 'length': {'matching': 145, 'unmatched_current': 0, 'unmatched_previous': 0}, 'average': {'tq': 15.910344827586206, 1.5586206896551724: 1.5586206896551724, 'dx': -3.8413793103448275, 'dy': 0.09655172413793103, 'dd': 0.25517241379310346, 'da': 11.151724137931035, 'dp': 1.5335172413793101, 'de': -0.007379310344827588}}}, {'crop': 'crop1000', 'date': '20230531', 'json': 'output/crop1000/20230531/20230531.json', 'log': 'output/crop1000/20230531/crop1000_20230531.log', 'image': 'data/crop1000/20230531.jpg', 'plot': 'output/crop1000/plots/20230529_20230531.png', 'match_stats': {'i_dict': {0: 28, 1: 12, 2: 9, 3: 93}, 'average_tracking_quality': 65.62962962962963, 'distance_threshold': 20, 'length': {'matching': 142, 'unmatched_current': 3, 'unmatched_previous': 0}, 'average': {'tq': 12.28169014084507, 2.176056338028169: 2.176056338028169, 'dx': 8.211267605633802, 'dy': 3.1056338028169015, 'dd': 0.09154929577464789, 'da': 2.1338028169014085, 'dp': 0.6009154929577466, 'de': 0.008591549295774636}}}, {'crop': 'crop1000', 'date': '20230529', 'json': 'output/crop1000/20230529/20230529.json', 'log': 'output/crop1000/20230529/crop1000_20230529.log', 'image': 'data/crop1000/20230529.jpg', 'plot': 'output/crop1000/plots/20230526_20230529.png', 'match_stats': {'i_dict': {0: 32, 1: 12, 2: 8, 3: 6, 4: 76}, 'average_tracking_quality': 69.72641509433963, 'distance_threshold': 20, 'length': {'matching': 134, 'unmatched_current': 8, 'unmatched_previous': 0}, 'average': {'tq': 32.582089552238806, 2.611940298507463: 2.611940298507463, 'dx': 2.6641791044776117, 'dy': -1.8955223880597014, 'dd': 0.3208955223880597, 'da': 11.283582089552239, 'dp': 2.1819402985074636, 'de': -0.028134328358208952}}}, {'crop': 'crop1000', 'date': '20230526', 'json': 'output/crop1000/20230526/20230526.json', 'log': 'output/crop1000/20230526/crop1000_20230526.log', 'image': 'data/crop1000/20230526.jpg', 'plot': 'output/crop1000/plots/20230524_20230526.png', 'match_stats': {'i_dict': {0: 20, 1: 13, 2: 10, 3: 7, 4: 5, 5: 64}, 'average_tracking_quality': 63.63, 'distance_threshold': 20, 'length': {'matching': 119, 'unmatched_current': 15, 'unmatched_previous': 0}, 'average': {'tq': 10.806722689075631, 3.310924369747899: 3.310924369747899, 'dx': 1.226890756302521, 'dy': 11.949579831932773, 'dd': 0.14285714285714285, 'da': 4.436974789915967, 'dp': 0.6113445378151259, 'de': 0.0021008403361344546}}}, {'crop': 'crop1000', 'date': '20230524', 'json': 'output/crop1000/20230524/20230524.json', 'log': 'output/crop1000/20230524/crop1000_20230524.log', 'image': 'data/crop1000/20230524.jpg', 'plot': 'output/crop1000/plots/20230522_20230524.png', 'match_stats': {'i_dict': {0: 14, 1: 12, 2: 11, 3: 9, 4: 5, 5: 2, 6: 59}, 'average_tracking_quality': 61.98850574712644, 'distance_threshold': 20, 'length': {'matching': 112, 'unmatched_current': 7, 'unmatched_previous': 0}, 'average': {'tq': 18.455357142857142, 3.9732142857142856: 3.9732142857142856, 'dx': 0.24107142857142858, 'dy': 1.0625, 'dd': 0.4642857142857143, 'da': 20.982142857142858, 'dp': 3.9987500000000002, 'de': 0.013571428571428576}}}, {'crop': 'crop1000', 'date': '20230522', 'json': 'output/crop1000/20230522/20230522.json', 'log': 'output/crop1000/20230522/crop1000_20230522.log', 'image': 'data/crop1000/20230522.jpg', 'plot': 'output/crop1000/plots/20230519_20230522.png', 'match_stats': {'i_dict': {0: 21, 1: 9, 2: 6, 3: 7, 4: 5, 5: 2, 6: 2, 7: 50}, 'average_tracking_quality': 66.52439024390245, 'distance_threshold': 20, 'length': {'matching': 102, 'unmatched_current': 10, 'unmatched_previous': 0}, 'average': {'tq': 7.2745098039215685, 4.254901960784314: 4.254901960784314, 'dx': -0.28431372549019607, 'dy': 8.647058823529411, 'dd': 0.43137254901960786, 'da': 13.441176470588236, 'dp': 3.241764705882352, 'de': -0.007254901960784317}}}, {'crop': 'crop1000', 'date': '20230519', 'json': 'output/crop1000/20230519/20230519.json', 'log': 'output/crop1000/20230519/crop1000_20230519.log', 'image': 'data/crop1000/20230519.jpg', 'plot': 'output/crop1000/plots/20230517_20230519.png', 'match_stats': {'i_dict': {0: 20, 1: 12, 2: 9, 3: 5, 4: 6, 5: 3, 6: 1, 7: 2, 8: 44}, 'average_tracking_quality': 62.3625, 'distance_threshold': 20, 'length': {'matching': 102, 'unmatched_current': 0, 'unmatched_previous': 5}, 'average': {'tq': 15.009803921568627, 4.470588235294118: 4.470588235294118, 'dx': 4.078431372549019, 'dy': -3.343137254901961, 'dd': 0.37254901960784315, 'da': 14.068627450980392, 'dp': 2.636568627450981, 'de': -0.02215686274509803}}}, {'crop': 'crop1000', 'date': '20230517', 'json': 'output/crop1000/20230517/20230517.json', 'log': 'output/crop1000/20230517/crop1000_20230517.log', 'image': 'data/crop1000/20230517.jpg', 'plot': 'output/crop1000/plots/20230515_20230517.png', 'match_stats': {'i_dict': {0: 16, 1: 8, 2: 5, 3: 8, 4: 2, 5: 3, 6: 2, 7: 1, 8: 1, 9: 27}, 'average_tracking_quality': 51.82608695652174, 'distance_threshold': 20, 'length': {'matching': 73, 'unmatched_current': 34, 'unmatched_previous': 0}, 'average': {'tq': -3.219178082191781, 4.589041095890411: 4.589041095890411, 'dx': 2.4246575342465753, 'dy': 4.205479452054795, 'dd': 0.7534246575342466, 'da': 23.84931506849315, 'dp': 4.4828767123287685, 'de': -0.015342465753424659}}}, {'crop': 'crop1000', 'date': '20230515', 'json': 'output/crop1000/20230515/20230515.json', 'log': 'output/crop1000/20230515/crop1000_20230515.log', 'image': 'data/crop1000/20230515.jpg', 'plot': 'output/crop1000/plots/20230512_20230515.png', 'match_stats': {'i_dict': {0: 11, 1: 6, 2: 2, 3: 1, 4: 3, 5: 1, 6: 2, 7: 2, 10: 12}, 'average_tracking_quality': 41.285714285714285, 'distance_threshold': 20, 'length': {'matching': 40, 'unmatched_current': 33, 'unmatched_previous': 0}, 'average': {'tq': -18.55, 4.4: 4.4, 'dx': -5.95, 'dy': 1.85, 'dd': 0.075, 'da': 7.925, 'dp': 1.6602499999999996, 'de': -0.0225}}}, {'crop': 'crop1000', 'date': '20230512', 'json': 'output/crop1000/20230512/20230512.json', 'log': 'output/crop1000/20230512/crop1000_20230512.log', 'image': 'data/crop1000/20230512.jpg', 'plot': 'output/crop1000/plots/20230510_20230512.png', 'match_stats': {'i_dict': {0: 17, 1: 1, 2: 4, 3: 1, 4: 1, 5: 2, 6: 1, 8: 1, 11: 7}, 'average_tracking_quality': 52.473684210526315, 'distance_threshold': 20, 'length': {'matching': 35, 'unmatched_current': 5, 'unmatched_previous': 0}, 'average': {'tq': -102.42857142857143, 3.342857142857143: 3.342857142857143, 'dx': 2.342857142857143, 'dy': -35.285714285714285, 'dd': 0.2857142857142857, 'da': 6.771428571428571, 'dp': 0.8394285714285712, 'de': 0.00542857142857143}}}, {'crop': 'crop1000', 'date': '20230510', 'json': 'output/crop1000/20230510/20230510.json', 'log': 'output/crop1000/20230510/crop1000_20230510.log', 'image': 'data/crop1000/20230510.jpg', 'plot': 'output/crop1000/plots/20230508_20230510.png', 'match_stats': {'i_dict': {0: 11, 1: 6, 2: 1, 3: 3, 4: 1, 5: 1, 7: 1, 12: 2}, 'average_tracking_quality': 65.9090909090909, 'distance_threshold': 20, 'length': {'matching': 26, 'unmatched_current': 9, 'unmatched_previous': 0}, 'average': {'tq': -113.53846153846153, 2.1923076923076925: 2.1923076923076925, 'dx': -24.192307692307693, 'dy': -16.153846153846153, 'dd': -0.11538461538461539, 'da': -13.038461538461538, 'dp': -4.263076923076922, 'de': 0.0023076923076923027}}}, {'crop': 'crop1000', 'date': '20230508', 'json': 'output/crop1000/20230508/20230508.json', 'log': 'output/crop1000/20230508/crop1000_20230508.log', 'image': 'data/crop1000/20230508.jpg', 'plot': 'output/crop1000/plots/20230505_20230508.png', 'match_stats': {'i_dict': {0: 15, 1: 4, 2: 3, 4: 2, 5: 1, 8: 1}, 'average_tracking_quality': 51.55555555555556, 'distance_threshold': 20, 'length': {'matching': 26, 'unmatched_current': 0, 'unmatched_previous': 0}, 'average': {'tq': -181.23076923076923, 1.1923076923076923: 1.1923076923076923, 'dx': -0.9230769230769231, 'dy': -6.076923076923077, 'dd': 0.5, 'da': 30.53846153846154, 'dp': 7.589615384615384, 'de': 0.004230769230769232}}}, {'crop': 'crop1000', 'date': '20230505', 'json': 'output/crop1000/20230505/20230505.json', 'log': 'output/crop1000/20230505/crop1000_20230505.log', 'image': 'data/crop1000/20230505.jpg', 'plot': 'output/crop1000/plots/20230503_20230505.png', 'match_stats': {'i_dict': {0: 17, 1: 4, 2: 1, 3: 1, 5: 1, 6: 1, 9: 1}, 'average_tracking_quality': 57.3, 'distance_threshold': 20, 'length': {'matching': 26, 'unmatched_current': 0, 'unmatched_previous': 0}, 'average': {'tq': -218.46153846153845, 1.1153846153846154: 1.1153846153846154, 'dx': 4.115384615384615, 'dy': -42.30769230769231, 'dd': -0.6153846153846154, 'da': -43.42307692307692, 'dp': -9.293846153846154, 'de': -0.005000000000000004}}}, {'crop': 'crop1000', 'date': '20230503', 'json': 'output/crop1000/20230503/20230503.json', 'log': 'output/crop1000/20230503/crop1000_20230503.log', 'image': 'data/crop1000/20230503.jpg', 'plot': 'output/crop1000/plots/20230501_20230503.png', 'match_stats': {'i_dict': {0: 14, 1: 5, 2: 2, 6: 1, 10: 1}, 'average_tracking_quality': 66.0, 'distance_threshold': 20, 'length': {'matching': 23, 'unmatched_current': 3, 'unmatched_previous': 0}, 'average': {'tq': -229.47826086956522, 1.0869565217391304: 1.0869565217391304, 'dx': 6.782608695652174, 'dy': 33.69565217391305, 'dd': -0.30434782608695654, 'da': -12.826086956521738, 'dp': -5.310869565217392, 'de': -0.0508695652173913}}}, {'crop': 'crop1000', 'date': '20230501', 'json': 'output/crop1000/20230501/20230501.json', 'log': 'output/crop1000/20230501/crop1000_20230501.log', 'image': 'data/crop1000/20230501.jpg', 'plot': 'output/crop1000/plots/20230426_20230501.png', 'match_stats': {'i_dict': {0: 14, 1: 1, 2: 1, 3: 1, 7: 1, 11: 1}, 'average_tracking_quality': 37.666666666666664, 'distance_threshold': 20, 'length': {'matching': 19, 'unmatched_current': 4, 'unmatched_previous': 0}, 'average': {'tq': -135.1578947368421, 1.263157894736842: 1.263157894736842, 'dx': 28.842105263157894, 'dy': 9.736842105263158, 'dd': -0.05263157894736842, 'da': -2.526315789473684, 'dp': 0.04526315789473662, 'de': -0.06684210526315788}}}, {'crop': 'crop1000', 'date': '20230426', 'json': 'output/crop1000/20230426/20230426.json', 'log': 'output/crop1000/20230426/crop1000_20230426.log', 'image': 'data/crop1000/20230426.jpg', 'plot': 'output/crop1000/plots/20230424_20230426.png', 'match_stats': {'i_dict': {0: 13, 1: 2, 2: 1, 3: 1, 8: 1, 12: 1}, 'average_tracking_quality': 38.42857142857143, 'distance_threshold': 20, 'length': {'matching': 19, 'unmatched_current': 0, 'unmatched_previous': 7}, 'average': {'tq': -88.26315789473684, 1.4210526315789473: 1.4210526315789473, 'dx': -13.947368421052632, 'dy': 3.473684210526316, 'dd': 0.5789473684210527, 'da': 19.157894736842106, 'dp': 3.5936842105263165, 'de': 0.017894736842105265}}}, {'crop': 'crop1000', 'date': '20230424', 'json': 'output/crop1000/20230424/20230424.json', 'log': 'output/crop1000/20230424/crop1000_20230424.log', 'image': 'data/crop1000/20230424.jpg', 'plot': None, 'match_stats': {}}], 'gif_path': 'output/crop1000/crop1000.gif', 'plots_gif_path': 'output/crop1000/plots/plots.gif'}
+Result: {'data/crop1000': 'output/crop1000/crop1000.json', 'gif_path': 'output/crop1000/crop1000.gif', 'plots_gif_path': 'output/crop1000/plots/plots.gif'}
+User chose to generate results

@@ -10,6 +10,7 @@ from memory_logger import log_memory_usage
 from Logger import Logger
 import subprocess
 import time
+from json_utils import append_to_json_list
 
 def process_dir(file_name, main_logger):
     """
@@ -85,8 +86,7 @@ def process_dir(file_name, main_logger):
         # Process all images in the crop folder
         result_crop_folder = process_crop_folder(crop_folder, crop_logger)
 
-        entry = [crop_folder, result_crop_folder]
-        results.append(entry)
+        append_to_json_list("output/results.json", result_crop_folder)
 
         end_time = time.time()
 

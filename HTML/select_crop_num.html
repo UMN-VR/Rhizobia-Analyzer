@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Crop Number</title>
+  <style>
+    /* Add your CSS styling here */
+    .widget {
+      margin: 20px;
+      display: inline-block;
+    }
+    .widget img {
+      max-width: 200px;
+      height: auto;
+    }
+    .widget a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="widgetContainer"></div> <!-- Container for widgets -->
+
+  <script>
+    // Fetch the JSON data and populate the widgets
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('../output/results.json') // Replace with the actual path
+        .then(response => response.json())
+        .then(data => createWidgets(data))
+        .catch(error => console.error('Error fetching JSON:', error));
+    });
+
+    function createWidgets(data) {
+      const container = document.getElementById("widgetContainer");
+      data.forEach(entry => {
+        const widgetDiv = document.createElement('div');
+        widgetDiv.className = 'widget';
+
+        // Create clickable anchor for crop image
+        const cropImgLink = document.createElement('a');
+        cropImgLink.href = `../${entry.gif_path}`;
+
+        // Create and append GIFs
+        const gifImg = document.createElement('img');
+        gifImg.src = `../${entry.gif_path}`;
+        gifImg.setAttribute('type', 'image/gif');
+        cropImgLink.appendChild(gifImg);
+        
+        widgetDiv.appendChild(cropImgLink);
+
+        // Create clickable anchor for plots GIF
+        const plotsGifLink = document.createElement('a');
+        plotsGifLink.href = `../${entry.plots_gif_path}`;
+        
+        const plotsGifImg = document.createElement('img');
+        plotsGifImg.src = `../${entry.plots_gif_path}`;
+        plotsGifLink.appendChild(plotsGifImg);
+
+        widgetDiv.appendChild(plotsGifLink);
+
+        // Create clickable link to json file
+        const jsonLink = document.createElement('a');
+        jsonLink.href = `../${entry['data/crop1000']}`;
+        jsonLink.innerText = 'JSON';
+        widgetDiv.appendChild(jsonLink);
+        
+        // Create and append clickable crop title
+        const cropTitle = document.createElement('a');
+        cropTitle.innerText = entry['data/crop1000'].split('/').pop().split('.')[0]; // Assuming crop number can be extracted like this
+        cropTitle.href = `select_date.html?crop=${cropTitle.innerText}`;  // Pass the crop number as a query parameter
+        cropTitle.style.fontWeight = 'bold';
+        cropTitle.style.fontSize = '1.5em';
+        widgetDiv.appendChild(cropTitle);
+        
+        container.appendChild(widgetDiv);
+      });
+    }
+  </script>
+
+</body>
+</html>

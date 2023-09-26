@@ -1,6 +1,6 @@
-from generate_gifs import generate_gifs
+from post_process import post_process
 from Logger import Logger
 
 logger = Logger("tests")
 
-generate_gifs("data/crop1000/", logger)
+post_process("data/crop1000/", logger)

@@ -15,8 +15,11 @@ def process_image(image, output_dir, image_name, logger, json_data, matching, da
 
         logger.info(f"\n@process_image: output_dir: {output_dir}, image_name: {image_name}, date_string: {date_string}")
         #logger.info(f"tracked_objects: {tracked_objects}")
-        logger.info(f"{len(json_data)} json_data entries")
-        logger.info(f"{len(matching)} matching entries")
+        logger.info(f"len(json_data) = {len(json_data)} json_data entries")
+        max_id_i = len(matching)
+        logger.info(f"len(matching) = {max_id_i} matching entries, setting max_id_i to {max_id_i}")
+
+        
 
         #logger.info(f"json_data: {json_data}")
         #logger.info(f"matching: {matching}")
@@ -55,7 +58,13 @@ def process_image(image, output_dir, image_name, logger, json_data, matching, da
         # Find contours in the mask
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        max_id_i = 0
+        # get the max_id from the matching
+
+
+
+        #max_id_i = 0
+        # das problem ist dass die id_component nicht eindeutig ist, weil es mehrere einträge mit dem gleichen datum gibt
+        # fix: start max_id with len(matching)
         
 
         results = []

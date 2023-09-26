@@ -33,16 +33,27 @@ def while_loop_process_images():
     while True:
 
         # ask user for file name or directory
-        file_name = input("Enter the file name (or 'exit' to stop): ")
+        command = input("Enter crop folder dir ie: 'data', 'data/crop1000', etc. (or 'exit' to stop): ")
 
         #start timer
         start_time = time.time()
         
         # if the user enters 'exit', stop the program
-        if file_name.lower() == 'exit':
+        if command.lower() == 'exit':
             break
+
         
-        main_logger = Logger(file_name).get_logger()
+        # if command.startswith('data/'):
+        #     print(f"command: {command} starts with 'data/' ")
+        #     pass
+
+        file_name=command
+
+        main_log = file_name.replace('/', '_')
+
+        print(f"Starting log at {main_log}")
+
+        main_logger = Logger(main_log).get_logger()
         
         
         # if the user enters a directory, process all the images in the directory

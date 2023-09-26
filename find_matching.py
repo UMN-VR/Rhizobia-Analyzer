@@ -5,7 +5,7 @@ from i_dict import iDict
 
 #from json_utils import initialize_json_file, append_to_json_list
 
-def find_matching(logger, combined_distances, crop_folder, next_matching=None, current_date_string=None, scalar_distance_threshold=3, current_json=None, prev_json=None, next_json=None):
+def find_matching(logger, combined_distances, crop_folder, distance_threshold=20, next_matching=None, current_date_string=None, current_json=None, prev_json=None, next_json=None):
         """Find the matching between the current and previous points.
         Returns: matching, unmatched_current, unmatched_previous, distance_threshold
 
@@ -13,18 +13,27 @@ def find_matching(logger, combined_distances, crop_folder, next_matching=None, c
         
         """
 
-        logger.info(f"\n@find_matching: combined_distances: {combined_distances.shape}, next_matching: {next_matching}, current_date_string: {current_date_string}, scalar_distance_threshold: {scalar_distance_threshold}")
+        logger.info(f"\n@find_matching: combined_distances: {combined_distances.shape}, next_matching: {next_matching}, current_date_string: {current_date_string}, distance_threshold: {distance_threshold}")
 
         row_ind, col_ind = linear_sum_assignment(combined_distances)
         unmatched_current = set(range(combined_distances.shape[0])) - set(row_ind)
         unmatched_previous = set(range(combined_distances.shape[1])) - set(col_ind)
 
-        distance_threshold = np.median(combined_distances[row_ind, col_ind]) * scalar_distance_threshold
+        #distance_threshold = np.median(combined_distances[row_ind, col_ind]) * 3
         matching = []
         
         i_dict = iDict()
 
         tq_accumulator = 0
+
+        dx_accumulator = 0
+        dy_accumulator = 0
+        dd_accumulator = 0
+        da_accumulator = 0
+        dp_accumulator = 0
+        de_accumulator = 0
+        
+
         tp_pos_accumulator = 0
         tq_pos_i = 0
 
@@ -85,6 +94,15 @@ def find_matching(logger, combined_distances, crop_folder, next_matching=None, c
             p_de = round((current_eccentricity - prev_eccentricity), 2)
 
             # dtq = current_tracking_quality - prev_tracking_quality
+
+            # add to accumulators
+            dx_accumulator += p_dx
+            dy_accumulator += p_dy
+            dd_accumulator += p_dd
+            da_accumulator += p_da
+            dp_accumulator += p_dp
+            de_accumulator += p_de
+
 
 
 
@@ -185,6 +203,7 @@ def find_matching(logger, combined_distances, crop_folder, next_matching=None, c
             
             matching.append(match_result)
         
+        len_matching = len(matching)
 
         i_dict, i_average = i_dict.get_results()
 
@@ -192,8 +211,16 @@ def find_matching(logger, combined_distances, crop_folder, next_matching=None, c
         print(f"i_dict: {i_dict}")
 
         # calculate the average tracking quality
-        tq_average = tq_accumulator/len(matching)
-        logger.info(f"tq_average: {tq_average}")
+        tq_average = tq_accumulator/len_matching
+
+        dx_average = dx_accumulator/len_matching
+        dy_average = dy_accumulator/len_matching
+        dd_average = dd_accumulator/len_matching
+        da_average = da_accumulator/len_matching
+        dp_average = dp_accumulator/len_matching
+        de_average = de_accumulator/len_matching
+
+        logger.info(f"tq_average: {tq_average}, dx_average: {dx_average}, dy_average: {dy_average}, dd_average: {dd_average}, da_average: {da_average}, dp_average: {dp_average}, de_average: {de_average}")
 
 
         # calculate the average tracking quality of the positive matches
@@ -209,6 +236,9 @@ def find_matching(logger, combined_distances, crop_folder, next_matching=None, c
         logger.info(f"\n\n")
 
 
-        stats = {'i_dict': i_dict, 'tq_average': tq_average, 'average_tracking_quality': average_tracking_quality, 'distance_threshold': distance_threshold}
+        stats = {'i_dict': i_dict,'average_tracking_quality': average_tracking_quality, 'distance_threshold': distance_threshold, 
+                  'length' : {'matching': len_matching, 'unmatched_current': len(unmatched_current), 'unmatched_previous': len(unmatched_previous)},
+                    'average': {'tq': tq_average, i_average: i_average, 'dx': dx_average, 'dy': dy_average, 'dd': dd_average, 'da': da_average, 'dp': dp_average, 'de': de_average}
+                }
 
         return matching, unmatched_current, unmatched_previous, stats

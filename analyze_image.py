@@ -53,6 +53,9 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
     external_logger.info(f"Starting log at: {log_dir}")
 
     logger = Logger(log_name, image_output_dir, external_logger=external_logger).get_logger()
+
+    log_dir = image_output_dir+"/"+log_name
+
     logger.propagate = False
 
     log_memory_usage(logger)
@@ -91,6 +94,8 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
     next_date_string = None
 
     match_stats = {}
+
+    plot_file_name = None
 
     if prev_date is not None:
         # get previous date string
@@ -150,7 +155,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
         log_memory_usage(logger)
 
         # Find the matching
-        matching, unmatched_current, unmatched_previous, match_stats = find_matching(logger, combined_distances, crop_folder=crop_number, next_matching=next_matching, current_date_string=current_date, scalar_distance_threshold=3, current_json=json_data, prev_json=json_prev, next_json=next_results)
+        matching, unmatched_current, unmatched_previous, match_stats = find_matching(logger, combined_distances, crop_folder=crop_number, next_matching=next_matching, current_date_string=current_date, current_json=json_data, prev_json=json_prev, next_json=next_results)
 
         plot_file_name = os.path.join(image_output_dir.replace(f"/{current_date}", ""), "plots")
 
@@ -199,7 +204,10 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
     #HTML_file_name = generate_HTML_file(image, prev_date_string, current_json, next_date_string, image_output_dir, current_date, logger)
 
 
-    results_entry = {"crop": crop_number, "date": current_date, "json": current_json, "image": image_file_name, "match_stats": match_stats}
+    results_entry = {"crop": crop_number, "date": current_date,
+                        "json": current_json, "log": log_dir, "image": image_file_name, "plot": plot_file_name,
+                        "match_stats": match_stats
+                    }
 
     logger.info(f"results_entry: {results_entry}")
 

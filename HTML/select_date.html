@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Date</title>
+  <style>
+    /* Optional CSS styling */
+    .date-widget {
+      margin: 20px;
+      display: inline-block;
+    }
+    .date-widget img {
+      max-width: 200px;
+      height: auto;
+    }
+    .date-widget a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dateWidgetContainer"></div> <!-- Container for date widgets -->
+
+  <script>
+    // Fetch the JSON data and populate the widgets
+    document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop'); // Now accessible by all functions below
+        
+        fetch(`../output/${cropNum}/${cropNum}.json`) 
+            .then(response => response.json())
+            .then(data => createDateWidgets(data[cropNum], cropNum))
+            .catch(error => console.error('Error fetching JSON:', error));
+    });
+
+    function createDateWidgets(data, cropNum) {
+        const container = document.getElementById("dateWidgetContainer");
+        data.forEach(entry => {
+            const dateWidget = document.createElement('div');
+            dateWidget.className = 'date-widget';
+            
+            // Create clickable anchor for crop image
+            const imgLink = document.createElement('a');
+            imgLink.href = `../${entry.image}`;
+            
+            const imgElem = document.createElement('img');
+            imgElem.src = `../${entry.image}`;
+            imgLink.appendChild(imgElem);
+            
+            dateWidget.appendChild(imgLink);
+
+            // Create clickable anchor for plot image
+            const plotLink = document.createElement('a');
+            plotLink.href = `../${entry.plot}`;
+            
+            const plotImgElem = document.createElement('img');
+            plotImgElem.src = `../${entry.plot}`;
+            plotLink.appendChild(plotImgElem);
+            
+            dateWidget.appendChild(plotLink);
+            
+            // Create and append clickable date with bold and larger font
+            const dateLink = document.createElement('a');
+            dateLink.innerText = entry.date;
+            dateLink.href = `visualizer.html?crop=${cropNum}&date=${entry.date}`;
+            dateLink.style.fontWeight = 'bold';
+            dateLink.style.fontSize = '1.5em';
+            dateWidget.appendChild(dateLink);
+            
+            container.appendChild(dateWidget);
+        });
+    }
+
+
+
+  </script>
+
+</body>
+</html>
