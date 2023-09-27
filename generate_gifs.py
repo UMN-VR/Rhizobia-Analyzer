@@ -33,7 +33,7 @@ def generate_gifs(nodule_dir, logger):
     generate_gif(os.path.join(nodule_dir, 'detection'), 'd.gif', logger)
 
 
-def generate_gif(path, output_name, logger):
+def generate_gif(path, output_name, logger, duration=500):
 
     #print(f"@generate_gif: path:{path}, output_name:{output_name}")
     logger.info(f"@generate_gif: path:{path}, output_name:{output_name}")
@@ -52,10 +52,10 @@ def generate_gif(path, output_name, logger):
     
     images = [imageio.imread(f) for f in jpg_files]
     gif_path = os.path.join(path, output_name)
-    imageio.mimsave(gif_path, images, duration=1, loop = 0)
+    imageio.mimsave(gif_path, images, duration=duration, loop = 0)
 
 
-def generate_gif_from_list(list, output_filename, logger):
+def generate_gif_from_list(list, output_filename, logger, duration=500):
 
     #print(f"@generate_gif_from_list: list:{list}, output_filename:{output_filename}")
     logger.info(f"@generate_gif_from_list: list:{list}, output_filename:{output_filename}")
@@ -63,11 +63,11 @@ def generate_gif_from_list(list, output_filename, logger):
 
     #print(f"output_filename: {output_filename})
     logger.info(f"output_filename: {output_filename}")
-    imageio.mimsave(output_filename, images, duration=1, loop = 0)
+    imageio.mimsave(output_filename, images, duration=duration, loop = 0)
 
 
-# files = get_all_image_files("data/crop1000")
+files = get_all_image_files("data/crop980")
 
-# logger = Logger("generate_gifs").get_logger()
+logger = Logger("generate_gifs").get_logger()
 
-# generate_gif_from_list(files, "crop1000.gif", logger)
+generate_gif_from_list(files, "crop1000.gif", logger)

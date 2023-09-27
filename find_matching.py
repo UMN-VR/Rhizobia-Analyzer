@@ -207,24 +207,28 @@ def find_matching(logger, combined_distances, crop_folder, distance_threshold=20
 
         i_dict, i_average = i_dict.get_results()
 
+        i_average = round(i_average, 4)
+
         logger.info(f"i_dict: {i_dict}")
         print(f"i_dict: {i_dict}")
 
         # calculate the average tracking quality
-        tq_average = tq_accumulator/len_matching
+        tq_average = round((tq_accumulator/len_matching), 4)
 
-        dx_average = dx_accumulator/len_matching
-        dy_average = dy_accumulator/len_matching
-        dd_average = dd_accumulator/len_matching
-        da_average = da_accumulator/len_matching
-        dp_average = dp_accumulator/len_matching
-        de_average = de_accumulator/len_matching
+        dx_average = round((dx_accumulator/len_matching), 4)
+        dy_average = round((dy_accumulator/len_matching), 4)
+        dd_average = round((dd_accumulator/len_matching), 4)
+        da_average = round((da_accumulator/len_matching), 4)
+        dp_average = round((dp_accumulator/len_matching), 4)
+        de_average = round((de_accumulator/len_matching), 4)
+
+
 
         logger.info(f"tq_average: {tq_average}, dx_average: {dx_average}, dy_average: {dy_average}, dd_average: {dd_average}, da_average: {da_average}, dp_average: {dp_average}, de_average: {de_average}")
 
 
         # calculate the average tracking quality of the positive matches
-        average_tracking_quality = tp_pos_accumulator/tq_pos_i
+        average_tracking_quality = round((tp_pos_accumulator/tq_pos_i), 4)
         #print(f"average_tracking_quality: {average_tracking_quality}")
         logger.info(f"average_tracking_quality: {average_tracking_quality}")
 
@@ -237,8 +241,8 @@ def find_matching(logger, combined_distances, crop_folder, distance_threshold=20
 
 
         stats = {'i_dict': i_dict,'average_tracking_quality': average_tracking_quality, 'distance_threshold': distance_threshold, 
-                  'length' : {'matching': len_matching, 'unmatched_current': len(unmatched_current), 'unmatched_previous': len(unmatched_previous)},
-                    'average': {'tq': tq_average, i_average: i_average, 'dx': dx_average, 'dy': dy_average, 'dd': dd_average, 'da': da_average, 'dp': dp_average, 'de': de_average}
+                  'lengths' : {'matching': len_matching, 'unmatched_current': len(unmatched_current), 'unmatched_previous': len(unmatched_previous)},
+                    'averages': {'tq': tq_average, 'i': i_average, 'dx': dx_average, 'dy': dy_average, 'dd': dd_average, 'da': da_average, 'dp': dp_average, 'de': de_average}
                 }
 
         return matching, unmatched_current, unmatched_previous, stats

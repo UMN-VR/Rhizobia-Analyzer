@@ -38,6 +38,8 @@
     function createDateWidgets(data, cropNum) {
         const container = document.getElementById("dateWidgetContainer");
         data.forEach(entry => {
+            index = data.indexOf(entry);
+            len_data = data.length;
             const dateWidget = document.createElement('div');
             dateWidget.className = 'date-widget';
             
@@ -64,7 +66,32 @@
             // Create and append clickable date with bold and larger font
             const dateLink = document.createElement('a');
             dateLink.innerText = entry.date;
-            dateLink.href = `visualizer.html?crop=${cropNum}&date=${entry.date}`;
+            
+            // Get the previous date's date
+            //const prevDate = data[data.indexOf(entry) - 1].date;
+
+            //get the next date's date
+            //const nextDate = data[data.indexOf(entry) + 1].date;
+
+            // [Error] Error fetching JSON:
+            // TypeError: undefined is not an object (evaluating 'data[data.indexOf(entry) - 1].date')
+            // (anonymous function) — select_date.html:69
+            // forEach
+            // createDateWidgets — select_date.html:40
+            // (anonymous function) — select_date.html:34
+            //   (anonymous function) (select_date.html:35)
+
+            //if index != 0 and != len_data - 1
+            if (index != 0 && index != len_data - 1) {
+                const prevDate = data[data.indexOf(entry) - 1].date;
+                const nextDate = data[data.indexOf(entry) + 1].date;
+                dateLink.href = `visualizer.html?crop=${cropNum}&prev=${prevDate}&current=${entry.date}&next=${nextDate}`;
+            }
+            else{
+              dateLink.href = `visualizer.html?crop=${cropNum}&current=${entry.date}`;
+            }
+
+    
             dateLink.style.fontWeight = 'bold';
             dateLink.style.fontSize = '1.5em';
             dateWidget.appendChild(dateLink);

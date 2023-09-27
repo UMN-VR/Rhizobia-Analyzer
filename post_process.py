@@ -19,7 +19,8 @@ def post_process(crop_folder, logger):
     
     subdirs = [os.path.join(dates_dir, o) for o in os.listdir(dates_dir) if os.path.isdir(os.path.join(dates_dir,o))]
     
-    print(f"subdirs: {subdirs}")
+    #print(f"subdirs: {subdirs}")
+    logger.info(f"subdirs: {subdirs}")
 
     
 
@@ -30,8 +31,8 @@ def post_process(crop_folder, logger):
 
 
         subdir_folder = subdir.split("/")[-1]
-        logger.info(f"@gpost_process: subdir: {subdir}")
-        print(f"@gpost_process: subdir: {subdir}", end='', flush=True)
+        logger.info(f"@post_process: subdir: {subdir}")
+        print(f"@post_process: subdir: {subdir}", end='', flush=True)
 
         year, month, day = os.path.basename(subdir).split("-")
         
@@ -60,14 +61,14 @@ def post_process(crop_folder, logger):
         end_time = time.time()
         time_elapsed = round((end_time - start_time), 2)
 
-        logger.info(f"@gpost_process: {subdir}, {i_nodule} nodules, took {time_elapsed}s")
-        print(f"\n@gpost_process: {subdir}, {i_nodule} nodules, took {time_elapsed}s\n")
+        logger.info(f"@post_process: {subdir}, {i_nodule} nodules, took {time_elapsed}s")
+        print(f"\n@post_process: {subdir}, {i_nodule} nodules, took {time_elapsed}s\n")
 
     
 
-logger = Logger("generate_gifs").get_logger()
+# logger = Logger("generate_gifs").get_logger()
 
-post_process("data/crop1000", logger)
+# post_process("data/crop1000", logger)
 
 
 

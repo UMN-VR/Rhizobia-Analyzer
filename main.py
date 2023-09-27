@@ -49,7 +49,7 @@ def while_loop_process_images():
 
         file_name=command
 
-        main_log = file_name.replace('/', '_')
+        main_log = 'exec_'+file_name.replace('/', '_')
 
         print(f"Starting log at {main_log}")
 

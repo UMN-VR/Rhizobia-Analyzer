@@ -1,0 +1,509 @@
+Current memory usage: 3224.546875 MB
+@analyze_image: file_name: data/crop1001/20230501.jpg, output_dir: output/crop1001, external_logger: <Logger data_crop1001.log (DEBUG)>
+Loaded image & JSON file: data/crop1001/20230501.jpg
+Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
+
+@find_prev_next_date: image_output_dir: output/crop1001/20230501
+data_dir: data/crop1001
+Previous date file: data/crop1001/20230426.jpg, Next date file: data/crop1001/20230503.json
+
+
+Loaded prev_results from JSON file: 20230426, length: 12
+Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
+Loaded next_results from JSON file: 20230503, length: 41
+Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
+prev_results is not empty, generating matching
+Current memory usage: 3224.57421875 MB
+current_date:20230501, generating Matching: 20230426_20230501_matching.json
+spatial_distances: (29, 12), attribute_distances: (29, 12)
+combined_distances: (29, 12)
+Current memory usage: 3224.57421875 MB
+
+@find_matching: combined_distances: (29, 12), next_matching: [{'id': '20230505_0', 'p': {'id': 0, 'tq': -36.0, 'dx': -1, 'dy': 1, 'dd': 3, 'da': 86.0, 'dp': 16.49, 'de': 0.25}, 'c': {'id': 0}, 'n': {'id': 0, 'dx': 2, 'dy': -1, 'dd': 0, 'da': 3.0, 'dp': -0.59, 'de': -0.17}, 'i': 1}, {'id': '20230517_8', 'p': {'id': 1, 'tq': 48.0, 'dx': 0, 'dy': 2, 'dd': -2, 'da': -29.0, 'dp': -8.24, 'de': -0.03}, 'c': {'id': 1}, 'n': {'id': 1, 'dx': 2, 'dy': -2, 'dd': 2, 'da': 31.0, 'dp': 8.83, 'de': 0.08}, 'i': 6}, {'id': '20230607_6', 'p': {'id': 2, 'tq': -1.0, 'dx': 0, 'dy': 3, 'dd': 2, 'da': 59.0, 'dp': 11.66, 'de': -0.04}, 'c': {'id': 2}, 'n': {'id': 2, 'dx': 1, 'dy': -2, 'dd': 1, 'da': 39.0, 'dp': 4.83, 'de': -0.17}, 'i': 15}, {'id': '20230517_14', 'p': {'id': 3, 'tq': 26.0, 'dx': 0, 'dy': 2, 'dd': 1, 'da': 44.0, 'dp': 8.59, 'de': -0.15}, 'c': {'id': 3}, 'n': {'id': 3, 'dx': 2, 'dy': 0, 'dd': 1, 'da': 25.0, 'dp': 3.66, 'de': 0.14}, 'i': 6}, {'id': '20230605_13', 'p': {'id': 4, 'tq': 11.0, 'dx': 0, 'dy': 2, 'dd': 2, 'da': 54.0, 'dp': 8.83, 'de': -0.12}, 'c': {'id': 5}, 'n': {'id': 5, 'dx': 2, 'dy': 0, 'dd': 1, 'da': 46.0, 'dp': 7.41, 'de': -0.06}, 'i': 14}, {'id': '20230503_5', 'p': {'id': 5, 'tq': 74.0, 'dx': 0, 'dy': 2, 'dd': 0, 'da': 12.0, 'dp': 3.41, 'de': -0.17}, 'c': {'id': 6}, 'n': {}, 'i': 0}, {'id': '20230529_21', 'p': {'id': 6, 'tq': 58.0, 'dx': 1, 'dy': -3, 'dd': 0, 'da': 20.0, 'dp': 4.83, 'de': 0.13}, 'c': {'id': 8}, 'n': {'id': 9, 'dx': 5, 'dy': 2, 'dd': 0, 'da': -21.0, 'dp': -4.24, 'de': -0.03}, 'i': 11}, {'id': '20230517_23', 'p': {'id': 7, 'tq': 2.0, 'dx': -18, 'dy': -17, 'dd': 1, 'da': 7.0, 'dp': 2.0, 'de': 0.09}, 'c': {'id': 9}, 'n': {'id': 8, 'dx': 2, 'dy': -1, 'dd': 1, 'da': 34.0, 'dp': 7.41, 'de': -0.03}, 'i': 6}, {'id': '20230519_27', 'p': {'id': 10, 'tq': -102.0, 'dx': 9, 'dy': -52, 'dd': 0, 'da': -11.0, 'dp': -2.41, 'de': -0.04}, 'c': {'id': 13}, 'n': {'id': 15, 'dx': 3, 'dy': -1, 'dd': 1, 'da': 37.0, 'dp': 9.49, 'de': -0.06}, 'i': 7}, {'id': '20230512_41', 'p': {'id': 11, 'tq': -239.0, 'dx': 59, 'dy': -47, 'dd': -2, 'da': -49.0, 'dp': -10.73, 'de': 0.11}, 'c': {'id': 15}, 'n': {'id': 19, 'dx': 17, 'dy': 0, 'dd': 0, 'da': -4.0, 'dp': -1.17, 'de': -0.22}, 'i': 4}, {'id': '20230517_41', 'p': {'id': 9, 'tq': -88.0, 'dx': 42, 'dy': -29, 'dd': -1, 'da': -6.0, 'dp': -1.66, 'de': 0.19}, 'c': {'id': 17}, 'n': {'id': 22, 'dx': 3, 'dy': 1, 'dd': 2, 'da': 53.0, 'dp': 10.24, 'de': -0.11}, 'i': 6}, {'id': '20230607_40', 'p': {'id': 8, 'tq': 19.0, 'dx': 0, 'dy': 2, 'dd': 1, 'da': 49.0, 'dp': 7.41, 'de': -0.04}, 'c': {'id': 18}, 'n': {'id': 23, 'dx': 2, 'dy': 1, 'dd': 1, 'da': 28.0, 'dp': 4.24, 'de': -0.07}, 'i': 15}, {'id': '20230607_53', 'p': {'id': 12, 'tq': -85.0, 'dx': 34, 'dy': -25, 'dd': -1, 'da': -24.0, 'dp': -5.41, 'de': -0.03}, 'c': {'id': 19}, 'n': {'id': 28, 'dx': -9, 'dy': 13, 'dd': 0, 'da': 9.0, 'dp': 2.34, 'de': -0.18}, 'i': 15}, {'id': '20230607_59', 'p': {'id': 13, 'tq': -143.0, 'dx': 66, 'dy': 12, 'dd': 0, 'da': -5.0, 'dp': -1.41, 'de': -0.04}, 'c': {'id': 21}, 'n': {'id': 33, 'dx': 2, 'dy': 0, 'dd': 1, 'da': 60.0, 'dp': 10.0, 'de': 0.08}, 'i': 15}, {'id': '20230503_14', 'p': {'id': 15, 'tq': -212.0, 'dx': 33, 'dy': -75, 'dd': 0, 'da': 17.0, 'dp': 0.41, 'de': -0.38}, 'c': {'id': 22}, 'n': {}, 'i': 0}, {'id': '20230503_15', 'p': {'id': 14, 'tq': 10.0, 'dx': 2, 'dy': -4, 'dd': 2, 'da': 48.0, 'dp': 12.49, 'de': -0.17}, 'c': {'id': 23}, 'n': {}, 'i': 0}, {'id': '20230505_26', 'p': {'id': 16, 'tq': -179.0, 'dx': 41, 'dy': -39, 'dd': 3, 'da': 51.0, 'dp': 17.31, 'de': -0.41}, 'c': {'id': 24}, 'n': {'id': 39, 'dx': -2, 'dy': -9, 'dd': -1, 'da': -24.0, 'dp': -5.66, 'de': 0.23}, 'i': 1}, {'id': '20230503_17', 'p': {'id': 17, 'tq': 26.0, 'dx': -3, 'dy': 5, 'dd': -2, 'da': -34.0, 'dp': -11.07, 'de': -0.05}, 'c': {'id': 25}, 'n': {}, 'i': 0}, {'id': '20230503_18', 'p': {'id': 18, 'tq': -14.0, 'dx': 0, 'dy': 4, 'dd': -3, 'da': -63.0, 'dp': -21.28, 'de': 0.21}, 'c': {'id': 26}, 'n': {}, 'i': 0}, {'id': '20230503_19', 'p': {'id': 20, 'tq': -87.0, 'dx': 46, 'dy': -15, 'dd': 1, 'da': 11.0, 'dp': 3.41, 'de': -0.31}, 'c': {'id': 27}, 'n': {}, 'i': 0}, {'id': '20230503_20', 'p': {'id': 19, 'tq': 42.0, 'dx': 2, 'dy': -5, 'dd': -1, 'da': -26.0, 'dp': -4.24, 'de': -0.09}, 'c': {'id': 28}, 'n': {}, 'i': 0}, {'id': '20230503_21', 'p': {'id': 22, 'tq': -137.0, 'dx': 1, 'dy': -19, 'dd': 4, 'da': 111.0, 'dp': 25.31, 'de': -0.22}, 'c': {'id': 29}, 'n': {}, 'i': 0}, {'id': '20230503_22', 'p': {'id': 21, 'tq': 29.0, 'dx': -2, 'dy': 7, 'dd': -1, 'da': -29.0, 'dp': -9.66, 'de': -0.34}, 'c': {'id': 30}, 'n': {}, 'i': 0}, {'id': '20230503_23', 'p': {'id': 23, 'tq': 26.0, 'dx': 4, 'dy': -6, 'dd': -1, 'da': -32.0, 'dp': -6.83, 'de': 0.21}, 'c': {'id': 31}, 'n': {}, 'i': 0}, {'id': '20230503_24', 'p': {'id': 24, 'tq': -218.0, 'dx': 9, 'dy': 82, 'dd': -1, 'da': -19.0, 'dp': -5.62, 'de': 0.38}, 'c': {'id': 34}, 'n': {}, 'i': 0}, {'id': '20230503_25', 'p': {'id': 28, 'tq': -9.0, 'dx': -6, 'dy': -21, 'dd': -1, 'da': -20.0, 'dp': -8.69, 'de': -0.11}, 'c': {'id': 37}, 'n': {}, 'i': 0}, {'id': '20230505_38', 'p': {'id': 26, 'tq': 47.0, 'dx': -7, 'dy': 8, 'dd': 0, 'da': 10.0, 'dp': 2.83, 'de': 0.07}, 'c': {'id': 38}, 'n': {'id': 51, 'dx': 9, 'dy': -9, 'dd': 0, 'da': -5.0, 'dp': -2.83, 'de': -0.2}, 'i': 1}, {'id': '20230503_27', 'p': {'id': 27, 'tq': -61.0, 'dx': -16, 'dy': 9, 'dd': -2, 'da': -63.0, 'dp': -12.24, 'de': 0.06}, 'c': {'id': 39}, 'n': {}, 'i': 0}, {'id': '20230503_28', 'p': {'id': 25, 'tq': -369.0, 'dx': 106, 'dy': 76, 'dd': 0, 'da': 8.0, 'dp': 2.24, 'de': 0.16}, 'c': {'id': 40}, 'n': {}, 'i': 0}], current_date_string: 20230501, distance_threshold: 20
+matched entry: {'id': '20230517_8', 'p': {'id': 1, 'tq': 48.0, 'dx': 0, 'dy': 2, 'dd': -2, 'da': -29.0, 'dp': -8.24, 'de': -0.03}, 'c': {'id': 1}, 'n': {'id': 1, 'dx': 2, 'dy': -2, 'dd': 2, 'da': 31.0, 'dp': 8.83, 'de': 0.08}, 'i': 6}, len(matching): 0
+matched entry: {'id': '20230503_5', 'p': {'id': 5, 'tq': 74.0, 'dx': 0, 'dy': 2, 'dd': 0, 'da': 12.0, 'dp': 3.41, 'de': -0.17}, 'c': {'id': 6}, 'n': {}, 'i': 0}, len(matching): 1
+tq < 0
+tq < 0
+matched entry: {'id': '20230503_15', 'p': {'id': 14, 'tq': 10.0, 'dx': 2, 'dy': -4, 'dd': 2, 'da': 48.0, 'dp': 12.49, 'de': -0.17}, 'c': {'id': 23}, 'n': {}, 'i': 0}, len(matching): 4
+tq < 0
+tq < 0
+tq < 0
+tq < 0
+matched entry: {'id': '20230503_23', 'p': {'id': 23, 'tq': 26.0, 'dx': 4, 'dy': -6, 'dd': -1, 'da': -32.0, 'dp': -6.83, 'de': 0.21}, 'c': {'id': 31}, 'n': {}, 'i': 0}, len(matching): 9
+matched entry: {'id': '20230505_38', 'p': {'id': 26, 'tq': 47.0, 'dx': -7, 'dy': 8, 'dd': 0, 'da': 10.0, 'dp': 2.83, 'de': 0.07}, 'c': {'id': 38}, 'n': {'id': 51, 'dx': 9, 'dy': -9, 'dd': 0, 'da': -5.0, 'dp': -2.83, 'de': -0.2}, 'i': 1}, len(matching): 10
+tq < 0
+i_dict: {0: 7, 1: 3, 2: 1, 7: 1}
+tq_average: -126.3333, dx_average: -13.6667, dy_average: -3.25, dd_average: -0.1667, da_average: -12.0, dp_average: -1.6708, de_average: -0.045
+average_tracking_quality: 49.0
+@find_matching:
+Returning:
+Matching(lenght=12): [{'id': '20230517_8', 'p': {'id': 0, 'tq': 40.0, 'dx': -3, 'dy': -3, 'dd': 2, 'da': 29.0, 'dp': 8.24, 'de': -0.13}, 'c': {'id': 1}, 'n': {'id': 1, 'dx': 0, 'dy': 2, 'dd': -2, 'da': -29.0, 'dp': -8.24, 'de': -0.03}, 'i': 7}, {'id': '20230503_5', 'p': {'id': 1, 'tq': 57.0, 'dx': -2, 'dy': -2, 'dd': -1, 'da': -21.0, 'dp': -6.66, 'de': 0.22}, 'c': {'id': 5}, 'n': {'id': 6, 'dx': 0, 'dy': 2, 'dd': 0, 'da': 12.0, 'dp': 3.41, 'de': -0.17}, 'i': 1}, {'id': '20230501_2', 'p': {'id': 2, 'tq': -286.0, 'dx': -34, 'dy': 63, 'dd': -2, 'da': -89.0, 'dp': -13.41, 'de': -0.23}, 'c': {'id': 11}, 'n': {}, 'i': 0}, {'id': '20230501_3', 'p': {'id': 3, 'tq': -189.0, 'dx': -81, 'dy': -6, 'dd': 0, 'da': -3.0, 'dp': -0.59, 'de': 0.22}, 'c': {'id': 12}, 'n': {}, 'i': 0}, {'id': '20230503_15', 'p': {'id': 4, 'tq': 50.0, 'dx': -3, 'dy': 1, 'dd': -1, 'da': -25.0, 'dp': -7.07, 'de': 0.1}, 'c': {'id': 14}, 'n': {'id': 23, 'dx': 2, 'dy': -4, 'dd': 2, 'da': 48.0, 'dp': 12.49, 'de': -0.17}, 'i': 1}, {'id': '20230501_5', 'p': {'id': 5, 'tq': -173.0, 'dx': 19, 'dy': -73, 'dd': 0, 'da': 5.0, 'dp': 3.41, 'de': -0.08}, 'c': {'id': 16}, 'n': {}, 'i': 0}, {'id': '20230501_6', 'p': {'id': 6, 'tq': -6.0, 'dx': -3, 'dy': 1, 'dd': 3, 'da': 60.0, 'dp': 19.11, 'de': -0.28}, 'c': {'id': 18}, 'n': {}, 'i': 0}, {'id': '20230501_7', 'p': {'id': 7, 'tq': -7.0, 'dx': -25, 'dy': 9, 'dd': 0, 'da': 9.0, 'dp': 2.83, 'de': 0.14}, 'c': {'id': 20}, 'n': {}, 'i': 0}, {'id': '20230501_8', 'p': {'id': 8, 'tq': -131.0, 'dx': -10, 'dy': -18, 'dd': -4, 'da': -103.0, 'dp': -24.49, 'de': 0.06}, 'c': {'id': 22}, 'n': {}, 'i': 0}, {'id': '20230503_23', 'p': {'id': 9, 'tq': -251.0, 'dx': -12, 'dy': -86, 'dd': 1, 'da': 31.0, 'dp': 3.41, 'de': -0.32}, 'c': {'id': 23}, 'n': {'id': 31, 'dx': 4, 'dy': -6, 'dd': -1, 'da': -32.0, 'dp': -6.83, 'de': 0.21}, 'i': 1}, {'id': '20230505_38', 'p': {'id': 11, 'tq': -303.0, 'dx': 61, 'dy': 26, 'dd': -3, 'da': -112.0, 'dp': -19.9, 'de': 0.06}, 'c': {'id': 26}, 'n': {'id': 38, 'dx': -7, 'dy': 8, 'dd': 0, 'da': 10.0, 'dp': 2.83, 'de': 0.07}, 'i': 2}, {'id': '20230501_11', 'p': {'id': 10, 'tq': -317.0, 'dx': -71, 'dy': 49, 'dd': 3, 'da': 75.0, 'dp': 15.07, 'de': -0.3}, 'c': {'id': 27}, 'n': {}, 'i': 0}]
+Unmatched current(length=17): {0, 2, 3, 4, 6, 7, 8, 9, 10, 13, 15, 17, 19, 21, 24, 25, 28}
+Unmatched previous(length=0): set()
+Distance threshold: 20
+
+
+
+@plot_data: normalized_points: (29, 2), normalized_prev_points: (12, 2), current_points: (29, 2), prev_points: (12, 2), current_data: 29, prev_data: 12, matching: 12, unmatched_current: 17, unmatched_prev: 0, combined_distances: (29, 12), distance_threshold: 20, current_date_string: 20230501, previous_date_string: 20230426, filename: output/crop1001/plots/20230426_20230501.png
+Plots created
+Plotted the normalized points
+Drawing lines between the matched points
+Plotting the unmatched points
+Plotted the original points with diameter as size
+Drawing lines between the matched points and add the indices to the plots with color coding
+Setting the titles and labels
+Done plotting
+
+@process_image: output_dir: output/crop1001/20230501, image_name: 20230501, date_string: 20230501
+len(json_data) = 29 json_data entries
+len(matching) = 12 matching entries, setting max_id_i to 12
+crop_dir: output/crop1001
+nodules_dir: output/crop1001/nodules-last-detected-on
+Split image into left and right images: (705, 300, 3), (705, 300, 3)
+Converted right image to HSV: (705, 300, 3)
+Created mask to detect nodules: (705, 300)
+
+Found 29 contours in mask, processing each contour...
+
+@process_contour: max_id: 20230501_12
+Moments: {'m00': 0.0, 'm10': 0.0, 'm01': 0.0, 'm20': 0.0, 'm11': 0.0, 'm02': 0.0, 'm30': 0.0, 'm21': 0.0, 'm12': 0.0, 'm03': 0.0, 'mu20': 0.0, 'mu11': 0.0, 'mu02': 0.0, 'mu30': 0.0, 'mu21': 0.0, 'mu12': 0.0, 'mu03': 0.0, 'nu20': 0.0, 'nu11': 0.0, 'nu02': 0.0, 'nu30': 0.0, 'nu21': 0.0, 'nu12': 0.0, 'nu03': 0.0}
+Skipping contour#1 because area is 0.
+
+
+@process_contour: max_id: 20230501_13
+Moments: {'m00': 0.0, 'm10': 0.0, 'm01': 0.0, 'm20': 0.0, 'm11': 0.0, 'm02': 0.0, 'm30': 0.0, 'm21': 0.0, 'm12': 0.0, 'm03': 0.0, 'mu20': 0.0, 'mu11': 0.0, 'mu02': 0.0, 'mu30': 0.0, 'mu21': 0.0, 'mu12': 0.0, 'mu03': 0.0, 'nu20': 0.0, 'nu11': 0.0, 'nu02': 0.0, 'nu30': 0.0, 'nu21': 0.0, 'nu12': 0.0, 'nu03': 0.0}
+Skipping contour#2 because area is 0.
+
+
+@process_contour: max_id: 20230501_14
+Moments: {'m00': 17.5, 'm10': 3468.1666666666665, 'm01': 11804.833333333332, 'm20': 687350.5833333333, 'm11': 2339483.375, 'm02': 7963119.25, 'm30': 136230109.05, 'm21': 463656657.65, 'm12': 1578125416.0166667, 'm03': 5371655196.450001, 'mu20': 26.01031746028457, 'mu11': -9.73769841203466, 'mu02': 28.39126984309405, 'mu30': 6.326424837112427, 'mu21': -1.4298489348875592, 'mu12': -3.510650711426024, 'mu03': 3.9856834411621094, 'nu20': 0.08493164884990878, 'nu11': -0.03179656624337848, 'nu02': 0.09270618724275607, 'nu30': 0.004938138096405194, 'nu21': -0.0011160792515943975, 'nu12': -0.0027402645992989556, 'nu03': 0.003111054939838242}
+Centroid: 198, 674
+Processing contour#3: area: 17.5 centroid: 198, 674 rectangle: (196, 672, 6, 6)
+@find_dayJSON_match_for_contour: x: 196, y: 672, w: 6, h: 6, area: 17.5
+Matched with JSON#27: (198, 675, 5, 103.0, 34.9706, 0.48424)
+Match with input JSON(nodules) ID: 27
+Matched contour: {'x': 198, 'y': 675, 'd': 5, 'a': 103.0, 'p': 34.9706, 'e': 0.48424, 'id': 27, 'tq': 100}
+JSON_entry: 27
+Matched with first_id: 27 second_id: 10 name: 20230501_11
+entry_id:20230501_11, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/11/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/11
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/11/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/11/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_15
+Moments: {'m00': 20.0, 'm10': 2855.1666666666665, 'm01': 13170.0, 'm20': 407630.5, 'm11': 1880127.25, 'm02': 8672478.0, 'm30': 58201685.650000006, 'm21': 268424684.25, 'm12': 1238068511.2166667, 'm03': 5710870224.0, 'mu20': 31.665277777821757, 'mu11': 0.0, 'mu02': 33.0, 'mu30': -6.110393524169922, 'mu21': -2.1012965589761734e-08, 'mu12': 6.066666698456174, 'mu03': 0.0, 'nu20': 0.07916319444455441, 'nu11': 0.0, 'nu02': 0.08250000000000002, 'nu30': -0.0034158138223296126, 'nu21': -1.17466048668928e-11, 'nu12': 0.0033913697836455564, 'nu03': 0.0}
+Centroid: 142, 658
+Processing contour#4: area: 20.0 centroid: 142, 658 rectangle: (140, 656, 6, 6)
+@find_dayJSON_match_for_contour: x: 140, y: 656, w: 6, h: 6, area: 20.0
+Matched with JSON#26: (142, 658, 4, 53.0, 25.3137, 0.471329)
+Match with input JSON(nodules) ID: 26
+Matched contour: {'x': 142, 'y': 658, 'd': 4, 'a': 53.0, 'p': 25.3137, 'e': 0.471329, 'id': 26, 'tq': 100}
+JSON_entry: 26
+Matched with first_id: 26 second_id: 11 name: 20230505_38
+entry_id:20230505_38, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-05/38/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-05/38
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-05/38/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-05/38/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_16
+Moments: {'m00': 3.5, 'm10': 80.83333333333333, 'm01': 2145.1666666666665, 'm20': 1867.9166666666665, 'm11': 49543.375, 'm02': 1314783.9166666665, 'm30': 43188.450000000004, 'm21': 1144866.0166666666, 'm12': 30365541.983333334, 'm03': 805838612.5500001, 'mu20': 1.0515873015874604, 'mu11': 0.2400793650886044, 'mu02': 1.0515873017720878, 'mu30': -0.10347694632946514, 'mu21': -0.0925547998208458, 'mu12': 0.09255479446922976, 'mu03': 0.10347700119018555, 'nu20': 0.0858438613540784, 'nu11': 0.01959831551743709, 'nu02': 0.08584386136915002, 'nu30': -0.004515163622092757, 'nu21': -0.004038581346134707, 'nu12': 0.004038581112619679, 'nu03': 0.004515166015912229}
+Centroid: 23, 612
+Processing contour#5: area: 3.5 centroid: 23, 612 rectangle: (22, 612, 3, 3)
+@find_dayJSON_match_for_contour: x: 22, y: 612, w: 3, h: 3, area: 3.5
+Matched with JSON#25: (23, 613, 3, 40.0, 21.8995, 0.382872)
+Match with input JSON(nodules) ID: 25
+Matched contour: {'x': 23, 'y': 613, 'd': 3, 'a': 40.0, 'p': 21.8995, 'e': 0.382872, 'id': 25, 'tq': 100}
+JSON_entry: 25
+WARNING: match is empty
+entry_id:20230501_16, entry saved to results list
+WARNING: right_nodule_img.shape != (50, 50, 3) != (50, 48, 3)
+@process_contour: max_id: 20230501_17
+Moments: {'m00': 9.0, 'm10': 1064.5, 'm01': 4988.5, 'm20': 125914.33333333333, 'm11': 590028.25, 'm02': 2765022.333333333, 'm30': 14894671.25, 'm21': 69791413.16666667, 'm12': 327040205.8333333, 'm03': 1532598899.25, 'mu20': 7.638888888890506, 'mu11': -0.44444444437976927, 'mu02': 7.638888888992369, 'mu30': -3.3086419738829136, 'mu21': 1.4320987654564306, 'mu12': 1.4320987127204035, 'mu03': -3.3086416721343994, 'nu20': 0.09430727023321611, 'nu11': -0.005486968449132954, 'nu02': 0.09430727023447369, 'nu30': -0.013615810592110754, 'nu21': 0.00589341055743387, 'nu12': 0.005893410340413182, 'nu03': -0.01361580935034732}
+Centroid: 118, 554
+Processing contour#6: area: 9.0 centroid: 118, 554 rectangle: (116, 552, 5, 5)
+@find_dayJSON_match_for_contour: x: 116, y: 552, w: 5, h: 5, area: 9.0
+Matched with JSON#24: (118, 554, 3, 37.0, 20.4853, 0.37478)
+Match with input JSON(nodules) ID: 24
+Matched contour: {'x': 118, 'y': 554, 'd': 3, 'a': 37.0, 'p': 20.4853, 'e': 0.37478, 'id': 24, 'tq': 100}
+JSON_entry: 24
+WARNING: match is empty
+entry_id:20230501_17, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/17/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/17
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/17/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/17/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_18
+Moments: {'m00': 21.0, 'm10': 5464.833333333333, 'm01': 11142.666666666666, 'm20': 1422149.0, 'm11': 2899657.4166666665, 'm02': 5912371.833333333, 'm30': 370104049.35, 'm21': 754596517.2166667, 'm12': 1538576924.7833333, 'm03': 3137163086.4, 'mu20': 34.55423280457035, 'mu11': -0.49867724860087037, 'mu02': 37.52645502705127, 'mu30': 5.235088527202606, 'mu21': 2.599655856658501, 'mu12': -6.677257134688261, 'mu03': -1.1133956909179688, 'nu20': 0.07835426939811868, 'nu11': -0.0011307874117933566, 'nu02': 0.08509400232891443, 'nu30': 0.0025904534548861703, 'nu21': 0.0012863750938314272, 'nu12': -0.0033040747494215415, 'nu03': -0.0005509361874602362}
+Centroid: 260, 530
+Processing contour#7: area: 21.0 centroid: 260, 530 rectangle: (258, 528, 6, 6)
+@find_dayJSON_match_for_contour: x: 258, y: 528, w: 6, h: 6, area: 21.0
+Matched with JSON#23: (259, 530, 5, 86.0, 32.1421, 0.276957)
+Match with input JSON(nodules) ID: 23
+Matched contour: {'x': 259, 'y': 530, 'd': 5, 'a': 86.0, 'p': 32.1421, 'e': 0.276957, 'id': 23, 'tq': 100}
+JSON_entry: 23
+Matched with first_id: 23 second_id: 9 name: 20230503_23
+entry_id:20230503_23, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-03/23/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-03/23
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-03/23/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-03/23/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_19
+Moments: {'m00': 4.5, 'm10': 513.8333333333333, 'm01': 1886.6666666666665, 'm20': 58673.416666666664, 'm11': 215430.125, 'm02': 791005.5833333333, 'm30': 6699922.95, 'm21': 24599542.433333334, 'm12': 90321741.73333333, 'm03': 331639027.3, 'mu20': 1.2623456790315686, 'mu11': 0.7422839506762102, 'mu02': 3.1141975310165435, 'mu30': -0.27988111786544323, 'mu21': -0.29220394236972425, 'mu12': 0.2990626149932041, 'mu03': 1.049428403377533, 'nu20': 0.06233805822378116, 'nu11': 0.036655997564257296, 'nu02': 0.1537875323958787, 'nu30': -0.0065154184812749386, 'nu21': -0.006802284416101239, 'nu12': 0.0069619490719695885, 'nu03': 0.02442989104191029}
+Centroid: 114, 419
+Processing contour#8: area: 4.5 centroid: 114, 419 rectangle: (113, 418, 3, 4)
+@find_dayJSON_match_for_contour: x: 113, y: 418, w: 3, h: 4, area: 4.5
+Matched with JSON#22: (114, 419, 2, 24.0, 15.0711, 0.584987)
+Match with input JSON(nodules) ID: 22
+Matched contour: {'x': 114, 'y': 419, 'd': 2, 'a': 24.0, 'p': 15.0711, 'e': 0.584987, 'id': 22, 'tq': 100}
+JSON_entry: 22
+Matched with first_id: 22 second_id: 8 name: 20230501_8
+entry_id:20230501_8, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/8/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/8
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/8/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/8/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_20
+Moments: {'m00': 12.5, 'm10': 391.3333333333333, 'm01': 5174.166666666666, 'm20': 12262.583333333332, 'm11': 161984.79166666666, 'm02': 2141774.75, 'm30': 384603.7, 'm21': 5075821.1, 'm12': 67050902.233333334, 'm03': 886564127.0500001, 'mu20': 11.241111111110513, 'mu11': -1.1194444444263354, 'mu02': 14.694444444961846, 'mu30': -0.752325925801415, 'mu21': -0.8022962965669649, 'mu12': 0.8107407318055948, 'mu03': 0.49259233474731445, 'nu20': 0.07194311111110728, 'nu11': -0.007164444444328547, 'nu02': 0.09404444444775582, 'nu30': -0.0013618553953193677, 'nu21': -0.001452311428667787, 'nu12': 0.0014675974892643332, 'nu03': 0.00089168737346647}
+Centroid: 31, 413
+Processing contour#9: area: 12.5 centroid: 31, 413 rectangle: (29, 412, 5, 5)
+@find_dayJSON_match_for_contour: x: 29, y: 412, w: 5, h: 5, area: 12.5
+Matched with JSON#21: (31, 414, 3, 50.0, 25.3137, 0.741508)
+Match with input JSON(nodules) ID: 21
+Matched contour: {'x': 31, 'y': 414, 'd': 3, 'a': 50.0, 'p': 25.3137, 'e': 0.741508, 'id': 21, 'tq': 100}
+JSON_entry: 21
+WARNING: match is empty
+entry_id:20230501_20, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/20/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/20
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/20/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/20/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_21
+Moments: {'m00': 9.5, 'm10': 2141.1666666666665, 'm01': 3884.833333333333, 'm20': 482595.25, 'm11': 875585.2083333333, 'm02': 1588633.5833333333, 'm30': 108773052.55000001, 'm21': 197346824.81666666, 'm12': 358054320.18333334, 'm03': 649647316.45, 'mu20': 6.334795321687125, 'mu11': -1.701023391680792, 'mu02': 9.369883041130379, 'mu30': 0.9187544882297516, 'mu21': 0.6735969645305886, 'mu12': -1.6899097078321574, 'mu03': 0.6758900880813599, 'nu20': 0.07019163791343073, 'nu11': -0.018847904616961682, 'nu02': 0.10382141873828674, 'nu30': 0.003302862243787185, 'nu21': 0.002421536994028142, 'nu12': -0.006075114778663806, 'nu03': 0.002429780623085971}
+Centroid: 225, 408
+Processing contour#10: area: 9.5 centroid: 225, 408 rectangle: (224, 407, 4, 5)
+@find_dayJSON_match_for_contour: x: 224, y: 407, w: 4, h: 5, area: 9.5
+Matched with JSON#20: (225, 408, 3, 43.0, 21.8995, 0.631053)
+Match with input JSON(nodules) ID: 20
+Matched contour: {'x': 225, 'y': 408, 'd': 3, 'a': 43.0, 'p': 21.8995, 'e': 0.631053, 'id': 20, 'tq': 100}
+JSON_entry: 20
+Matched with first_id: 20 second_id: 7 name: 20230501_7
+entry_id:20230501_7, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/7/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/7
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/7/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/7/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_22
+Moments: {'m00': 33.5, 'm10': 8414.0, 'm01': 13426.666666666666, 'm20': 2113399.75, 'm11': 3372293.208333333, 'm02': 5381434.083333333, 'm30': 530862749.90000004, 'm21': 847039931.35, 'm12': 1351619849.8833332, 'm03': 2156921119.3, 'mu20': 104.34701492544264, 'mu11': -4.503109452780336, 'mu02': 79.52280265372247, 'mu30': 20.106950342655182, 'mu21': -14.869128087630088, 'mu12': -14.405248503910116, 'mu03': 12.497528553009033, 'nu20': 0.09298018705764546, 'nu11': -0.0040125724685055346, 'nu02': 0.07086014939070837, 'nu30': 0.003095524087458609, 'nu21': -0.0022891459604951806, 'nu12': -0.002217730335519015, 'nu03': 0.0019240312434388072}
+Centroid: 251, 400
+Processing contour#11: area: 33.5 centroid: 251, 400 rectangle: (248, 398, 8, 7)
+@find_dayJSON_match_for_contour: x: 248, y: 398, w: 8, h: 7, area: 33.5
+Matched with JSON#19: (250, 400, 6, 129.0, 39.799, 0.322231)
+Match with input JSON(nodules) ID: 19
+Matched contour: {'x': 250, 'y': 400, 'd': 6, 'a': 129.0, 'p': 39.799, 'e': 0.322231, 'id': 19, 'tq': 100}
+JSON_entry: 19
+WARNING: match is empty
+entry_id:20230501_22, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/22/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/22
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/22/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/22/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_23
+Moments: {'m00': 18.0, 'm10': 554.3333333333333, 'm01': 6770.5, 'm20': 17091.666666666664, 'm11': 208506.75, 'm02': 2546683.833333333, 'm30': 527612.1, 'm21': 6428864.416666667, 'm12': 78428741.45, 'm03': 957933524.25, 'mu20': 20.253086419757892, 'mu11': 0.4259259259852115, 'mu02': 35.48611111100763, 'mu30': 4.629035207908601, 'mu21': -2.3264746255526916, 'mu12': -8.868930055466535, 'mu03': 1.4158953428268433, 'nu20': 0.06250952598690707, 'nu11': 0.001314586191312381, 'nu02': 0.10952503429323342, 'nu30': 0.0033675125368965546, 'nu21': -0.0016924547160357428, 'nu12': -0.006451934757293796, 'nu03': 0.0010300300394684282}
+Centroid: 30, 376
+Processing contour#12: area: 18.0 centroid: 30, 376 rectangle: (29, 373, 5, 7)
+@find_dayJSON_match_for_contour: x: 29, y: 373, w: 5, h: 7, area: 18.0
+Matched with JSON#18: (30, 376, 4, 72.0, 28.7279, 0.477542)
+Match with input JSON(nodules) ID: 18
+Matched contour: {'x': 30, 'y': 376, 'd': 4, 'a': 72.0, 'p': 28.7279, 'e': 0.477542, 'id': 18, 'tq': 100}
+JSON_entry: 18
+Matched with first_id: 18 second_id: 6 name: 20230501_6
+entry_id:20230501_6, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/6/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/6
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/6/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/6/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_24
+Moments: {'m00': 16.0, 'm10': 522.1666666666666, 'm01': 5323.833333333333, 'm20': 17068.166666666664, 'm11': 173745.0, 'm02': 1771466.5, 'm30': 558791.15, 'm21': 5679215.866666666, 'm12': 57812202.8, 'm03': 589447951.85, 'mu20': 27.039930555554747, 'mu11': -0.5190972221898846, 'mu02': 16.414930555736646, 'mu30': -0.49970341415610164, 'mu21': -4.916355614659551, 'mu12': 0.9098451801426108, 'mu03': 2.9567346572875977, 'nu20': 0.10562472873263573, 'nu11': -0.002027723524179237, 'nu02': 0.06412082248334627, 'nu30': -0.000487991615386818, 'nu21': -0.004801128529940968, 'nu12': 0.0008885206837330184, 'nu03': 0.0028874361887574196}
+Centroid: 32, 332
+Processing contour#13: area: 16.0 centroid: 32, 332 rectangle: (30, 331, 6, 5)
+@find_dayJSON_match_for_contour: x: 30, y: 331, w: 6, h: 5, area: 16.0
+Matched with JSON#17: (33, 332, 4, 57.0, 26.7279, 0.575209)
+Match with input JSON(nodules) ID: 17
+Matched contour: {'x': 33, 'y': 332, 'd': 4, 'a': 57.0, 'p': 26.7279, 'e': 0.575209, 'id': 17, 'tq': 100}
+JSON_entry: 17
+WARNING: match is empty
+entry_id:20230501_24, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/24/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/24
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/24/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/24/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_25
+Moments: {'m00': 12.0, 'm10': 1493.5, 'm01': 3364.1666666666665, 'm20': 185895.8333333333, 'm11': 418702.25, 'm02': 943144.1666666666, 'm30': 23140596.75, 'm21': 52116297.13333333, 'm12': 117384210.66666667, 'm03': 264413108.15, 'mu20': 17.3125, 'mu11': 3.673611111182254, 'mu02': 9.386574074276723, 'mu30': 1.789930559694767, 'mu21': 2.212615722583905, 'mu12': -0.18306328542030315, 'mu03': -2.130028337240219, 'nu20': 0.12022569444444443, 'nu11': 0.025511188272098983, 'nu02': 0.06518454218247724, 'nu30': 0.003588253091911497, 'nu21': 0.004435605149468805, 'nu12': -0.0003669848510977406, 'nu03': -0.0042700431732193445}
+Centroid: 124, 280
+Processing contour#14: area: 12.0 centroid: 124, 280 rectangle: (122, 278, 6, 5)
+@find_dayJSON_match_for_contour: x: 122, y: 278, w: 6, h: 5, area: 12.0
+Matched with JSON#15: (124, 280, 4, 51.0, 26.8995, 0.614026)
+Match with input JSON(nodules) ID: 15
+Matched contour: {'x': 124, 'y': 280, 'd': 4, 'a': 51.0, 'p': 26.8995, 'e': 0.614026, 'id': 15, 'tq': 100}
+JSON_entry: 15
+WARNING: match is empty
+entry_id:20230501_25, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/25/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/25
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/25/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/25/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_26
+Moments: {'m00': 2.0, 'm10': 265.0, 'm01': 556.0, 'm20': 35112.666666666664, 'm11': 73670.0, 'm02': 154568.66666666666, 'm30': 4652472.5, 'm21': 9761321.333333334, 'm12': 20480348.333333332, 'm03': 42970460.0, 'mu20': 0.16666666666424135, 'mu11': 0.0, 'mu02': 0.6666666666569654, 'mu30': 9.313225746154785e-10, 'mu21': 1.2951204553246498e-09, 'mu12': 4.3655745685100555e-11, 'mu03': 7.450580596923828e-09, 'nu20': 0.04166666666606034, 'nu11': 0.0, 'nu02': 0.16666666666424135, 'nu30': 1.6463612699567982e-10, 'nu21': 2.2894711410336725e-10, 'nu12': 7.717318452922492e-12, 'nu03': 1.3170890159654386e-09}
+Centroid: 132, 278
+Processing contour#15: area: 2.0 centroid: 132, 278 rectangle: (132, 277, 2, 3)
+@find_dayJSON_match_for_contour: x: 132, y: 277, w: 2, h: 3, area: 2.0
+Matched with JSON#16: (132, 278, 1, 11.0, 9.4142, 0.708444)
+Match with input JSON(nodules) ID: 16
+Matched contour: {'x': 132, 'y': 278, 'd': 1, 'a': 11.0, 'p': 9.4142, 'e': 0.708444, 'id': 16, 'tq': 100}
+JSON_entry: 16
+Matched with first_id: 16 second_id: 5 name: 20230501_5
+entry_id:20230501_5, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/5/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/5
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/5/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/5/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_27
+Moments: {'m00': 8.0, 'm10': 966.8333333333333, 'm01': 1886.1666666666665, 'm20': 116852.5, 'm11': 227950.8333333333, 'm02': 444707.8333333333, 'm30': 14123722.350000001, 'm21': 27550348.466666665, 'm12': 53744667.86666667, 'm03': 104851373.15, 'mu20': 6.663194444467081, 'mu11': -0.2673611110949423, 'mu02': 4.746527777810115, 'mu30': 0.2899594884365797, 'mu21': 1.78799189245251, 'mu12': -0.6690682843775448, 'mu03': -1.4904803186655045, 'nu20': 0.10411241319479814, 'nu11': -0.004177517360858474, 'nu02': 0.07416449652828305, 'nu30': 0.0016018150042413112, 'nu21': 0.009877353061404203, 'nu12': -0.0036961150075016515, 'nu03': -0.008233818285573942}
+Centroid: 120, 235
+Processing contour#16: area: 8.0 centroid: 120, 235 rectangle: (119, 234, 5, 4)
+@find_dayJSON_match_for_contour: x: 119, y: 234, w: 5, h: 4, area: 8.0
+Matched with JSON#14: (120, 236, 3, 40.0, 20.4853, 0.647516)
+Match with input JSON(nodules) ID: 14
+Matched contour: {'x': 120, 'y': 236, 'd': 3, 'a': 40.0, 'p': 20.4853, 'e': 0.647516, 'id': 14, 'tq': 100}
+JSON_entry: 14
+Matched with first_id: 14 second_id: 4 name: 20230503_15
+entry_id:20230503_15, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-03/15/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-03/15
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-03/15/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-03/15/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_28
+Moments: {'m00': 23.5, 'm10': 2082.833333333333, 'm01': 3895.1666666666665, 'm20': 184646.5833333333, 'm11': 345233.375, 'm02': 645678.25, 'm30': 16372985.450000001, 'm21': 30605508.683333334, 'm12': 57227269.15, 'm03': 107038051.55000001, 'mu20': 42.55378250594367, 'mu11': 0.05703309702221304, 'mu02': 47.468676122953184, 'mu30': -7.040472479537129, 'mu21': -0.0015500718682233128, 'mu12': 8.46850341444133, 'mu03': 0.7584444284439087, 'nu20': 0.07705528747115196, 'nu11': 0.00010327405526883304, 'nu02': 0.08595504956623483, 'nu30': -0.002629857093379782, 'nu21': -5.790048195974958e-07, 'nu12': 0.0031632754533888357, 'nu03': 0.0002833049153838495}
+Centroid: 88, 165
+Processing contour#17: area: 23.5 centroid: 88, 165 rectangle: (86, 163, 6, 7)
+@find_dayJSON_match_for_contour: x: 86, y: 163, w: 6, h: 7, area: 23.5
+Matched with JSON#13: (88, 165, 5, 97.0, 34.3848, 0.307419)
+Match with input JSON(nodules) ID: 13
+Matched contour: {'x': 88, 'y': 165, 'd': 5, 'a': 97.0, 'p': 34.3848, 'e': 0.307419, 'id': 13, 'tq': 100}
+JSON_entry: 13
+WARNING: match is empty
+entry_id:20230501_28, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/28/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/28
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/28/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/28/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_29
+Moments: {'m00': 19.5, 'm10': 3488.333333333333, 'm01': 3172.833333333333, 'm20': 624054.4166666666, 'm11': 567581.9583333333, 'm02': 516283.9166666666, 'm30': 111647248.2, 'm21': 101538569.56666666, 'm12': 92356594.23333333, 'm03': 84015338.45, 'mu20': 30.342592592700385, 'mu11': -2.6712962961755693, 'mu02': 34.10327635338763, 'mu30': -8.90905350446701, 'mu21': 4.527176308694834, 'mu12': 7.319673947512456, 'mu03': -6.590403497219086, 'nu20': 0.07979643022406412, 'nu11': -0.0070251053153861116, 'nu02': 0.08968645983796877, 'nu30': -0.005305728693792727, 'nu21': 0.002696130316296471, 'nu12': 0.004359184067426624, 'nu03': -0.00392487180836155}
+Centroid: 178, 162
+Processing contour#18: area: 19.5 centroid: 178, 162 rectangle: (176, 160, 6, 6)
+@find_dayJSON_match_for_contour: x: 176, y: 160, w: 6, h: 6, area: 19.5
+Matched with JSON#12: (179, 162, 5, 84.0, 31.5563, 0.524236)
+Match with input JSON(nodules) ID: 12
+Matched contour: {'x': 179, 'y': 162, 'd': 5, 'a': 84.0, 'p': 31.5563, 'e': 0.524236, 'id': 12, 'tq': 100}
+JSON_entry: 12
+Matched with first_id: 12 second_id: 3 name: 20230501_3
+entry_id:20230501_3, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/3/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/3
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/3/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/3/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_30
+Moments: {'m00': 30.0, 'm10': 2082.0, 'm01': 4766.833333333333, 'm20': 144569.66666666666, 'm11': 330830.25, 'm02': 757493.5, 'm30': 10044084.0, 'm21': 22972979.45, 'm12': 52573868.083333336, 'm03': 120383810.35000001, 'mu20': 78.8666666666395, 'mu11': 12.016666666662786, 'mu02': 70.16574074083474, 'mu30': 2.4400000032037497, 'mu21': -5.331851850118255, 'mu12': 0.42018518128861615, 'mu03': 3.6044341325759888, 'nu20': 0.08762962962959944, 'nu11': 0.01335185185184754, 'nu02': 0.07796193415648305, 'nu30': 0.0004949789044693968, 'nu21': -0.0010816205672538601, 'nu12': 8.523885263747137e-05, 'nu03': 0.0007311962523901613}
+Centroid: 69, 158
+Processing contour#19: area: 30.0 centroid: 69, 158 rectangle: (66, 156, 8, 7)
+@find_dayJSON_match_for_contour: x: 66, y: 156, w: 8, h: 7, area: 30.0
+Matched with JSON#11: (69, 158, 6, 115.0, 38.6274, 0.507088)
+Match with input JSON(nodules) ID: 11
+Matched contour: {'x': 69, 'y': 158, 'd': 6, 'a': 115.0, 'p': 38.6274, 'e': 0.507088, 'id': 11, 'tq': 100}
+JSON_entry: 11
+Matched with first_id: 11 second_id: 2 name: 20230501_2
+entry_id:20230501_2, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/2/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/2
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/2/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/2/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_31
+Moments: {'m00': 36.5, 'm10': 5347.0, 'm01': 5576.666666666666, 'm20': 783353.9166666666, 'm11': 816978.625, 'm02': 852387.5833333333, 'm30': 114772104.4, 'm21': 119695290.68333334, 'm12': 124879719.21666667, 'm03': 130341095.30000001, 'mu20': 55.03995433798991, 'mu11': 35.15468036546372, 'mu02': 354.4022070016945, 'mu30': -4.9065303057432175, 'mu21': -41.355833923922546, 'mu12': 34.286483794385276, 'mu03': 432.58755308389664, 'nu20': 0.04131353299905416, 'nu11': 0.02638745007728558, 'nu02': 0.2660177947094723, 'nu30': -0.0006095963030420811, 'nu21': -0.005138124478663894, 'nu12': 0.004259815483235565, 'nu03': 0.05374546913391964}
+Centroid: 146, 152
+Processing contour#20: area: 36.5 centroid: 146, 152 rectangle: (144, 148, 6, 12)
+@find_dayJSON_match_for_contour: x: 144, y: 148, w: 6, h: 12, area: 36.5
+Matched with JSON#9: (145, 150, 5, 84.0, 31.5563, 0.277194)
+Match with input JSON(nodules) ID: 9
+Matched contour: {'x': 145, 'y': 150, 'd': 5, 'a': 84.0, 'p': 31.5563, 'e': 0.277194, 'id': 9, 'tq': 100}
+JSON_entry: 9
+WARNING: match is empty
+entry_id:20230501_31, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/31/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/31
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/31/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/31/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_32
+Moments: {'m00': 34.0, 'm10': 6760.0, 'm01': 4120.833333333333, 'm20': 1344128.3333333333, 'm11': 819316.4166666666, 'm02': 499556.5, 'm30': 267276667.0, 'm21': 162908779.78333333, 'm12': 99323038.75, 'm03': 60572802.35, 'mu20': 81.27450980385765, 'mu11': -2.210784313734621, 'mu02': 107.45996732037747, 'mu30': 9.214532911777496, 'mu21': -12.877662383089046, 'mu12': -11.822135730770242, 'mu03': 16.2819412201643, 'nu20': 0.0703066693804997, 'nu11': -0.0019124431779711252, 'nu02': 0.09295844923908086, 'nu30': 0.001367023665327788, 'nu21': -0.0019104678880992045, 'nu12': -0.001753875044281831, 'nu03': 0.0024155102790931414}
+Centroid: 198, 121
+Processing contour#21: area: 34.0 centroid: 198, 121 rectangle: (196, 118, 7, 8)
+@find_dayJSON_match_for_contour: x: 196, y: 118, w: 7, h: 8, area: 34.0
+Matched with JSON#8: (198, 121, 6, 126.0, 38.9706, 0.415819)
+Match with input JSON(nodules) ID: 8
+Matched contour: {'x': 198, 'y': 121, 'd': 6, 'a': 126.0, 'p': 38.9706, 'e': 0.415819, 'id': 8, 'tq': 100}
+JSON_entry: 8
+WARNING: match is empty
+entry_id:20230501_32, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/32/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/32
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/32/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/32/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_33
+Moments: {'m00': 11.5, 'm10': 2064.833333333333, 'm01': 1206.6666666666665, 'm20': 370750.5833333333, 'm11': 216658.875, 'm02': 126627.08333333333, 'm30': 66571502.45, 'm21': 38902303.93333333, 'm12': 22736195.566666666, 'm03': 13289716.3, 'mu20': 8.262077294813935, 'mu11': 1.0006038647843525, 'mu02': 14.522946859928197, 'mu30': -0.37127356976270676, 'mu21': -0.6506651373296108, 'mu12': 1.0136140795689244, 'mu03': 0.7115381900221109, 'nu20': 0.0624731742519012, 'nu11': 0.00756600275829378, 'nu02': 0.10981434298622454, 'nu30': -0.0008278457677795863, 'nu21': -0.0014508180060441981, 'nu12': 0.0022601019686621965, 'nu03': 0.001586549453546691}
+Centroid: 179, 104
+Processing contour#22: area: 11.5 centroid: 179, 104 rectangle: (178, 103, 4, 5)
+@find_dayJSON_match_for_contour: x: 178, y: 103, w: 4, h: 5, area: 11.5
+Matched with JSON#7: (179, 104, 3, 48.0, 23.3137, 0.328672)
+Match with input JSON(nodules) ID: 7
+Matched contour: {'x': 179, 'y': 104, 'd': 3, 'a': 48.0, 'p': 23.3137, 'e': 0.328672, 'id': 7, 'tq': 100}
+JSON_entry: 7
+WARNING: match is empty
+entry_id:20230501_33, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/33/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/33
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/33/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/33/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_34
+Moments: {'m00': 22.0, 'm10': 3917.5, 'm01': 1986.0, 'm20': 697625.8333333333, 'm11': 353636.3333333333, 'm02': 179320.66666666666, 'm30': 124240548.75, 'm21': 62974057.25, 'm12': 31930020.25, 'm03': 16194825.0, 'mu20': 43.73106060596183, 'mu11': -7.075757575803436, 'mu02': 39.03030303027481, 'mu30': 10.798037245869637, 'mu21': -9.406336057973931, 'mu12': -7.329889800166711, 'mu03': 12.619834715500474, 'nu20': 0.09035343100405337, 'nu11': -0.01461933383430462, 'nu02': 0.08064112196337771, 'nu30': 0.004756506768706549, 'nu21': -0.004143466086449692, 'nu12': -0.0032287970169488124, 'nu03': 0.00555900372238451}
+Centroid: 178, 90
+Processing contour#23: area: 22.0 centroid: 178, 90 rectangle: (175, 88, 7, 6)
+@find_dayJSON_match_for_contour: x: 175, y: 88, w: 7, h: 6, area: 22.0
+Matched with JSON#6: (177, 90, 5, 89.0, 32.1421, 0.274361)
+Match with input JSON(nodules) ID: 6
+Matched contour: {'x': 177, 'y': 90, 'd': 5, 'a': 89.0, 'p': 32.1421, 'e': 0.274361, 'id': 6, 'tq': 100}
+JSON_entry: 6
+WARNING: match is empty
+entry_id:20230501_34, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/34/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/34
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/34/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/34/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_35
+Moments: {'m00': 14.0, 'm10': 974.3333333333333, 'm01': 1040.5, 'm20': 67821.66666666666, 'm11': 72409.75, 'm02': 77353.83333333333, 'm30': 4721836.100000001, 'm21': 5040033.75, 'm12': 5382845.116666666, 'm03': 5752378.25, 'mu20': 12.706349206346204, 'mu11': -4.095238095236709, 'mu02': 22.386904761908227, 'mu30': 2.4575207885354757, 'mu21': 0.613378685775956, 'mu12': -4.603854875965453, 'mu03': 3.1977040814235806, 'nu20': 0.06482831227727655, 'nu11': -0.020894071914473004, 'nu02': 0.11421890184647053, 'nu30': 0.003351020703926488, 'nu21': 0.0008363895373627179, 'nu12': -0.006277714141505599, 'nu03': 0.004360318184029053}
+Centroid: 69, 74
+Processing contour#24: area: 14.0 centroid: 69, 74 rectangle: (68, 72, 5, 6)
+@find_dayJSON_match_for_contour: x: 68, y: 72, w: 5, h: 6, area: 14.0
+Matched with JSON#5: (69, 74, 3, 36.0, 20.4853, 0.737913)
+Match with input JSON(nodules) ID: 5
+Matched contour: {'x': 69, 'y': 74, 'd': 3, 'a': 36.0, 'p': 20.4853, 'e': 0.737913, 'id': 5, 'tq': 100}
+JSON_entry: 5
+Matched with first_id: 5 second_id: 1 name: 20230503_5
+entry_id:20230503_5, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-03/5/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-03/5
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-03/5/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-03/5/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_36
+Moments: {'m00': 17.0, 'm10': 3133.0, 'm01': 1235.5, 'm20': 577418.8333333333, 'm11': 227699.41666666666, 'm02': 89815.66666666666, 'm30': 106424244.5, 'm21': 41966251.25, 'm12': 16553085.916666666, 'm03': 6530954.75, 'mu20': 25.362745097954758, 'mu11': 4.034313725482207, 'mu02': 23.88725490195793, 'mu30': 1.6885813623666763, 'mu21': 1.3915801708458275, 'mu12': 0.4780853540987664, 'mu03': -2.98961937520653, 'nu20': 0.08776036366074311, 'nu11': 0.013959563063952274, 'nu02': 0.08265486125244959, 'nu30': 0.001417097356907628, 'nu21': 0.0011678469429905183, 'nu12': 0.00040122051964380925, 'nu03': -0.0025089591826520656}
+Centroid: 184, 72
+Processing contour#25: area: 17.0 centroid: 184, 72 rectangle: (182, 70, 6, 6)
+@find_dayJSON_match_for_contour: x: 182, y: 70, w: 6, h: 6, area: 17.0
+Matched with JSON#4: (184, 72, 4, 68.0, 28.7279, 0.371935)
+Match with input JSON(nodules) ID: 4
+Matched contour: {'x': 184, 'y': 72, 'd': 4, 'a': 68.0, 'p': 28.7279, 'e': 0.371935, 'id': 4, 'tq': 100}
+JSON_entry: 4
+WARNING: match is empty
+entry_id:20230501_36, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/36/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/36
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/36/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/36/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_37
+Moments: {'m00': 13.0, 'm10': 2132.0, 'm01': 823.6666666666666, 'm20': 349664.1666666666, 'm11': 135081.3333333333, 'm02': 52198.83333333333, 'm30': 57350226.0, 'm21': 22154364.966666665, 'm12': 8560608.666666666, 'm03': 3308803.9000000004, 'mu20': 16.16666666662786, 'mu11': -2.9103830456733704e-11, 'mu02': 12.158119658117357, 'mu30': 2.2351741790771484e-08, 'mu21': 1.9965812109608123, 'mu12': 2.5902409106492996e-09, 'mu03': -1.2947183861397207, 'nu20': 0.09566074950667375, 'nu11': -1.7221201453688584e-13, 'nu02': 0.07194153643856425, 'nu30': 3.6681998690285794e-11, 'nu21': 0.003276639022188072, 'nu12': 4.2509087023898906e-12, 'nu03': -0.0021247945054677963}
+Centroid: 164, 63
+Processing contour#26: area: 13.0 centroid: 164, 63 rectangle: (162, 61, 5, 5)
+@find_dayJSON_match_for_contour: x: 162, y: 61, w: 5, h: 5, area: 13.0
+Matched with JSON#3: (164, 63, 4, 55.0, 26.1421, 0.413678)
+Match with input JSON(nodules) ID: 3
+Matched contour: {'x': 164, 'y': 63, 'd': 4, 'a': 55.0, 'p': 26.1421, 'e': 0.413678, 'id': 3, 'tq': 100}
+JSON_entry: 3
+WARNING: match is empty
+entry_id:20230501_37, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/37/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/37
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/37/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/37/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_38
+Moments: {'m00': 17.0, 'm10': 2266.833333333333, 'm01': 941.5, 'm20': 302294.0, 'm11': 125541.33333333333, 'm02': 52163.0, 'm30': 40316121.35, 'm21': 16741427.0, 'm12': 6955440.033333333, 'm03': 2891180.75, 'mu20': 27.33169934648322, 'mu11': -1.2303921568527585, 'mu02': 20.514705882349517, 'mu30': 2.0275919437408447, 'mu21': 2.1287004999312558, 'mu12': -1.7512687428516074, 'mu03': -1.231833909638226, 'nu20': 0.09457335414008035, 'nu11': -0.004257412307448991, 'nu02': 0.07098514146141702, 'nu30': 0.001701603042885187, 'nu21': 0.0017864557310241576, 'nu12': -0.0014697060870384347, 'nu03': -0.0010337841080105773}
+Centroid: 133, 55
+Processing contour#27: area: 17.0 centroid: 133, 55 rectangle: (131, 53, 6, 6)
+@find_dayJSON_match_for_contour: x: 131, y: 53, w: 6, h: 6, area: 17.0
+Matched with JSON#2: (133, 55, 4, 61.0, 27.3137, 0.507043)
+Match with input JSON(nodules) ID: 2
+Matched contour: {'x': 133, 'y': 55, 'd': 4, 'a': 61.0, 'p': 27.3137, 'e': 0.507043, 'id': 2, 'tq': 100}
+JSON_entry: 2
+WARNING: match is empty
+entry_id:20230501_38, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/38/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/38
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/38/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/38/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_39
+Moments: {'m00': 14.5, 'm10': 990.6666666666666, 'm01': 784.8333333333333, 'm20': 67706.25, 'm11': 53620.125, 'm02': 42493.75, 'm30': 4628835.3, 'm21': 3664545.0666666664, 'm12': 2903127.6, 'm03': 2301497.45, 'mu20': 22.08141762453306, 'mu11': -1.1317049808349111, 'mu02': 13.518199233731139, 'mu30': 2.496635396964848, 'mu21': 1.6466530132038315, 'mu12': -1.039109086287226, 'mu03': -1.2069009565748274, 'nu20': 0.10502457847578149, 'nu11': -0.005382663404684475, 'nu02': 0.06429583464319209, 'nu30': 0.0031184236682689323, 'nu21': 0.002056752754544672, 'nu12': -0.0012978997143638646, 'nu03': -0.0015074802323217832}
+Centroid: 68, 54
+Processing contour#28: area: 14.5 centroid: 68, 54 rectangle: (66, 52, 6, 5)
+@find_dayJSON_match_for_contour: x: 66, y: 52, w: 6, h: 5, area: 14.5
+Matched with JSON#1: (68, 54, 4, 51.0, 24.1421, 0.55341)
+Match with input JSON(nodules) ID: 1
+Matched contour: {'x': 68, 'y': 54, 'd': 4, 'a': 51.0, 'p': 24.1421, 'e': 0.55341, 'id': 1, 'tq': 100}
+JSON_entry: 1
+Matched with first_id: 1 second_id: 0 name: 20230517_8
+entry_id:20230517_8, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-17/8/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-17/8
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-17/8/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-17/8/2023-05-01.jpg
+
+
+@process_contour: max_id: 20230501_40
+Moments: {'m00': 16.5, 'm10': 2511.6666666666665, 'm01': 710.8333333333333, 'm20': 382358.25, 'm11': 108203.45833333333, 'm02': 30642.083333333332, 'm30': 58211576.800000004, 'm21': 16471946.4, 'm12': 4664302.1, 'm03': 1321706.4500000002, 'mu20': 26.768518518540077, 'mu11': -1.1712962962774327, 'mu02': 18.808922558928316, 'mu30': 4.77325102686882, 'mu21': 0.6082865638823023, 'mu12': -2.9977366267039542, 'mu03': 0.13155460311099887, 'nu20': 0.09832330034358155, 'nu11': -0.004302282079990571, 'nu02': 0.06908695154794607, 'nu30': 0.0043162283615494155, 'nu21': 0.000550045179731627, 'nu12': -0.0027107134688289817, 'nu03': 0.00011895869415704107}
+Centroid: 152, 43
+Processing contour#29: area: 16.5 centroid: 152, 43 rectangle: (150, 41, 6, 5)
+@find_dayJSON_match_for_contour: x: 150, y: 41, w: 6, h: 5, area: 16.5
+Matched with JSON#0: (152, 43, 4, 72.0, 29.3137, 0.353778)
+Match with input JSON(nodules) ID: 0
+Matched contour: {'x': 152, 'y': 43, 'd': 4, 'a': 72.0, 'p': 29.3137, 'e': 0.353778, 'id': 0, 'tq': 100}
+JSON_entry: 0
+WARNING: match is empty
+entry_id:20230501_40, entry saved to results list
+created dirs at nodule_detection_path: output/crop1001/nodules-last-detected-on/2023-05-01/40/detection and nodule_images_original_path: output/crop1001/nodules-last-detected-on/2023-05-01/40
+Segmented nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/40/detection/2023-05-01.jpg
+Original nodule image saved as output/crop1001/nodules-last-detected-on/2023-05-01/40/2023-05-01.jpg
+
+
+Done analyzing contours, found 27 nodules.
+
+
+results_entry: {'date': '20230501', 'json': 'output/crop1001/20230501/20230501.json', 'log': 'output/crop1001/20230501/crop1001_20230501.log', 'image': 'data/crop1001/20230501.jpg', 'plot': 'output/crop1001/plots/20230426_20230501.png', 'match_stats': {'i_dict': {0: 7, 1: 3, 2: 1, 7: 1}, 'average_tracking_quality': 49.0, 'distance_threshold': 20, 'lengths': {'matching': 12, 'unmatched_current': 17, 'unmatched_previous': 0}, 'averages': {'tq': -126.3333, 'i': 1.0, 'dx': -13.6667, 'dy': -3.25, 'dd': -0.1667, 'da': -12.0, 'dp': -1.6708, 'de': -0.045}}}

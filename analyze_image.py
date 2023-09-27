@@ -6,7 +6,7 @@ from cv_utils import load_image
 from image_analysis import ImageAnalyzer, normalize
 from image_processing import ImageProcessor
 from json_utils import load_json, scale_json
-from plot_data import plot_data
+from plot_p_transition import plot_p_transition
 from find_prev_next_date_paths import find_prev_next_date_paths
 from find_matching import find_matching
 from generate_HTML_file import generate_HTML_file
@@ -168,7 +168,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
         normalized_prev_points = normalize(prev_points)
 
         # Plot the data
-        plot_data(logger,
+        plot_p_transition(logger,
             normalized_points, normalized_prev_points, 
             points, prev_points, current_data=json_data, prev_data=json_prev, 
             matching=matching, unmatched_current=unmatched_current, unmatched_prev=unmatched_previous, 
@@ -204,7 +204,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
     #HTML_file_name = generate_HTML_file(image, prev_date_string, current_json, next_date_string, image_output_dir, current_date, logger)
 
 
-    results_entry = {"crop": crop_number, "date": current_date,
+    results_entry = {"date": current_date,
                         "json": current_json, "log": log_dir, "image": image_file_name, "plot": plot_file_name,
                         "match_stats": match_stats
                     }
