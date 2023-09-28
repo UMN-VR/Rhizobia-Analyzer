@@ -213,14 +213,25 @@ def find_matching(logger, combined_distances, crop_folder, distance_threshold=20
         print(f"i_dict: {i_dict}")
 
         # calculate the average tracking quality
-        tq_average = round((tq_accumulator/len_matching), 4)
+        if len_matching == 0:
+            tq_average = 0
 
-        dx_average = round((dx_accumulator/len_matching), 4)
-        dy_average = round((dy_accumulator/len_matching), 4)
-        dd_average = round((dd_accumulator/len_matching), 4)
-        da_average = round((da_accumulator/len_matching), 4)
-        dp_average = round((dp_accumulator/len_matching), 4)
-        de_average = round((de_accumulator/len_matching), 4)
+            dx_average = 0
+            dy_average = 0
+            dd_average = 0
+            da_average = 0
+            dp_average = 0
+            de_average = 0
+        else:
+
+            tq_average = round((tq_accumulator/len_matching), 4)
+
+            dx_average = round((dx_accumulator/len_matching), 4)
+            dy_average = round((dy_accumulator/len_matching), 4)
+            dd_average = round((dd_accumulator/len_matching), 4)
+            da_average = round((da_accumulator/len_matching), 4)
+            dp_average = round((dp_accumulator/len_matching), 4)
+            de_average = round((de_accumulator/len_matching), 4)
 
 
 
@@ -228,7 +239,10 @@ def find_matching(logger, combined_distances, crop_folder, distance_threshold=20
 
 
         # calculate the average tracking quality of the positive matches
-        average_tracking_quality = round((tp_pos_accumulator/tq_pos_i), 4)
+        if tq_pos_i == 0:
+            average_tracking_quality = 0
+        else:
+            average_tracking_quality = round((tp_pos_accumulator/tq_pos_i), 4)
         #print(f"average_tracking_quality: {average_tracking_quality}")
         logger.info(f"average_tracking_quality: {average_tracking_quality}")
 

@@ -12,7 +12,7 @@ import subprocess
 import time
 from json_utils import append_to_json_list
 
-def process_dir(file_name, main_logger):
+def process_dir(file_name, main_logger, start_at=None):
     """
     1: finds all the crop folders in the directory and its subdirectories
 
@@ -62,37 +62,38 @@ def process_dir(file_name, main_logger):
     main_logger.info("User chose to continue processing images")
 
     for crop_folder in crop_folders:
-        log_memory_usage(main_logger)
-        main_logger.info(f"Processing crop folder: {crop_folder}")
-        print(f"{crop_folder}/")
+        if start_at == None or crop_folder.startswith(start_at):
+            log_memory_usage(main_logger)
+            main_logger.info(f"Processing crop folder: {crop_folder}")
+            print(f"{crop_folder}/")
 
-        start_time = time.time()
+            start_time = time.time()
 
-        # Replace / with _ and capitalize the result
-        crop_log_name = crop_folder.replace('/', '_')
+            # Replace / with _ and capitalize the result
+            crop_log_name = crop_folder.replace('/', '_')
 
-        # get crop_folder_name by removing the 'data/' from the beginning of the crop_folder: 'data/crop1000' -> 'crop1000'
-        crop_folder_name = crop_folder.replace('data/', '')
+            # get crop_folder_name by removing the 'data/' from the beginning of the crop_folder: 'data/crop1000' -> 'crop1000'
+            crop_folder_name = crop_folder.replace('data/', '')
 
-        output_dir = f"output/{crop_folder_name}"
+            output_dir = f"output/{crop_folder_name}"
 
-        # Create the directory if it doesn't exist
-        os.makedirs(output_dir, exist_ok=True)
+            # Create the directory if it doesn't exist
+            os.makedirs(output_dir, exist_ok=True)
 
-        # Create the logger for this specific crop folder
-        crop_logger = Logger(f'{crop_log_name}.log', output_dir).get_logger()
+            # Create the logger for this specific crop folder
+            crop_logger = Logger(f'{crop_log_name}.log', output_dir).get_logger()
 
 
-        # Process all images in the crop folder
-        result_crop_folder = process_crop_folder(crop_folder, crop_logger)
+            # Process all images in the crop folder
+            result_crop_folder = process_crop_folder(crop_folder, crop_logger)
 
-        append_to_json_list("output/results.json", result_crop_folder)
+            append_to_json_list("output/results.json", result_crop_folder)
 
-        end_time = time.time()
+            end_time = time.time()
 
-        dt = end_time - start_time
+            dt = end_time - start_time
 
-        print(f"Took {dt} s\n\n")
+            print(f"Took {dt} s\n\n")
 
 
             

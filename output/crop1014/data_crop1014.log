@@ -16,7 +16,7 @@ image_output_dir: output/crop1014/20230426
 Starting log at: output/crop1014/20230426/crop1014_20230426.log
 Creating logger: crop1014_20230426.log, output/crop1014/20230426, <Logger data_crop1014.log (DEBUG)>
 analyze_image() returned: {'date': '20230426', 'json': 'output/crop1014/20230426/20230426.json', 'log': 'output/crop1014/20230426/crop1014_20230426.log', 'image': 'data/crop1014/20230426.jpg', 'plot': 'output/crop1014/plots/20230424_20230426.png', 'match_stats': {'i_dict': {0: 14}, 'average_tracking_quality': 56.8, 'distance_threshold': 20, 'lengths': {'matching': 14, 'unmatched_current': 0, 'unmatched_previous': 11}, 'averages': {'tq': -454.0714, 'i': 0.0, 'dx': -3.8571, 'dy': 27.1429, 'dd': 2.9286, 'da': 242.7857, 'dp': 34.5379, 'de': 0.1257}}}
-DONE processing image: data/crop1014/20230426.jpg, took 1.101001262664795s
+DONE processing image: data/crop1014/20230426.jpg, took 1.0819299221038818s
 
 
 Processing image: data/crop1014/20230424.jpg
@@ -28,7 +28,7 @@ image_output_dir: output/crop1014/20230424
 Starting log at: output/crop1014/20230424/crop1014_20230424.log
 Creating logger: crop1014_20230424.log, output/crop1014/20230424, <Logger data_crop1014.log (DEBUG)>
 analyze_image() returned: {'date': '20230424', 'json': 'output/crop1014/20230424/20230424.json', 'log': 'output/crop1014/20230424/crop1014_20230424.log', 'image': 'data/crop1014/20230424.jpg', 'plot': None, 'match_stats': {}}
-DONE processing image: data/crop1014/20230424.jpg, took 0.03834795951843262s
+DONE processing image: data/crop1014/20230424.jpg, took 0.05171799659729004s
 
 
 Generating crop plots gif
@@ -137,7 +137,7 @@ len_jpg_files: 1
 len_jpg_files: 1
 nodules_dir: output/crop1014/nodules-last-detected-on/2023-04-26/5 has 1 entries
 nodules_dir: output/crop1014/nodules-last-detected-on/2023-04-26/5 has less than 2 entries, skipping
-@post_process: output/crop1014/nodules-last-detected-on/2023-04-26, 12 nodules, took 0.15s
+@post_process: output/crop1014/nodules-last-detected-on/2023-04-26, 12 nodules, took 0.2s
 @post_process: subdir: output/crop1014/nodules-last-detected-on/2023-04-24
 @generate_gif: path:output/crop1014/nodules-last-detected-on/2023-04-24/20, output_name:o.gif
 len_jpg_files: 1
@@ -259,7 +259,7 @@ len_jpg_files: 1
 len_jpg_files: 1
 nodules_dir: output/crop1014/nodules-last-detected-on/2023-04-24/22 has 1 entries
 nodules_dir: output/crop1014/nodules-last-detected-on/2023-04-24/22 has less than 2 entries, skipping
-@post_process: output/crop1014/nodules-last-detected-on/2023-04-24, 20 nodules, took 0.26s
+@post_process: output/crop1014/nodules-last-detected-on/2023-04-24, 20 nodules, took 0.37s
 ------------------------------------
 DONE Processing crop folder: data/crop1014
 Results: {'crop1014': [{'date': '20230426', 'json': 'output/crop1014/20230426/20230426.json', 'log': 'output/crop1014/20230426/crop1014_20230426.log', 'image': 'data/crop1014/20230426.jpg', 'plot': 'output/crop1014/plots/20230424_20230426.png', 'match_stats': {'i_dict': {0: 14}, 'average_tracking_quality': 56.8, 'distance_threshold': 20, 'lengths': {'matching': 14, 'unmatched_current': 0, 'unmatched_previous': 11}, 'averages': {'tq': -454.0714, 'i': 0.0, 'dx': -3.8571, 'dy': 27.1429, 'dd': 2.9286, 'da': 242.7857, 'dp': 34.5379, 'de': 0.1257}}}, {'date': '20230424', 'json': 'output/crop1014/20230424/20230424.json', 'log': 'output/crop1014/20230424/crop1014_20230424.log', 'image': 'data/crop1014/20230424.jpg', 'plot': None, 'match_stats': {}}], 'gif_path': 'output/crop1014/crop1014.gif', 'plots_gif_path': 'output/crop1014/plots/plots.gif', 'dif_plot_path': 'output/crop1014/plots/dif_plot'}
