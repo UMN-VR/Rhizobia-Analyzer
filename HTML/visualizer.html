@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./stacks-src/styles.css" />
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .image-container img {
+            display: block;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            height: auto;
+        }
+        .rectangle {
+            position: absolute;
+            border: 2px solid green;
+        }
+        .circle-prev {
+            position: absolute;
+            border: 2px solid red;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        .circle-current {
+            position: absolute;
+            border: 2px solid purple;
+            border-radius: 50%;
+            background-color: rgba(128, 0, 128, 0.5);
+        }
+        .circle-next {
+            position: absolute;
+            border: 2px solid blue;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+        .tooltip {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            padding: 2px 5px;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 50%;
+            transform: translate(0%, 0%);
+            white-space: nowrap;
+        }
+        .rectangle:hover .tooltip, .circle-prev:hover .tooltip, .circle-current:hover .tooltip, .circle-next:hover .tooltip {
+            visibility: visible;
+        }
+        .hidden {
+            display: none;
+        }
+
+    </style>
+    <script>
+        let image_height, image_width;  // Declare them here to make them accessible throughout the script
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cropNum = urlParams.get('crop'); // Now accessible by all functions below
+            const prev = urlParams.get('prev');
+            const current = urlParams.get('current');
+            const next = urlParams.get('next');
+            const img_path = `../data/${cropNum}/${current}.jpg`;
+            renderImage(img_path);
+            image = document.getElementById('image');
+            image.onload = function() {
+                image_height = image.naturalHeight;
+                image_width = image.naturalWidth;
+                const jsonFiles = {
+                    prev: `../output/${cropNum}/${prev}/${prev}.json`,
+                    current: `../output/${cropNum}/${current}/${current}.json`,
+                    next: `../output/${cropNum}/${next}/${next}.json`
+                };
+                
+                Object.keys(jsonFiles).forEach(key => {
+                    fetch(jsonFiles[key])
+                    .then(response => response.json())
+                    .then(data => {
+                        populateElements(data, key, cropNum);
+                    })
+                    .catch(error => console.error('Error fetching JSON:', error));
+                });
+            }
+        });
+
+        function handleMouseOver(e) {
+            e.currentTarget.classList.add('active');
+            const circles = document.querySelectorAll('.circle-prev, .circle-current, .circle-next');
+            circles.forEach(circle => {
+                if (!circle.classList.contains('active') && !circle.classList.contains('hidden')) {
+                circle.style.display = 'none';
+                }
+            });
+        }
+
+        function handleMouseOut(e) {
+            e.currentTarget.classList.remove('active');
+            const circles = document.querySelectorAll('.circle-prev, .circle-current, .circle-next');
+            circles.forEach(circle => {
+                if (!circle.classList.contains('hidden')) {
+                circle.style.display = 'block';
+                }
+            });
+        }
+
+
+        function populateElements(data, type, cropNum) {
+            const imageContainer = document.querySelector('.image-container');
+            data.forEach(item => {
+                const container = document.createElement('div');
+                container.style.position = 'absolute';
+                container.style.top = `${(item.r.y / image_height * 100)-0.5}%`;
+                container.style.left = `${(item.r.x / image_width * 100)-0.5}%`;
+                const element = document.createElement('div');
+                element.className = `circle-${type}`;
+                if (type !== 'current') {
+                    element.classList.add('hidden');
+                }
+                element.addEventListener('mouseover', handleMouseOver);
+                element.addEventListener('mouseout', handleMouseOut);
+                element.style.width =  `${item.r.w}px`;
+                element.style.height = `${item.r.h}px`;
+                
+                const tooltip = document.createElement('div');
+                const match_id_full = item.m.id;
+
+                //separate match_id_full into match_id_num and match_id_date
+                const match_id_num = match_id_full.split('_')[1];
+                const match_id_date = match_id_full.split('_')[0]; // something like 20200101 need to be broken up into  2020-01-01
+                const formatted_id_date = match_id_date.substring(0,4) + '-' + match_id_date.substring(4,6) + '-' + match_id_date.substring(6,8);
+                //write vars to console for debugging
+                // console.log('match_id_full: ' + match_id_full+ ' match_id_num: ' + match_id_num + ' match_id_date: ' + match_id_date + ' formatted_id_date: ' + formatted_id_date);
+                //print item.e.x to console for debugging
+                
+                json_entry = item.e;
+                //console.log('json_entry: ' + json_entry);
+                
+                //check if json entry is null
+                if (json_entry == null) {
+                    console.log('json_entry is null');
+                    json_entry = {};
+                } else {
+                    //console.log('json_entry is not null');
+                }
+
+                // Create rectangle
+                const rect = document.createElement('div');
+                rect.className = 'rectangle hidden';  // Add hidden class by default
+                rect.style.top = `${(item.r.y / image_height * 100)}%`;
+                rect.style.left = `${(item.r.x / image_width * 100)}%`;
+                rect.style.width =  `${(item.r.w / image_width * 100)}%`;
+                rect.style.height = `${(item.r.h / image_height * 100)}%`;
+
+                const tooltipRect = document.createElement('div');
+                tooltipRect.className = 'tooltip';
+                tooltipRect.innerHTML = `<strong>Rect X:</strong> ${item.r.x} <strong>Y:</strong> ${item.r.y} <strong>W:</strong> ${item.r.w} <strong>H:</strong> ${item.r.h}`;
+                rect.appendChild(tooltipRect);
+
+                imageContainer.appendChild(rect);
+                
+                
+                const centroid_x = json_entry.x;
+                const centroid_y = json_entry.y;
+                // write centroid_x to console for debugging
+                //console.log('centroid_x: ' + centroid_x);
+                tooltip.className = 'tooltip';
+                tooltip.innerHTML = `<font size="1">
+                                    <div class="flex hstack">
+                                        <div>
+                                            <a href="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/o.gif" target="_blank">   
+                                                <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/o.gif" width="100" height="100"><br>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/detection/d.gif" target="_blank">
+                                                <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/detection/d.gif" width="100" height="100"><br>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <a href="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/tq_plot.png" target="_blank">
+                                        <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/tq_plot.png" width="200" height="200"><br>
+                                    </a>
+
+                                    <a href="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/dif_plot.png" target="_blank">
+                                        <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/dif_plot.png" width="200" height="200"><br>
+                                    </a>
+                                    <strong>Match ID:</strong> ${match_id_full} <strong>i:</strong> ${item.m.i}<br>
+                                    <strong>prev_js_id:</strong> ${item.m.p.id || "???"} <strong>js_id:</strong> ${item.m.c.id} <strong>next_js_id:</strong> ${item.m.n.id || "???"}<br>
+                                    
+                                    <strong>Centroid X:</strong> ${item.c.x} <strong>Y:</strong> ${item.c.y} <strong>Area:</strong> ${item.a}<br>
+                                    <strong>Rect X:</strong> ${item.r.x } <strong>Y:</strong> ${item.r.y} <strong>W:</strong> ${item.r.w} <strong>H:</strong> ${item.r.h}<br>
+                                    <strong>JSON X:</strong> ${json_entry.x || "ERROR"} <strong>Y:</strong> ${json_entry.y || "ERROR"} <strong>Diameter:</strong> ${json_entry.d || "ERROR"}<br>
+                                    <strong>Area:</strong> ${json_entry.a || "ERROR"} <strong>Perimeter:</strong> ${json_entry.p || "ERROR"} <strong>Eccentricity:</strong> ${json_entry.e || "ERROR"}<br>
+                                    <strong> ID:</strong> ${json_entry.id || "ERROR"} <strong>Tracking Quality:</strong> ${json_entry.tq || "ERROR"}<br>
+                                    </font>`;
+                                    
+                element.appendChild(tooltip);
+                container.appendChild(element);
+                imageContainer.appendChild(container);
+            });
+        }
+        function renderImage(image_path) {
+            const container = document.querySelector('.image-container');
+            const image = document.createElement('img');
+            image.src = image_path;
+            image.id = 'image';
+            container.appendChild(image);
+        }
+        
+        function toggleVisibility(className, checkbox) {
+            const elements = document.getElementsByClassName(className);
+            for (let i = 0; i < elements.length; i++) {
+                if (checkbox.checked) {
+                elements[i].classList.remove('hidden');
+                elements[i].style.display = 'block';
+                } else {
+                elements[i].classList.add('hidden');
+                elements[i].style.display = 'none';
+                }
+            }
+        }
+
+
+        function setOffsetX() {
+            const offsetX = document.getElementById('offsetX-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="offsetGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                const left = parseFloat(circles[i].style.left);
+                circles[i].style.left = (left + parseFloat(offsetX)) + 'px';
+            }
+            document.getElementById('offsetX-value').innerText = offsetX;
+        }
+        function setOffsetY() {
+            const offsetY = document.getElementById('offsetY-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="offsetGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                const top = parseFloat(circles[i].style.top);
+                circles[i].style.top = (top + parseFloat(offsetY)) + 'px';
+            }
+            document.getElementById('offsetY-value').innerText = offsetY;
+        }
+        function setTransparency() {
+            const transparency = document.getElementById('transparency-slider').value;
+            const circles = document.getElementsByClassName('circle-' + document.querySelector('input[name="transparencyGroup"]:checked').value);
+            for (let i = 0; i < circles.length; i++) {
+                circles[i].style.backgroundColor = `rgba(${circles[i].style.backgroundColor.split(',')[0].split('(')[1]}, ${circles[i].style.backgroundColor.split(',')[1]}, ${circles[i].style.backgroundColor.split(',')[2]}, ${transparency})`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="rectangle-toggle" onclick="toggleVisibility('rectangle', this)">
+        <label for="rectangle-toggle">Show Tracking</label>
+        
+        <input type="checkbox" id="circle-toggle-prev" onclick="toggleVisibility('circle-prev', this)">
+        <label for="circle-toggle-prev">Show Previous RP JSON</label>
+        <input type="checkbox" id="circle-toggle" checked onclick="toggleVisibility('circle-current', this)">
+        <label for="circle-toggle">Show RP JSON</label>
+        <input type="checkbox" id="circle-toggle-next" onclick="toggleVisibility('circle-next', this)">
+        <label for="circle-toggle-next">Show Next RP JSON</label>
+        <br>
+        <input type="radio" id="prev" name="offsetGroup" value="prev" checked>
+        <label for="prev">Offset Previous</label>
+        <input type="radio" id="circle" name="offsetGroup" value="current">
+        <label for="circle">Offset Current</label>
+        <input type="radio" id="next" name="offsetGroup" value="next">
+        <label for="next">Offset Next</label>
+        <br>
+        <input type="range" min="-10" max="10" step="1" id="offsetX-slider" onchange="setOffsetX()">
+        <label for="offsetX-slider">Offset X: <span id="offsetX-value">0</span>px</label>
+        
+        <br>
+        
+        <input type="range" min="-10" max="10" step="1" id="offsetY-slider" onchange="setOffsetY()">
+        <label for="offsetY-slider">Offset Y: <span id="offsetY-value">0</span>px</label>
+        <br>
+        <input type="radio" id="transparency-prev" name="transparencyGroup" value="prev" checked>
+        <label for="transparency-prev">Transparency Previous</label>
+        <input type="radio" id="transparency-circle" name="transparencyGroup" value="">
+        <label for="transparency-circle">Transparency Current</label>
+        <input type="radio" id="transparency-next" name="transparencyGroup" value="next">
+        <label for="transparency-next">Transparency Next</label>
+        <br>
+        <input type="range" min="0" max="1" step="0.01" id="transparency-slider" onchange="setTransparency()">
+        <label for="transparency-slider">Transparency</label>
+    </div>
+    <div class="image-container">
+        
+        <!-- Elements will be dynamically populated here -->
+        
+    </div>
+</body>
+</html>

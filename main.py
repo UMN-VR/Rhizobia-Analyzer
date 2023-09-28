@@ -1,128 +1,130 @@
 # main.py
-# Import required libraries
 
 import os
-import cv2
-import json
-import sys
-import subprocess
-from image_analysis import ImageAnalyzer
-from logger import Logger
-import psutil
+import time
 
-# Import the get_all_image_files function from nodules.py
-from nodules import get_all_image_files, find_crop_folders, load_image, process_crop_folder
+from Logger import Logger
 
-from HTML_out import generate_results_page
-from memory_logger import log_memory_usage
+from dir_utils import change_working_directory, prompt_clear_output_directory
+from process_dir import process_dir
+from process_file import process_file
+
+program_name = "Rhizobia Analyser"
+program_version = "8.0"
 
 
-def main():
-    # Change the working directory to the directory of this file
-    script_dir = os.path.dirname(os.path.abspath(__file__)) # get the path of this script, log will be saved here
-    os.chdir(script_dir) # change the working directory to the directory of of this script
+def while_loop_process_images():
+    """
+    Main Loop: 
     
-    # Check if the output directory exists, if not make one
-    if not os.path.isdir("output"):
-        os.makedirs("output")
-    else:
-        # ask the user if they want to clear the output directory
-        print("It is recommended to clear the output directory before running this script.")
-        user_input = input("Would you like to clear the output directory? (y/n): ")
-        if not user_input.lower() == 'n':
-            # delete the output directory
-            print("Clearing output directory...")
-            os.system("rm -rf output")
-            os.makedirs("output")
+    1: Prompts user for file name or directory, exits if user enters 'exit'
+
+    2: Creates logger with the name of the file or directory entered by the user at 'output'
+
+    3: 
+
+    If the user enters a directory, process all the images in the directory with process_dir()
+    
+    Else if the user enters a file name, process that file with process_file()
+    
+    """
 
     # Main Loop: process images until the user enters 'exit'
     while True:
+
         # ask user for file name or directory
-        file_name = input("Enter the file name (or 'exit' to stop): ")
+        command = input("Enter crop folder dir ie: 'data', 'data/crop1000', etc. (or 'exit' to stop): ")
+
+        # split command by 'start_at:' to get the file name to start at
+        commands = command.split('start_at:')
+        if len(commands) == 1:
+            command = commands[0]
+            #remove any spaces in command
+            command = command.replace(' ', '')
+            start_at = None
+        elif len(commands) == 2:
+            command = commands[0]
+            #remove any spaces in command
+            command = command.replace(' ', '')
+
+            start_at = commands[1]
+        
+        print(f"command: {command}, start_at: {start_at}")
+
+        #start timer
+        start_time = time.time()
+        
         # if the user enters 'exit', stop the program
-        if file_name.lower() == 'exit':
+        if command.lower() == 'exit':
             break
-            
-        # remove the extension
-        log_name, _ = os.path.splitext(file_name)
-        # replace / with _ and capitalize the result
-        log_name = log_name.replace('/', '_')
-        # creates the logger in /output
-        logger = Logger(f'{log_name}.log', "output").get_logger()
-        # Initialize the results list
-        results = []
+
+        
+        # if command.startswith('data/'):
+        #     print(f"command: {command} starts with 'data/' ")
+        #     pass
+
+        file_name=command
+
+        print(f"file_name: {file_name}")
+        main_log = 'exec_'+file_name.replace('/', '_')
+
+        print(f"Starting log at {main_log}")
+
+        main_logger = Logger(main_log).get_logger()
+        
+        
         # if the user enters a directory, process all the images in the directory
         if os.path.isdir(file_name):
-            logger.info(f"Detected directory: {file_name}")
-            # get all the files in the directory and its subdirectories
-            files = get_all_image_files(file_name)
-            # now we have a list of image files
-            logger.info(f"Found {len(files)} image files in directory: {file_name}")
+            main_logger.info(f"{file_name} is a directory, starting process_dir()")
+            process_dir(file_name, main_logger, start_at)
             
-            logger.info(f"{files}")  # prints all files found in directory
-            print(f"Found {len(files)} image files in directory: {file_name}")
-            # Tell user where the files will be written
-            script_output_dir = os.path.join("output", file_name.replace("data", "").strip("/"))
-            print(f"Will write files to directory: {script_output_dir}")
-            
-            # if the user typed 'data' then there are multiple crop folders 
-            # for each crop folder that will be created a separate log file will be created, and an empty list of objects will be created
-            crop_folders = find_crop_folders(file_name)    
-            print(f"Found {len(crop_folders)} crop folders: {crop_folders}")
-            
-            # ask the user to continue
-            continue_processing = input("Continue processing? (y/n): ")
-            if continue_processing.lower() == 'n':
-                logger.info("User chose to stop processing images")
-                break
-            
-            logger.info("User chose to continue processing images")
-            for crop_folder in crop_folders:
-                log_memory_usage(logger)
-                logger.info(f"Processing crop folder: {crop_folder}")
-                print(f"{crop_folder}/")
-
-                # Replace / with _ and capitalize the result
-                crop_log_name = crop_folder.replace('/', '_')
-                # Create the logger for this specific crop folder
-                crop_logger = Logger(f'{crop_log_name}.log', "output").get_logger()
-                # Process all images in the crop folder
-                result_crop_folder = process_crop_folder(crop_folder, crop_logger)
-
-                entry = [crop_folder, result_crop_folder]
-                results.append(entry)
-            
-
-            generate_results = input("Generate results? (y/n): ")
-            if generate_results.lower() != 'n':
-                logger.info("User chose to generate results")
-
-                
-                generate_results_page(results, script_output_dir, logger)
-        
-
-
-            # Open the last HTML file generated
-            if results and results[-1]:
-                subprocess.run(["xdg-open", results[-1][-1]], stderr=subprocess.DEVNULL)  # Redirect stderr to /dev/null
                 
         # if the user enters a file name, process that file
         elif os.path.isfile(file_name):
-            # get the directory where the results will be saved
-            output_dir = os.path.join("output", os.path.dirname(file_name).replace("data", "").strip("/"))
-            # Call analyze_image() to process the image, this is where the magic happens
-            result_file_name, new_objects = ImageAnalyzer.analyze_image(file_name, output_dir, external_logger=logger)
-            # Open the HTML file generated
-            subprocess.run(["xdg-open", result_file_name], stderr=subprocess.DEVNULL)  # Redirect stderr to /dev/null
+            main_logger.info(f"{file_name} is a file, starting process_file()")
+            process_file(file_name, main_logger)
+
         else:
             print("Invalid file name or directory.")
-            logger.error(f"Invalid file name or directory: {file_name}")
+            main_logger.error(f"Invalid file name or directory: {file_name}")
             continue
 
         # Print Done! to the console and a line 
         print("--------------------------------------------------")
         print("Done!")
+
+
+
+
+def main():
+    """
+    Main function, called when this script is run.
     
+    1: Change the working directory to the directory of this file
+    2: Check if the output directory exists and is empty, if not make one or clear it
+    3: Main Loop: process images until the user enters 'exit'
+    4: Done!
+
+    """
+    print("--------------------------------------------------")
+    print(f"Starting {program_name} v{program_version}...")
+
+
+    # Change the working directory to the directory of this file
+    script_dir = change_working_directory()
+
+    # Check if the output directory exists, if not make one
+    prompt_clear_output_directory()
+
+    # Main Loop: process images until the user enters 'exit'
+    while_loop_process_images()
+    
+
+
+    print("--------------------------------------------------")
     print("Exiting program...")
+
+
+# This is the standard boilerplate that calls the main() function.    
 if __name__ == '__main__':
     main()

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Crop Number</title>
+  <style>
+    /* Add your CSS styling here */
+    .widget {
+      margin: 20px;
+      display: inline-block;
+    }
+    .widget img {
+      max-width: 200px;
+      height: auto;
+    }
+    .widget a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="widgetContainer"></div> <!-- Container for widgets -->
+
+  <script>
+    // Fetch the JSON data and populate the widgets
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('../output/results.json') // Replace with the actual path
+        .then(response => response.json())
+        .then(data => createWidgets(data))
+        .catch(error => console.error('Error fetching JSON:', error));
+    });
+
+      function createWidgets(data) {
+        const container = document.getElementById("widgetContainer");
+        data.forEach(entry => {
+          const widgetDiv = document.createElement('div');
+          widgetDiv.className = 'widget';
+
+          // Dynamically find the crop key
+          const cropKey = Object.keys(entry).find(key => key.startsWith('data/crop'));
+          const cropNumber = cropKey.split('/').pop();  // Extract the crop number
+
+          // Create clickable anchor for dif_plot_dx_dy_da_dp.png plot
+          const difDxDyDaDpLink = document.createElement('a');
+          difDxDyDaDpLink.href = `../${entry.dif_plot_dx_dy_da_dp_path}`;
+
+          // Create and append dif_plot_dx_dy_da_dp.png plot
+          const difDxDyDaDpImg = document.createElement('img');
+          difDxDyDaDpImg.src = `../${entry.dif_plot_dx_dy_da_dp_path}`;
+          difDxDyDaDpImg.setAttribute('type', 'image/png');
+          difDxDyDaDpLink.appendChild(difDxDyDaDpImg);
+
+          widgetDiv.appendChild(difDxDyDaDpLink);
+
+          // Create clickable anchor for dif_plot_i_tq_dd_de.png plot
+          const difITqDdDeLink = document.createElement('a');
+          difITqDdDeLink.href = `../${entry.dif_plot_i_tq_dd_de_path}`;
+
+          // Create and append dif_plot_i_tq_dd_de.png plot
+          const difITqDdDeImg = document.createElement('img');
+          difITqDdDeImg.src = `../${entry.dif_plot_i_tq_dd_de_path}`;
+          difITqDdDeImg.setAttribute('type', 'image/png');
+          difITqDdDeLink.appendChild(difITqDdDeImg);
+
+          widgetDiv.appendChild(difITqDdDeLink);
+
+          // Create clickable anchor for dif_plot_i_dict.png plot
+          const difIDictLink = document.createElement('a');
+          difIDictLink.href = `../${entry.dif_plot_i_dict_path}`;
+
+          // Create and append dif_plot_i_dict.png plot
+          const difIDictImg = document.createElement('img');
+          difIDictImg.src = `../${entry.dif_plot_i_dict_path}`;
+          difIDictImg.setAttribute('type', 'image/png');
+          difIDictLink.appendChild(difIDictImg);
+
+          widgetDiv.appendChild(difIDictLink);
+
+          // Create clickable anchor for dif_plot_matching_tq.png plot
+          const difIMatchingTqLink = document.createElement('a');
+          difIMatchingTqLink.href = `../${entry.dif_plot_matching_tq_path}`;
+
+          // Create and append dif_plot_i_matching_tq.png plot
+          const difIMatchingTqImg = document.createElement('img');
+          difIMatchingTqImg.src = `../${entry.dif_plot_matching_tq_path}`;
+          difIMatchingTqImg.setAttribute('type', 'image/png');
+          difIMatchingTqLink.appendChild(difIMatchingTqImg);
+
+          widgetDiv.appendChild(difIMatchingTqLink);
+
+
+          // Create clickable anchor for crop image
+          const cropImgLink = document.createElement('a');
+          cropImgLink.href = `../${entry.gif_path}`;
+          
+          // Create and append GIFs
+          const gifImg = document.createElement('img');
+          gifImg.src = `../${entry.gif_path}`;
+          gifImg.setAttribute('type', 'image/gif');
+          cropImgLink.appendChild(gifImg);
+          
+          widgetDiv.appendChild(cropImgLink);
+
+          // Create clickable anchor for plots GIF
+          const plotsGifLink = document.createElement('a');
+          plotsGifLink.href = `../${entry.plots_gif_path}`;
+          
+          const plotsGifImg = document.createElement('img');
+          plotsGifImg.src = `../${entry.plots_gif_path}`;
+          plotsGifLink.appendChild(plotsGifImg);
+          
+          widgetDiv.appendChild(plotsGifLink);
+
+          // Create clickable link to json file
+          const jsonLink = document.createElement('a');
+          jsonLink.href = `../${entry[cropKey]}`;
+          jsonLink.innerText = 'JSON';
+          widgetDiv.appendChild(jsonLink);
+          
+          // Create and append clickable crop title
+          const cropTitle = document.createElement('a');
+          cropTitle.innerText = cropNumber;
+          cropTitle.href = `select_date.html?crop=${cropNumber}`;
+          cropTitle.style.fontWeight = 'bold';
+          cropTitle.style.fontSize = '1.5em';
+          
+          widgetDiv.appendChild(cropTitle);
+          
+          container.appendChild(widgetDiv);
+        });
+      }
+
+  </script>
+
+</body>
+</html>

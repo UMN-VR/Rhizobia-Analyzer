@@ -1,0 +1,356 @@
+
+@process_crop_folder: crop_folder: data/crop984
+Generating crop plots gif
+@generate_gif_from_list: list:['data/crop984/20230424.jpg', 'data/crop984/20230426.jpg'], output_filename:output/crop984/crop984.gif
+output_filename: output/crop984/crop984.gif
+Found 2 files: ['data/crop984/20230424.jpg', 'data/crop984/20230426.jpg']
+------------------------------------
+
+
+Processing image: data/crop984/20230426.jpg
+Calling analyze_image() with file: data/crop984/20230426.jpg, output_dir: output/crop984
+
+@analyze_image: file_name: data/crop984/20230426.jpg, output_dir: output/crop984, external_logger: <Logger data_crop984.log (DEBUG)>
+current_date: 20230426, crop_number: crop984
+image_output_dir: output/crop984/20230426
+Starting log at: output/crop984/20230426/crop984_20230426.log
+Creating logger: crop984_20230426.log, output/crop984/20230426, <Logger data_crop984.log (DEBUG)>
+analyze_image() returned: {'date': '20230426', 'json': 'output/crop984/20230426/20230426.json', 'log': 'output/crop984/20230426/crop984_20230426.log', 'image': 'data/crop984/20230426.jpg', 'plot': 'output/crop984/plots/20230424_20230426.png', 'match_stats': {'i_dict': {0: 16}, 'average_tracking_quality': 53.0833, 'distance_threshold': 20, 'lengths': {'matching': 16, 'unmatched_current': 0, 'unmatched_previous': 20}, 'averages': {'tq': 3.6875, 'i': 0.0, 'dx': -4.75, 'dy': 5.8125, 'dd': 0.0, 'da': 7.5625, 'dp': -0.0037, 'de': -0.0244}}}
+DONE processing image: data/crop984/20230426.jpg, took 1.376753807067871s
+
+
+Processing image: data/crop984/20230424.jpg
+Calling analyze_image() with file: data/crop984/20230424.jpg, output_dir: output/crop984
+
+@analyze_image: file_name: data/crop984/20230424.jpg, output_dir: output/crop984, external_logger: <Logger data_crop984.log (DEBUG)>
+current_date: 20230424, crop_number: crop984
+image_output_dir: output/crop984/20230424
+Starting log at: output/crop984/20230424/crop984_20230424.log
+Creating logger: crop984_20230424.log, output/crop984/20230424, <Logger data_crop984.log (DEBUG)>
+analyze_image() returned: {'date': '20230424', 'json': 'output/crop984/20230424/20230424.json', 'log': 'output/crop984/20230424/crop984_20230424.log', 'image': 'data/crop984/20230424.jpg', 'plot': None, 'match_stats': {}}
+DONE processing image: data/crop984/20230424.jpg, took 0.06528091430664062s
+
+
+Generating crop plots gif
+@generate_gif: path:output/crop984/plots, output_name:plots.gif
+len_jpg_files: 0
+Saving results to: output/data/crop984/results.json
+@plot_crop: crop_json_file:output/crop984/crop984.json, plot_file_name_prefix:output/crop984/plots/dif_plot, logger:<Logger data_crop984.log (DEBUG)>
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+filtered_dates: 1
+filtered_data: 1
+Calling post_process() with crop_folder: data/crop984
+@post_process: crop_folder:data/crop984, logger:<Logger data_crop984.log (DEBUG)>
+dates_dir:output/crop984/nodules-last-detected-on
+subdirs: ['output/crop984/nodules-last-detected-on/2023-04-26', 'output/crop984/nodules-last-detected-on/2023-04-24']
+@post_process: subdir: output/crop984/nodules-last-detected-on/2023-04-26
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/9, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/9/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/9 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/9 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/0, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/0/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/0 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/0 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/11, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/11/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/11 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/11 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/7, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/7/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/7 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/7 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/6, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/6/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/6 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/6 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/1, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/1/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/1 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/1 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/10, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/10/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/10 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/10 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/8, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/8/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/8 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/8 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/15, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/15/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/15 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/15 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/12, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/12/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/12 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/12 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/13, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/13/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/13 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/13 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/5, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/5/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/5 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/5 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/14, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-26/14/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/14 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-26/14 has less than 2 entries, skipping
+@post_process: output/crop984/nodules-last-detected-on/2023-04-26, 13 nodules, took 0.22s
+@post_process: subdir: output/crop984/nodules-last-detected-on/2023-04-24
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/32, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/32/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/32 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/32 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/33, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/33/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/33 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/33 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/20, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/20/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/20 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/20 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/18, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/18/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/18 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/18 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/27, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/27/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/27 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/27 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/9, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/9/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/9 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/9 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/0, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/0/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/0 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/0 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/11, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/11/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/11 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/11 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/7, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/7/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/7 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/7 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/29, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/29/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/29 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/29 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/16, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/16/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/16 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/16 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/6, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/6/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/6 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/6 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/28, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/28/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/28 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/28 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/17, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/17/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/17 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/17 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/1, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/1/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/1 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/1 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/10, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/10/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/10 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/10 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/19, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/19/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/19 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/19 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/26, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/26/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/26 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/26 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/8, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/8/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/8 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/8 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/21, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/21/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/21 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/21 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/31, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/31/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/31 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/31 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/30, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/30/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/30 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/30 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/24, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/24/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/24 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/24 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/23, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/23/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/23 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/23 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/4, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/4/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/4 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/4 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/15, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/15/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/15 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/15 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/3, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/3/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/3 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/3 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/12, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/12/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/12 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/12 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/2, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/2/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/2 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/2 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/13, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/13/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/13 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/13 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/5, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/5/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/5 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/5 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/14, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/14/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/14 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/14 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/22, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/22/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/22 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/22 has less than 2 entries, skipping
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/25, output_name:o.gif
+len_jpg_files: 1
+@generate_gif: path:output/crop984/nodules-last-detected-on/2023-04-24/25/detection, output_name:d.gif
+len_jpg_files: 1
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/25 has 1 entries
+nodules_dir: output/crop984/nodules-last-detected-on/2023-04-24/25 has less than 2 entries, skipping
+@post_process: output/crop984/nodules-last-detected-on/2023-04-24, 34 nodules, took 0.63s
+------------------------------------
+DONE Processing crop folder: data/crop984
+Results: {'crop984': [{'date': '20230426', 'json': 'output/crop984/20230426/20230426.json', 'log': 'output/crop984/20230426/crop984_20230426.log', 'image': 'data/crop984/20230426.jpg', 'plot': 'output/crop984/plots/20230424_20230426.png', 'match_stats': {'i_dict': {0: 16}, 'average_tracking_quality': 53.0833, 'distance_threshold': 20, 'lengths': {'matching': 16, 'unmatched_current': 0, 'unmatched_previous': 20}, 'averages': {'tq': 3.6875, 'i': 0.0, 'dx': -4.75, 'dy': 5.8125, 'dd': 0.0, 'da': 7.5625, 'dp': -0.0037, 'de': -0.0244}}}, {'date': '20230424', 'json': 'output/crop984/20230424/20230424.json', 'log': 'output/crop984/20230424/crop984_20230424.log', 'image': 'data/crop984/20230424.jpg', 'plot': None, 'match_stats': {}}], 'gif_path': 'output/crop984/crop984.gif', 'plots_gif_path': 'output/crop984/plots/plots.gif', 'dif_plot_path': 'output/crop984/plots/dif_plot'}
+Result: {'data/crop984': 'output/crop984/crop984.json', 'gif_path': 'output/crop984/crop984.gif', 'plots_gif_path': 'output/crop984/plots/plots.gif', 'dif_plot_dx_dy_da_dp_path': 'output/crop984/plots/dif_plot_dx_dy_da_dp.png', 'dif_plot_i_tq_dd_de_path': 'output/crop984/plots/dif_plot_i_tq_dd_de.png', 'dif_plot_i_dict_path': 'output/crop984/plots/dif_plot_i_dict.png', 'dif_plot_matching_tq_path': 'output/crop984/plots/dif_plot_matching_tq.png'}

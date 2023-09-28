@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Date</title>
+  <style>
+    /* Optional CSS styling */
+    .date-widget {
+      margin: 20px;
+      display: inline-block;
+    }
+    .date-widget img {
+      max-width: 200px;
+      height: auto;
+    }
+    .date-widget a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dateWidgetContainer"></div> <!-- Container for date widgets -->
+
+  <script>
+    // Fetch the JSON data and populate the widgets
+    document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop'); // Now accessible by all functions below
+        
+        fetch(`../output/${cropNum}/${cropNum}.json`) 
+            .then(response => response.json())
+            .then(data => createDateWidgets(data[cropNum], cropNum))
+            .catch(error => console.error('Error fetching JSON:', error));
+    });
+
+    function createDateWidgets(data, cropNum) {
+        const container = document.getElementById("dateWidgetContainer");
+        data.forEach(entry => {
+            index = data.indexOf(entry);
+            len_data = data.length;
+            const dateWidget = document.createElement('div');
+            dateWidget.className = 'date-widget';
+            
+            // Create clickable anchor for crop image
+            const imgLink = document.createElement('a');
+            imgLink.href = `../${entry.image}`;
+            
+            const imgElem = document.createElement('img');
+            imgElem.src = `../${entry.image}`;
+            imgLink.appendChild(imgElem);
+            
+            dateWidget.appendChild(imgLink);
+
+            // Create clickable anchor for plot image
+            const plotLink = document.createElement('a');
+            plotLink.href = `../${entry.plot}`;
+            
+            const plotImgElem = document.createElement('img');
+            plotImgElem.src = `../${entry.plot}`;
+            plotLink.appendChild(plotImgElem);
+            
+            dateWidget.appendChild(plotLink);
+            
+            // Create and append clickable date with bold and larger font
+            const dateLink = document.createElement('a');
+            dateLink.innerText = entry.date;
+            
+            // Get the previous date's date
+            //const prevDate = data[data.indexOf(entry) - 1].date;
+
+            //get the next date's date
+            //const nextDate = data[data.indexOf(entry) + 1].date;
+
+            // [Error] Error fetching JSON:
+            // TypeError: undefined is not an object (evaluating 'data[data.indexOf(entry) - 1].date')
+            // (anonymous function) — select_date.html:69
+            // forEach
+            // createDateWidgets — select_date.html:40
+            // (anonymous function) — select_date.html:34
+            //   (anonymous function) (select_date.html:35)
+
+            //if index != 0 and != len_data - 1
+            if (index != 0 && index != len_data - 1) {
+                const prevDate = data[data.indexOf(entry) - 1].date;
+                const nextDate = data[data.indexOf(entry) + 1].date;
+                dateLink.href = `visualizer.html?crop=${cropNum}&prev=${prevDate}&current=${entry.date}&next=${nextDate}`;
+            }
+            else{
+              dateLink.href = `visualizer.html?crop=${cropNum}&current=${entry.date}`;
+            }
+
+    
+            dateLink.style.fontWeight = 'bold';
+            dateLink.style.fontSize = '1.5em';
+            dateWidget.appendChild(dateLink);
+            
+            container.appendChild(dateWidget);
+        });
+    }
+
+
+
+  </script>
+
+</body>
+</html>
