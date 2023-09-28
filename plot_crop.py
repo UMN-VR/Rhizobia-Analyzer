@@ -6,7 +6,9 @@ import matplotlib.cm as cm
 import numpy as np
 from Logger import Logger
 def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
-    # Read JSON file
+
+    logger.info(f"@plot_crop: crop_json_file:{crop_json_file}, plot_file_name_prefix:{plot_file_name_prefix}, logger:{logger}")
+        # Read JSON file
     with open(crop_json_file, 'r') as f:
         data = json.load(f)
     crop_number = list(data.keys())[0]
@@ -64,12 +66,14 @@ def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
     
     # Group metrics for plotting
     metric_groups = [
-        [('dx', dx, 'b'), ('dy', dy, 'g'), ('da', da, 'c'), ('dp', dp, 'm')],
-        [('i', i, 'orange'), ('tq', tq, 'k'), ('dd', dd, 'r'), ('de', de, 'y')],
+        [('Δx (change in x)', dx, 'b'), ('Δy (change in y)', dy, 'g'), ('Δa (area)', da, 'c'), ('Δp (perimeter)', dp, 'm')],
+        [('i average (should increase by 1 every day if perfect tracking)', i, 'orange'), ('tq_avg (Average(+ and -)Tracking Quality)', tq, 'k'), ('Δd (diameter)', dd, 'r'), ('Δe (eccentricity)', de, 'y')],
         [('Matching', matching, 'purple'), ('Unmatched Current', unmatched_current, 'pink'),
          ('Unmatched Previous', unmatched_previous, 'brown'),
-         ('Average Tracking Quality', average_tracking_quality, 'lime')]
+         ('tq (Average Positive Tracking Quality)', average_tracking_quality, 'lime')]
     ]
+
+    #diameter, eccentricity, perimeter, area, i, tq, matching, unmatched_current, unmatched_previous, i_dict, average_tracking_quality
     
    # Special colormap for centered metrics
     
@@ -80,11 +84,15 @@ def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
         
         for ax, (metric_name, metric_data, color) in zip(axs, metric_group):
             
-            # Filter out None values for normalization BAD CODE, ADD ELSE STATEMENT, WILL CAUSE MISALIGNMENT AND SHOW WRONG DATA
+            # Filter out None values for normalization BAD CODE, ADD ELSE STATEMENT, MIGHT CAUSE MISALIGNMENT AND SHOW WRONG DATA
             filtered_dates = [date for date, val in zip(dates, metric_data) if val is not None]
             filtered_data = [val for val in metric_data if val is not None ]
+
+            # print sizes of filtered data and dates 
+            logger.info(f"filtered_dates: {len(filtered_dates)}")
+            logger.info(f"filtered_data: {len(filtered_data)}")
             
-            if metric_name in ['dx', 'dy', 'da', 'dp', 'de', 'dd', 'tq', 'Unmatched Current', 'Unmatched Previous']:
+            if metric_name in ['Δx (change in x)', 'Δy (change in y)', 'Δa (area)', 'Δp (perimeter)', 'Δe (eccentricity)', 'Δd(diameter)', 'tq_avg (Average(+ and -)Tracking Quality)', 'Unmatched Current', 'Unmatched Previous']:
                 max_val = max(abs(np.min(filtered_data)), np.max(filtered_data))
                 filtered_data_abs = np.abs(filtered_data)
                 norm_data = np.array(filtered_data_abs) / max_val  # This will make it go from -1 to 1
@@ -93,7 +101,7 @@ def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
                 colors_b = [centered_metric_cmap(val) for val in norm_data]  # Map to 0 to 1
                 ax.bar(filtered_dates, filtered_data, color=colors_b)
             
-            elif metric_name in ['Average Tracking Quality', 'Matching']:
+            elif metric_name in ['tq (Average Positive Tracking Quality)', 'Matching']:
                 max_val = max(abs(np.min(filtered_data)), np.max(filtered_data))
                 norm_data = np.array(filtered_data) / max_val  # This will make it go from -1 to 1
                 centered_metric_cmap = cm.RdYlGn
@@ -144,7 +152,7 @@ def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
                 
                 # Update the bottom for the next segment
                 bottom_value += v
-    ax.set_title('i_dict')
+    ax.set_title("i_dict plot: if tracking well 'i' should increase by 1 each day(green)")
     ax.set_xticks(dates)
     ax.set_xticklabels(custom_date_labels, rotation=0)
     plt.savefig(f"{plot_file_name_prefix}_i_dict.png")

@@ -45,7 +45,7 @@ def process_crop_folder(crop_folder, logger):
 
     logger.info(f"Generating crop plots gif")
     gif_path = f"output/{crop_number}/{crop_number}.gif"
-    generate_gif_from_list(files, f"output/{crop_number}/{crop_number}.gif", logger)
+    generate_gif_from_list(files, f"output/{crop_number}/{crop_number}.gif", logger, draw_text=True, filename_is_date=True)
 
 
     # tell user which files were found

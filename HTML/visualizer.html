@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="./stacks-src/styles.css" />
     <style>
         .image-container {
             position: relative;
@@ -46,12 +47,16 @@
             z-index: 1;
             top: 0;
             left: 50%;
-            transform: translate(-50%, -100%);
+            transform: translate(0%, 0%);
             white-space: nowrap;
         }
         .rectangle:hover .tooltip, .circle-prev:hover .tooltip, .circle-current:hover .tooltip, .circle-next:hover .tooltip {
             visibility: visible;
         }
+        .hidden {
+            display: none;
+        }
+
     </style>
     <script>
         let image_height, image_width;  // Declare them here to make them accessible throughout the script
@@ -111,15 +116,17 @@
             data.forEach(item => {
                 const container = document.createElement('div');
                 container.style.position = 'absolute';
-                container.style.top = `${(item.r.y / image_height * 100)}%`;
-                container.style.left = `${(item.r.x / image_width * 100)}%`;
-                container.style.transform = 'translate(-50%, -50%)';
+                container.style.top = `${(item.r.y / image_height * 100)-0.5}%`;
+                container.style.left = `${(item.r.x / image_width * 100)-0.5}%`;
                 const element = document.createElement('div');
                 element.className = `circle-${type}`;
+                if (type !== 'current') {
+                    element.classList.add('hidden');
+                }
                 element.addEventListener('mouseover', handleMouseOver);
                 element.addEventListener('mouseout', handleMouseOut);
-                element.style.width =  `${item.r.w / 2}px`;
-                element.style.height = `${item.r.h / 2}px`;
+                element.style.width =  `${item.r.w}px`;
+                element.style.height = `${item.r.h}px`;
                 
                 const tooltip = document.createElement('div');
                 const match_id_full = item.m.id;
@@ -142,6 +149,21 @@
                 } else {
                     //console.log('json_entry is not null');
                 }
+
+                // Create rectangle
+                const rect = document.createElement('div');
+                rect.className = 'rectangle hidden';  // Add hidden class by default
+                rect.style.top = `${(item.r.y / image_height * 100)}%`;
+                rect.style.left = `${(item.r.x / image_width * 100)}%`;
+                rect.style.width =  `${(item.r.w / image_width * 100)}%`;
+                rect.style.height = `${(item.r.h / image_height * 100)}%`;
+
+                const tooltipRect = document.createElement('div');
+                tooltipRect.className = 'tooltip';
+                tooltipRect.innerHTML = `<strong>Rect X:</strong> ${item.r.x} <strong>Y:</strong> ${item.r.y} <strong>W:</strong> ${item.r.w} <strong>H:</strong> ${item.r.h}`;
+                rect.appendChild(tooltipRect);
+
+                imageContainer.appendChild(rect);
                 
                 
                 const centroid_x = json_entry.x;
@@ -150,7 +172,25 @@
                 //console.log('centroid_x: ' + centroid_x);
                 tooltip.className = 'tooltip';
                 tooltip.innerHTML = `<font size="1">
-                                    <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/o.gif" width="100" height="100"><br>
+                                    <div class="flex hstack">
+                                        <div>
+                                            <a href="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/o.gif" target="_blank">   
+                                                <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/o.gif" width="100" height="100"><br>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/detection/d.gif" target="_blank">
+                                                <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/detection/d.gif" width="100" height="100"><br>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <a href="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/tq_plot.png" target="_blank">
+                                        <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/tq_plot.png" width="200" height="200"><br>
+                                    </a>
+
+                                    <a href="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/dif_plot.png" target="_blank">
+                                        <img src="../output/${cropNum}/nodules-last-detected-on/${formatted_id_date}/${match_id_num}/dif_plot.png" width="200" height="200"><br>
+                                    </a>
                                     <strong>Match ID:</strong> ${match_id_full} <strong>i:</strong> ${item.m.i}<br>
                                     <strong>prev_js_id:</strong> ${item.m.p.id || "???"} <strong>js_id:</strong> ${item.m.c.id} <strong>next_js_id:</strong> ${item.m.n.id || "???"}<br>
                                     
@@ -217,14 +257,14 @@
 </head>
 <body>
     <div>
-        <input type="checkbox" id="rectangle-toggle" checked onclick="toggleVisibility('rectangle', this)">
+        <input type="checkbox" id="rectangle-toggle" onclick="toggleVisibility('rectangle', this)">
         <label for="rectangle-toggle">Show Tracking</label>
         
-        <input type="checkbox" id="circle-toggle-prev" checked onclick="toggleVisibility('circle-prev', this)">
+        <input type="checkbox" id="circle-toggle-prev" onclick="toggleVisibility('circle-prev', this)">
         <label for="circle-toggle-prev">Show Previous RP JSON</label>
         <input type="checkbox" id="circle-toggle" checked onclick="toggleVisibility('circle-current', this)">
         <label for="circle-toggle">Show RP JSON</label>
-        <input type="checkbox" id="circle-toggle-next" checked onclick="toggleVisibility('circle-next', this)">
+        <input type="checkbox" id="circle-toggle-next" onclick="toggleVisibility('circle-next', this)">
         <label for="circle-toggle-next">Show Next RP JSON</label>
         <br>
         <input type="radio" id="prev" name="offsetGroup" value="prev" checked>
