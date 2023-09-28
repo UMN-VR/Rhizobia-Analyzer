@@ -1,0 +1,35 @@
+Current memory usage: 5236.21484375 MB
+@analyze_image: file_name: data/crop1018/20230505.jpg, output_dir: output/crop1018, external_logger: <Logger data_crop1018.log (DEBUG)>
+Loaded image & JSON file: data/crop1018/20230505.jpg
+Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
+
+@find_prev_next_date: image_output_dir: output/crop1018/20230505
+data_dir: data/crop1018
+Previous date file: data/crop1018/20230503.json, Next date file: data/crop1018/20230508.jpg
+
+
+Loaded prev_results from JSON file: 20230503, length: 13
+Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
+Loaded next_results from JSON file: 20230508, length: 20
+Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
+prev_results is not empty, generating matching
+Current memory usage: 5236.234375 MB
+current_date:20230505, generating Matching: 20230503_20230505_matching.json
+spatial_distances: (11, 13), attribute_distances: (11, 13)
+combined_distances: (11, 13)
+Current memory usage: 5236.234375 MB
+
+@find_matching: combined_distances: (11, 13), next_matching: [{'id': '20230508_0', 'p': {'id': 1, 'tq': 70.0, 'dx': 4, 'dy': -6, 'dd': 0, 'da': 3.0, 'dp': 1.17, 'de': -0.02}, 'c': {'id': 0}, 'n': {}, 'i': 0}, {'id': '20230508_1', 'p': {'id': 0, 'tq': -168.0, 'dx': 59, 'dy': 42, 'dd': 0, 'da': -9.0, 'dp': -3.38, 'de': -0.36}, 'c': {'id': 1}, 'n': {}, 'i': 0}, {'id': '20230508_2', 'p': {'id': 2, 'tq': -221.0, 'dx': -17, 'dy': 28, 'dd': 4, 'da': 134.0, 'dp': 30.18, 'de': 0.16}, 'c': {'id': 3}, 'n': {}, 'i': 0}, {'id': '20230522_10', 'p': {'id': 3, 'tq': 81.0, 'dx': 2, 'dy': -4, 'dd': 0, 'da': 2.0, 'dp': -0.24, 'de': -0.21}, 'c': {'id': 4}, 'n': {'id': 8, 'dx': -3, 'dy': 3, 'dd': 0, 'da': 9.0, 'dp': 2.0, 'de': 0.21}, 'i': 6}, {'id': '20230510_6', 'p': {'id': 4, 'tq': -99.0, 'dx': 55, 'dy': 0, 'dd': 0, 'da': -4.0, 'dp': -2.0, 'de': -0.37}, 'c': {'id': 7}, 'n': {'id': 10, 'dx': -2, 'dy': 3, 'dd': -2, 'da': -25.0, 'dp': -14.24, 'de': 0.55}, 'i': 1}, {'id': '20230508_5', 'p': {'id': 5, 'tq': -143.0, 'dx': 1, 'dy': 62, 'dd': -1, 'da': -17.0, 'dp': -4.0, 'de': 0.25}, 'c': {'id': 9}, 'n': {}, 'i': 0}, {'id': '20230508_6', 'p': {'id': 7, 'tq': -288.0, 'dx': 0, 'dy': -104, 'dd': 1, 'da': 14.0, 'dp': 7.86, 'de': -0.3}, 'c': {'id': 13}, 'n': {}, 'i': 0}, {'id': '20230510_15', 'p': {'id': 6, 'tq': -176.0, 'dx': -13, 'dy': 62, 'dd': -1, 'da': -36.0, 'dp': -5.66, 'de': 0.07}, 'c': {'id': 14}, 'n': {'id': 22, 'dx': 0, 'dy': 2, 'dd': 0, 'da': 5.0, 'dp': 0.59, 'de': 0.04}, 'i': 1}, {'id': '20230508_8', 'p': {'id': 9, 'tq': -251.0, 'dx': -35, 'dy': -8, 'dd': -4, 'da': -148.0, 'dp': -23.9, 'de': 0.06}, 'c': {'id': 15}, 'n': {}, 'i': 0}, {'id': '20230508_9', 'p': {'id': 8, 'tq': 13.0, 'dx': -9, 'dy': 1, 'dd': -1, 'da': -36.0, 'dp': -6.24, 'de': -0.45}, 'c': {'id': 16}, 'n': {}, 'i': 0}, {'id': '20230508_10', 'p': {'id': 10, 'tq': -121.0, 'dx': -51, 'dy': 33, 'dd': 1, 'da': 3.0, 'dp': 4.21, 'de': -0.13}, 'c': {'id': 18}, 'n': {}, 'i': 0}], current_date_string: 20230505, distance_threshold: 20
+tq < 0
+matched entry: {'id': '20230508_0', 'p': {'id': 1, 'tq': 70.0, 'dx': 4, 'dy': -6, 'dd': 0, 'da': 3.0, 'dp': 1.17, 'de': -0.02}, 'c': {'id': 0}, 'n': {}, 'i': 0}, len(matching): 1
+tq < 0
+matched entry: {'id': '20230522_10', 'p': {'id': 3, 'tq': 81.0, 'dx': 2, 'dy': -4, 'dd': 0, 'da': 2.0, 'dp': -0.24, 'de': -0.21}, 'c': {'id': 4}, 'n': {'id': 8, 'dx': -3, 'dy': 3, 'dd': 0, 'da': 9.0, 'dp': 2.0, 'de': 0.21}, 'i': 6}, len(matching): 3
+tq < 0
+tq < 0
+tq < 0
+tq < 0
+matched entry: {'id': '20230508_9', 'p': {'id': 8, 'tq': 13.0, 'dx': -9, 'dy': 1, 'dd': -1, 'da': -36.0, 'dp': -6.24, 'de': -0.45}, 'c': {'id': 16}, 'n': {}, 'i': 0}, len(matching): 8
+tq < 0
+tq < 0
+i_dict: {0: 8, 1: 2, 7: 1}
+tq_average: -386.3636, dx_average: -13.5455, dy_average: -94.3636, dd_average: -0.3636, da_average: -1.2727, dp_average: -3.8673, de_average: 0.0191
