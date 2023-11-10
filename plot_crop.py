@@ -92,7 +92,7 @@ def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
             logger.info(f"filtered_dates: {len(filtered_dates)}")
             logger.info(f"filtered_data: {len(filtered_data)}")
             
-            if metric_name in ['Δx (change in x)', 'Δy (change in y)', 'Δa (area)', 'Δp (perimeter)', 'Δe (eccentricity)', 'Δd(diameter)', 'tq_avg (Average(+ and -)Tracking Quality)', 'Unmatched Current', 'Unmatched Previous']:
+            if metric_name in ['Δx (change in x)', 'Δy (change in y)', 'Δa (area)', 'Δp (perimeter)', 'Δe (eccentricity)', 'Δd (diameter)', 'tq_avg (Average(+ and -)Tracking Quality)', 'Unmatched Current', 'Unmatched Previous']:
                 max_val = max(abs(np.min(filtered_data)), np.max(filtered_data))
                 filtered_data_abs = np.abs(filtered_data)
                 norm_data = np.array(filtered_data_abs) / max_val  # This will make it go from -1 to 1
