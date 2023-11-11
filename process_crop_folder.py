@@ -21,6 +21,8 @@ from generate_gifs import generate_gif_from_list, generate_gif
 
 from plot_crop import plot_crop
 
+from memory_logger import log_memory_usage
+
 def process_crop_folder(crop_folder, logger):
     """
     Function to process all images in a crop folder, starting with the most recent one.
@@ -28,10 +30,14 @@ def process_crop_folder(crop_folder, logger):
     crop_folder -- str, path to the crop folder.
     """
 
+    log_memory_usage(logger)
+
     logger.info(f"\n@process_crop_folder: crop_folder: {crop_folder}")
 
     # get all the files in the crop folder and its subdirectories
     files = get_all_image_files(crop_folder)
+
+    log_memory_usage(logger)
 
     crop_number = os.path.basename(crop_folder)
     crop_result_filename = f"output/{crop_number}/{crop_number}.json"
@@ -46,6 +52,8 @@ def process_crop_folder(crop_folder, logger):
     logger.info(f"Generating crop plots gif")
     gif_path = f"output/{crop_number}/{crop_number}.gif"
     generate_gif_from_list(files, f"output/{crop_number}/{crop_number}.gif", logger, draw_text=True, filename_is_date=True)
+
+    log_memory_usage(logger)
 
 
     # tell user which files were found
@@ -85,7 +93,8 @@ def process_crop_folder(crop_folder, logger):
 
         logger.info(f"DONE processing image: {file}, took {dt}s\n\n")
 
-    
+
+    log_memory_usage(logger)
 
 
     logger.info(f"Generating crop plots gif")
@@ -94,6 +103,8 @@ def process_crop_folder(crop_folder, logger):
 
     results = {crop_number : results, "gif_path" : gif_path, "plots_gif_path" : plots_gif_path, "dif_plot_path" : dif_plot_path}
 
+    log_memory_usage(logger)
+
     #save results to a json file in 'output/{crop_folder}/results.json'
     logger.info(f"Saving results to: output/{crop_folder}/results.json")
 
@@ -101,23 +112,30 @@ def process_crop_folder(crop_folder, logger):
         json.dump(results, f, indent=1)
 
 
+    log_memory_usage(logger)
+
     #/output/crop980/crop980.json
 
     plot_crop(crop_result_filename, dif_plot_path, logger)
 
+    log_memory_usage(logger)
+
     logger.info(f"Calling post_process() with crop_folder: {crop_folder}")
     post_process(crop_folder, logger)
 
-
-
+    log_memory_usage(logger)
 
     result = {crop_folder : crop_result_filename, "gif_path" : gif_path, "plots_gif_path" : plots_gif_path, "dif_plot_dx_dy_da_dp_path" : dif_plot_dx_dy_da_dp_path, "dif_plot_i_tq_dd_de_path" : dif_plot_i_tq_dd_de_path, "dif_plot_i_dict_path" : dif_plot_i_dict_path, "dif_plot_matching_tq_path" : dif_plot_matching_tq_path}
 
+    
 
     logger.info("------------------------------------")
     logger.info(f"DONE Processing crop folder: {crop_folder}")
 
     logger.info(f"Results: {results}")
     logger.info(f"Result: {result}")
+
+    log_memory_usage(logger)
+    
     return result
 

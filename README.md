@@ -210,3 +210,26 @@ The primary objective of the Rhizobia Analyzer software is to develop an advance
 
 
 Made in colaboration with [R Ford Denison](https://darwinianagriculture.com/)
+
+
+
+
+
+pre-recs
+
+pip install logger 
+
+pip install opencv-python
+
+pip install jinja2
+
+pip install scipy
+
+pip install mathplotlib
+
+pip install scikit-image
+
+pip install psutil
+
+
+
