@@ -1,15 +1,14 @@
+# analyze_image.py
 import os 
 import sys
 from Logger import Logger
 from memory_logger import log_memory_usage
 from cv_utils import load_image
 from image_analysis import ImageAnalyzer, normalize
-from image_processing import ImageProcessor
 from json_utils import load_json, scale_json
 from plot_p_transition import plot_p_transition
 from find_prev_next_date_paths import find_prev_next_date_paths
 from find_matching import find_matching
-from generate_HTML_file import generate_HTML_file
 from process_image import process_image
 
 
@@ -64,6 +63,8 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
     #load files
     image = load_image(image_file_name)
     json_data = load_json(image_file_name)
+
+
 
     if json_data is None:
         print(f"Unable to open JSON file: {image_file_name}")
@@ -198,10 +199,12 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
 
     # Process the image
                 
-    current_json = process_image(image, image_output_dir, current_date, logger, json_data_scaled, matching, date_string=current_date)
+    current_json, nodules = process_image(image, image_output_dir, current_date, logger, json_data_scaled, matching, date_string=current_date)
 
 
     #HTML_file_name = generate_HTML_file(image, prev_date_string, current_json, next_date_string, image_output_dir, current_date, logger)
+
+    # save nodules at image_output_dir/nodules.json
 
 
     results_entry = {"date": current_date,

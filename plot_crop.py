@@ -1,13 +1,14 @@
-
-# Full re-write of the `plot_crop.py` file, incorporating all discussed functionalities.
+#plot_crop.py
 import json
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import numpy as np
 from Logger import Logger
+
+
 def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
 
-    logger.info(f"@plot_crop: crop_json_file:{crop_json_file}, plot_file_name_prefix:{plot_file_name_prefix}, logger:{logger}")
+    logger.info(f"\n @plot_crop: crop_json_file:{crop_json_file}, plot_file_name_prefix:{plot_file_name_prefix}, logger:{logger}")
         # Read JSON file
     with open(crop_json_file, 'r') as f:
         data = json.load(f)
@@ -89,8 +90,8 @@ def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
             filtered_data = [val for val in metric_data if val is not None ]
 
             # print sizes of filtered data and dates 
-            logger.info(f"filtered_dates: {len(filtered_dates)}")
-            logger.info(f"filtered_data: {len(filtered_data)}")
+            #logger.info(f"filtered_dates: {len(filtered_dates)}")
+            #logger.info(f"filtered_data: {len(filtered_data)}")
             
             if metric_name in ['Δx (change in x)', 'Δy (change in y)', 'Δa (area)', 'Δp (perimeter)', 'Δe (eccentricity)', 'Δd (diameter)', 'tq_avg (Average(+ and -)Tracking Quality)', 'Unmatched Current', 'Unmatched Previous']:
                 max_val = max(abs(np.min(filtered_data)), np.max(filtered_data))
@@ -126,7 +127,6 @@ def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):
         plt.savefig(f"{plot_file_name_prefix}_{names[group_idx]}.png")
         
         
-    # Special plot for i_dict as a stacked bar chart
     # Special plot for i_dict as a stacked bar chart
     fig, ax = plt.subplots(figsize=(20, 10))
     counters = {}  # Initialize counters for each unique key

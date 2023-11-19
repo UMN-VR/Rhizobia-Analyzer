@@ -2,10 +2,59 @@ import os
 import cv2
 from find_dayJSON_match_for_contour import find_dayJSON_match_for_contour
 
+import math
+#import turtle
+
 
 from cv_utils import extract_segment
 
 from json_utils import append_to_json_list
+
+# def remap(value, from1, from2, to1, to2):
+#     return (value - from1) / (to1 - from1) * (to2 - from2) + from2
+
+
+def xyToRGB (x, y, xrange, yrange): #asumptions that range>[value]>=0 for x and y 
+
+    # map x, y from 0 to xrange & 0 to yrange to 0, 256
+
+    # x = remap(x, 0, xrange, 0, 255)
+    # y = remap(y, 0, yrange, 0, 255)
+
+
+    # if(x>xrange or y>yrange or x < 0 or y < 0):
+    #     #check for out of bounds
+    #     print("out of bounds. \n x, y:" + str(x), ", ", str(y))
+    #     return -1
+    #coords 0 to 1
+
+
+    xratio = x/xrange
+    yratio = y/yrange
+
+    #logger.info
+
+    #check if ratios are 0< ratio < 1
+    # if(xratio>1 or yratio>1 or xratio < 0 or yratio < 0):
+    #     #check for out of bounds
+    #     print("out of bounds. \n xratio, yratio:" + str(xratio), ", ", str(yratio))
+    #     return -1
+
+
+    diagonal = math.sqrt(2)
+    topDiagonal = math.sqrt(1.5)
+    #r
+    rdist = math.sqrt((xratio**2)+(yratio**2))/diagonal #dist from bottom left
+    #g
+    gdist = math.sqrt(((1-xratio)**2)+((yratio)**2))/diagonal #dist from bottom right
+    #b
+    bdist = math.sqrt(((xratio-0.5)**2)+((1-yratio)**2))/topDiagonal #dist from top middle
+
+    r = hex(int(239*rdist+16))
+    g = hex(int(239*gdist+16))
+    b = hex(int(239*bdist+16))
+    hexa = str(r[2:4]) + str(g[2:4]) + str(b[2:4])
+    return hexa
 
 
 def process_contour(i, contour, logger, json_data, matching, date_string, nodules_dir, right_image, left_image, max_id):
@@ -101,9 +150,22 @@ def process_contour(i, contour, logger, json_data, matching, date_string, nodule
     #         entry_id = name
     #         break
 
+    
+
+
+    rgb_string = xyToRGB(cX, cY, 30, 70)
+
+
+    rgb_r_string = xyToRGB(cX, cY, 300, 705)
+
+
+    # rgb_p shows the position of the nodule in the image
+
+    # rgb_r show the position of the nodule but the colormap is scaled to 1/4 the size of the image, so there will be 16 spots on the image with the same color, this is to make it easier to see the nodule position
+
 
     # Create a new entry for the results list 'm' is the matching entry in the matching list
-    entry = {'m':match, 'c': cords, 'a': area, 'r': rect, 'e': matched_contour}
+    entry = {'m':match, 'c': cords, 'rgb_s': rgb_string, 'rgb_r': rgb_r_string, 'a': area, 'r': rect, 'e': matched_contour}
 
     # if JSON_entry == "ERROR":
     #     logger.info(f"ERROR: No input JSON(nodules) match, ID:{max_id} area: {area} position: {cords}")

@@ -2,7 +2,6 @@
 import json
 import os
 from Logger import Logger
-from html_generator import HtmlGenerator
 import matplotlib.pyplot as plt
 
 class NoduleAnalysis:

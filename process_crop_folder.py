@@ -105,16 +105,13 @@ def process_crop_folder(crop_folder, logger):
 
     log_memory_usage(logger)
 
-    #save results to a json file in 'output/{crop_folder}/results.json'
-    logger.info(f"Saving results to: output/{crop_folder}/results.json")
+    logger.info(f"Saving results to: {crop_result_filename}")
 
     with open(f"{crop_result_filename}", 'w') as f:
         json.dump(results, f, indent=1)
 
 
     log_memory_usage(logger)
-
-    #/output/crop980/crop980.json
 
     plot_crop(crop_result_filename, dif_plot_path, logger)
 

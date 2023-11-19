@@ -1,4 +1,4 @@
-
+#process_image.py
 import os
 import cv2
 import json
@@ -91,4 +91,54 @@ def process_image(image, output_dir, image_name, logger, json_data, matching, da
         with open(json_file_name, 'w') as json_file:
             json.dump(results, json_file, indent=2)
         
-        return json_file_name
+
+        # wait for user input
+        #input("Press Enter to continue...")
+
+        # print json_data
+        #print(f"json_data: \n{results}\n")
+
+        # Extract nodule information
+        nodules = []
+        for entry in results:
+
+            #print(f"entry: {entry}")
+
+            #input("Press Enter to continue...")
+
+            # Check if the entry has an ID
+            matching = entry.get('m', None)
+            if matching is not None:
+                nodule_ID = matching.get('id')
+
+                # Get the RGB Value of the nodule
+                rgb_s = entry.get('rgb_s')
+                rgb_r = entry.get('rgb_r')
+
+                # Get the rootpainter element 
+                element = entry.get('e', None)
+
+                if element is not None:
+                    nodule_area = element.get('a')
+                    nodules.append({str(nodule_ID): {"a": nodule_area, "rgb_s": rgb_s, "rgb_r": rgb_r}})
+
+                else:
+                    print(f"entry: {entry} has no element")
+            
+            else:
+                print(f"entry: {entry} has no matching")
+            
+            # Print the nodules
+
+            #print(f"nodules: {nodules}")
+
+            #input("Press Enter to continue...")
+
+
+            
+        
+                 
+                 
+
+
+        return json_file_name, nodules

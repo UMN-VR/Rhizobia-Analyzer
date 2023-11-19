@@ -24,11 +24,16 @@
             border-radius: 50%;
             background-color: rgba(255, 0, 0, 0.5);
         }
-        .circle-current {
+        /* .circle-current {
             position: absolute;
             border: 2px solid purple;
             border-radius: 50%;
             background-color: rgba(128, 0, 128, 0.5);
+        } */
+        .circle-current {
+            position: absolute;
+            border: 2px solid purple; /* Purple border */
+            border-radius: 50%;
         }
         .circle-next {
             position: absolute;
@@ -114,19 +119,40 @@
         function populateElements(data, type, cropNum) {
             const imageContainer = document.querySelector('.image-container');
             data.forEach(item => {
+
+                // Debug: Check the rgb value from JSON
+                console.log("RGB String from JSON:", item.rgb);
                 const container = document.createElement('div');
                 container.style.position = 'absolute';
                 container.style.top = `${(item.r.y / image_height * 100)-0.5}%`;
                 container.style.left = `${(item.r.x / image_width * 100)-0.5}%`;
                 const element = document.createElement('div');
                 element.className = `circle-${type}`;
+                element.className = `circle-${type}`;
                 if (type !== 'current') {
                     element.classList.add('hidden');
                 }
                 element.addEventListener('mouseover', handleMouseOver);
                 element.addEventListener('mouseout', handleMouseOut);
-                element.style.width =  `${item.r.w}px`;
+                element.style.width = `${item.r.w}px`;
                 element.style.height = `${item.r.h}px`;
+
+                const hexColor = item.rgb;
+                const r = parseInt(hexColor.substring(0, 2), 16);
+                const g = parseInt(hexColor.substring(2, 4), 16);
+                const b = parseInt(hexColor.substring(4, 6), 16);
+
+                // Debug: Check the RGB values after conversion
+                console.log("Converted RGB:", r, g, b);
+
+                const rgbaColor = `rgba(${r}, ${g}, ${b}, 0.5)`; // Adjust opacity as needed
+                //const rgbaColor = `rgba(255, ${g}, 0, 0.5)`; // Adjust opacity as needed
+                element.style.backgroundColor = rgbaColor;
+
+                // Debug: Check the final RGBA value
+                console.log("Final RGBA Color:", rgbaColor);
+
+                
                 
                 const tooltip = document.createElement('div');
                 const match_id_full = item.m.id;

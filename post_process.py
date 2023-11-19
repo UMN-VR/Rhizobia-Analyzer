@@ -8,23 +8,45 @@ from generate_gifs import generate_gifs, generate_gif
 from plot_nodule_json_data import plot_nodule_json_data
 import time
 
-def post_process(crop_folder, logger):
-    logger.info(f"@post_process: crop_folder:{crop_folder}, logger:{logger}")
+def post_process(crop_folder, crop_logger):
+    crop_logger.info(f"@post_process: crop_folder:{crop_folder}, logger:{crop_logger}")
 
     output_dir = os.path.join("output", crop_folder.replace("data/", ""))
                 
                 
     dates_dir =  output_dir+ "/nodules-last-detected-on"
-    logger.info(f"dates_dir:{dates_dir}")
+    crop_logger.info(f"dates_dir:{dates_dir}")
     
     subdirs = [os.path.join(dates_dir, o) for o in os.listdir(dates_dir) if os.path.isdir(os.path.join(dates_dir,o))]
     
     #print(f"subdirs: {subdirs}")
-    logger.info(f"subdirs: {subdirs}")
+    crop_logger.info(f"subdirs: {subdirs}")
 
     
 
     for subdir in subdirs:
+
+        #@post_process: subdir: output/crop1000/nodules-last-detected-on/2023-05-03
+
+        #break up subdir into date and crop_number
+        # date should be set to like 20230503
+        # crop_number should be set to like crop980
+
+        # split the subdir by '/' 
+        subdir_split = subdir.split("/")
+
+        # get the last element of the subdir_split, remove the '-' and set it to current_date
+        current_date = subdir_split[-1].replace("-", "")
+
+        # get the second element of the subdir_split and set it to crop_number
+        crop_number = subdir_split[2]
+
+        image_output_dir = os.path.join(output_dir, current_date)
+
+        # Create a logger for this image
+        log_name = f"{crop_number}_{current_date}.log"
+
+        logger = Logger(log_name, image_output_dir, external_logger=crop_logger).get_logger()
 
         #Start timer
         start_time = time.time()

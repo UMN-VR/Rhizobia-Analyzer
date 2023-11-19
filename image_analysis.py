@@ -5,7 +5,7 @@ import sys
 import numpy as np
 
 from Logger import Logger
-from html_generator import HtmlGenerator
+
 
 from scipy.spatial.distance import cdist
 

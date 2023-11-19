@@ -5,7 +5,7 @@ from process_crop_folder import process_crop_folder
 
 from dir_utils import find_crop_folders
 
-from HTML_out import generate_results_page
+from old.HTML_out import generate_results_page
 from memory_logger import log_memory_usage
 from Logger import Logger
 import subprocess
