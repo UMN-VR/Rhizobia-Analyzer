@@ -225,7 +225,7 @@ pip install jinja2
 
 pip install scipy
 
-pip install mathplotlib
+pip install matplotlib
 
 pip install scikit-image
 

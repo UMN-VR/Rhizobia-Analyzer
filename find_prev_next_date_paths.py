@@ -1,14 +1,26 @@
+# find_prev_next_date_paths.py
 import os
 from datetime import datetime
 
 def find_prev_next_date_paths(image_output_dir, logger):
+
         logger.info(f"\n@find_prev_next_date: image_output_dir: {image_output_dir}")
         
+        # Log the entire path for debugging
+        logger.info(f"Full image_output_dir path: {os.path.abspath(image_output_dir)}")
+
         # get the crop number from the image output directory
-        crop_number = os.path.dirname(image_output_dir).split('/')[-1]
+        crop_number = os.path.basename(os.path.dirname(image_output_dir))
+        logger.info(f"Crop number extracted: {crop_number}")
+
         # construct the data directory path
         data_dir = os.path.join('data', crop_number)
-        logger.info(f"data_dir: {data_dir}")
+        logger.info(f"data_dir constructed: {data_dir}")
+
+        # Check if data_dir exists
+        if not os.path.exists(data_dir):
+            logger.error(f"Data directory not found: {data_dir}")
+            return None, None
         
         # get the current date from the image output directory
         current_date = os.path.basename(image_output_dir)

@@ -1,23 +1,25 @@
-Current memory usage: 130.69140625 MB
+Current memory usage: 94.0234375 MB
 
-@analyze_image: file_name: data/crop1000/20230607.jpg, output_dir: output/crop1000, external_logger: <Logger data_crop1000.log (DEBUG)>
-Loaded image & JSON file: data/crop1000/20230607.jpg
+@analyze_image: file_name: data\crop1000\20230607.jpg, output_dir: output\crop1000, external_logger: <Logger crop1000.log (DEBUG)>
+Loaded image & JSON file: data\crop1000\20230607.jpg
 Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
 
-@find_prev_next_date: image_output_dir: output/crop1000/20230607
-data_dir: data/crop1000
-Previous date file: data/crop1000/20230605.json, Next date file: None
+@find_prev_next_date: image_output_dir: output\crop1000\20230607
+Full image_output_dir path: c:\GitHub\Rhizobia-Analyzer\output\crop1000\20230607
+Crop number extracted: crop1000
+data_dir constructed: data\crop1000
+Previous date file: data\crop1000\20230605.jpg, Next date file: None
 
 
 Loaded prev_results from JSON file: 20230605, length: 141
 Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
 prev_results is not empty, generating matching
-Current memory usage: 131.25390625 MB
+Current memory usage: 95.80078125 MB
 
 current_date:20230607, generating Matching: 20230605_20230607_matching.json
 spatial_distances: (144, 141), attribute_distances: (144, 141)
 combined_distances: (144, 141)
-Current memory usage: 130.88671875 MB
+Current memory usage: 96.55859375 MB
 
 
 @find_matching: combined_distances: (144, 141), next_matching: None, current_date_string: 20230607, distance_threshold: 20
@@ -175,7 +177,7 @@ Distance threshold: 20
 
 
 
-@plot_data: normalized_points: (144, 2), normalized_prev_points: (141, 2), current_points: (144, 2), prev_points: (141, 2), current_data: 144, prev_data: 141, matching: 141, unmatched_current: 3, unmatched_prev: 0, combined_distances: (144, 141), distance_threshold: 20, current_date_string: 20230607, previous_date_string: 20230605, filename: output/crop1000/plots/20230605_20230607.png
+@plot_data: normalized_points: (144, 2), normalized_prev_points: (141, 2), current_points: (144, 2), prev_points: (141, 2), current_data: 144, prev_data: 141, matching: 141, unmatched_current: 3, unmatched_prev: 0, combined_distances: (144, 141), distance_threshold: 20, current_date_string: 20230607, previous_date_string: 20230605, filename: output\crop1000\20230607\plots\20230605_20230607.png
 Plots created
 Plotted the normalized points
 Drawing lines between the matched points
@@ -185,11 +187,11 @@ Drawing lines between the matched points and add the indices to the plots with c
 Setting the titles and labels
 Done plotting
 
-@process_image: output_dir: output/crop1000/20230607, image_name: 20230607, date_string: 20230607
+@process_image: output_dir: output\crop1000\20230607, image_name: 20230607, date_string: 20230607
 len(json_data) = 144 json_data entries
 len(matching) = 141 matching entries, setting max_id_i to 141
-crop_dir: output/crop1000
-nodules_dir: output/crop1000/nodules-last-detected-on
+crop_dir: output\crop1000
+nodules_dir: output\crop1000\nodules-last-detected-on
 Split image into left and right images: (705, 300, 3), (705, 300, 3)
 Converted right image to HSV: (705, 300, 3)
 Created mask to detect nodules: (705, 300)
@@ -207,9 +209,9 @@ Matched contour: {'x': 259, 'y': 566, 'd': 7, 'a': 159.0, 'p': 43.799, 'e': 0.15
 JSON_entry: 143
 Matched with first_id: 143 second_id: 137 name: 20230607_140
 entry_id:20230607_140, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/140/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/140
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/140/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/140/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\140\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\140
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\140\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\140\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_142
@@ -223,9 +225,9 @@ Matched contour: {'x': 266, 'y': 550, 'd': 7, 'a': 175.0, 'p': 46.6274, 'e': 0.1
 JSON_entry: 142
 Matched with first_id: 142 second_id: 136 name: 20230607_139
 entry_id:20230607_139, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/139/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/139
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/139/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/139/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\139\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\139
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\139\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\139\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_143
@@ -239,9 +241,9 @@ Matched contour: {'x': 114, 'y': 542, 'd': 6, 'a': 130.0, 'p': 40.3848, 'e': 0.5
 JSON_entry: 141
 Matched with first_id: 141 second_id: 135 name: 20230607_138
 entry_id:20230607_138, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/138/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/138
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/138/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/138/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\138\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\138
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\138\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\138\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_144
@@ -255,9 +257,9 @@ Matched contour: {'x': 99, 'y': 543, 'd': 10, 'a': 352.0, 'p': 75.3553, 'e': 0.8
 JSON_entry: 140
 Matched with first_id: 140 second_id: 134 name: 20230607_137
 entry_id:20230607_137, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/137/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/137
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/137/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/137/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\137\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\137
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\137\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\137\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_145
@@ -271,9 +273,9 @@ Matched contour: {'x': 32, 'y': 537, 'd': 5, 'a': 109.0, 'p': 36.9706, 'e': 0.16
 JSON_entry: 139
 Matched with first_id: 139 second_id: 133 name: 20230607_136
 entry_id:20230607_136, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/136/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/136
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/136/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/136/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\136\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\136
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\136\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\136\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_146
@@ -287,9 +289,9 @@ Matched contour: {'x': 97, 'y': 527, 'd': 8, 'a': 207.0, 'p': 51.799, 'e': 0.352
 JSON_entry: 138
 Matched with first_id: 138 second_id: 132 name: 20230607_135
 entry_id:20230607_135, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/135/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/135
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/135/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/135/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\135\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\135
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\135\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\135\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_147
@@ -303,9 +305,9 @@ Matched contour: {'x': 136, 'y': 511, 'd': 6, 'a': 117.0, 'p': 37.5563, 'e': 0.3
 JSON_entry: 133
 Matched with first_id: 133 second_id: 127 name: 20230607_130
 entry_id:20230607_130, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/130/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/130
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/130/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/130/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\130\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\130
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\130\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\130\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_148
@@ -319,9 +321,9 @@ Matched contour: {'x': 28, 'y': 513, 'd': 6, 'a': 133.0, 'p': 40.3848, 'e': 0.44
 JSON_entry: 134
 Matched with first_id: 134 second_id: 129 name: 20230607_131
 entry_id:20230607_131, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/131/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/131
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/131/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/131/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\131\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\131
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\131\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\131\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_149
@@ -335,9 +337,9 @@ Matched contour: {'x': 207, 'y': 499, 'd': 7, 'a': 180.0, 'p': 47.799, 'e': 0.26
 JSON_entry: 130
 Matched with first_id: 130 second_id: 122 name: 20230607_127
 entry_id:20230607_127, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/127/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/127
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/127/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/127/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\127\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\127
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\127\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\127\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_150
@@ -351,9 +353,9 @@ Matched contour: {'x': 82, 'y': 499, 'd': 7, 'a': 197.0, 'p': 50.0416, 'e': 0.25
 JSON_entry: 128
 Matched with first_id: 128 second_id: 123 name: 20230607_125
 entry_id:20230607_125, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/125/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/125
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/125/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/125/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\125\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\125
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\125\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\125\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_151
@@ -367,9 +369,9 @@ Matched contour: {'x': 181, 'y': 495, 'd': 7, 'a': 181.0, 'p': 47.2132, 'e': 0.3
 JSON_entry: 127
 Matched with first_id: 127 second_id: 121 name: 20230607_124
 entry_id:20230607_124, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/124/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/124
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/124/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/124/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\124\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\124
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\124\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\124\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_152
@@ -383,9 +385,9 @@ Matched contour: {'x': 25, 'y': 493, 'd': 3, 'a': 39.0, 'p': 23.1066, 'e': 0.642
 JSON_entry: 126
 Matched with first_id: 126 second_id: 120 name: 20230607_123
 entry_id:20230607_123, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/123/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/123
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/123/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/123/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\123\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\123
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\123\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\123\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_153
@@ -399,9 +401,9 @@ Matched contour: {'x': 163, 'y': 494, 'd': 9, 'a': 271.0, 'p': 59.9411, 'e': 0.7
 JSON_entry: 125
 Matched with first_id: 125 second_id: 119 name: 20230607_122
 entry_id:20230607_122, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/122/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/122
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/122/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/122/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\122\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\122
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\122\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\122\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_154
@@ -415,9 +417,9 @@ Matched contour: {'x': 48, 'y': 492, 'd': 10, 'a': 328.0, 'p': 67.1127, 'e': 0.6
 JSON_entry: 124
 Matched with first_id: 124 second_id: 118 name: 20230607_121
 entry_id:20230607_121, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/121/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/121
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/121/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/121/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\121\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\121
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\121\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\121\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_155
@@ -431,9 +433,9 @@ Matched contour: {'x': 145, 'y': 489, 'd': 7, 'a': 199.0, 'p': 49.2132, 'e': 0.3
 JSON_entry: 123
 Matched with first_id: 123 second_id: 117 name: 20230607_120
 entry_id:20230607_120, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/120/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/120
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/120/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/120/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\120\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\120
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\120\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\120\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_156
@@ -447,9 +449,9 @@ Matched contour: {'x': 132, 'y': 488, 'd': 8, 'a': 245.0, 'p': 56.2843, 'e': 0.2
 JSON_entry: 122
 Matched with first_id: 122 second_id: 116 name: 20230607_119
 entry_id:20230607_119, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/119/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/119
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/119/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/119/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\119\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\119
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\119\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\119\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_157
@@ -463,9 +465,9 @@ Matched contour: {'x': 198, 'y': 486, 'd': 7, 'a': 184.0, 'p': 48.0416, 'e': 0.4
 JSON_entry: 121
 Matched with first_id: 121 second_id: 115 name: 20230607_118
 entry_id:20230607_118, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/118/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/118
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/118/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/118/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\118\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\118
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\118\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\118\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_158
@@ -479,9 +481,9 @@ Matched contour: {'x': 55, 'y': 480, 'd': 7, 'a': 164.0, 'p': 45.2132, 'e': 0.40
 JSON_entry: 120
 Matched with first_id: 120 second_id: 114 name: 20230607_117
 entry_id:20230607_117, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/117/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/117
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/117/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/117/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\117\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\117
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\117\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\117\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_159
@@ -495,9 +497,9 @@ Matched contour: {'x': 98, 'y': 480, 'd': 7, 'a': 179.0, 'p': 47.2132, 'e': 0.19
 JSON_entry: 119
 Matched with first_id: 119 second_id: 113 name: 20230607_116
 entry_id:20230607_116, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/116/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/116
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/116/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/116/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\116\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\116
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\116\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\116\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_160
@@ -511,9 +513,9 @@ Matched contour: {'x': 85, 'y': 482, 'd': 11, 'a': 447.0, 'p': 96.5685, 'e': 0.8
 JSON_entry: 118
 Matched with first_id: 118 second_id: 112 name: 20230607_115
 entry_id:20230607_115, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/115/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/115
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/115/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/115/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\115\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\115
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\115\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\115\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_161
@@ -527,9 +529,9 @@ Matched contour: {'x': 164, 'y': 476, 'd': 7, 'a': 170.0, 'p': 46.3848, 'e': 0.2
 JSON_entry: 117
 Matched with first_id: 117 second_id: 111 name: 20230607_114
 entry_id:20230607_114, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/114/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/114
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/114/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/114/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\114\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\114
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\114\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\114\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_162
@@ -543,9 +545,9 @@ Matched contour: {'x': 181, 'y': 476, 'd': 10, 'a': 343.0, 'p': 80.7696, 'e': 0.
 JSON_entry: 116
 Matched with first_id: 116 second_id: 110 name: 20230607_113
 entry_id:20230607_113, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/113/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/113
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/113/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/113/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\113\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\113
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\113\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\113\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_163
@@ -559,9 +561,9 @@ Matched contour: {'x': 55, 'y': 471, 'd': 7, 'a': 159.0, 'p': 44.3848, 'e': 0.43
 JSON_entry: 115
 Matched with first_id: 115 second_id: 109 name: 20230607_112
 entry_id:20230607_112, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/112/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/112
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/112/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/112/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\112\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\112
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\112\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\112\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_164
@@ -575,9 +577,9 @@ Matched contour: {'x': 130, 'y': 471, 'd': 9, 'a': 304.0, 'p': 69.1127, 'e': 0.8
 JSON_entry: 113
 Matched with first_id: 113 second_id: 108 name: 20230607_110
 entry_id:20230607_110, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/110/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/110
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/110/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/110/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\110\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\110
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\110\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\110\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_165
@@ -591,9 +593,9 @@ Matched contour: {'x': 202, 'y': 468, 'd': 7, 'a': 185.0, 'p': 48.6274, 'e': 0.3
 JSON_entry: 112
 Matched with first_id: 112 second_id: 106 name: 20230607_109
 entry_id:20230607_109, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/109/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/109
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/109/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/109/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\109\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\109
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\109\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\109\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_166
@@ -607,9 +609,9 @@ Matched contour: {'x': 72, 'y': 470, 'd': 10, 'a': 349.0, 'p': 81.0122, 'e': 0.8
 JSON_entry: 111
 Matched with first_id: 111 second_id: 105 name: 20230607_108
 entry_id:20230607_108, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/108/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/108
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/108/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/108/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\108\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\108
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\108\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\108\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_167
@@ -623,9 +625,9 @@ Matched contour: {'x': 35, 'y': 466, 'd': 12, 'a': 458.0, 'p': 108.0833, 'e': 0.
 JSON_entry: 110
 Matched with first_id: 110 second_id: 104 name: 20230607_107
 entry_id:20230607_107, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/107/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/107
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/107/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/107/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\107\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\107
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\107\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\107\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_168
@@ -639,9 +641,9 @@ Matched contour: {'x': 184, 'y': 455, 'd': 7, 'a': 169.0, 'p': 46.6274, 'e': 0.3
 JSON_entry: 108
 Matched with first_id: 108 second_id: 102 name: 20230607_105
 entry_id:20230607_105, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/105/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/105
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/105/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/105/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\105\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\105
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\105\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\105\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_169
@@ -655,9 +657,9 @@ Matched contour: None
 JSON_entry: ERROR
 WARNING: match is empty
 entry_id:20230607_169, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/169/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/169
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/169/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/169/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\169\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\169
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\169\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\169\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_170
@@ -671,9 +673,9 @@ Matched contour: {'x': 124, 'y': 450, 'd': 8, 'a': 236.0, 'p': 57.4558, 'e': 0.7
 JSON_entry: 106
 Matched with first_id: 106 second_id: 101 name: 20230607_103
 entry_id:20230607_103, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/103/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/103
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/103/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/103/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\103\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\103
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\103\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\103\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_171
@@ -687,9 +689,9 @@ Matched contour: {'x': 69, 'y': 448, 'd': 7, 'a': 191.0, 'p': 49.2132, 'e': 0.34
 JSON_entry: 105
 Matched with first_id: 105 second_id: 100 name: 20230607_102
 entry_id:20230607_102, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/102/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/102
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/102/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/102/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\102\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\102
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\102\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\102\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_172
@@ -703,9 +705,9 @@ Matched contour: {'x': 43, 'y': 436, 'd': 6, 'a': 148.0, 'p': 43.2132, 'e': 0.26
 JSON_entry: 104
 Matched with first_id: 104 second_id: 99 name: 20230607_101
 entry_id:20230607_101, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/101/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/101
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/101/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/101/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\101\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\101
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\101\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\101\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_173
@@ -719,9 +721,9 @@ Matched contour: {'x': 97, 'y': 434, 'd': 8, 'a': 221.0, 'p': 55.1127, 'e': 0.74
 JSON_entry: 103
 Matched with first_id: 103 second_id: 98 name: 20230607_100
 entry_id:20230607_100, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/100/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/100
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/100/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/100/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\100\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\100
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\100\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\100\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_174
@@ -735,9 +737,9 @@ Matched contour: {'x': 237, 'y': 416, 'd': 7, 'a': 177.0, 'p': 48.0416, 'e': 0.2
 JSON_entry: 101
 Matched with first_id: 101 second_id: 96 name: 20230607_98
 entry_id:20230607_98, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/98/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/98
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/98/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/98/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\98\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\98
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\98\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\98\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_175
@@ -751,9 +753,9 @@ Matched contour: {'x': 39, 'y': 418, 'd': 10, 'a': 369.0, 'p': 76.5269, 'e': 0.7
 JSON_entry: 102
 Matched with first_id: 102 second_id: 97 name: 20230607_99
 entry_id:20230607_99, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/99/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/99
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/99/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/99/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\99\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\99
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\99\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\99\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_176
@@ -767,9 +769,9 @@ Matched contour: {'x': 62, 'y': 416, 'd': 10, 'a': 374.0, 'p': 93.4975, 'e': 0.8
 JSON_entry: 100
 Matched with first_id: 100 second_id: 95 name: 20230607_97
 entry_id:20230607_97, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/97/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/97
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/97/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/97/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\97\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\97
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\97\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\97\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_177
@@ -783,9 +785,9 @@ Matched contour: {'x': 248, 'y': 405, 'd': 6, 'a': 128.0, 'p': 39.5563, 'e': 0.3
 JSON_entry: 99
 Matched with first_id: 99 second_id: 94 name: 20230607_96
 entry_id:20230607_96, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/96/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/96
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/96/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/96/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\96\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\96
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\96\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\96\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_178
@@ -799,9 +801,9 @@ Matched contour: {'x': 114, 'y': 404, 'd': 9, 'a': 305.0, 'p': 65.1127, 'e': 0.6
 JSON_entry: 97
 Matched with first_id: 97 second_id: 92 name: 20230607_94
 entry_id:20230607_94, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/94/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/94
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/94/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/94/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\94\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\94
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\94\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\94\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_179
@@ -815,9 +817,9 @@ Matched contour: {'x': 207, 'y': 401, 'd': 5, 'a': 96.0, 'p': 33.5563, 'e': 0.26
 JSON_entry: 96
 Matched with first_id: 96 second_id: 138 name: 20230607_93
 entry_id:20230607_93, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/93/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/93
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/93/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/93/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\93\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\93
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\93\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\93\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_180
@@ -831,9 +833,9 @@ Matched contour: {'x': 239, 'y': 400, 'd': 7, 'a': 171.0, 'p': 45.799, 'e': 0.29
 JSON_entry: 95
 WARNING: match is empty
 entry_id:20230607_180, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/180/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/180
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/180/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/180/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\180\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\180
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\180\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\180\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_181
@@ -847,9 +849,9 @@ Matched contour: {'x': 127, 'y': 400, 'd': 8, 'a': 206.0, 'p': 53.4558, 'e': 0.7
 JSON_entry: 94
 Matched with first_id: 94 second_id: 90 name: 20230607_92
 entry_id:20230607_92, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/92/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/92
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/92/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/92/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\92\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\92
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\92\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\92\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_182
@@ -863,9 +865,9 @@ Matched contour: {'x': 33, 'y': 394, 'd': 6, 'a': 141.0, 'p': 42.6274, 'e': 0.29
 JSON_entry: 92
 Matched with first_id: 92 second_id: 89 name: 20230607_90
 entry_id:20230607_90, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/90/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/90
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/90/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/90/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\90\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\90
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\90\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\90\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_183
@@ -879,9 +881,9 @@ Matched contour: {'x': 260, 'y': 391, 'd': 6, 'a': 144.0, 'p': 41.799, 'e': 0.22
 JSON_entry: 88
 Matched with first_id: 88 second_id: 86 name: 20230607_86
 entry_id:20230607_86, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/86/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/86
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/86/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/86/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\86\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\86
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\86\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\86\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_184
@@ -895,9 +897,9 @@ Matched contour: {'x': 248, 'y': 391, 'd': 6, 'a': 148.0, 'p': 43.799, 'e': 0.41
 JSON_entry: 91
 Matched with first_id: 91 second_id: 91 name: 20230607_89
 entry_id:20230607_89, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/89/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/89
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/89/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/89/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\89\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\89
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\89\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\89\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_185
@@ -911,9 +913,9 @@ Matched contour: {'x': 218, 'y': 394, 'd': 11, 'a': 400.0, 'p': 94.1838, 'e': 0.
 JSON_entry: 90
 Matched with first_id: 90 second_id: 85 name: 20230607_88
 entry_id:20230607_88, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/88/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/88
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/88/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/88/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\88\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\88
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\88\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\88\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_186
@@ -927,9 +929,9 @@ Matched contour: {'x': 133, 'y': 392, 'd': 9, 'a': 264.0, 'p': 80.7696, 'e': 0.8
 JSON_entry: 87
 Matched with first_id: 87 second_id: 83 name: 20230607_85
 entry_id:20230607_85, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/85/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/85
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/85/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/85/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\85\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\85
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\85\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\85\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_187
@@ -943,9 +945,9 @@ Matched contour: {'x': 84, 'y': 391, 'd': 5, 'a': 109.0, 'p': 36.1421, 'e': 0.29
 JSON_entry: 89
 Matched with first_id: 89 second_id: 84 name: 20230607_87
 entry_id:20230607_87, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/87/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/87
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/87/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/87/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\87\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\87
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\87\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\87\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_188
@@ -959,9 +961,9 @@ Matched contour: {'x': 244, 'y': 381, 'd': 6, 'a': 139.0, 'p': 40.9706, 'e': 0.1
 JSON_entry: 86
 Matched with first_id: 86 second_id: 73 name: 20230607_84
 entry_id:20230607_84, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/84/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/84
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/84/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/84/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\84\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\84
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\84\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\84\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_189
@@ -975,9 +977,9 @@ Matched contour: {'x': 264, 'y': 380, 'd': 6, 'a': 114.0, 'p': 36.3848, 'e': 0.3
 JSON_entry: 85
 Matched with first_id: 85 second_id: 82 name: 20230607_83
 entry_id:20230607_83, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/83/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/83
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/83/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/83/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\83\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\83
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\83\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\83\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_190
@@ -991,9 +993,9 @@ Matched contour: {'x': 253, 'y': 378, 'd': 3, 'a': 48.0, 'p': 24.1421, 'e': 0.66
 JSON_entry: 84
 Matched with first_id: 84 second_id: 87 name: 20230607_82
 entry_id:20230607_82, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/82/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/82
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/82/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/82/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\82\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\82
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\82\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\82\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_191
@@ -1007,9 +1009,9 @@ Matched contour: {'x': 237, 'y': 375, 'd': 5, 'a': 107.0, 'p': 35.5563, 'e': 0.4
 JSON_entry: 83
 Matched with first_id: 83 second_id: 78 name: 20230607_81
 entry_id:20230607_81, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/81/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/81
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/81/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/81/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\81\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\81
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\81\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\81\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_192
@@ -1023,9 +1025,9 @@ Matched contour: {'x': 88, 'y': 374, 'd': 6, 'a': 153.0, 'p': 43.799, 'e': 0.243
 JSON_entry: 82
 Matched with first_id: 82 second_id: 80 name: 20230607_80
 entry_id:20230607_80, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/80/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/80
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/80/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/80/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\80\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\80
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\80\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\80\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_193
@@ -1039,9 +1041,9 @@ Matched contour: {'x': 44, 'y': 374, 'd': 6, 'a': 140.0, 'p': 40.9706, 'e': 0.49
 JSON_entry: 81
 Matched with first_id: 81 second_id: 79 name: 20230607_79
 entry_id:20230607_79, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/79/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/79
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/79/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/79/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\79\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\79
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\79\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\79\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_194
@@ -1055,9 +1057,9 @@ Matched contour: {'x': 167, 'y': 369, 'd': 6, 'a': 145.0, 'p': 43.2132, 'e': 0.2
 JSON_entry: 79
 Matched with first_id: 79 second_id: 76 name: 20230607_77
 entry_id:20230607_77, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/77/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/77
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/77/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/77/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\77\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\77
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\77\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\77\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_195
@@ -1071,9 +1073,9 @@ Matched contour: {'x': 67, 'y': 369, 'd': 7, 'a': 170.0, 'p': 46.6274, 'e': 0.16
 JSON_entry: 80
 Matched with first_id: 80 second_id: 77 name: 20230607_78
 entry_id:20230607_78, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/78/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/78
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/78/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/78/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\78\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\78
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\78\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\78\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_196
@@ -1087,9 +1089,9 @@ Matched contour: {'x': 264, 'y': 363, 'd': 5, 'a': 102.0, 'p': 34.9706, 'e': 0.1
 JSON_entry: 78
 Matched with first_id: 78 second_id: 75 name: 20230607_76
 entry_id:20230607_76, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/76/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/76
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/76/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/76/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\76\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\76
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\76\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\76\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_197
@@ -1103,9 +1105,9 @@ Matched contour: {'x': 232, 'y': 360, 'd': 2, 'a': 13.0, 'p': 10.2071, 'e': 0.84
 JSON_entry: 77
 Matched with first_id: 77 second_id: 140 name: 20230607_75
 entry_id:20230607_75, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/75/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/75
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/75/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/75/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\75\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\75
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\75\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\75\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_198
@@ -1119,9 +1121,9 @@ Matched contour: {'x': 221, 'y': 363, 'd': 7, 'a': 160.0, 'p': 44.6274, 'e': 0.1
 JSON_entry: 75
 Matched with first_id: 75 second_id: 74 name: 20230607_73
 entry_id:20230607_73, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/73/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/73
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/73/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/73/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\73\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\73
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\73\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\73\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_199
@@ -1135,9 +1137,9 @@ Matched contour: {'x': 239, 'y': 361, 'd': 5, 'a': 80.0, 'p': 30.7279, 'e': 0.41
 JSON_entry: 76
 Matched with first_id: 76 second_id: 81 name: 20230607_74
 entry_id:20230607_74, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/74/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/74
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/74/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/74/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\74\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\74
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\74\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\74\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_200
@@ -1151,9 +1153,9 @@ Matched contour: {'x': 52, 'y': 359, 'd': 5, 'a': 94.0, 'p': 33.5563, 'e': 0.308
 JSON_entry: 74
 Matched with first_id: 74 second_id: 72 name: 20230607_72
 entry_id:20230607_72, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/72/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/72
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/72/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/72/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\72\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\72
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\72\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\72\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_201
@@ -1167,9 +1169,9 @@ Matched contour: {'x': 186, 'y': 354, 'd': 6, 'a': 133.0, 'p': 40.3848, 'e': 0.2
 JSON_entry: 73
 Matched with first_id: 73 second_id: 71 name: 20230607_71
 entry_id:20230607_71, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/71/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/71
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/71/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/71/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\71\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\71
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\71\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\71\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_202
@@ -1183,9 +1185,9 @@ Matched contour: {'x': 226, 'y': 353, 'd': 8, 'a': 208.0, 'p': 52.8701, 'e': 0.7
 JSON_entry: 71
 Matched with first_id: 71 second_id: 69 name: 20230607_69
 entry_id:20230607_69, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/69/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/69
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/69/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/69/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\69\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\69
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\69\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\69\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_203
@@ -1199,9 +1201,9 @@ Matched contour: {'x': 41, 'y': 353, 'd': 7, 'a': 171.0, 'p': 46.3848, 'e': 0.36
 JSON_entry: 72
 Matched with first_id: 72 second_id: 70 name: 20230607_70
 entry_id:20230607_70, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/70/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/70
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/70/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/70/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\70\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\70
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\70\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\70\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_204
@@ -1215,9 +1217,9 @@ Matched contour: {'x': 31, 'y': 351, 'd': 4, 'a': 62.0, 'p': 27.5563, 'e': 0.428
 JSON_entry: 70
 Matched with first_id: 70 second_id: 66 name: 20230607_68
 entry_id:20230607_68, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/68/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/68
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/68/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/68/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\68\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\68
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\68\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\68\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_205
@@ -1231,9 +1233,9 @@ Matched contour: {'x': 178, 'y': 352, 'd': 6, 'a': 139.0, 'p': 40.9706, 'e': 0.3
 JSON_entry: 69
 Matched with first_id: 69 second_id: 68 name: 20230607_67
 entry_id:20230607_67, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/67/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/67
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/67/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/67/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\67\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\67
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\67\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\67\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_206
@@ -1247,9 +1249,9 @@ Matched contour: {'x': 166, 'y': 352, 'd': 7, 'a': 172.0, 'p': 47.2132, 'e': 0.1
 JSON_entry: 68
 Matched with first_id: 68 second_id: 67 name: 20230607_66
 entry_id:20230607_66, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/66/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/66
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/66/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/66/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\66\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\66
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\66\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\66\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_207
@@ -1263,9 +1265,9 @@ Matched contour: {'x': 63, 'y': 348, 'd': 7, 'a': 189.0, 'p': 48.3848, 'e': 0.06
 JSON_entry: 66
 Matched with first_id: 66 second_id: 64 name: 20230607_64
 entry_id:20230607_64, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/64/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/64
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/64/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/64/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\64\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\64
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\64\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\64\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_208
@@ -1279,9 +1281,9 @@ Matched contour: {'x': 41, 'y': 341, 'd': 6, 'a': 130.0, 'p': 40.3848, 'e': 0.28
 JSON_entry: 65
 Matched with first_id: 65 second_id: 62 name: 20230607_63
 entry_id:20230607_63, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/63/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/63
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/63/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/63/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\63\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\63
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\63\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\63\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_209
@@ -1295,9 +1297,9 @@ Matched contour: {'x': 214, 'y': 332, 'd': 5, 'a': 89.0, 'p': 31.8995, 'e': 0.22
 JSON_entry: 60
 Matched with first_id: 60 second_id: 59 name: 20230607_58
 entry_id:20230607_58, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/58/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/58
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/58/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/58/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\58\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\58
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\58\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\58\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_210
@@ -1311,9 +1313,9 @@ Matched contour: {'x': 63, 'y': 334, 'd': 8, 'a': 235.0, 'p': 54.2843, 'e': 0.63
 JSON_entry: 61
 Matched with first_id: 61 second_id: 58 name: 20230607_59
 entry_id:20230607_59, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/59/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/59
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/59/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/59/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\59\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\59
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\59\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\59\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_211
@@ -1327,9 +1329,9 @@ Matched contour: {'x': 150, 'y': 331, 'd': 11, 'a': 412.0, 'p': 92.1838, 'e': 0.
 JSON_entry: 57
 Matched with first_id: 57 second_id: 61 name: 20230607_56
 entry_id:20230607_56, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/56/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/56
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/56/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/56/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\56\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\56
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\56\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\56\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_212
@@ -1343,9 +1345,9 @@ Matched contour: {'x': 49, 'y': 313, 'd': 1, 'a': 9.0, 'p': 8.4142, 'e': 0.89245
 JSON_entry: 56
 Matched with first_id: 56 second_id: 54 name: 20230607_55
 entry_id:20230607_55, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/55/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/55
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/55/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/55/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\55\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\55
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\55\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\55\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_213
@@ -1359,9 +1361,9 @@ Matched contour: {'x': 33, 'y': 319, 'd': 10, 'a': 364.0, 'p': 96.0122, 'e': 0.8
 JSON_entry: 55
 Matched with first_id: 55 second_id: 55 name: 20230607_54
 entry_id:20230607_54, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/54/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/54
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/54/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/54/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\54\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\54
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\54\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\54\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_214
@@ -1375,9 +1377,9 @@ Matched contour: {'x': 221, 'y': 313, 'd': 6, 'a': 142.0, 'p': 41.799, 'e': 0.40
 JSON_entry: 54
 Matched with first_id: 54 second_id: 53 name: 20230607_53
 entry_id:20230607_53, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/53/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/53
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/53/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/53/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\53\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\53
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\53\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\53\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_215
@@ -1391,9 +1393,9 @@ Matched contour: {'x': 42, 'y': 302, 'd': 6, 'a': 119.0, 'p': 37.5563, 'e': 0.33
 JSON_entry: 53
 Matched with first_id: 53 second_id: 51 name: 20230607_52
 entry_id:20230607_52, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/52/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/52
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/52/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/52/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\52\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\52
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\52\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\52\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_216
@@ -1407,9 +1409,9 @@ Matched contour: {'x': 125, 'y': 301, 'd': 7, 'a': 154.0, 'p': 44.3848, 'e': 0.4
 JSON_entry: 52
 Matched with first_id: 52 second_id: 52 name: 20230607_51
 entry_id:20230607_51, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/51/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/51
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/51/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/51/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\51\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\51
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\51\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\51\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_217
@@ -1423,9 +1425,9 @@ Matched contour: {'x': 233, 'y': 294, 'd': 7, 'a': 166.0, 'p': 46.0416, 'e': 0.5
 JSON_entry: 50
 Matched with first_id: 50 second_id: 50 name: 20230607_50
 entry_id:20230607_50, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/50/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/50
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/50/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/50/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\50\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\50
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\50\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\50\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_218
@@ -1439,9 +1441,9 @@ Matched contour: {'x': 224, 'y': 287, 'd': 7, 'a': 166.0, 'p': 45.799, 'e': 0.21
 JSON_entry: 49
 Matched with first_id: 49 second_id: 49 name: 20230607_49
 entry_id:20230607_49, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/49/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/49
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/49/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/49/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\49\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\49
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\49\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\49\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_219
@@ -1455,9 +1457,9 @@ Matched contour: {'x': 119, 'y': 279, 'd': 9, 'a': 294.0, 'p': 66.5269, 'e': 0.8
 JSON_entry: 48
 Matched with first_id: 48 second_id: 48 name: 20230607_48
 entry_id:20230607_48, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/48/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/48
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/48/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/48/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\48\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\48
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\48\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\48\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_220
@@ -1471,9 +1473,9 @@ Matched contour: {'x': 40, 'y': 273, 'd': 7, 'a': 165.0, 'p': 45.799, 'e': 0.336
 JSON_entry: 47
 Matched with first_id: 47 second_id: 47 name: 20230607_47
 entry_id:20230607_47, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/47/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/47
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/47/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/47/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\47\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\47
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\47\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\47\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_221
@@ -1487,9 +1489,9 @@ Matched contour: {'x': 197, 'y': 268, 'd': 7, 'a': 176.0, 'p': 46.6274, 'e': 0.2
 JSON_entry: 46
 Matched with first_id: 46 second_id: 46 name: 20230607_46
 entry_id:20230607_46, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/46/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/46
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/46/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/46/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\46\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\46
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\46\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\46\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_222
@@ -1503,9 +1505,9 @@ Matched contour: {'x': 122, 'y': 268, 'd': 6, 'a': 149.0, 'p': 43.799, 'e': 0.43
 JSON_entry: 45
 Matched with first_id: 45 second_id: 45 name: 20230607_45
 entry_id:20230607_45, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/45/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/45
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/45/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/45/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\45\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\45
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\45\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\45\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_223
@@ -1519,9 +1521,9 @@ Matched contour: {'x': 185, 'y': 258, 'd': 10, 'a': 334.0, 'p': 76.7696, 'e': 0.
 JSON_entry: 44
 Matched with first_id: 44 second_id: 44 name: 20230607_44
 entry_id:20230607_44, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/44/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/44
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/44/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/44/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\44\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\44
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\44\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\44\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_224
@@ -1535,9 +1537,9 @@ Matched contour: {'x': 253, 'y': 253, 'd': 5, 'a': 111.0, 'p': 37.2132, 'e': 0.5
 JSON_entry: 43
 Matched with first_id: 43 second_id: 43 name: 20230607_43
 entry_id:20230607_43, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/43/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/43
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/43/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/43/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\43\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\43
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\43\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\43\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_225
@@ -1551,9 +1553,9 @@ Matched contour: {'x': 106, 'y': 252, 'd': 8, 'a': 237.0, 'p': 55.4558, 'e': 0.3
 JSON_entry: 42
 Matched with first_id: 42 second_id: 42 name: 20230607_42
 entry_id:20230607_42, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/42/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/42
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/42/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/42/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\42\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\42
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\42\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\42\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_226
@@ -1567,9 +1569,9 @@ Matched contour: {'x': 145, 'y': 245, 'd': 3, 'a': 41.0, 'p': 21.0711, 'e': 0.41
 JSON_entry: 41
 Matched with first_id: 41 second_id: 26 name: 20230607_41
 entry_id:20230607_41, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/41/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/41
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/41/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/41/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\41\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\41
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\41\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\41\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_227
@@ -1583,9 +1585,9 @@ Matched contour: {'x': 163, 'y': 248, 'd': 14, 'a': 662.0, 'p': 141.397, 'e': 0.
 JSON_entry: 40
 Matched with first_id: 40 second_id: 41 name: 20230607_40
 entry_id:20230607_40, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/40/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/40
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/40/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/40/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\40\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\40
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\40\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\40\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_228
@@ -1599,9 +1601,9 @@ Matched contour: {'x': 205, 'y': 243, 'd': 5, 'a': 97.0, 'p': 34.1421, 'e': 0.37
 JSON_entry: 39
 Matched with first_id: 39 second_id: 40 name: 20230607_39
 entry_id:20230607_39, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/39/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/39
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/39/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/39/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\39\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\39
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\39\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\39\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_229
@@ -1615,9 +1617,9 @@ Matched contour: {'x': 256, 'y': 238, 'd': 5, 'a': 80.0, 'p': 30.7279, 'e': 0.39
 JSON_entry: 37
 Matched with first_id: 37 second_id: 38 name: 20230607_37
 entry_id:20230607_37, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/37/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/37
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/37/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/37/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\37\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\37
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\37\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\37\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_230
@@ -1631,9 +1633,9 @@ Matched contour: {'x': 230, 'y': 239, 'd': 5, 'a': 93.0, 'p': 32.7279, 'e': 0.38
 JSON_entry: 38
 Matched with first_id: 38 second_id: 39 name: 20230607_38
 entry_id:20230607_38, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/38/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/38
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/38/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/38/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\38\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\38
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\38\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\38\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_231
@@ -1647,9 +1649,9 @@ Matched contour: {'x': 117, 'y': 235, 'd': 8, 'a': 248.0, 'p': 59.1127, 'e': 0.8
 JSON_entry: 36
 Matched with first_id: 36 second_id: 37 name: 20230607_36
 entry_id:20230607_36, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/36/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/36
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/36/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/36/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\36\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\36
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\36\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\36\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_232
@@ -1663,9 +1665,9 @@ Matched contour: {'x': 78, 'y': 232, 'd': 6, 'a': 133.0, 'p': 40.3848, 'e': 0.47
 JSON_entry: 35
 Matched with first_id: 35 second_id: 36 name: 20230607_35
 entry_id:20230607_35, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/35/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/35
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/35/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/35/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\35\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\35
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\35\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\35\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_233
@@ -1679,9 +1681,9 @@ Matched contour: {'x': 173, 'y': 228, 'd': 7, 'a': 163.0, 'p': 47.4558, 'e': 0.7
 JSON_entry: 33
 Matched with first_id: 33 second_id: 35 name: 20230607_33
 entry_id:20230607_33, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/33/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/33
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/33/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/33/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\33\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\33
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\33\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\33\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_234
@@ -1695,9 +1697,9 @@ Matched contour: {'x': 209, 'y': 227, 'd': 5, 'a': 89.0, 'p': 32.1421, 'e': 0.37
 JSON_entry: 34
 Matched with first_id: 34 second_id: 34 name: 20230607_34
 entry_id:20230607_34, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/34/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/34
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/34/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/34/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\34\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\34
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\34\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\34\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_235
@@ -1711,9 +1713,9 @@ Matched contour: {'x': 248, 'y': 223, 'd': 5, 'a': 101.0, 'p': 34.7279, 'e': 0.1
 JSON_entry: 31
 Matched with first_id: 31 second_id: 33 name: 20230607_31
 entry_id:20230607_31, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/31/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/31
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/31/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/31/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\31\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\31
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\31\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\31\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_236
@@ -1727,9 +1729,9 @@ Matched contour: {'x': 159, 'y': 224, 'd': 8, 'a': 207.0, 'p': 56.8701, 'e': 0.8
 JSON_entry: 30
 Matched with first_id: 30 second_id: 32 name: 20230607_30
 entry_id:20230607_30, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/30/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/30
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/30/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/30/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\30\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\30
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\30\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\30\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_237
@@ -1743,9 +1745,9 @@ Matched contour: {'x': 226, 'y': 221, 'd': 4, 'a': 75.0, 'p': 29.3137, 'e': 0.44
 JSON_entry: 29
 Matched with first_id: 29 second_id: 18 name: 20230607_29
 entry_id:20230607_29, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/29/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/29
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/29/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/29/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\29\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\29
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\29\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\29\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_238
@@ -1759,9 +1761,9 @@ Matched contour: {'x': 218, 'y': 220, 'd': 5, 'a': 101.0, 'p': 35.5563, 'e': 0.2
 JSON_entry: 28
 Matched with first_id: 28 second_id: 30 name: 20230607_28
 entry_id:20230607_28, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/28/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/28
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/28/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/28/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\28\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\28
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\28\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\28\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_239
@@ -1775,9 +1777,9 @@ Matched contour: {'x': 84, 'y': 218, 'd': 7, 'a': 171.0, 'p': 46.6274, 'e': 0.15
 JSON_entry: 27
 Matched with first_id: 27 second_id: 29 name: 20230607_27
 entry_id:20230607_27, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/27/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/27
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/27/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/27/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\27\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\27
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\27\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\27\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_240
@@ -1791,9 +1793,9 @@ Matched contour: {'x': 209, 'y': 215, 'd': 6, 'a': 143.0, 'p': 41.5563, 'e': 0.4
 JSON_entry: 26
 Matched with first_id: 26 second_id: 28 name: 20230607_26
 entry_id:20230607_26, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/26/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/26
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/26/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/26/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\26\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\26
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\26\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\26\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_241
@@ -1807,9 +1809,9 @@ Matched contour: {'x': 163, 'y': 209, 'd': 4, 'a': 72.0, 'p': 30.1421, 'e': 0.56
 JSON_entry: 23
 Matched with first_id: 23 second_id: 9 name: 20230607_23
 entry_id:20230607_23, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/23/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/23
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/23/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/23/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\23\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\23
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\23\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\23\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_242
@@ -1823,9 +1825,9 @@ Matched contour: {'x': 184, 'y': 209, 'd': 5, 'a': 91.0, 'p': 32.1421, 'e': 0.51
 JSON_entry: 22
 Matched with first_id: 22 second_id: 20 name: 20230607_22
 entry_id:20230607_22, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/22/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/22
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/22/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/22/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\22\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\22
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\22\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\22\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_243
@@ -1839,9 +1841,9 @@ Matched contour: {'x': 63, 'y': 204, 'd': 6, 'a': 145.0, 'p': 42.6274, 'e': 0.43
 JSON_entry: 20
 Matched with first_id: 20 second_id: 22 name: 20230607_20
 entry_id:20230607_20, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/20/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/20
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/20/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/20/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\20\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\20
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\20\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\20\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_244
@@ -1855,9 +1857,9 @@ Matched contour: {'x': 232, 'y': 200, 'd': 4, 'a': 60.0, 'p': 26.4853, 'e': 0.34
 JSON_entry: 19
 Matched with first_id: 19 second_id: 7 name: 20230607_19
 entry_id:20230607_19, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/19/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/19
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/19/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/19/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\19\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\19
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\19\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\19\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_245
@@ -1871,9 +1873,9 @@ Matched contour: {'x': 78, 'y': 192, 'd': 8, 'a': 246.0, 'p': 56.2843, 'e': 0.29
 JSON_entry: 18
 Matched with first_id: 18 second_id: 25 name: 20230607_18
 entry_id:20230607_18, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/18/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/18
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/18/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/18/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\18\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\18
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\18\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\18\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_246
@@ -1887,9 +1889,9 @@ Matched contour: {'x': 229, 'y': 175, 'd': 6, 'a': 115.0, 'p': 37.5563, 'e': 0.2
 JSON_entry: 17
 Matched with first_id: 17 second_id: 23 name: 20230607_17
 entry_id:20230607_17, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/17/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/17
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/17/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/17/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\17\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\17
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\17\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\17\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_247
@@ -1903,9 +1905,9 @@ Matched contour: {'x': 79, 'y': 174, 'd': 6, 'a': 131.0, 'p': 40.3848, 'e': 0.24
 JSON_entry: 16
 Matched with first_id: 16 second_id: 21 name: 20230607_16
 entry_id:20230607_16, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/16/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/16
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/16/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/16/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\16\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\16
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\16\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\16\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_248
@@ -1919,9 +1921,9 @@ Matched contour: {'x': 147, 'y': 162, 'd': 6, 'a': 125.0, 'p': 38.9706, 'e': 0.4
 JSON_entry: 15
 Matched with first_id: 15 second_id: 16 name: 20230607_15
 entry_id:20230607_15, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/15/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/15
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/15/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/15/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\15\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\15
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\15\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\15\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_249
@@ -1935,9 +1937,9 @@ Matched contour: {'x': 158, 'y': 159, 'd': 4, 'a': 75.0, 'p': 30.3848, 'e': 0.46
 JSON_entry: 14
 Matched with first_id: 14 second_id: 19 name: 20230607_14
 entry_id:20230607_14, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/14/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/14
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/14/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/14/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\14\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\14
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\14\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\14\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_250
@@ -1951,9 +1953,9 @@ Matched contour: {'x': 80, 'y': 149, 'd': 6, 'a': 136.0, 'p': 40.3848, 'e': 0.31
 JSON_entry: 13
 Matched with first_id: 13 second_id: 17 name: 20230607_13
 entry_id:20230607_13, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/13/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/13
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/13/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/13/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\13\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\13
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\13\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\13\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_251
@@ -1967,9 +1969,9 @@ Matched contour: {'x': 124, 'y': 141, 'd': 7, 'a': 167.0, 'p': 45.2132, 'e': 0.2
 JSON_entry: 12
 Matched with first_id: 12 second_id: 15 name: 20230607_12
 entry_id:20230607_12, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/12/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/12
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/12/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/12/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\12\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\12
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\12\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\12\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_252
@@ -1983,9 +1985,9 @@ Matched contour: {'x': 157, 'y': 140, 'd': 8, 'a': 217.0, 'p': 62.2843, 'e': 0.8
 JSON_entry: 11
 Matched with first_id: 11 second_id: 14 name: 20230607_11
 entry_id:20230607_11, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/11/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/11
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/11/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/11/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\11\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\11
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\11\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\11\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_253
@@ -1999,9 +2001,9 @@ Matched contour: {'x': 129, 'y': 132, 'd': 6, 'a': 133.0, 'p': 40.7279, 'e': 0.3
 JSON_entry: 10
 Matched with first_id: 10 second_id: 13 name: 20230607_10
 entry_id:20230607_10, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/10/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/10
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/10/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/10/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\10\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\10
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\10\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\10\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_254
@@ -2015,9 +2017,9 @@ Matched contour: {'x': 117, 'y': 131, 'd': 7, 'a': 154.0, 'p': 43.2132, 'e': 0.3
 JSON_entry: 9
 Matched with first_id: 9 second_id: 12 name: 20230607_9
 entry_id:20230607_9, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/9/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/9
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/9/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/9/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\9\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\9
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\9\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\9\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_255
@@ -2031,9 +2033,9 @@ Matched contour: {'x': 134, 'y': 122, 'd': 6, 'a': 132.0, 'p': 40.3848, 'e': 0.3
 JSON_entry: 6
 Matched with first_id: 6 second_id: 10 name: 20230607_6
 entry_id:20230607_6, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/6/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/6
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/6/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/6/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\6\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\6
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\6\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\6\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_256
@@ -2047,9 +2049,9 @@ Matched contour: {'x': 212, 'y': 90, 'd': 6, 'a': 150.0, 'p': 43.2132, 'e': 0.29
 JSON_entry: 5
 Matched with first_id: 5 second_id: 6 name: 20230607_5
 entry_id:20230607_5, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/5/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/5
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/5/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/5/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\5\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\5
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\5\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\5\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_257
@@ -2063,9 +2065,9 @@ Matched contour: {'x': 143, 'y': 88, 'd': 5, 'a': 111.0, 'p': 36.9706, 'e': 0.30
 JSON_entry: 4
 Matched with first_id: 4 second_id: 5 name: 20230607_4
 entry_id:20230607_4, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/4/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/4
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/4/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/4/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\4\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\4
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\4\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\4\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_258
@@ -2079,9 +2081,9 @@ Matched contour: {'x': 201, 'y': 72, 'd': 4, 'a': 57.0, 'p': 26.1421, 'e': 0.257
 JSON_entry: 3
 Matched with first_id: 3 second_id: 3 name: 20230607_3
 entry_id:20230607_3, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/3/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/3
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/3/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/3/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\3\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\3
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\3\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\3\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_259
@@ -2095,9 +2097,9 @@ Matched contour: {'x': 127, 'y': 53, 'd': 6, 'a': 153.0, 'p': 43.799, 'e': 0.472
 JSON_entry: 2
 Matched with first_id: 2 second_id: 1 name: 20230607_2
 entry_id:20230607_2, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/2/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/2
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/2/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/2/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\2\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\2
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\2\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\2\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_260
@@ -2111,9 +2113,9 @@ Matched contour: {'x': 146, 'y': 45, 'd': 5, 'a': 107.0, 'p': 35.5563, 'e': 0.42
 JSON_entry: 1
 Matched with first_id: 1 second_id: 4 name: 20230607_1
 entry_id:20230607_1, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/1/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/1
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/1/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/1/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\1\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\1
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\1\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\1\2023-06-07.jpg
 
 
 @process_contour: max_id: 20230607_261
@@ -2127,12 +2129,12 @@ Matched contour: {'x': 153, 'y': 42, 'd': 4, 'a': 58.0, 'p': 30.1421, 'e': 0.844
 JSON_entry: 0
 Matched with first_id: 0 second_id: 0 name: 20230607_0
 entry_id:20230607_0, entry saved to results list
-created dirs at nodule_detection_path: output/crop1000/nodules-last-detected-on/2023-06-07/0/detection and nodule_images_original_path: output/crop1000/nodules-last-detected-on/2023-06-07/0
-Segmented nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/0/detection/2023-06-07.jpg
-Original nodule image saved as output/crop1000/nodules-last-detected-on/2023-06-07/0/2023-06-07.jpg
+created dirs at nodule_detection_path: output\crop1000\nodules-last-detected-on\2023-06-07\0\detection and nodule_images_original_path: output\crop1000\nodules-last-detected-on\2023-06-07\0
+Segmented nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\0\detection\2023-06-07.jpg
+Original nodule image saved as output\crop1000\nodules-last-detected-on\2023-06-07\0\2023-06-07.jpg
 
 
 Done analyzing contours, found 121 nodules.
 
 
-results_entry: {'date': '20230607', 'json': 'output/crop1000/20230607/20230607.json', 'log': 'output/crop1000/20230607/crop1000_20230607.log', 'image': 'data/crop1000/20230607.jpg', 'plot': 'output/crop1000/plots/20230605_20230607.png', 'nodules': [{'20230607_140': {'a': 159.0, 'rgb_s': '7d7684', 'rgb_r': 'd79960'}}, {'20230607_139': {'a': 175.0, 'rgb_s': '7d7684', 'rgb_r': 'd79566'}}, {'20230607_138': {'a': 130.0, 'rgb_s': '5c575c', 'rgb_r': 'a0b642'}}, {'20230607_137': {'a': 352.0, 'rgb_s': '5a565a', 'rgb_r': '9dbc47'}}, {'20230607_136': {'a': 109.0, 'rgb_s': '525252', 'rgb_r': '91d669'}}, {'20230607_135': {'a': 207.0, 'rgb_s': '575357', 'rgb_r': '99ba4c'}}, {'20230607_130': {'a': 117.0, 'rgb_s': '5e585f', 'rgb_r': 'a4a843'}}, {'20230607_131': {'a': 133.0, 'rgb_s': '4f4e4e', 'rgb_r': '8cd36d'}}, {'20230607_127': {'a': 180.0, 'rgb_s': '69626d', 'rgb_r': 'b79254'}}, {'20230607_125': {'a': 197.0, 'rgb_s': '534f52', 'rgb_r': '92b854'}}, {'20230607_124': {'a': 181.0, 'rgb_s': '645d66', 'rgb_r': 'ae974e'}}, {'20230607_123': {'a': 39.0, 'rgb_s': '4b4b4a', 'rgb_r': '87d273'}}, {'20230607_122': {'a': 271.0, 'rgb_s': '5f5960', 'rgb_r': 'a59d4b'}}, {'20230607_121': {'a': 328.0, 'rgb_s': '4d4b4b', 'rgb_r': '88c868'}}, {'20230607_120': {'a': 199.0, 'rgb_s': '5a555b', 'rgb_r': '9ea24b'}}, {'20230607_119': {'a': 245.0, 'rgb_s': '585257', 'rgb_r': '9aa64d'}}, {'20230607_118': {'a': 184.0, 'rgb_s': '665f68', 'rgb_r': 'b19154'}}, {'20230607_117': {'a': 164.0, 'rgb_s': '4c4a4a', 'rgb_r': '87c367'}}, {'20230607_116': {'a': 179.0, 'rgb_s': '514d50', 'rgb_r': '8fb156'}}, {'20230607_115': {'a': 447.0, 'rgb_s': '4f4c4e', 'rgb_r': '8db75a'}}, {'20230607_114': {'a': 170.0, 'rgb_s': '5c565d', 'rgb_r': 'a2994f'}}, {'20230607_113': {'a': 343.0, 'rgb_s': '615a62', 'rgb_r': 'a99452'}}, {'20230607_112': {'a': 159.0, 'rgb_s': '4a4848', 'rgb_r': '85c269'}}, {'20230607_110': {'a': 304.0, 'rgb_s': '565056', 'rgb_r': '97a251'}}, {'20230607_109': {'a': 185.0, 'rgb_s': '655e67', 'rgb_r': 'af8d59'}}, {'20230607_108': {'a': 349.0, 'rgb_s': '4c494a', 'rgb_r': '87ba62'}}, {'20230607_107': {'a': 458.0, 'rgb_s': '484746', 'rgb_r': '81ca73'}}, {'20230607_105': {'a': 169.0, 'rgb_s': '5f5861', 'rgb_r': 'a68e58'}}, {'20230607_103': {'a': 236.0, 'rgb_s': '514c50', 'rgb_r': '90a258'}}, {'20230607_102': {'a': 191.0, 'rgb_s': '494647', 'rgb_r': '83ba68'}}, {'20230607_101': {'a': 148.0, 'rgb_s': '444241', 'rgb_r': '7bc275'}}, {'20230607_100': {'a': 221.0, 'rgb_s': '4a4648', 'rgb_r': '85ab62'}}, {'20230607_98': {'a': 177.0, 'rgb_s': '69616d', 'rgb_r': 'b67a71'}}, {'20230607_99': {'a': 369.0, 'rgb_s': '41403e', 'rgb_r': '76c17b'}}, {'20230607_97': {'a': 374.0, 'rgb_s': '434040', 'rgb_r': '79b772'}}, {'20230607_96': {'a': 128.0, 'rgb_s': '6b6370', 'rgb_r': 'ba7578'}}, {'20230607_94': {'a': 305.0, 'rgb_s': '494447', 'rgb_r': '839f66'}}, {'20230607_93': {'a': 96.0, 'rgb_s': '5f5761', 'rgb_r': 'a67d6b'}}, {'20230607_180': {'a': 171.0, 'rgb_s': '68606c', 'rgb_r': 'b57576'}}, {'20230607_92': {'a': 206.0, 'rgb_s': '4c464a', 'rgb_r': '879865'}}, {'20230607_90': {'a': 141.0, 'rgb_s': '3d3c39', 'rgb_r': '70c182'}}, {'20230607_86': {'a': 144.0, 'rgb_s': '6d6573', 'rgb_r': 'bd7080'}}, {'20230607_89': {'a': 148.0, 'rgb_s': '6a616f', 'rgb_r': 'b8727b'}}, {'20230607_88': {'a': 400.0, 'rgb_s': '615964', 'rgb_r': 'aa7871'}}, {'20230607_85': {'a': 264.0, 'rgb_s': '4c464b', 'rgb_r': '889467'}}, {'20230607_87': {'a': 109.0, 'rgb_s': '454041', 'rgb_r': '7ca76d'}}, {'20230607_84': {'a': 139.0, 'rgb_s': '685f6c', 'rgb_r': 'b5707c'}}, {'20230607_83': {'a': 114.0, 'rgb_s': '6e6573', 'rgb_r': 'be6d84'}}, {'20230607_82': {'a': 48.0, 'rgb_s': '6a616f', 'rgb_r': 'b86e80'}}, {'20230607_81': {'a': 107.0, 'rgb_s': '655d69', 'rgb_r': 'b0707b'}}, {'20230607_80': {'a': 153.0, 'rgb_s': '413d3d', 'rgb_r': '76a473'}}, {'20230607_79': {'a': 140.0, 'rgb_s': '3b3937', 'rgb_r': '6cb982'}}, {'20230607_77': {'a': 145.0, 'rgb_s': '514a51', 'rgb_r': '91836d'}}, {'20230607_78': {'a': 170.0, 'rgb_s': '3d3a39', 'rgb_r': '70ae7b'}}, {'20230607_76': {'a': 102.0, 'rgb_s': '6c6372', 'rgb_r': 'bc6988'}}, {'20230607_75': {'a': 13.0, 'rgb_s': '635a66', 'rgb_r': 'ac6e7d'}}, {'20230607_73': {'a': 160.0, 'rgb_s': '605763', 'rgb_r': 'a77179'}}, {'20230607_74': {'a': 80.0, 'rgb_s': '655c69', 'rgb_r': 'b06d7f'}}, {'20230607_72': {'a': 94.0, 'rgb_s': '3a3735', 'rgb_r': '6ab483'}}, {'20230607_71': {'a': 133.0, 'rgb_s': '554d56', 'rgb_r': '977a74'}}, {'20230607_69': {'a': 208.0, 'rgb_s': '605863', 'rgb_r': 'a86e7d'}}, {'20230607_70': {'a': 171.0, 'rgb_s': '383633', 'rgb_r': '67b888'}}, {'20230607_68': {'a': 62.0, 'rgb_s': '373632', 'rgb_r': '66bd8c'}}, {'20230607_67': {'a': 139.0, 'rgb_s': '534b53', 'rgb_r': '937c73'}}, {'20230607_66': {'a': 172.0, 'rgb_s': '50484f', 'rgb_r': '8e8171'}}, {'20230607_64': {'a': 189.0, 'rgb_s': '3a3635', 'rgb_r': '6aad81'}}, {'20230607_63': {'a': 130.0, 'rgb_s': '363431', 'rgb_r': '64b78b'}}, {'20230607_58': {'a': 89.0, 'rgb_s': '5b525d', 'rgb_r': 'a06d7f'}}, {'20230607_59': {'a': 235.0, 'rgb_s': '373432', 'rgb_r': '67ac85'}}, {'20230607_56': {'a': 412.0, 'rgb_s': '514952', 'rgb_r': '907a77'}}, {'20230607_55': {'a': 9.0, 'rgb_s': '33302d', 'rgb_r': '5fb08f'}}, {'20230607_54': {'a': 364.0, 'rgb_s': '32312c', 'rgb_r': '5eb893'}}, {'20230607_53': {'a': 142.0, 'rgb_s': '5c535e', 'rgb_r': 'a16785'}}, {'20230607_52': {'a': 119.0, 'rgb_s': '302e2a', 'rgb_r': '5cb293'}}, {'20230607_51': {'a': 154.0, 'rgb_s': '40393d', 'rgb_r': '748a81'}}, {'20230607_50': {'a': 166.0, 'rgb_s': '5e5561', 'rgb_r': 'a45f8e'}}, {'20230607_49': {'a': 166.0, 'rgb_s': '5a515d', 'rgb_r': '9f628c'}}, {'20230607_48': {'a': 294.0, 'rgb_s': '3c3538', 'rgb_r': '6e8987'}}, {'20230607_47': {'a': 165.0, 'rgb_s': '2c2a25', 'rgb_r': '55af9b'}}, {'20230607_46': {'a': 176.0, 'rgb_s': '514852', 'rgb_r': '90668c'}}, {'20230607_45': {'a': 149.0, 'rgb_s': '3b3438', 'rgb_r': '6d878a'}}, {'20230607_44': {'a': 334.0, 'rgb_s': '4c444d', 'rgb_r': '89698d'}}, {'20230607_43': {'a': 111.0, 'rgb_s': '615866', 'rgb_r': 'aa529d'}}, {'20230607_42': {'a': 237.0, 'rgb_s': '362f31', 'rgb_r': '648c90'}}, {'20230607_41': {'a': 41.0, 'rgb_s': '40373e', 'rgb_r': '74798f'}}, {'20230607_40': {'a': 662.0, 'rgb_s': '453c44', 'rgb_r': '7c718e'}}, {'20230607_39': {'a': 97.0, 'rgb_s': '514853', 'rgb_r': '905f94'}}, {'20230607_37': {'a': 80.0, 'rgb_s': '625867', 'rgb_r': 'ab4ea2'}}, {'20230607_38': {'a': 93.0, 'rgb_s': '59505d', 'rgb_r': '9d559b'}}, {'20230607_36': {'a': 248.0, 'rgb_s': '372f33', 'rgb_r': '668593'}}, {'20230607_35': {'a': 133.0, 'rgb_s': '2d2726', 'rgb_r': '56999b'}}, {'20230607_33': {'a': 163.0, 'rgb_s': '463d46', 'rgb_r': '7f6a94'}}, {'20230607_34': {'a': 89.0, 'rgb_s': '524854', 'rgb_r': '915a9a'}}, {'20230607_31': {'a': 101.0, 'rgb_s': '5d5361', 'rgb_r': 'a34ea2'}}, {'20230607_30': {'a': 207.0, 'rgb_s': '423941', 'rgb_r': '786f95'}}, {'20230607_29': {'a': 75.0, 'rgb_s': '574d5a', 'rgb_r': '99539e'}}, {'20230607_28': {'a': 101.0, 'rgb_s': '544b57', 'rgb_r': '95569d'}}, {'20230607_27': {'a': 171.0, 'rgb_s': '2d2727', 'rgb_r': '57949d'}}, {'20230607_26': {'a': 143.0, 'rgb_s': '514753', 'rgb_r': '90589c'}}, {'20230607_23': {'a': 72.0, 'rgb_s': '423941', 'rgb_r': '786c99'}}, {'20230607_22': {'a': 91.0, 'rgb_s': '4b424c', 'rgb_r': '865f9b'}}, {'20230607_20': {'a': 145.0, 'rgb_s': '26211e', 'rgb_r': '4b9fa6'}}, {'20230607_19': {'a': 60.0, 'rgb_s': '584e5c', 'rgb_r': '9b4da5'}}, {'20230607_18': {'a': 246.0, 'rgb_s': '282222', 'rgb_r': '4f95a5'}}, {'20230607_17': {'a': 115.0, 'rgb_s': '554b59', 'rgb_r': '974aab'}}, {'20230607_16': {'a': 131.0, 'rgb_s': '272020', 'rgb_r': '4c93aa'}}, {'20230607_15': {'a': 125.0, 'rgb_s': '3a3039', 'rgb_r': '6b6ea6'}}, {'20230607_14': {'a': 75.0, 'rgb_s': '3d343d', 'rgb_r': '7068a7'}}, {'20230607_13': {'a': 136.0, 'rgb_s': '251d1e', 'rgb_r': '4990b0'}}, {'20230607_12': {'a': 167.0, 'rgb_s': '31282f', 'rgb_r': '5d78ad'}}, {'20230607_11': {'a': 217.0, 'rgb_s': '3c323c', 'rgb_r': '6e67ac'}}, {'20230607_10': {'a': 133.0, 'rgb_s': '322930', 'rgb_r': '5f75af'}}, {'20230607_9': {'a': 154.0, 'rgb_s': '2e252b', 'rgb_r': '597bb0'}}, {'20230607_6': {'a': 132.0, 'rgb_s': '352b34', 'rgb_r': '636fb1'}}, {'20230607_5': {'a': 150.0, 'rgb_s': '4d4251', 'rgb_r': '8945bf'}}, {'20230607_4': {'a': 111.0, 'rgb_s': '352a35', 'rgb_r': '636aba'}}, {'20230607_3': {'a': 57.0, 'rgb_s': '483e4c', 'rgb_r': '824ac2'}}, {'20230607_2': {'a': 153.0, 'rgb_s': '2e242e', 'rgb_r': '5872c5'}}, {'20230607_1': {'a': 107.0, 'rgb_s': '342a36', 'rgb_r': '6267c6'}}, {'20230607_0': {'a': 58.0, 'rgb_s': '372c39', 'rgb_r': '6663c7'}}], 'match_stats': {'i_dict': {0: 141}, 'average_tracking_quality': 67.7778, 'distance_threshold': 20, 'lengths': {'matching': 141, 'unmatched_current': 3, 'unmatched_previous': 0}, 'averages': {'tq': 19.1348, 'i': 0.0, 'dx': 0.2128, 'dy': 0.539, 'dd': -0.2057, 'da': -10.3901, 'dp': -2.0097, 'de': -0.0099}}}
+results_entry: {'date': '20230607', 'json': 'output\\crop1000\\20230607\\20230607.json', 'log': 'output\\crop1000\\20230607/crop1000_20230607.log', 'image': 'data\\crop1000\\20230607.jpg', 'plot': 'output\\crop1000\\20230607\\plots\\20230605_20230607.png', 'match_stats': {'i_dict': {0: 141}, 'average_tracking_quality': 67.7778, 'distance_threshold': 20, 'lengths': {'matching': 141, 'unmatched_current': 3, 'unmatched_previous': 0}, 'averages': {'tq': 19.1348, 'i': 0.0, 'dx': 0.2128, 'dy': 0.539, 'dd': -0.2057, 'da': -10.3901, 'dp': -2.0097, 'de': -0.0099}}}

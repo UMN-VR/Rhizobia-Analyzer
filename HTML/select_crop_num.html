@@ -26,7 +26,8 @@
   <script>
     // Fetch the JSON data and populate the widgets
     document.addEventListener("DOMContentLoaded", () => {
-      fetch('../output/results.json') // Replace with the actual path
+      fetch('..\\output\\results.json') // Replace with the actual path
+      //fetch('../output/results.json') // Replace with the actual path
         .then(response => response.json())
         .then(data => createWidgets(data))
         .catch(error => console.error('Error fetching JSON:', error));
@@ -39,7 +40,8 @@
           widgetDiv.className = 'widget';
 
           // Dynamically find the crop key
-          const cropKey = Object.keys(entry).find(key => key.startsWith('data/crop'));
+          const cropKey = Object.keys(entry).find(key => key.startsWith('data\\crop'));
+          //const cropKey = Object.keys(entry).find(key => key.startsWith('data/crop'));
           const cropNumber = cropKey.split('/').pop();  // Extract the crop number
 
           // Create clickable anchor for dif_plot_dx_dy_da_dp.png plot

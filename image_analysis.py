@@ -4,7 +4,7 @@ import json
 import sys
 import numpy as np
 
-from Logger import Logger
+from logger import Logger
 
 
 from scipy.spatial.distance import cdist

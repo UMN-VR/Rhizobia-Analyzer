@@ -1,3 +1,4 @@
+#process_dir.py
 import os
 
 # Import the get_all_image_files function from nodules.py
@@ -7,7 +8,7 @@ from dir_utils import find_crop_folders
 
 from old.HTML_out import generate_results_page
 from memory_logger import log_memory_usage
-from Logger import Logger
+from logger import Logger
 import subprocess
 import time
 from json_utils import append_to_json_list
@@ -72,16 +73,17 @@ def process_dir(file_name, main_logger, start_at=None):
             # Replace / with _ and capitalize the result
             crop_log_name = crop_folder.replace('/', '_')
 
-            # get crop_folder_name by removing the 'data/' from the beginning of the crop_folder: 'data/crop1000' -> 'crop1000'
-            crop_folder_name = crop_folder.replace('data/', '')
+            # Extract the base name of the crop folder
+            crop_folder_name = os.path.basename(crop_folder)
 
-            output_dir = f"output/{crop_folder_name}"
+            # Construct the output directory path
+            output_dir = os.path.join("output", crop_folder_name)
 
             # Create the directory if it doesn't exist
             os.makedirs(output_dir, exist_ok=True)
 
             # Create the logger for this specific crop folder
-            crop_logger = Logger(f'{crop_log_name}.log', output_dir).get_logger()
+            crop_logger = Logger(f'{crop_folder_name}.log', output_dir).get_logger()
 
 
             # Process all images in the crop folder

@@ -5,7 +5,7 @@ import os
 import json
 import sys
 import numpy as np
-from Logger import Logger
+from logger import Logger
 
 import image_analysis
 

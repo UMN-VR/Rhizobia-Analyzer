@@ -1,7 +1,7 @@
 # analyze_image.py
 import os 
 import sys
-from Logger import Logger
+from logger import Logger
 from memory_logger import log_memory_usage
 from cv_utils import load_image
 from image_analysis import ImageAnalyzer, normalize

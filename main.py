@@ -3,7 +3,7 @@
 import os
 import time
 
-from Logger import Logger
+from logger import Logger
 
 from dir_utils import change_working_directory, prompt_clear_output_directory
 from process_dir import process_dir
@@ -34,6 +34,10 @@ def while_loop_process_images():
 
         # ask user for file name or directory
         command = input("Enter crop folder dir ie: 'data', 'data/crop1000', etc. (or 'exit' to stop): ")
+
+        # if command is empty, presumes user wants to to process 'data' directory
+        if command == '':
+            command = 'data'
 
         # split command by 'start_at:' to get the file name to start at
         commands = command.split('start_at:')

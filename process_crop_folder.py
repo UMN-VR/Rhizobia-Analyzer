@@ -43,6 +43,7 @@ def process_crop_folder(crop_folder, logger):
     crop_result_filename = f"output/{crop_number}/{crop_number}.json"
 
     output_dir = os.path.join("output", crop_number)
+    plots_dir = os.path.join(output_dir, "plots")
     dif_plot_path = f"{output_dir}/plots/dif_plot"
     dif_plot_dx_dy_da_dp_path = f"{output_dir}/plots/dif_plot_dx_dy_da_dp.png"
     dif_plot_i_tq_dd_de_path = f"{output_dir}/plots/dif_plot_i_tq_dd_de.png"
@@ -96,10 +97,14 @@ def process_crop_folder(crop_folder, logger):
 
     log_memory_usage(logger)
 
+     # Check if the plots directory exists, if not create it
+    if not os.path.exists(plots_dir):
+        os.makedirs(plots_dir, exist_ok=True)
+
 
     logger.info(f"Generating crop plots gif")
-    plots_gif_path = f"{output_dir}/plots/plots.gif"
-    generate_gif(f"{output_dir}/plots", 'plots.gif', logger, duration=1000)
+    plots_gif_path = os.path.join(output_dir, "plots", "plots.gif")
+    generate_gif(plots_dir, 'plots.gif', logger, duration=1000)
 
     results = {crop_number : results, "gif_path" : gif_path, "plots_gif_path" : plots_gif_path, "dif_plot_path" : dif_plot_path}
 

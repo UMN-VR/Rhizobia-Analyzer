@@ -2,7 +2,7 @@ import os
 import imageio.v2 as imageio
 import json
 import matplotlib.pyplot as plt
-from Logger import Logger
+from logger import Logger
 
 from generate_gifs import generate_gifs, generate_gif
 from plot_nodule_json_data import plot_nodule_json_data
@@ -11,10 +11,13 @@ import time
 def post_process(crop_folder, crop_logger):
     crop_logger.info(f"@post_process: crop_folder:{crop_folder}, logger:{crop_logger}")
 
-    output_dir = os.path.join("output", crop_folder.replace("data/", ""))
+    # BAD BAD BAD output_dir = os.path.join("output", crop_folder.replace("data/", ""))
+
+    output_dir = os.path.join("output", os.path.basename(crop_folder))
                 
                 
-    dates_dir =  output_dir+ "/nodules-last-detected-on"
+    #dates_dir =  output_dir+ "/nodules-last-detected-on"
+    dates_dir =  os.path.join(output_dir, "nodules-last-detected-on")
     crop_logger.info(f"dates_dir:{dates_dir}")
     
     subdirs = [os.path.join(dates_dir, o) for o in os.listdir(dates_dir) if os.path.isdir(os.path.join(dates_dir,o))]
@@ -33,7 +36,9 @@ def post_process(crop_folder, crop_logger):
         # crop_number should be set to like crop980
 
         # split the subdir by '/' 
-        subdir_split = subdir.split("/")
+        # BAD BAD BAD subdir_split = subdir.split("/")
+
+        subdir_split = os.path.normpath(subdir).split(os.sep)
 
         # get the last element of the subdir_split, remove the '-' and set it to current_date
         current_date = subdir_split[-1].replace("-", "")

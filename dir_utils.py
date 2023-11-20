@@ -1,4 +1,6 @@
+#dir_utils.py 
 import os
+import shutil
 
 def change_working_directory():
     # Change the working directory to the directory of this file
@@ -7,6 +9,7 @@ def change_working_directory():
     return script_dir
 
 def prompt_clear_output_directory():
+    directory = "output"
     # Check if the output directory exists, if not make one
     if not os.path.isdir("output"):
         os.makedirs("output")
@@ -17,7 +20,9 @@ def prompt_clear_output_directory():
         if not user_input.lower() == 'n':
             # delete the output directory
             print("Clearing output directory...")
-            os.system("rm -rf output")
+            if os.path.exists(directory):
+                shutil.rmtree(directory)
+
             os.makedirs("output")
 
 

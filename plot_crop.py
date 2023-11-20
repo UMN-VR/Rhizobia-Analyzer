@@ -3,7 +3,7 @@ import json
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import numpy as np
-from Logger import Logger
+from logger import Logger
 
 
 def plot_crop(crop_json_file, plot_file_name_prefix, logger=None):

@@ -3,7 +3,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import json
-from Logger import Logger
+from logger import Logger
 
 
 def are_valid_coordinates(x, y, xlim, ylim):
