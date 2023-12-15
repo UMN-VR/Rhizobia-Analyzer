@@ -73,6 +73,13 @@
             const current = urlParams.get('current');
             const next = urlParams.get('next');
             const img_path = `../data/${cropNum}/${current}.jpg`;
+
+            // Extract URL parameters and display them
+            displayUrlParams(cropNum, prev, current, next);
+
+            // Create and display JSON file links
+            createJsonFileLinks(cropNum, prev, current, next);
+
             renderImage(img_path);
             image = document.getElementById('image');
             image.onload = function() {
@@ -121,7 +128,7 @@
             data.forEach(item => {
 
                 // Debug: Check the rgb value from JSON
-                console.log("RGB String from JSON:", item.rgb);
+                //console.log("RGB String from JSON:", item.rgb_s);
                 const container = document.createElement('div');
                 container.style.position = 'absolute';
                 container.style.top = `${(item.r.y / image_height * 100)-0.5}%`;
@@ -137,20 +144,20 @@
                 element.style.width = `${item.r.w}px`;
                 element.style.height = `${item.r.h}px`;
 
-                const hexColor = item.rgb;
+                const hexColor = item.rgb_s;
                 const r = parseInt(hexColor.substring(0, 2), 16);
                 const g = parseInt(hexColor.substring(2, 4), 16);
                 const b = parseInt(hexColor.substring(4, 6), 16);
 
                 // Debug: Check the RGB values after conversion
-                console.log("Converted RGB:", r, g, b);
+                //console.log("Converted RGB:", r, g, b);
 
                 const rgbaColor = `rgba(${r}, ${g}, ${b}, 0.5)`; // Adjust opacity as needed
                 //const rgbaColor = `rgba(255, ${g}, 0, 0.5)`; // Adjust opacity as needed
                 element.style.backgroundColor = rgbaColor;
 
                 // Debug: Check the final RGBA value
-                console.log("Final RGBA Color:", rgbaColor);
+                //console.log("Final RGBA Color:", rgbaColor);
 
                 
                 
@@ -279,9 +286,65 @@
                 circles[i].style.backgroundColor = `rgba(${circles[i].style.backgroundColor.split(',')[0].split('(')[1]}, ${circles[i].style.backgroundColor.split(',')[1]}, ${circles[i].style.backgroundColor.split(',')[2]}, ${transparency})`;
             }
         }
+        function displayUrlParams(cropNum, prev, current, next) {
+        const paramsContainer = document.getElementById('params-container');
+        paramsContainer.innerHTML = `
+            <p>Crop Number: ${cropNum}</p>
+            <p>Previous Date: ${formatDate(prev)}</p>
+            <p>Current Date: ${formatDate(current)}</p>
+            <p>Next Date: ${formatDate(next)}</p>
+        `;
+    }
+
+    function formatDate(dateStr) {
+        return dateStr ? dateStr.substring(0,4) + '-' + dateStr.substring(4,6) + '-' + dateStr.substring(6,8) : 'N/A';
+    }
+
+    function createJsonFileLinks(cropNum, prev, current, next) {
+        const linksContainer = document.getElementById('json-links-container');
+        const fileNames = {prev, current, next};
+        Object.keys(fileNames).forEach(key => {
+            const fileName = fileNames[key];
+            if (fileName) {
+                const link = document.createElement('a');
+                link.href = `#`;
+                link.textContent = `Show ${key.toUpperCase()} JSON`;
+                link.onclick = function() { toggleJsonContent(`${cropNum}/${fileName}/${fileName}.json`, key); };
+                linksContainer.appendChild(link);
+                linksContainer.appendChild(document.createElement('br'));
+
+                // Create a container for JSON content
+                const jsonContent = document.createElement('div');
+                jsonContent.id = `${key}-json-content`;
+                jsonContent.style.display = 'none';
+                linksContainer.appendChild(jsonContent);
+            }
+        });
+    }
+
+    function toggleJsonContent(filePath, key) {
+        const contentDiv = document.getElementById(`${key}-json-content`);
+        if (contentDiv.innerHTML) {
+            contentDiv.style.display = contentDiv.style.display === 'none' ? 'block' : 'none';
+        } else {
+            fetch(filePath)
+                .then(response => response.json())
+                .then(data => {
+                    contentDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                    contentDiv.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON:', error);
+                    contentDiv.innerHTML = `<p>Error loading JSON file.</p>`;
+                });
+        }
+    }
     </script>
 </head>
 <body>
+    <div id="params-container">
+        <!-- URL parameters will be displayed here -->
+    </div>
     <div>
         <input type="checkbox" id="rectangle-toggle" onclick="toggleVisibility('rectangle', this)">
         <label for="rectangle-toggle">Show Tracking</label>
@@ -322,6 +385,10 @@
         
         <!-- Elements will be dynamically populated here -->
         
+    </div>
+    
+    <div id="json-links-container">
+        <!-- JSON file links will be displayed here -->
     </div>
 </body>
 </html>

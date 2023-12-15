@@ -1,11 +1,12 @@
-Current memory usage: 286.3515625 MB
+Current memory usage: 284.26171875 MB
 
 @analyze_image: file_name: data\crop1001\20230607.jpg, output_dir: output\crop1001, external_logger: <Logger crop1001.log (DEBUG)>
+image_output_dir: output\crop1001\20230607
 Loaded image & JSON file: data\crop1001\20230607.jpg
 Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
 
 @find_prev_next_date: image_output_dir: output\crop1001\20230607
-Full image_output_dir path: c:\GitHub\Rhizobia-Analyzer\output\crop1001\20230607
+Full image_output_dir path: p:\GitHub\Rhizobia-Analyzer\output\crop1001\20230607
 Crop number extracted: crop1001
 data_dir constructed: data\crop1001
 Previous date file: data\crop1001\20230605.jpg, Next date file: None
@@ -13,13 +14,15 @@ Previous date file: data\crop1001\20230605.jpg, Next date file: None
 
 Loaded prev_results from JSON file: 20230605, length: 244
 Scaled JSON data: scalar_position: 0.5, scalar_size: 0.5
-prev_results is not empty, generating matching
-Current memory usage: 287.7890625 MB
+Current memory usage: 285.609375 MB
+
+
+@analyze_image.json_prev is true; prev_results is not empty, generating matching... 
 
 current_date:20230607, generating Matching: 20230605_20230607_matching.json
 spatial_distances: (237, 244), attribute_distances: (237, 244)
 combined_distances: (237, 244)
-Current memory usage: 289.9765625 MB
+Current memory usage: 287.8046875 MB
 
 
 @find_matching: combined_distances: (237, 244), next_matching: None, current_date_string: 20230607, distance_threshold: 20
@@ -273,7 +276,8 @@ Distance threshold: 20
 
 
 
-@plot_data: normalized_points: (237, 2), normalized_prev_points: (244, 2), current_points: (237, 2), prev_points: (244, 2), current_data: 237, prev_data: 244, matching: 237, unmatched_current: 0, unmatched_prev: 7, combined_distances: (237, 244), distance_threshold: 20, current_date_string: 20230607, previous_date_string: 20230605, filename: output\crop1001\20230607\plots\20230605_20230607.png
+Creating plots folder: output\crop1001\plots
+@plot_data: normalized_points: (237, 2), normalized_prev_points: (244, 2), current_points: (237, 2), prev_points: (244, 2), current_data: 237, prev_data: 244, matching: 237, unmatched_current: 0, unmatched_prev: 7, combined_distances: (237, 244), distance_threshold: 20, current_date_string: 20230607, previous_date_string: 20230605, filename: output\crop1001\plots\20230605_20230607.png
 Plots created
 Plotted the normalized points
 Drawing lines between the matched points
@@ -3513,4 +3517,4 @@ Original nodule image saved as output\crop1001\nodules-last-detected-on\2023-06-
 Done analyzing contours, found 201 nodules.
 
 
-results_entry: {'date': '20230607', 'json': 'output\\crop1001\\20230607\\20230607.json', 'log': 'output\\crop1001\\20230607/crop1001_20230607.log', 'image': 'data\\crop1001\\20230607.jpg', 'plot': 'output\\crop1001\\20230607\\plots\\20230605_20230607.png', 'match_stats': {'i_dict': {0: 237}, 'average_tracking_quality': 62.8594, 'distance_threshold': 20, 'lengths': {'matching': 237, 'unmatched_current': 0, 'unmatched_previous': 7}, 'averages': {'tq': 26.2363, 'i': 0.0, 'dx': 1.8439, 'dy': 1.4346, 'dd': -0.0084, 'da': -2.5992, 'dp': -0.6408, 'de': 0.0097}}}
+results_entry: {'date': '20230607', 'json': 'output/crop1001/20230607/20230607.json', 'log': 'output/crop1001/20230607/crop1001_20230607.log', 'image': 'data/crop1001/20230607.jpg', 'plot': 'output/crop1001/plots/20230605_20230607.png', 'match_stats': {'i_dict': {0: 237}, 'average_tracking_quality': 62.8594, 'distance_threshold': 20, 'lengths': {'matching': 237, 'unmatched_current': 0, 'unmatched_previous': 7}, 'averages': {'tq': 26.2363, 'i': 0.0, 'dx': 1.8439, 'dy': 1.4346, 'dd': -0.0084, 'da': -2.5992, 'dp': -0.6408, 'de': 0.0097}}}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Parameters Display -->
+        <div id="params-container"></div>
+
+        <!-- Image Container -->
+        <div class="image-container" id="image-container">
+            <!-- Dynamically populated images -->
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <!-- Toggles for different JSON views -->
+            <label><input type="checkbox" class="visibility-checkbox" data-target="circle-prev"> Show Previous JSON</label>
+            <label><input type="checkbox" class="visibility-checkbox" data-target="circle-current" checked> Show Current JSON</label>
+            <label><input type="checkbox" class="visibility-checkbox" data-target="circle-next"> Show Next JSON</label>
+            
+            <!-- Range sliders -->
+            <label for="offsetX-slider">Offset X: <span id="offsetX-slider-value"></span></label>
+            <input type="range" id="offsetX-slider" class="range-slider" min="-10" max="10" step="1">
+            
+            <label for="offsetY-slider">Offset Y: <span id="offsetY-slider-value"></span></label>
+            <input type="range" id="offsetY-slider" class="range-slider" min="-10" max="10" step="1">
+        </div>
+
+        <!-- Dynamic Content Area -->
+        <div id="dynamic-content">
+            <!-- Content updated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

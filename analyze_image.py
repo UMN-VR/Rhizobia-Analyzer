@@ -31,6 +31,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
     # Create a directory for the image
     image_output_dir = os.path.join(output_dir, current_date)
     external_logger.info(f"image_output_dir: {image_output_dir}")
+    
 
     # Create the directory if it doesn't exist
     os.makedirs(image_output_dir, exist_ok=True)
@@ -53,12 +54,15 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
 
     logger = Logger(log_name, image_output_dir, external_logger=external_logger).get_logger()
 
-    log_dir = image_output_dir+"/"+log_name
+    #log_dir = image_output_dir+"/"+log_name BAD BAD BAD: only works on linux
+
+    log_dir = os.path.join(image_output_dir, log_name)
 
     logger.propagate = False
 
     log_memory_usage(logger)
     logger.info(f"@analyze_image: file_name: {image_file_name}, output_dir: {output_dir}, external_logger: {external_logger}")
+    logger.info(f"image_output_dir: {image_output_dir}")
 
     #load files
     image = load_image(image_file_name)
@@ -132,8 +136,9 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
 
     if json_prev:
 
-        logger.info(f"prev_results is not empty, generating matching")
         log_memory_usage(logger)
+
+        logger.info(f"\n@analyze_image.json_prev is true; prev_results is not empty, generating matching... \n")
 
         matching_name = f"{prev_date_string}_{current_date}_matching.json"
 
@@ -158,12 +163,16 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
         # Find the matching
         matching, unmatched_current, unmatched_previous, match_stats = find_matching(logger, combined_distances, crop_folder=crop_number, next_matching=next_matching, current_date_string=current_date, current_json=json_data, prev_json=json_prev, next_json=next_results)
 
-        plot_file_name = os.path.join(image_output_dir.replace(f"/{current_date}", ""), "plots")
+
+
+        plots_folder = os.path.join(output_dir, "plots")
+        plot_file_name = os.path.join(plots_folder, f"{prev_date_string}_{current_date}.png")
 
         # Create the directory if it doesn't exist
-        os.makedirs(plot_file_name, exist_ok=True)
+        logger.info(f"Creating plots folder: {plots_folder}")
+        os.makedirs(plots_folder, exist_ok=True)
 
-        plot_file_name = os.path.join(plot_file_name, f"{prev_date_string}_{current_date}.png")
+        
 
         normalized_points = normalize(points)
         normalized_prev_points = normalize(prev_points)
@@ -206,6 +215,20 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
 
     # save nodules at image_output_dir/nodules.json
 
+    # 
+
+    # Normalize the paths json, log, image, plot
+
+    # Normalize the paths json, log, image, plot
+    current_json = os.path.normpath(current_json).replace('\\', '/')
+    log_dir = os.path.normpath(log_dir).replace('\\', '/')
+    image_file_name = os.path.normpath(image_file_name).replace('\\', '/')
+    if plot_file_name is not None:
+        plot_file_name = os.path.normpath(plot_file_name).replace('\\', '/')
+
+    nodules_entry = {"date": current_date, "nodules": nodules}
+
+
 
     results_entry = {"date": current_date,
                         "json": current_json, "log": log_dir, "image": image_file_name, "plot": plot_file_name,
@@ -215,7 +238,7 @@ def analyze_image(image_file_name, output_dir, next_matching=None, external_logg
     logger.info(f"results_entry: {results_entry}")
 
 
-    return results_entry, matching
+    return results_entry, nodules_entry, matching
 
 
 

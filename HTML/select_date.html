@@ -28,8 +28,16 @@
     document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
         const cropNum = urlParams.get('crop'); // Now accessible by all functions below
+
+        // Print cropNum to console
+        console.log(cropNum);
         
-        fetch(`../output/${cropNum}/${cropNum}.json`) 
+        fetch_path = `../output/${cropNum}/${cropNum}.json`;
+
+        // Print fetch_path to console
+        console.log(fetch_path);
+        
+        fetch(fetch_path)
             .then(response => response.json())
             .then(data => createDateWidgets(data[cropNum], cropNum))
             .catch(error => console.error('Error fetching JSON:', error));
@@ -86,9 +94,13 @@
                 const prevDate = data[data.indexOf(entry) - 1].date;
                 const nextDate = data[data.indexOf(entry) + 1].date;
                 dateLink.href = `visualizer.html?crop=${cropNum}&prev=${prevDate}&current=${entry.date}&next=${nextDate}`;
+                //dateLink.href = `visualizer/visualizer.html?crop=${cropNum}&prev=${prevDate}&current=${entry.date}&next=${nextDate}`;
+
+
             }
             else{
               dateLink.href = `visualizer.html?crop=${cropNum}&current=${entry.date}`;
+              //dateLink.href = `visualizer/visualizer.html?crop=${cropNum}&current=${entry.date}`;
             }
 
     

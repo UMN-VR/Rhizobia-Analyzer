@@ -23,6 +23,8 @@ from plot_crop import plot_crop
 
 from memory_logger import log_memory_usage
 
+from prep_nodules_JSON import prep_nodules
+
 def process_crop_folder(crop_folder, logger):
     """
     Function to process all images in a crop folder, starting with the most recent one.
@@ -41,6 +43,8 @@ def process_crop_folder(crop_folder, logger):
 
     crop_number = os.path.basename(crop_folder)
     crop_result_filename = f"output/{crop_number}/{crop_number}.json"
+    crop_nodules_filename = f"output/{crop_number}/{crop_number}_nodules.json"
+    #crop_nodules_filename_RAW = f"output/{crop_number}/{crop_number}_nodules_RAW.json"
 
     output_dir = os.path.join("output", crop_number)
     plots_dir = os.path.join(output_dir, "plots")
@@ -64,6 +68,7 @@ def process_crop_folder(crop_folder, logger):
     objects = []
     # Initialize the results list
     results = []
+    nodules = []
 
     logger.info( "------------------------------------\n\n")
 
@@ -83,10 +88,13 @@ def process_crop_folder(crop_folder, logger):
 
         # Call analyze_image() to process the image, this is where the magic happens
         logger.info(f"Calling analyze_image() with file: {file}, output_dir: {output_dir}")
-        result_entry, matching = analyze_image(file, output_dir, next_matching=matching, external_logger=logger)
+        result_entry, nodules_entry, matching = analyze_image(file, output_dir, next_matching=matching, external_logger=logger)
         
-        logger.info(f"analyze_image() returned: {result_entry}")
+        logger.info(f"analyze_image() returned results_entry: {result_entry}")
+        logger.info(f"analyze_image() returned nodules_entry: {nodules_entry}")
+
         results.append(result_entry)
+        nodules.append(nodules_entry)
 
         end_time = time.time()
 
@@ -110,11 +118,23 @@ def process_crop_folder(crop_folder, logger):
 
     log_memory_usage(logger)
 
-    logger.info(f"Saving results to: {crop_result_filename}")
 
+    logger.info(f"Saving results to: {crop_result_filename}")
     with open(f"{crop_result_filename}", 'w') as f:
         json.dump(results, f, indent=1)
 
+    aggregated_nodules = prep_nodules(nodules, logger)
+
+    logger.info(f"Saving nodules to: {crop_nodules_filename}")
+    with open(f"{crop_nodules_filename}", 'w') as f:
+        json.dump(aggregated_nodules, f, indent=1)
+
+
+    # logger.info(f"Saving RAW nodules to: {crop_nodules_filename_RAW}")
+    # with open(f"{crop_nodules_filename_RAW}", 'w') as f:
+    #     json.dump(nodules, f, indent=1)
+
+    
 
     log_memory_usage(logger)
 
@@ -126,6 +146,10 @@ def process_crop_folder(crop_folder, logger):
     post_process(crop_folder, logger)
 
     log_memory_usage(logger)
+
+    # Normalize and replace '\\' with '/' in the path crop_folder
+
+    crop_folder = os.path.normpath(crop_folder).replace("\\", "/")
 
     result = {crop_folder : crop_result_filename, "gif_path" : gif_path, "plots_gif_path" : plots_gif_path, "dif_plot_dx_dy_da_dp_path" : dif_plot_dx_dy_da_dp_path, "dif_plot_i_tq_dd_de_path" : dif_plot_i_tq_dd_de_path, "dif_plot_i_dict_path" : dif_plot_i_dict_path, "dif_plot_matching_tq_path" : dif_plot_matching_tq_path}
 

@@ -112,6 +112,8 @@ def main():
     """
     print("--------------------------------------------------")
     print(f"Starting {program_name} v{program_version}...")
+    print("If unsure what to do,")
+    print("type 'help' or just press enter to use the default commands.")
 
 
     # Change the working directory to the directory of this file

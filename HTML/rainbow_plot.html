@@ -1,0 +1,1646 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="plot-container"></div>
+    <div id="info-container">Click on a line in the plot to see more details here.</div>
+
+    <script>
+        // Load the JSON data and create the plot
+        fetch('..\\output\\crop1000\\crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                createRainbowPlot(data);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        function hexToRgb(hex) {
+            // Convert hex color to RGB
+            var bigint = parseInt(hex, 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function createRainbowPlot(data) {
+            let plotData = processDataForPlotly(data);
+            let layout = {
+                title: 'Rainbow Plot',
+                xaxis: { title: 'Date', type: 'date' },
+                yaxis: { title: 'Area' },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            // Add click event to plot
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_click', function(data){
+                let noduleId = data.points[0].data.name;
+                displayNoduleInfo(noduleId, data.points[0].data.customdata);
+            });
+        }
+
+        function processDataForPlotly(data) {
+            let traces = [];
+            data.forEach(nodule => {
+                let x = [];
+                let y = [];
+                let customdata = [];
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {  // Match date format
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push(nodule[key]);
+                    }
+                });
+                let trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines',
+                    type: 'scatter',
+                    name: nodule.id,
+                    line: { color: hexToRgb(nodule["2023-06-07"].rgb_r) },
+                    customdata: customdata
+                };
+                traces.push(trace);
+            });
+            return traces;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += `Date: ${data.date}, Area: ${data.a}, Color: ${data.rgb_r}<br>`;
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="plot-container"></div>
+    <div id="info-container">Click on a line in the plot to see more details here.</div>
+
+    <script>
+        // Load the JSON data and create the plot
+        fetch('..\\output\\crop1000\\crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                createRainbowPlot(data);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        function hexToRgb(hex) {
+            // Convert hex color to RGB
+            var bigint = parseInt(hex, 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function createRainbowPlot(data) {
+            let plotData = processDataForPlotly(data);
+            let layout = {
+                title: 'Rainbow Plot',
+                xaxis: { title: 'Date', type: 'date' },
+                yaxis: { title: 'Area' },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            // Add click event to plot
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_click', function(data){
+                let noduleId = data.points[0].data.name;
+                displayNoduleInfo(noduleId, data.points[0].data.customdata);
+            });
+        }
+
+        function processDataForPlotly(data) {
+            let traces = [];
+            data.forEach(nodule => {
+                let x = [];
+                let y = [];
+                let customdata = [];
+                let color = 'rgb(128, 128, 128)'; // Default color
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {  // Match date format
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push(nodule[key]);
+                        if(nodule[key].rgb_r) {
+                            color = hexToRgb(nodule[key].rgb_r);
+                        }
+                    }
+                });
+
+                let trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines',
+                    type: 'scatter',
+                    name: nodule.id,
+                    line: { color: color },
+                    customdata: customdata
+                };
+                traces.push(trace);
+            });
+            return traces;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += `Date: ${data.date}, Area: ${data.a}, Color: ${data.rgb_r || 'N/A'}<br>`;
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="plot-container"></div>
+    <div id="info-container">Click on a line in the plot to see more details here.</div>
+
+    <script>
+        // Load the JSON data and create the plot
+        fetch('..\\output\\crop1000\\crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                createRainbowPlot(data);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex, 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function createRainbowPlot(data) {
+            let plotData = processDataForPlotly(data);
+            let layout = {
+                title: 'Rainbow Plot',
+                xaxis: { title: 'Date', type: 'date' },
+                yaxis: { title: 'Area' },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_click', function(data){
+                let noduleId = data.points[0].data.name;
+                displayNoduleInfo(noduleId, data.points[0].data.customdata);
+            });
+        }
+
+        function processDataForPlotly(data) {
+            let traces = [];
+            data.forEach(nodule => {
+                let x = [];
+                let y = [];
+                let customdata = [];
+                let color = 'rgb(128, 128, 128)'; // Default color
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push(nodule[key]);
+                        if(nodule[key].rgb_r) {
+                            color = hexToRgb(nodule[key].rgb_r);
+                        }
+                    }
+                });
+
+                if (x.length > 0) {
+                    let trace = {
+                        x: x,
+                        y: y,
+                        mode: 'lines+markers',
+                        type: 'scatter',
+                        name: nodule.id,
+                        line: { color: color },
+                        marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                        customdata: customdata,
+                        hoverinfo: 'text',
+                        text: customdata.map(cd => `Date: ${cd.date}<br>Area: ${cd.a}<br>Color: ${cd.rgb_r}`)
+                    };
+                    traces.push(trace);
+                }
+            });
+            return traces;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += `Date: ${data.date}, Area: ${data.a}, Color: ${data.rgb_r || 'N/A'}<br>`;
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-single-entry" checked>
+        Show Nodules with Single Entry
+    </label>
+    <div id="plot-container"></div>
+    <div id="info-container">Click on a line in the plot to see more details here.</div>
+
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop');
+        const prev = urlParams.get('prev');
+        const current = urlParams.get('current');
+        const next = urlParams.get('next');
+
+        // Load the JSON data and create the plot
+        fetch('..\\output\\crop1000\\crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                createRainbowPlot(data, true);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        document.getElementById('toggle-single-entry').addEventListener('change', function(e) {
+            createRainbowPlot(data, e.target.checked);
+        });
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex, 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function createRainbowPlot(data, showSingleEntry) {
+            let plotData = processDataForPlotly(data, showSingleEntry);
+            let layout = {
+                title: 'Rainbow Plot',
+                xaxis: { title: 'Date', type: 'date' },
+                yaxis: { title: 'Area' },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_click', function(data){
+                let noduleId = data.points[0].data.name;
+                displayNoduleInfo(noduleId, data.points[0].data.customdata);
+            });
+        }
+
+        function processDataForPlotly(data, showSingleEntry) {
+            let traces = [];
+            data.forEach(nodule => {
+                if (!showSingleEntry && nodule.num_dates <= 1) {
+                    return;
+                }
+
+                let x = [];
+                let y = [];
+                let customdata = [];
+                let color = 'rgb(128, 128, 128)'; // Default color
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push(nodule[key]);
+                        if(nodule[key].rgb_r) {
+                            color = hexToRgb(nodule[key].rgb_r);
+                        }
+                    }
+                });
+
+                if (x.length > 0) {
+                    let trace = {
+                        x: x,
+                        y: y,
+                        mode: 'lines+markers',
+                        type: 'scatter',
+                        name: nodule.id,
+                        line: { color: color },
+                        marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                        customdata: customdata,
+                        hoverinfo: 'text',
+                        text: customdata.map(cd => `Date: ${cd.date}<br>Area: ${cd.a}<br>Color: ${cd.rgb_r}`)
+                    };
+                    traces.push(trace);
+                }
+            });
+            return traces;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += `Date: ${data.date}, Area: ${data.a}, Color: ${data.rgb_r || 'N/A'}<br>`;
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-single-entry" checked>
+        Show Nodules with Single Entry
+    </label>
+    <div id="plot-container"></div>
+    <div id="info-container">Click on a line in the plot to see more details here.</div>
+
+    <script>
+        // Load the JSON data and create the plot
+        let jsonData = [];
+        fetch('..\\output\\crop1000\\crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data;
+                createRainbowPlot(data, true);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        document.getElementById('toggle-single-entry').addEventListener('change', function(e) {
+            createRainbowPlot(jsonData, e.target.checked);
+        });
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex, 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function createRainbowPlot(data, showSingleEntry) {
+            let plotData = processDataForPlotly(data, showSingleEntry);
+            let layout = {
+                title: 'Rainbow Plot',
+                xaxis: { title: 'Date', type: 'date' },
+                yaxis: { title: 'Area' },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_click', function(data){
+                let noduleId = data.points[0].data.name;
+                displayNoduleInfo(noduleId, data.points[0].data.customdata);
+            });
+        }
+
+        function processDataForPlotly(data, showSingleEntry) {
+            let traces = [];
+            data.forEach(nodule => {
+                if (!showSingleEntry && nodule.num_dates <= 1) {
+                    return;
+                }
+
+                let x = [];
+                let y = [];
+                let customdata = [];
+                let color = 'rgb(128, 128, 128)'; // Default color
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push({...nodule[key], id: nodule.id, date: key});
+                        if(nodule[key].rgb_r) {
+                            color = hexToRgb(nodule[key].rgb_r);
+                        }
+                    }
+                });
+
+                if (x.length > 0) {
+                    let trace = {
+                        x: x,
+                        y: y,
+                        mode: 'lines+markers',
+                        type: 'scatter',
+                        name: nodule.id,
+                        line: { color: color },
+                        marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                        customdata: customdata,
+                        hoverinfo: 'text',
+                        text: customdata.map(cd => createTooltipContent(cd))
+                    };
+                    traces.push(trace);
+                }
+            });
+            return traces;
+        }
+
+        function createTooltipContent(data) {
+            return `Date: ${data.date}<br>Area: ${data.a}<br>
+                    <img src="../output/${data.id}/o.gif" width="100" height="100"><br>
+                    <img src="../output/${data.id}/detection/d.gif" width="100" height="100"><br>`;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += createTooltipContent(data);
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+<!-- 
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .custom-tooltip {
+            display: none;
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-single-entry" checked>
+        Show Nodules with Single Entry
+    </label>
+    <div id="plot-container"></div>
+    <div id="info-container">Click on a line in the plot to see more details here.</div>
+    <div class="custom-tooltip" id="custom-tooltip"></div>
+
+    <script>
+        // Parse URL parameters for additional data
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop');
+        const prev = urlParams.get('prev');
+        const current = urlParams.get('current');
+        const next = urlParams.get('next');
+
+        let jsonData = [];
+        fetch('..\\output\\crop1000\\crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data;
+                createRainbowPlot(data, true);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        document.getElementById('toggle-single-entry').addEventListener('change', function(e) {
+            createRainbowPlot(jsonData, e.target.checked);
+        });
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex, 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function createRainbowPlot(data, showSingleEntry) {
+            let plotData = processDataForPlotly(data, showSingleEntry);
+            let layout = {
+                title: 'Rainbow Plot',
+                xaxis: { title: 'Date', type: 'date' },
+                yaxis: { title: 'Area' },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_hover', function(data){
+                showCustomTooltip(data);
+            });
+
+            plotDiv.on('plotly_unhover', function(){
+                hideCustomTooltip();
+            });
+        }
+
+        function processDataForPlotly(data, showSingleEntry) {
+            let traces = [];
+            data.forEach(nodule => {
+                if (!showSingleEntry && nodule.num_dates <= 1) {
+                    return;
+                }
+
+                let x = [];
+                let y = [];
+                let customdata = [];
+                let color = 'rgb(128, 128, 128)'; // Default color
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push({...nodule[key], id: nodule.id, date: key});
+                        if(nodule[key].rgb_r) {
+                            color = hexToRgb(nodule[key].rgb_r);
+                        }
+                    }
+                });
+
+                if (x.length > 0) {
+                    let trace = {
+                        x: x,
+                        y: y,
+                        mode: 'lines+markers',
+                        type: 'scatter',
+                        name: nodule.id,
+                        line: { color: color },
+                        marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                        customdata: customdata,
+                        hoverinfo: 'none' // Disable default hover info
+                    };
+                    traces.push(trace);
+                }
+            });
+            return traces;
+        }
+
+        function showCustomTooltip(data) {
+            let pointData = data.points[0];
+            let customData = pointData.data.customdata[pointData.pointNumber];
+            let tooltipDiv = document.getElementById('custom-tooltip');
+            tooltipDiv.innerHTML = createCustomTooltipContent(customData);
+            tooltipDiv.style.display = 'block';
+            tooltipDiv.style.left = (pointData.event.pageX + 10) + 'px';
+            tooltipDiv.style.top = (pointData.event.pageY + 10) + 'px';
+        }
+
+        function hideCustomTooltip() {
+            let tooltipDiv = document.getElementById('custom-tooltip');
+            tooltipDiv.style.display = 'none';
+        }
+
+        function createCustomTooltipContent(data) {
+            return `
+                <div>Date: ${data.date}</div>
+                <div>Area: ${data.a}</div>
+                <div>RGB: ${data.rgb_r}</div>
+                <img src="../output/${cropNum}/${data.id}/o.gif" alt="GIF" style="width: 100px; height: 100px;" />
+               
+            `;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += createCustomTooltipContent(data);
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+ -->
+
+<!-- 
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .custom-tooltip {
+            display: none;
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-single-entry" checked>
+        Show Nodules with Single Entry
+    </label>
+    <div id="plot-container"></div>
+    <div id="info-container">Click on a line in the plot to see more details here.</div>
+    <div class="custom-tooltip" id="custom-tooltip"></div>
+
+    <script>
+        // Parse URL parameters for additional data
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop');
+        const prev = urlParams.get('prev');
+        const current = urlParams.get('current');
+        const next = urlParams.get('next');
+
+        let jsonData = [];
+        fetch('..\\output\\crop1000\\crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data;
+                createRainbowPlot(data, true);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        document.getElementById('toggle-single-entry').addEventListener('change', function(e) {
+            createRainbowPlot(jsonData, e.target.checked);
+        });
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex, 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function createRainbowPlot(data, showSingleEntry) {
+            let plotData = processDataForPlotly(data, showSingleEntry);
+            let layout = {
+                title: 'Rainbow Plot',
+                xaxis: { title: 'Date', type: 'date' },
+                yaxis: { title: 'Area' },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_hover', function(data){
+                showCustomTooltip(data);
+            });
+
+            plotDiv.on('plotly_unhover', function(){
+                hideCustomTooltip();
+            });
+        }
+
+        function processDataForPlotly(data, showSingleEntry) {
+            let traces = [];
+            data.forEach(nodule => {
+                if (!showSingleEntry && nodule.num_dates <= 1) {
+                    return;
+                }
+
+                let x = [];
+                let y = [];
+                let customdata = [];
+                let color = 'rgb(128, 128, 128)'; // Default color
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push({...nodule[key], id: nodule.id, date: key});
+                        if(nodule[key].rgb_r) {
+                            color = hexToRgb(nodule[key].rgb_r);
+                        }
+                    }
+                });
+
+                if (x.length > 0) {
+                    let trace = {
+                        x: x,
+                        y: y,
+                        mode: 'lines+markers',
+                        type: 'scatter',
+                        name: nodule.id,
+                        line: { color: color },
+                        marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                        customdata: customdata,
+                        hoverinfo: 'none' // Disable default hover info
+                    };
+                    traces.push(trace);
+                }
+            });
+            return traces;
+        }
+
+        function showCustomTooltip(data) {
+            let pointData = data.points[0];
+            let customData = pointData.data.customdata[pointData.pointNumber];
+            let tooltipDiv = document.getElementById('custom-tooltip');
+            
+            tooltipDiv.innerHTML = createCustomTooltipContent(customData);
+            tooltipDiv.style.display = 'block';
+
+            // Update tooltip position based on mouse movement
+            document.onmousemove = function(e) {
+                tooltipDiv.style.left = (e.pageX + 10) + 'px';
+                tooltipDiv.style.top = (e.pageY + 10) + 'px';
+            };
+        }
+
+        function hideCustomTooltip() {
+            let tooltipDiv = document.getElementById('custom-tooltip');
+            tooltipDiv.style.display = 'none';
+            document.onmousemove = null;
+        }
+
+        function createCustomTooltipContent(data) {
+            // Construct custom tooltip HTML content
+            return `
+                <div>Date: ${data.date}</div>
+                <div>Area: ${data.a}</div>
+                <div>RGB: ${data.rgb_r}</div>
+                <img src="../output/${cropNum}/${data.id}/o.gif" alt="GIF" style="width: 100px; height: 100px;" />
+               
+            `;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += createCustomTooltipContent(data);
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .custom-tooltip {
+            display: none;
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-single-entry" checked>
+        Show Nodules with Single Entry
+    </label>
+    <div id="plot-container"></div>
+    <div id="info-container">Click on a line in the plot to see more details here.</div>
+    <div class="custom-tooltip" id="custom-tooltip"></div>
+
+    <script>
+        // Parse URL parameters for additional data
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop');
+        const prev = urlParams.get('prev');
+        const current = urlParams.get('current');
+        const next = urlParams.get('next');
+
+        let jsonData = [];
+        fetch('crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data;
+                createRainbowPlot(data, true);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        document.getElementById('toggle-single-entry').addEventListener('change', function(e) {
+            createRainbowPlot(jsonData, e.target.checked);
+        });
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex, 16);
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function createRainbowPlot(data, showSingleEntry) {
+            let plotData = processDataForPlotly(data, showSingleEntry);
+            let layout = {
+                title: 'Rainbow Plot',
+                xaxis: { title: 'Date', type: 'date' },
+                yaxis: { title: 'Area' },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_hover', function(data){
+                showCustomTooltip(data);
+            });
+
+            plotDiv.on('plotly_click', function(data){
+                toggleCustomTooltip(data);
+            });
+
+            plotDiv.on('plotly_unhover', function(){
+                if (!tooltipPinned) hideCustomTooltip();
+            });
+        }
+
+        let tooltipPinned = false;
+
+        function toggleCustomTooltip(data) {
+            if (tooltipPinned) {
+                hideCustomTooltip();
+            } else {
+                showCustomTooltip(data);
+            }
+            tooltipPinned = !tooltipPinned; // Toggle the state
+        }
+
+        function processDataForPlotly(data, showSingleEntry) {
+            let traces = [];
+            data.forEach(nodule => {
+                if (!showSingleEntry && nodule.num_dates <= 1) {
+                    return;
+                }
+
+                let x = [];
+                let y = [];
+                let customdata = [];
+                let color = 'rgb(128, 128, 128)'; // Default color
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push({...nodule[key], id: nodule.id, date: key});
+                        if(nodule[key].rgb_r) {
+                            color = hexToRgb(nodule[key].rgb_r);
+                        }
+                    }
+                });
+
+                if (x.length > 0) {
+                    let trace = {
+                        x: x,
+                        y: y,
+                        mode: 'lines+markers',
+                        type: 'scatter',
+                        name: nodule.id,
+                        line: { color: color },
+                        marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                        customdata: customdata,
+                        hoverinfo: 'none' // Disable default hover info
+                    };
+                    traces.push(trace);
+                }
+            });
+            return traces;
+        }
+
+        function showCustomTooltip(data) {
+            let pointData = data.points[0];
+            let customData = pointData.data.customdata[pointData.pointNumber];
+            let tooltipDiv = document.getElementById('custom-tooltip');
+            
+            tooltipDiv.innerHTML = createCustomTooltipContent(customData);
+            tooltipDiv.style.display = 'block';
+
+            // Update tooltip position based on mouse movement
+            document.onmousemove = function(e) {
+                tooltipDiv.style.left = (e.pageX + 10) + 'px';
+                tooltipDiv.style.top = (e.pageY + 10) + 'px';
+            };
+        }
+
+        function hideCustomTooltip() {
+            let tooltipDiv = document.getElementById('custom-tooltip');
+            tooltipDiv.style.display = 'none';
+            document.onmousemove = null;
+            tooltipPinned = false;
+        }
+
+        function createCustomTooltipContent(data) {
+            // Construct custom tooltip HTML content
+            return `
+                <div>Date: ${data.date}</div>
+                <div>Area: ${data.a}</div>
+                <div>RGB: ${data.rgb_r}</div>
+                <img src="../output/${cropNum}/${data.id}/o.gif" alt="GIF" style="width: 100px; height: 100px;" />
+               
+            `;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += createCustomTooltipContent(data);
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .custom-tooltip {
+            display: none;
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-single-entry" checked>
+        Show Nodules with Single Entry
+    </label>
+    <div id="plot-container"></div>
+    <div id="info-container">Additional details will appear here when a line is clicked.</div>
+    <div class="custom-tooltip" id="custom-tooltip"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop');
+        let jsonData = [];
+
+        fetch('crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data;
+                createRainbowPlot(data, true);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        document.getElementById('toggle-single-entry').addEventListener('change', function(e) {
+            createRainbowPlot(jsonData, e.target.checked);
+        });
+
+        function hexToRgb(hex) {
+            let bigint = parseInt(hex, 16);
+            return 'rgb(' + ((bigint >> 16) & 255) + ',' + ((bigint >> 8) & 255) + ',' + (bigint & 255) + ')';
+        }
+
+        function createRainbowPlot(data, showSingleEntry) {
+            let plotData = processDataForPlotly(data, showSingleEntry);
+            let layout = { title: 'Rainbow Plot', xaxis: { title: 'Date', type: 'date' }, yaxis: { title: 'Area' }, hovermode: 'closest' };
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_click', function(data){
+                toggleCustomTooltip(data);
+                displayNoduleInfo(data.points[0].data.name, data.points[0].data.customdata);
+            });
+            plotDiv.on('plotly_unhover', function(){
+                if (!tooltipPinned) hideCustomTooltip();
+            });
+        }
+
+        let tooltipPinned = false;
+        let currentPointIndex = null;
+
+        function toggleCustomTooltip(data) {
+            let pointIndex = data.points[0].pointNumber;
+            if (tooltipPinned && currentPointIndex === pointIndex) {
+                hideCustomTooltip();
+            } else {
+                showCustomTooltip(data);
+            }
+            tooltipPinned = !tooltipPinned;
+            currentPointIndex = pointIndex;
+        }
+
+        function processDataForPlotly(data, showSingleEntry) {
+            let traces = [];
+            data.forEach(nodule => {
+                if (!showSingleEntry && nodule.num_dates <= 1) return;
+
+                let x = [], y = [], customdata = [];
+                let color = nodule['2023-06-07'] && nodule['2023-06-07'].rgb_r ? hexToRgb(nodule['2023-06-07'].rgb_r) : 'rgb(128, 128, 128)';
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push({...nodule[key], id: nodule.id, date: key});
+                    }
+                });
+
+                if (x.length > 0) {
+                    traces.push({ x: x, y: y, type: 'scatter', mode: 'lines', name: nodule.id, line: { color: color }, hoverinfo: 'none' });
+                    ['start', 'end'].forEach((pos, idx) => {
+                        traces.push({
+                            x: [x[idx === 0 ? 0 : x.length - 1]],
+                            y: [y[idx === 0 ? 0 : y.length - 1]],
+                            mode: 'markers',
+                            type: 'scatter',
+                            marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                            hoverinfo: 'none'
+                        });
+                    });
+                }
+            });
+            return traces;
+        }
+
+        function showCustomTooltip(data) {
+            let pointData = data.points[0];
+            let customData = pointData.data.customdata[pointData.pointNumber];
+            let tooltipDiv = document.getElementById('custom-tooltip');
+
+            tooltipDiv.innerHTML = `
+                <div>Date: ${customData.date}</div>
+                <div>Area: ${customData.a}</div>
+                <div>RGB: ${customData.rgb_r}</div>
+                <img src="../output/${cropNum}/${customData.id}/o.gif" alt="GIF" style="width: 100px; height: 100px;" />
+            `;
+            tooltipDiv.style.display = 'block';
+            tooltipDiv.style.left = (pointData.event.pageX + 10) + 'px';
+            tooltipDiv.style.top = (pointData.event.pageY + 10) + 'px';
+        }
+
+        function hideCustomTooltip() {
+            let tooltipDiv = document.getElementById('custom-tooltip');
+            tooltipDiv.style.display = 'none';
+            tooltipPinned = false;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += `
+                    <div>Date: ${data.date}</div>
+                    <div>Area: ${data.a}</div>
+                    <div>RGB: ${data.rgb_r}</div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .custom-tooltip {
+            display: none;
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-single-entry" checked>
+        Show Nodules with Single Entry
+    </label>
+    <div id="plot-container"></div>
+    <div id="info-container">Additional details will appear here when a line is clicked.</div>
+    <div class="custom-tooltip" id="custom-tooltip"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop');
+        let jsonData = [];
+
+        fetch('crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data;
+                createRainbowPlot(data, true);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        document.getElementById('toggle-single-entry').addEventListener('change', function(e) {
+            createRainbowPlot(jsonData, e.target.checked);
+        });
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex, 16);
+            return 'rgb(' + ((bigint >> 16) & 255) + ',' + ((bigint >> 8) & 255) + ',' + (bigint & 255) + ')';
+        }
+
+        function createRainbowPlot(data, showSingleEntry) {
+            let plotData = processDataForPlotly(data, showSingleEntry);
+            let layout = { title: 'Rainbow Plot', xaxis: { title: 'Date', type: 'date' }, yaxis: { title: 'Area' }, hovermode: 'closest' };
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_hover', function(data){
+                showCustomTooltip(data);
+            });
+
+            plotDiv.on('plotly_click', function(data){
+                pinCustomTooltip(data);
+                displayNoduleInfo(data.points[0].data.name, data.points[0].data.customdata);
+            });
+        }
+
+        let tooltipPinned = false;
+        let currentPointData = null;
+
+        function pinCustomTooltip(data) {
+            currentPointData = data;
+            tooltipPinned = true;
+            showCustomTooltip(data);
+        }
+
+        function showCustomTooltip(data) {
+            if (tooltipPinned && currentPointData.points[0].pointNumber !== data.points[0].pointNumber) {
+                return; // If another point is hovered while tooltip is pinned, do not change the tooltip
+            }
+            let pointData = data.points[0];
+            let customData = pointData.data.customdata[pointData.pointNumber];
+            let tooltipDiv = document.getElementById('custom-tooltip');
+
+            tooltipDiv.innerHTML = `
+                <div>Date: ${customData.date}</div>
+                <div>Area: ${customData.a}</div>
+                <div>RGB: ${customData.rgb_r}</div>
+                <img src="../output/${cropNum}/${customData.id}/o.gif" alt="GIF" style="width: 100px; height: 100px;" />
+            `;
+            tooltipDiv.style.display = 'block';
+            tooltipDiv.style.left = (pointData.event.pageX + 10) + 'px';
+            tooltipDiv.style.top = (pointData.event.pageY + 10) + 'px';
+        }
+
+        function processDataForPlotly(data, showSingleEntry) {
+            let traces = [];
+            data.forEach(nodule => {
+                if (!showSingleEntry && nodule.num_dates <= 1) return;
+
+                let x = [], y = [], customdata = [];
+                let color = nodule['2023-06-07'] && nodule['2023-06-07'].rgb_r ? hexToRgb(nodule['2023-06-07'].rgb_r) : 'rgb(128, 128, 128)';
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push({...nodule[key], id: nodule.id, date: key});
+                    }
+                });
+
+                if (x.length > 0) {
+                    traces.push({ x: x, y: y, type: 'scatter', mode: 'lines', name: nodule.id, line: { color: color }, customdata: customdata, hoverinfo: 'none' });
+                    ['start', 'end'].forEach((pos, idx) => {
+                        traces.push({
+                            x: [x[idx === 0 ? 0 : x.length - 1]],
+                            y: [y[idx === 0 ? 0 : y.length - 1]],
+                            mode: 'markers',
+                            type: 'scatter',
+                            marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                            customdata: [customdata[idx === 0 ? 0 : customdata.length - 1]],
+                            hoverinfo: 'none'
+                        });
+                    });
+                }
+            });
+            return traces;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += `
+                    <div>Date: ${data.date}</div>
+                    <div>Area: ${data.a}</div>
+                    <div>RGB: ${data.rgb_r}</div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Plot Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #plot-container {
+            width: 100%;
+            height: 500px;
+        }
+        #info-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .custom-tooltip {
+            display: none;
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-single-entry" checked>
+        Show Nodules with Single Entry
+    </label>
+    <div id="plot-container" style="width: 300%;"></div>
+    <div id="info-container">Additional details will appear here when a line is clicked.</div>
+    <div class="custom-tooltip" id="custom-tooltip"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const cropNum = urlParams.get('crop');
+        let jsonData = [];
+
+        fetch('crop1000_nodules.json')
+            .then(response => response.json())
+            .then(data => {
+                jsonData = data;
+                createRainbowPlot(data, true);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('info-container').innerHTML = 'Failed to load data.';
+            });
+
+        document.getElementById('toggle-single-entry').addEventListener('change', function(e) {
+            createRainbowPlot(jsonData, e.target.checked);
+        });
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex, 16);
+            return 'rgb(' + ((bigint >> 16) & 255) + ',' + ((bigint >> 8) & 255) + ',' + (bigint & 255) + ')';
+        }
+
+        function createRainbowPlot(data, showSingleEntry) {
+            let plotData = processDataForPlotly(data, showSingleEntry);
+            let layout = { title: 'Rainbow Plot', xaxis: { title: 'Date', type: 'date' }, yaxis: { title: 'Area' }, hovermode: 'closest' };
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            let plotDiv = document.getElementById('plot-container');
+            plotDiv.on('plotly_hover', function(data){
+                if (!tooltipPinned) showCustomTooltip(data);
+            });
+
+            plotDiv.on('plotly_click', function(data){
+                pinCustomTooltip(data);
+                displayNoduleInfo(data.points[0].data.name, data.points[0].data.customdata);
+            });
+        }
+
+        let tooltipPinned = false;
+        let currentPointData = null;
+
+        function pinCustomTooltip(data) {
+            currentPointData = data;
+            tooltipPinned = true;
+            showCustomTooltip(data);
+        }
+
+        function showCustomTooltip(data) {
+            let pointData = data.points[0];
+            let customData = pointData.data.customdata[pointData.pointNumber];
+            let tooltipDiv = document.getElementById('custom-tooltip');
+
+            tooltipDiv.innerHTML = `
+                <div>Date: ${customData.date}</div>
+                <div>Area: ${customData.a}</div>
+                <div>RGB: ${customData.rgb_r}</div>
+                <img src="../output/${cropNum}/${customData.id}/o.gif" alt="GIF" style="width: 100px; height: 100px;" />
+            `;
+            tooltipDiv.style.display = 'block';
+            document.onmousemove = function(e) {
+                tooltipDiv.style.left = (e.pageX + 10) + 'px';
+                tooltipDiv.style.top = (e.pageY + 10) + 'px';
+            };
+        }
+
+        function processDataForPlotly(data, showSingleEntry) {
+            let traces = [];
+            data.forEach(nodule => {
+                if (!showSingleEntry && nodule.num_dates <= 1) return;
+
+                let x = [], y = [], customdata = [];
+                let color = nodule['2023-06-07'] && nodule['2023-06-07'].rgb_r ? hexToRgb(nodule['2023-06-07'].rgb_r) : 'rgb(128, 128, 128)';
+
+                Object.keys(nodule).forEach(key => {
+                    if (key.match(/\d{4}-\d{2}-\d{2}/)) {
+                        x.push(key);
+                        y.push(nodule[key].a);
+                        customdata.push({...nodule[key], id: nodule.id, date: key});
+                    }
+                });
+
+                if (x.length > 0) {
+                    traces.push({ x: x, y: y, type: 'scatter', mode: 'lines', name: nodule.id, line: { color: color, width: 2 }, customdata: customdata, hoverinfo: 'none' });
+                    ['start', 'end'].forEach((pos, idx) => {
+                        traces.push({
+                            x: [x[idx === 0 ? 0 : x.length - 1]],
+                            y: [y[idx === 0 ? 0 : y.length - 1]],
+                            mode: 'markers',
+                            type: 'scatter',
+                            marker: { size: 8, color: color, line: { color: 'black', width: 2 } },
+                            customdata: [customdata[idx === 0 ? 0 : customdata.length - 1]],
+                            hoverinfo: 'none'
+                        });
+                    });
+                }
+            });
+            return traces;
+        }
+
+        function displayNoduleInfo(noduleId, noduleData) {
+            let infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `Nodule ID: ${noduleId}<br>`;
+            noduleData.forEach(data => {
+                infoContainer.innerHTML += `
+                    <div>Date: ${data.date}</div>
+                    <div>Area: ${data.a}</div>
+                    <div>RGB: ${data.rgb_r}</div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
+
